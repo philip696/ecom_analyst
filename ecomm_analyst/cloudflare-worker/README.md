@@ -20,6 +20,18 @@ If Cloudflare’s **root path** is the **repository root** (not `cloudflare-work
 
 The wrapper script lives next to `cloudflare-worker/`: **`ecomm_analyst/build-cloudflare-worker.sh`**.
 
+### Cloudflare “Deploy command”
+
+`npx wrangler deploy` **must run inside `cloudflare-worker/`** (where `wrangler.jsonc` is). From the **repository root**, use:
+
+```bash
+bash ecomm_analyst/deploy-cloudflare-worker.sh
+```
+
+If your dashboard **Path** is already `ecomm_analyst`, use: `bash deploy-cloudflare-worker.sh`
+
+Running `npx wrangler deploy` from the repo root (with no `wrangler.toml` there) makes Wrangler try to auto-detect a static site and fails with *“Could not detect a directory containing static files”*.
+
 ## One-time Cloudflare setup
 
 1. **Create the R2 bucket** (name must match `wrangler.jsonc` → `bucket_name`, default `ecom-analyst-product-images`):
