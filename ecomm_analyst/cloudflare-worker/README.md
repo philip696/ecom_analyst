@@ -8,9 +8,22 @@ This directory deploys the **same FastAPI app** as `../backend/` to **Cloudflare
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Astral’s Python installer)
 - Cloudflare account + `npx wrangler login`
 
-### Cloudflare Workers “Build command” (Git integration)
+### Cloudflare Workers Builds — **build** vs **deploy**
 
-If Cloudflare’s **root path** is the **repository root** (not `cloudflare-worker/`), `npm ci` will fail because `package-lock.json` is not there. Use **one** of these:
+Use **two different commands**:
+
+| Dashboard field | Command (repo root `Path` = `/`) |
+|-----------------|-----------------------------------|
+| **Build command** | `bash ecomm_analyst/build-cloudflare-worker.sh` |
+| **Deploy command** | `bash ecomm_analyst/deploy-cloudflare-worker.sh` |
+
+Do **not** put `deploy-cloudflare-worker.sh` in the **build** field — that runs `wrangler deploy` too early and duplicates work.
+
+If Cloudflare’s **Path** is **`ecomm_analyst`**, use `bash build-cloudflare-worker.sh` / `bash deploy-cloudflare-worker.sh`.
+
+### Cloudflare Workers “Build command” (details)
+
+If the **root path** is the **repository root** (not `cloudflare-worker/`), `npm ci` will fail because `package-lock.json` is not there. Use **one** of these for **build only**:
 
 | Root path in dashboard | Build command |
 |-------------------------|---------------|
@@ -18,21 +31,11 @@ If Cloudflare’s **root path** is the **repository root** (not `cloudflare-work
 | **`/`** (clone root) | `bash ecomm_analyst/build-cloudflare-worker.sh` |
 | **`ecomm_analyst`** (app folder) | `bash build-cloudflare-worker.sh` |
 
-The wrapper script lives next to `cloudflare-worker/`: **`ecomm_analyst/build-cloudflare-worker.sh`**.
-
-### Cloudflare “Deploy command”
-
-`npx wrangler deploy` **must run inside `cloudflare-worker/`** (where `wrangler.jsonc` is). From the **repository root**, use:
-
-```bash
-bash ecomm_analyst/deploy-cloudflare-worker.sh
-```
-
-If your dashboard **Path** is already `ecomm_analyst`, use: `bash deploy-cloudflare-worker.sh`
-
-Running `npx wrangler deploy` from the repo root (with no `wrangler.toml` there) makes Wrangler try to auto-detect a static site and fails with *“Could not detect a directory containing static files”*.
+`npx wrangler deploy` **must run inside `cloudflare-worker/`** (where `wrangler.jsonc` is). From the repo root, use **`deploy-cloudflare-worker.sh`** in the **Deploy** field only — running `wrangler deploy` from the repo root triggers static-site auto-detect and fails.
 
 ## One-time Cloudflare setup
+
+0. **Turn on R2 for your account** (required or deploy fails with `code: 10042` *“Please enable R2 through the Cloudflare Dashboard”*): [Cloudflare Dashboard](https://dash.cloudflare.com) → **R2** → **Purchase R2** / enable (free tier exists; you must accept product terms once). Your **API token** for CI needs **Account → Workers R2 Storage → Edit** (or equivalent) so Workers Builds can create/bind buckets.
 
 1. **Create the R2 bucket** (name must match `wrangler.jsonc` → `bucket_name`, default `ecom-analyst-product-images`):
 
@@ -40,7 +43,7 @@ Running `npx wrangler deploy` from the repo root (with no `wrangler.toml` there)
    npx wrangler r2 bucket create ecom-analyst-product-images
    ```
 
-2. **Edit `wrangler.jsonc`**: set `vars.FRONTEND_URL` to your Cloudflare Pages URL (`https://….pages.dev`). Optionally change `name` (Worker hostname) and `bucket_name` if you use different names (keep the binding key `IMAGES` unless you change code).
+2. **Edit `wrangler.jsonc`**: set `vars.FRONTEND_URL` to your Cloudflare Pages URL (`https://….pages.dev`). The Worker **`name`** is **`ecom-analyst`** so it matches Workers Builds when your Cloudflare project is named `ecom-analyst`. Change `bucket_name` if you use a different R2 bucket (keep binding key **`IMAGES`** unless you change `src/worker.py`).
 
 3. **Upload images** from the repo (keys `image/<filename>` match `backend/data200/image/`):
 
@@ -87,7 +90,7 @@ uv run pywrangler dev
 
 ## Frontend
 
-Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-analyst-cf-api.<your-subdomain>.workers.dev` (exact host is shown after deploy).
+Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-analyst.<your-subdomain>.workers.dev` (exact host is shown after deploy).
 
 ## Limitations
 
