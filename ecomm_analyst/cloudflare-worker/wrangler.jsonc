@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ecom-analyst-cf-api",
+  "main": "src/worker.py",
+  "compatibility_date": "2025-11-02",
+  "compatibility_flags": ["python_workers", "python_dedicated_snapshot"],
+  "vars": {
+    "CF_WORKER": "1",
+    "FRONTEND_URL": "https://YOUR-PAGES-PROJECT.pages.dev"
+  },
+  "r2_buckets": [
+    {
+      "binding": "IMAGES",
+      "bucket_name": "ecom-analyst-product-images"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

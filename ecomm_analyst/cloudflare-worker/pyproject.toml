@@ -1,0 +1,26 @@
+[project]
+name = "ecom-analyst-worker"
+version = "0.1.0"
+description = "Cloudflare Python Worker: FastAPI + R2 product images"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.104.0",
+  "sqlalchemy>=2.0.0",
+  "pydantic>=2.0.0",
+  "pydantic-settings>=2.0.0",
+  "python-jose>=3.3.0",
+  "passlib>=1.7.4",
+  "bcrypt==4.1.2",
+  "email-validator>=2.0.0",
+  "python-multipart>=0.0.9",
+  "openai>=1.0.0",
+  "httpx>=0.25.0",
+]
+
+[dependency-groups]
+dev = [
+  "workers-py",
+  "workers-runtime-sdk",
+  "pywrangler",
+]

@@ -1,0 +1,9 @@
+.python-version
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+.wrangler/
+dist/
+ecommerce.db
+uv.lock

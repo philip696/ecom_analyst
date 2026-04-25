@@ -1,6 +1,6 @@
 # Deploy MarketLens to Cloudflare (and the API elsewhere)
 
-Cloudflare **Pages** hosts the **static Next.js** app. The **Python FastAPI** API does not run on Workers; deploy it to any container host and connect with `NEXT_PUBLIC_API_URL`.
+Cloudflare **Pages** hosts the **static Next.js** app. The **FastAPI** API can run on **Fly.io / Docker** (default) or on **Cloudflare Python Workers** with **R2** for `/images/*` — see [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
 
 ## GitHub Actions (optional)
 
@@ -48,11 +48,13 @@ npx --yes wrangler@3 pages deploy out --project-name=YOUR_PROJECT_NAME
 
 `wrangler.toml` in `frontend/` documents the `out` output path.
 
-## 2. Backend — not on Cloudflare
+## 2. Backend
+
+### Option A — Container (recommended for production)
 
 Run FastAPI in a **container** or PaaS, for example:
 
-- **Fly.io, Railway, Render, Google Cloud Run, AWS App Runner, DigitalOcean App Platform**
+- **Fly.io** (`backend/fly.toml`), **Railway, Render, Google Cloud Run**, etc.
 
 A sample **`backend/Dockerfile`** is provided. Set environment variables in that platform, for example:
 
@@ -64,6 +66,10 @@ A sample **`backend/Dockerfile`** is provided. Set environment variables in that
 | `LLM_API_KEY` / `OPENAI_API_KEY` | If using AI Insights (Deepseek by default) |
 
 For product images, include **`data200/image/`** in the image or mount a volume; CSV seed data is under `data_200/`.
+
+### Option B — Cloudflare Python Worker + R2 (beta)
+
+Deploy from **`cloudflare-worker/`**: product images are stored in **R2** and served at the same **`/images/...`** paths; JSON routes use the shared **`backend/app`** code. Requires **[uv](https://docs.astral.sh/uv/)** and **`uv run pywrangler deploy`**. See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, secrets, and limitations.
 
 ## 3. CORS
 

@@ -9,7 +9,15 @@ from passlib.context import CryptContext
 
 from app.config import settings
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# Cloudflare Python Workers may not ship bcrypt wheels; pbkdf2_sha256 is pure Python.
+try:
+    import bcrypt as _bcrypt  # noqa: F401
+
+    _PWD_SCHEMES = ("bcrypt",)
+except ImportError:
+    _PWD_SCHEMES = ("pbkdf2_sha256",)
+
+pwd_context = CryptContext(schemes=list(_PWD_SCHEMES), deprecated="auto")
 
 
 def hash_password(plain: str) -> str:
