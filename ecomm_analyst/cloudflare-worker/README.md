@@ -45,14 +45,26 @@ If the **root path** is the **repository root** (not `cloudflare-worker/`), `npm
 
 2. **Edit `wrangler.jsonc`**: set `vars.FRONTEND_URL` to your Cloudflare Pages URL (`https://….pages.dev`). The Worker **`name`** is **`ecom-analyst`** so it matches Workers Builds when your Cloudflare project is named `ecom-analyst`. Change `bucket_name` if you use a different R2 bucket (keep binding key **`IMAGES`** unless you change `src/worker.py`).
 
-3. **Upload images** from the repo (keys `image/<filename>` match `backend/data200/image/`):
+3. **Upload images** from the repo (keys `image/<filename>` match `backend/data200/image/`).  
+   **R2 does not limit you to 100 files** — buckets allow [unlimited objects](https://developers.cloudflare.com/r2/platform/limits/). If a run stopped around 100, it was almost certainly **API throttling** or **transient errors** from many sequential `wrangler r2 object put` calls; the sync script retries and spaces requests. Re-run `./scripts/sync-r2-images.sh` to fill in any missing keys.
 
 ```bash
 cd cloudflare-worker
 npm ci   # package-lock.json is committed for Cloudflare/Git CI
 chmod +x scripts/*.sh
-   ./scripts/sync-r2-images.sh
-   ```
+./scripts/sync-r2-images.sh
+```
+
+**Faster bulk upload (200+ files):** use the **S3-compatible API** (R2 → *Manage R2 API Tokens*) with `aws s3 sync`, e.g. map local folder to the `image/` prefix:
+
+```bash
+export AWS_ACCESS_KEY_ID="…"
+export AWS_SECRET_ACCESS_KEY="…"
+export AWS_ENDPOINT_URL="https://<ACCOUNT_ID>.r2.cloudflarestorage.com"
+aws s3 sync ../backend/data200/image/ "s3://${R2_BUCKET}/image/" --only-show-errors
+```
+
+Use the same bucket name as in `wrangler.jsonc` (`ecom-analyst-product-images` by default).
 
 4. **Copy the SQLite demo DB** into this folder before each deploy (file is gitignored here):
 
