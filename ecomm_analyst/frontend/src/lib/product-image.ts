@@ -2,11 +2,10 @@
  * API origin for static files and JSON (`NEXT_PUBLIC_API_URL`). Used for
  * `backend` → `/images/*` (served from `backend/data200/image/` on the server).
  */
+import { getPublicApiUrl } from "./public-env";
+
 export function getApiBaseUrl(): string {
-  return (
-    (typeof process !== "undefined" && process.env.NEXT_PUBLIC_API_URL) ||
-    "http://localhost:8000"
-  ).replace(/\/$/, "");
+  return getPublicApiUrl();
 }
 
 /**

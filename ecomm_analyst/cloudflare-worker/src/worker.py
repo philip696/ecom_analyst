@@ -26,6 +26,7 @@ def _sync_os_environ_from_bindings(env) -> None:
     """Wrangler vars/secrets live on `env`; pydantic reads os.environ."""
     for key in (
         "FRONTEND_URL",
+        "ALLOWED_CORS_ORIGINS",
         "SECRET_KEY",
         "DATABASE_URL",
         "LLM_API_KEY",

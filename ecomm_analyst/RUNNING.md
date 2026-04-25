@@ -8,6 +8,29 @@
 
 ---
 
+## 0. Link frontend ↔ backend (environment)
+
+The **browser** only talks to URLs you configure in env — nothing is hard‑coded except safe local defaults.
+
+| App | File | Variable | Typical local value |
+|-----|------|----------|----------------------|
+| **Next.js** | `frontend/.env.local` (copy from `.env.local.example`) | `NEXT_PUBLIC_API_URL` | `http://localhost:8000` |
+| **FastAPI** | `backend/.env` (copy from `.env.example`) | `FRONTEND_URL` | `http://localhost:3000` (must match the URL you open in the browser) |
+
+Optional backend: **`ALLOWED_CORS_ORIGINS`** — comma‑separated list. If unset, CORS allows `FRONTEND_URL` plus `http://localhost:3000` and `http://127.0.0.1:3000`.
+
+**macOS / Linux**
+
+```bash
+cd ecomm_analyst/backend && cp .env.example .env
+cd ../frontend && cp .env.local.example .env.local
+# Edit either file if you use non-default ports or a remote API.
+```
+
+Then start backend (port **8000**) and frontend (port **3000**) as below.
+
+---
+
 ## 1. Backend Setup
 
 Run each line one at a time in Terminal 1:
@@ -35,11 +58,12 @@ Run each line one at a time in Terminal 2:
 
 ```powershell
 cd frontend
+copy .env.local.example .env.local
 npm install
 npm run dev
 ```
 
-- **App URL**: http://localhost:3000
+- **App URL**: http://localhost:3000 (must match **`FRONTEND_URL`** in `backend/.env` for CORS)
 
 ---
 

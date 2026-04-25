@@ -10,16 +10,16 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
 
-from app.config import settings
+from app.config import cors_allow_origins, settings
 from app.database import Base, engine
 from app.routers import auth, comments, dashboard, engagement, insights, products, sales
 
 
 # Mounted StaticFiles can omit CORS headers; canvas needs them when img.crossOrigin = "anonymous".
 class StaticImagesCORSMiddleware(BaseHTTPMiddleware):
-    """Ensure /images/* responses include CORS for the browser (Next.js on :3000)."""
+    """Ensure /images/* responses include CORS for the browser (Next.js / Pages)."""
 
-    _allowed = (settings.FRONTEND_URL, "http://localhost:3000", "http://127.0.0.1:3000")
+    _allowed = frozenset(cors_allow_origins())
 
     async def dispatch(self, request: Request, call_next):
         if request.url.path.startswith("/images") and request.method == "OPTIONS":
@@ -52,7 +52,7 @@ app = FastAPI(
 app.add_middleware(StaticImagesCORSMiddleware)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_URL, "http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=cors_allow_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
