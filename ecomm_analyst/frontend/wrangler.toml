@@ -1,6 +1,6 @@
 # Optional: for `npx wrangler pages deploy` from this directory.
 # In the Cloudflare dashboard, set:
-#   Root directory: frontend
+#   Root directory: ecomm_analyst/frontend (this repo layout)
 #   Build command:   npm run build
 #   Build output:    out
 name = "ecomm-analyst-frontend"

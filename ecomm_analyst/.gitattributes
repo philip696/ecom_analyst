@@ -1,3 +1,5 @@
-*.db filter=lfs diff=lfs merge=lfs -text
+# Demo SQLite DBs are small; tracking *.db via LFS caused Cloudflare/Git clones to fail
+# when the file was committed as a normal blob ("should have been pointers").
+# Use Git LFS only for large binary artifacts if you add them later.
 *.sqlite filter=lfs diff=lfs merge=lfs -text
 *.sqlite3 filter=lfs diff=lfs merge=lfs -text

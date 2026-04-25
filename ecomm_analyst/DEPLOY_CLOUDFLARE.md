@@ -24,9 +24,18 @@ Set these under **Pages project → Settings → Environment variables** for **P
 
 ### Build settings (dashboard)
 
-- **Root directory (if the repo is monorepo):** `ecomm_analyst/frontend` (or `frontend` if the repo is only that folder)
-- **Build command:** `npm ci && npm run build`
+For this repository, the Next app and `package-lock.json` live under **`ecomm_analyst/frontend`** (not the repo root).
+
+- **Root directory:** `ecomm_analyst/frontend` (required here; use `frontend` only if your clone has no `ecomm_analyst/` wrapper)
+- **Build command:** `npm ci && npm run build` (needs `package-lock.json` in the root directory above — if you omit the path, `npm ci` fails)
 - **Build output directory:** `out`
+
+### Troubleshooting
+
+| Symptom | Fix |
+|--------|-----|
+| `npm ci` … no `package-lock.json` | Set **Root directory** to `ecomm_analyst/frontend`, or use `npm install && npm run build` (less reproducible than `npm ci`). |
+| Clone: `should have been pointers` for `ecommerce.db` | `.gitattributes` must not mark `*.db` as Git LFS unless every `.db` is actually stored as an LFS pointer. This repo keeps the demo DB as a normal Git file. |
 
 ### CLI deploy (optional)
 
