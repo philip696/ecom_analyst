@@ -20,10 +20,10 @@ This directory deploys the **same FastAPI app** as `../backend/` to **Cloudflare
 
 3. **Upload images** from the repo (keys `image/<filename>` match `backend/data200/image/`):
 
-   ```bash
-   cd cloudflare-worker
-   npm install
-   chmod +x scripts/*.sh
+```bash
+cd cloudflare-worker
+npm ci   # package-lock.json is committed for Cloudflare/Git CI
+chmod +x scripts/*.sh
    ./scripts/sync-r2-images.sh
    ```
 
@@ -49,7 +49,7 @@ For **Postgres** instead of SQLite, set `DATABASE_URL` as a secret (and add a su
 
 ```bash
 cd cloudflare-worker
-npm install
+npm ci
 uv sync
 ./scripts/sync-ecommerce-db.sh
 uv run pywrangler deploy
