@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, TrendingDown, TrendingUp, Minus } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import { productsApi, salesApi } from "@/lib/api";
+import { resolveProductImageUrl } from "@/lib/product-image";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -40,8 +41,6 @@ type PricingDetail = {
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
-const IMG_BASE = "http://localhost:8000/images";
-
 function ProductImage({
   src,
   alt,
@@ -52,7 +51,7 @@ function ProductImage({
   className?: string;
 }) {
   const [errored, setErrored] = useState(false);
-  const fullSrc = src ? `${IMG_BASE}/${src}` : "";
+  const fullSrc = src ? resolveProductImageUrl(src) ?? "" : "";
 
   if (!fullSrc || errored) {
     return (

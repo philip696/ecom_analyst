@@ -17,7 +17,7 @@ const MARKETPLACES = [
 ];
 
 export default function SettingsPage() {
-  const [openaiKey, setOpenaiKey] = useState("");
+  const [llmApiKey, setLlmApiKey] = useState("");
   const [saved, setSaved] = useState(false);
 
   const handleSaveKey = () => {
@@ -82,22 +82,28 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {/* OpenAI Key Config */}
+      {/* LLM API key (Deepseek by default; set in backend .env for real use) */}
       <div className="card">
         <div className="flex items-center gap-2 mb-3">
           <RefreshCw className="w-5 h-5 text-brand-500" />
           <h2 className="text-base font-semibold text-slate-700">AI Configuration</h2>
         </div>
         <p className="text-sm text-slate-400 mb-4">
-          Configure your OpenAI API key for real AI-powered insights. Without a key, the app uses smart mock responses.
+          The backend uses <strong className="text-slate-600">Deepseek</strong> (OpenAI-compatible API) for AI
+          Insights. Set <code className="bg-slate-100 px-1 rounded text-xs">LLM_API_KEY</code> in{" "}
+          <code className="bg-slate-100 px-1 rounded text-xs">backend/.env</code> with your key from{" "}
+          <a href="https://platform.deepseek.com" className="text-brand-600 hover:underline" target="_blank" rel="noreferrer">
+            platform.deepseek.com
+          </a>
+          . Without a key, the app uses smart mock responses.
         </p>
         <div className="flex gap-3 max-w-lg">
           <input
             type="password"
             className="input flex-1"
-            placeholder="sk-..."
-            value={openaiKey}
-            onChange={(e) => setOpenaiKey(e.target.value)}
+            placeholder="Deepseek API key (configure in backend .env)"
+            value={llmApiKey}
+            onChange={(e) => setLlmApiKey(e.target.value)}
           />
           <button onClick={handleSaveKey} className="btn-primary flex items-center gap-2 whitespace-nowrap">
             {saved ? <Check className="w-4 h-4" /> : null}

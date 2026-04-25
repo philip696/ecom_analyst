@@ -12,7 +12,7 @@ A full-stack analytics dashboard for marketplace sellers (Shopee, Taobao, Temu, 
 | ORM | SQLAlchemy |
 | Database | SQLite (dev) → PostgreSQL (prod) |
 | Auth | JWT (python-jose + bcrypt) |
-| AI | OpenAI GPT-4o-mini (with mock fallback) |
+| AI | Deepseek (`deepseek-chat`, OpenAI-compatible API; mock fallback) |
 
 ---
 
@@ -84,7 +84,7 @@ pip install --upgrade -r requirements.txt
 
 # Configure environment
 cp .env.example .env
-# Edit .env and add your OPENAI_API_KEY (optional – mock mode works without it)
+# Edit .env and add LLM_API_KEY for Deepseek (optional – mock mode works without it)
 
 # Seed demo data
 python seed.py
@@ -108,6 +108,15 @@ npm run dev
 ```
 
 App runs at: http://localhost:3000
+
+### Deploy to Cloudflare Pages (static site)
+
+The frontend is configured for a **static export** (`out/`). Cloudflare **Pages** can host it; the **Python API** is deployed separately (container / Fly.io / Railway / etc.). See **[DEPLOY_CLOUDFLARE.md](DEPLOY_CLOUDFLARE.md)** for build output path, `NEXT_PUBLIC_API_URL`, and a sample `Dockerfile` for the backend.
+
+```bash
+cd frontend
+npm run build     # produces ./out
+```
 
 ### 3. Login
 ```
@@ -156,10 +165,16 @@ Password: demo1234
 
 ## AI Insights
 
-- **With OpenAI key**: Uses `gpt-4o-mini` with real store data as context
+- **With API key**: Uses **Deepseek** (`deepseek-chat` by default) via the OpenAI Python SDK and `LLM_BASE_URL=https://api.deepseek.com/v1`, with real store data as context.
 - **Without key**: Falls back to smart rule-based mock responses (still useful for demos)
 
-To enable real AI: add `OPENAI_API_KEY=sk-...` to `backend/.env`
+To enable real AI, add to `backend/.env`:
+
+```env
+LLM_API_KEY=your-deepseek-api-key
+```
+
+You can still set `OPENAI_API_KEY` instead of `LLM_API_KEY` (same value). To use a different model or host (e.g. OpenAI), set `LLM_BASE_URL` and `LLM_MODEL` in `backend/.env` (see `app/config.py`).
 
 ---
 

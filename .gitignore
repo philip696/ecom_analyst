@@ -16,8 +16,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+# Do not use blanket lib/ — it would ignore frontend/src/lib
 parts/
 sdist/
 var/
@@ -41,13 +40,8 @@ out/
 *~
 .DS_Store
 
-# Database
+# Database (keep demo sqlite in repo; override below)
 *.db
 *.sqlite
 *.sqlite3
-
-# Images (if large)
-ecomm_analyst/backend/data_200/image/
-
-# Misc
-.env.example
+!ecomm_analyst/backend/ecommerce.db

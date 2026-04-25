@@ -11,6 +11,7 @@ import { Eye, ShoppingCart, MousePointerClick, Image } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import KpiCard from "@/components/KpiCard";
 import { engagementApi } from "@/lib/api";
+import { resolveProductImageUrl } from "@/lib/product-image";
 
 export default function EngagementPage() {
   const [trends, setTrends] = useState<{ day: string; visits: number; cart_adds: number; avg_ctr: number }[]>([]);
@@ -105,7 +106,7 @@ export default function EngagementPage() {
           {imageViews.map((item, i) => (
             <div key={i} className="text-center">
               <img
-                src={item.image_url ? `http://localhost:8000${item.image_url}` : `https://picsum.photos/seed/${i + 10}/200/200`}
+                src={resolveProductImageUrl(item.image_url) ?? `https://picsum.photos/seed/${i + 10}/200/200`}
                 alt={item.name}
                 className="w-full aspect-square object-cover rounded-xl mb-2 border border-slate-100"
               />

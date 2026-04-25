@@ -1,0 +1,3618 @@
+product_id,quantity,revenue,returned,sale_date,marketplace,bundled_with
+1,3,40.5,False,2026-01-12,Taobao,2
+1,3,40.5,False,2026-01-20,Taobao,
+1,3,40.5,False,2026-01-22,Taobao,
+1,3,40.5,False,2026-01-26,Taobao,
+1,3,40.5,False,2026-02-06,Taobao,2
+1,3,40.5,False,2026-02-09,Taobao,
+1,3,40.5,False,2026-02-13,Taobao,
+1,3,40.5,False,2026-03-19,Taobao,
+1,3,40.5,False,2026-04-05,Taobao,
+2,3,120.0,False,2026-01-17,Temu,
+2,3,120.0,False,2026-03-04,Temu,
+2,1,40.0,False,2026-03-26,Temu,
+2,3,120.0,False,2026-04-06,Temu,
+3,2,90.0,True,2026-01-11,Temu,
+3,1,45.0,False,2026-02-07,Temu,
+3,3,135.0,False,2026-03-20,Temu,
+3,3,135.0,False,2026-03-25,Temu,
+3,3,135.0,False,2026-03-25,Temu,
+4,3,207.0,False,2026-01-19,Temu,
+4,3,207.0,False,2026-03-03,Temu,
+4,2,138.0,False,2026-03-29,Temu,
+5,3,43.5,False,2026-01-22,JD,
+5,3,43.5,False,2026-02-04,JD,
+5,3,43.5,False,2026-02-09,JD,
+5,3,43.5,False,2026-02-23,JD,
+5,3,43.5,False,2026-02-23,JD,
+5,3,43.5,False,2026-03-21,JD,
+5,3,43.5,False,2026-04-04,JD,
+5,3,43.5,False,2026-04-06,JD,
+6,3,35.97,False,2026-01-18,Shopee,
+6,3,35.97,False,2026-02-02,Shopee,
+6,3,35.97,False,2026-02-27,Shopee,
+6,3,35.97,False,2026-03-03,Shopee,
+6,3,35.97,False,2026-03-08,Shopee,
+6,3,35.97,False,2026-03-10,Shopee,
+6,3,35.97,False,2026-03-13,Shopee,
+6,3,35.97,False,2026-03-23,Shopee,
+6,3,35.97,False,2026-03-28,Shopee,
+6,3,35.97,False,2026-03-30,Shopee,
+6,3,35.97,False,2026-04-08,Shopee,
+7,3,114.0,False,2026-01-12,Temu,
+7,3,114.0,False,2026-01-14,Temu,
+7,3,114.0,False,2026-01-17,Temu,
+7,3,114.0,False,2026-02-06,Temu,
+7,3,114.0,False,2026-02-09,Temu,
+7,3,114.0,False,2026-04-02,Temu,8
+7,3,114.0,False,2026-04-02,Temu,
+8,3,114.0,False,2026-01-20,Shopee,
+8,3,114.0,False,2026-02-06,Shopee,
+8,3,114.0,False,2026-02-15,Shopee,
+8,3,114.0,False,2026-03-01,Shopee,
+8,3,114.0,False,2026-04-07,Shopee,
+9,3,84.0,False,2026-01-13,Shopee,
+9,3,84.0,False,2026-02-07,Shopee,
+9,3,84.0,False,2026-02-14,Shopee,
+9,3,84.0,False,2026-02-15,Shopee,
+9,3,84.0,False,2026-03-07,Shopee,
+9,3,84.0,False,2026-03-10,Shopee,
+9,3,84.0,False,2026-03-26,Shopee,
+9,3,84.0,False,2026-04-07,Shopee,
+10,2,70.0,False,2026-01-17,Facebook Marketplace,
+10,3,105.0,False,2026-02-12,Facebook Marketplace,
+10,3,105.0,False,2026-02-13,Facebook Marketplace,
+10,3,105.0,False,2026-02-21,Facebook Marketplace,
+10,3,105.0,False,2026-03-03,Facebook Marketplace,
+10,3,105.0,False,2026-03-14,Facebook Marketplace,
+11,3,105.0,False,2026-01-18,Shopee,
+11,3,105.0,False,2026-02-16,Shopee,
+11,3,105.0,False,2026-02-22,Shopee,
+11,3,105.0,False,2026-03-06,Shopee,
+11,3,105.0,True,2026-03-25,Shopee,
+11,3,105.0,False,2026-03-31,Shopee,
+12,3,102.0,False,2026-01-12,Taobao,
+12,3,102.0,False,2026-01-17,Taobao,13
+12,2,68.0,False,2026-02-06,Taobao,
+12,3,102.0,False,2026-02-19,Taobao,
+12,3,102.0,False,2026-03-21,Taobao,
+12,3,102.0,False,2026-03-28,Taobao,
+12,3,102.0,False,2026-03-29,Taobao,
+12,3,102.0,False,2026-04-01,Taobao,
+13,3,87.0,False,2026-01-12,Temu,
+13,3,87.0,False,2026-01-16,Temu,
+13,3,87.0,False,2026-02-16,Temu,
+13,3,87.0,False,2026-03-01,Temu,
+13,3,87.0,False,2026-03-04,Temu,
+13,3,87.0,False,2026-03-08,Temu,
+13,3,87.0,False,2026-03-11,Temu,
+13,3,87.0,False,2026-03-16,Temu,
+13,3,87.0,False,2026-04-01,Temu,
+13,3,87.0,False,2026-04-06,Temu,
+14,3,87.0,False,2026-01-23,Facebook Marketplace,
+14,3,87.0,False,2026-01-23,Facebook Marketplace,
+14,2,58.0,False,2026-02-05,Facebook Marketplace,
+14,3,87.0,False,2026-02-12,Facebook Marketplace,
+14,3,87.0,True,2026-02-14,Facebook Marketplace,
+14,3,87.0,False,2026-02-22,Facebook Marketplace,
+14,3,87.0,False,2026-03-05,Facebook Marketplace,
+14,3,87.0,False,2026-03-15,Facebook Marketplace,
+15,3,72.0,False,2026-01-13,JD,16
+15,3,72.0,False,2026-01-16,JD,
+15,3,72.0,False,2026-01-18,JD,
+15,2,48.0,False,2026-02-17,JD,
+15,3,72.0,False,2026-03-07,JD,
+15,3,72.0,False,2026-03-09,JD,
+15,3,72.0,False,2026-03-14,JD,16
+16,3,44.97,False,2026-01-14,Taobao,
+16,3,44.97,False,2026-01-25,Taobao,
+16,3,44.97,False,2026-01-28,Taobao,
+16,3,44.97,False,2026-01-29,Taobao,
+16,3,44.97,False,2026-01-30,Taobao,
+16,3,44.97,False,2026-02-01,Taobao,
+16,3,44.97,False,2026-02-26,Taobao,
+16,3,44.97,False,2026-03-02,Taobao,
+16,3,44.97,False,2026-03-06,Taobao,17
+16,3,44.97,False,2026-03-26,Taobao,
+16,3,44.97,False,2026-03-29,Taobao,
+16,3,44.97,False,2026-03-29,Taobao,
+16,3,44.97,False,2026-04-07,Taobao,
+17,1,58.0,False,2026-01-26,Shopee,
+17,2,116.0,False,2026-02-20,Shopee,
+17,3,174.0,False,2026-03-24,Shopee,
+18,1,66.0,False,2026-01-16,JD,
+18,3,198.0,False,2026-02-13,JD,
+18,1,66.0,False,2026-03-05,JD,
+18,3,198.0,True,2026-03-28,JD,19
+18,3,198.0,False,2026-03-31,JD,
+19,2,100.0,False,2026-01-24,JD,
+19,3,150.0,True,2026-02-06,JD,
+19,3,150.0,False,2026-02-24,JD,
+19,2,100.0,False,2026-03-15,JD,20
+20,3,14.97,False,2026-01-12,Facebook Marketplace,
+20,3,14.97,False,2026-02-15,Facebook Marketplace,21
+20,3,14.97,False,2026-02-16,Facebook Marketplace,
+20,3,14.97,False,2026-03-03,Facebook Marketplace,
+20,3,14.97,False,2026-03-13,Facebook Marketplace,
+20,3,14.97,False,2026-03-19,Facebook Marketplace,
+20,3,14.97,False,2026-03-23,Facebook Marketplace,
+20,3,14.97,False,2026-03-29,Facebook Marketplace,
+20,3,14.97,False,2026-03-30,Facebook Marketplace,21
+20,3,14.97,False,2026-03-31,Facebook Marketplace,
+20,3,14.97,False,2026-04-01,Facebook Marketplace,
+21,3,66.0,False,2026-02-16,Temu,22
+21,3,66.0,False,2026-02-21,Temu,
+21,3,66.0,False,2026-03-12,Temu,
+21,2,44.0,False,2026-03-14,Temu,
+21,3,66.0,False,2026-03-15,Temu,
+21,3,66.0,False,2026-03-18,Temu,
+21,3,66.0,False,2026-03-25,Temu,
+21,2,44.0,False,2026-03-28,Temu,
+22,3,47.97,False,2026-01-22,Taobao,
+22,3,47.97,False,2026-01-26,Taobao,23
+22,3,47.97,False,2026-02-08,Taobao,
+22,3,47.97,True,2026-02-12,Taobao,
+22,3,47.97,False,2026-02-12,Taobao,
+22,3,47.97,False,2026-03-21,Taobao,
+22,3,47.97,False,2026-03-25,Taobao,
+22,3,47.97,False,2026-03-28,Taobao,
+22,2,31.98,False,2026-04-08,Taobao,
+23,3,40.47,False,2026-01-19,Taobao,24
+23,3,40.47,False,2026-02-05,Taobao,
+23,3,40.47,False,2026-02-09,Taobao,
+23,3,40.47,False,2026-03-03,Taobao,
+23,3,40.47,False,2026-03-07,Taobao,
+23,3,40.47,False,2026-03-10,Taobao,
+23,3,40.47,False,2026-03-17,Taobao,
+23,3,40.47,False,2026-03-18,Taobao,24
+23,3,40.47,False,2026-03-20,Taobao,
+23,3,40.47,False,2026-03-26,Taobao,
+23,3,40.47,False,2026-04-04,Taobao,24
+23,3,40.47,False,2026-04-06,Taobao,24
+23,3,40.47,False,2026-04-08,Taobao,24
+24,3,42.0,False,2026-01-15,Taobao,
+24,3,42.0,False,2026-02-22,Taobao,
+24,3,42.0,False,2026-02-26,Taobao,
+24,3,42.0,False,2026-03-04,Taobao,
+24,3,42.0,False,2026-03-13,Taobao,25
+24,3,42.0,False,2026-03-21,Taobao,
+24,3,42.0,False,2026-03-30,Taobao,
+24,3,42.0,False,2026-04-01,Taobao,
+24,3,42.0,False,2026-04-04,Taobao,
+24,3,42.0,False,2026-04-05,Taobao,
+25,3,138.0,True,2026-01-09,JD,
+25,3,138.0,False,2026-01-11,JD,
+25,3,138.0,False,2026-03-11,JD,
+25,2,92.0,False,2026-03-12,JD,26
+25,2,92.0,False,2026-03-18,JD,
+25,3,138.0,False,2026-03-20,JD,
+25,3,138.0,False,2026-04-03,JD,
+26,3,144.0,False,2026-01-18,Shopee,
+26,1,48.0,False,2026-02-21,Shopee,
+26,3,144.0,False,2026-03-27,Shopee,
+26,3,144.0,False,2026-03-28,Shopee,
+27,3,102.0,False,2026-01-26,Facebook Marketplace,
+27,3,102.0,False,2026-02-16,Facebook Marketplace,
+27,3,102.0,False,2026-02-19,Facebook Marketplace,
+27,3,102.0,False,2026-03-05,Facebook Marketplace,
+27,3,102.0,False,2026-03-26,Facebook Marketplace,
+27,3,102.0,False,2026-03-27,Facebook Marketplace,
+27,3,102.0,True,2026-04-02,Facebook Marketplace,
+28,1,55.0,False,2026-01-11,Facebook Marketplace,
+28,2,110.0,False,2026-02-21,Facebook Marketplace,
+28,3,165.0,False,2026-04-01,Facebook Marketplace,
+29,3,96.0,False,2026-01-31,Taobao,
+29,3,96.0,False,2026-02-01,Taobao,
+29,3,96.0,False,2026-03-12,Taobao,
+29,3,96.0,False,2026-03-18,Taobao,
+29,3,96.0,False,2026-03-21,Taobao,
+29,3,96.0,False,2026-03-31,Taobao,
+29,3,96.0,False,2026-04-01,Taobao,
+29,3,96.0,False,2026-04-07,Taobao,
+30,1,42.0,False,2026-01-09,Taobao,
+30,3,126.0,False,2026-02-19,Taobao,
+30,3,126.0,False,2026-03-08,Taobao,
+30,2,84.0,False,2026-03-12,Taobao,
+30,3,126.0,False,2026-03-24,Taobao,
+31,3,42.0,False,2026-01-28,JD,
+31,3,42.0,False,2026-02-05,JD,
+31,3,42.0,False,2026-02-05,JD,
+31,3,42.0,False,2026-02-22,JD,
+31,3,42.0,False,2026-03-02,JD,
+31,3,42.0,False,2026-03-06,JD,32
+31,3,42.0,False,2026-03-06,JD,
+31,3,42.0,False,2026-03-28,JD,
+31,3,42.0,False,2026-03-30,JD,
+31,3,42.0,False,2026-04-06,JD,
+32,3,48.0,False,2026-01-12,Taobao,
+32,3,48.0,False,2026-01-24,Taobao,
+32,2,32.0,False,2026-01-25,Taobao,
+32,3,48.0,False,2026-01-30,Taobao,
+32,3,48.0,False,2026-02-11,Taobao,
+32,2,32.0,False,2026-02-12,Taobao,33
+32,2,32.0,False,2026-02-12,Taobao,
+32,3,48.0,False,2026-02-20,Taobao,
+32,2,32.0,False,2026-02-25,Taobao,
+32,3,48.0,False,2026-03-04,Taobao,
+33,3,30.0,False,2026-01-16,Shopee,
+33,3,30.0,False,2026-01-18,Shopee,
+33,3,30.0,False,2026-01-19,Shopee,
+33,3,30.0,False,2026-01-21,Shopee,
+33,3,30.0,False,2026-01-26,Shopee,
+33,3,30.0,False,2026-02-25,Shopee,
+33,3,30.0,False,2026-02-28,Shopee,
+33,3,30.0,False,2026-03-08,Shopee,
+33,3,30.0,False,2026-03-14,Shopee,
+33,3,30.0,False,2026-03-22,Shopee,
+33,3,30.0,False,2026-03-24,Shopee,
+33,3,30.0,False,2026-03-25,Shopee,
+33,3,30.0,False,2026-03-31,Shopee,
+33,3,30.0,False,2026-04-08,Shopee,34
+34,3,36.0,False,2026-01-16,JD,
+34,3,36.0,False,2026-01-21,JD,
+34,3,36.0,False,2026-01-29,JD,
+34,3,36.0,True,2026-02-06,JD,
+34,3,36.0,False,2026-02-07,JD,
+34,3,36.0,False,2026-02-08,JD,
+34,3,36.0,False,2026-02-09,JD,
+34,3,36.0,False,2026-02-12,JD,
+34,3,36.0,True,2026-02-27,JD,
+34,3,36.0,False,2026-03-18,JD,
+34,3,36.0,False,2026-03-23,JD,
+34,3,36.0,False,2026-03-24,JD,
+34,3,36.0,False,2026-04-03,JD,
+35,3,75.0,False,2026-01-11,Taobao,
+35,3,75.0,False,2026-01-13,Taobao,36
+35,3,75.0,False,2026-02-11,Taobao,
+35,3,75.0,False,2026-02-15,Taobao,
+35,3,75.0,False,2026-02-18,Taobao,
+36,3,72.0,False,2026-01-13,Taobao,
+36,3,72.0,False,2026-01-19,Taobao,
+36,3,72.0,False,2026-02-08,Taobao,
+36,3,72.0,False,2026-02-16,Taobao,
+36,3,72.0,False,2026-02-28,Taobao,
+36,3,72.0,False,2026-03-10,Taobao,
+36,3,72.0,False,2026-03-14,Taobao,
+36,3,72.0,False,2026-03-23,Taobao,
+37,3,26.97,False,2026-01-12,JD,
+37,3,26.97,False,2026-01-15,JD,
+37,3,26.97,False,2026-01-20,JD,
+37,3,26.97,False,2026-01-29,JD,
+37,3,26.97,False,2026-01-29,JD,
+37,3,26.97,False,2026-02-05,JD,
+37,3,26.97,False,2026-02-11,JD,
+37,3,26.97,False,2026-02-14,JD,
+37,3,26.97,False,2026-02-22,JD,
+37,3,26.97,False,2026-02-22,JD,
+37,3,26.97,False,2026-02-27,JD,
+37,3,26.97,False,2026-03-20,JD,
+37,3,26.97,False,2026-03-23,JD,
+37,3,26.97,False,2026-03-25,JD,
+37,3,26.97,False,2026-04-07,JD,
+38,3,120.0,False,2026-01-15,Facebook Marketplace,
+38,3,120.0,False,2026-01-26,Facebook Marketplace,
+38,2,80.0,False,2026-01-28,Facebook Marketplace,
+38,2,80.0,False,2026-02-03,Facebook Marketplace,39
+38,3,120.0,False,2026-03-02,Facebook Marketplace,
+39,3,129.0,False,2026-01-13,JD,
+39,3,129.0,False,2026-02-24,JD,
+39,1,43.0,False,2026-04-02,JD,
+40,3,96.0,False,2026-01-18,Facebook Marketplace,41
+40,3,96.0,False,2026-01-20,Facebook Marketplace,
+40,3,96.0,False,2026-01-21,Facebook Marketplace,
+40,3,96.0,False,2026-01-28,Facebook Marketplace,
+40,2,64.0,True,2026-02-07,Facebook Marketplace,
+40,3,96.0,False,2026-02-10,Facebook Marketplace,
+40,3,96.0,False,2026-03-08,Facebook Marketplace,41
+40,3,96.0,False,2026-03-13,Facebook Marketplace,
+40,3,96.0,False,2026-03-15,Facebook Marketplace,
+40,3,96.0,False,2026-04-01,Facebook Marketplace,
+41,3,114.0,False,2026-01-09,Temu,
+41,3,114.0,False,2026-01-11,Temu,
+41,2,76.0,False,2026-01-13,Temu,
+41,3,114.0,False,2026-01-20,Temu,
+41,3,114.0,False,2026-01-22,Temu,
+41,3,114.0,False,2026-03-01,Temu,
+41,3,114.0,True,2026-03-02,Temu,
+41,3,114.0,False,2026-03-20,Temu,
+41,3,114.0,True,2026-03-21,Temu,
+41,3,114.0,False,2026-03-27,Temu,
+42,2,96.0,False,2026-01-10,JD,43
+42,3,144.0,False,2026-01-12,JD,
+42,3,144.0,False,2026-01-22,JD,
+42,1,48.0,False,2026-02-14,JD,
+42,3,144.0,True,2026-02-26,JD,
+42,1,48.0,False,2026-03-04,JD,
+42,3,144.0,False,2026-03-16,JD,
+43,3,117.0,False,2026-01-20,Temu,
+43,3,117.0,False,2026-02-05,Temu,
+43,2,78.0,False,2026-02-06,Temu,
+43,3,117.0,False,2026-02-20,Temu,
+43,3,117.0,False,2026-02-20,Temu,
+43,3,117.0,False,2026-02-22,Temu,
+43,3,117.0,False,2026-02-24,Temu,
+43,3,117.0,True,2026-03-01,Temu,
+43,3,117.0,False,2026-04-03,Temu,
+44,3,84.0,False,2026-02-04,Facebook Marketplace,
+44,3,84.0,False,2026-02-05,Facebook Marketplace,
+44,2,56.0,False,2026-02-17,Facebook Marketplace,
+44,3,84.0,False,2026-02-22,Facebook Marketplace,
+44,3,84.0,False,2026-03-02,Facebook Marketplace,
+45,3,234.0,False,2026-01-20,Taobao,46
+45,2,156.0,False,2026-01-26,Taobao,
+45,3,234.0,False,2026-03-09,Taobao,
+45,2,156.0,False,2026-03-14,Taobao,
+45,3,234.0,False,2026-03-15,Taobao,
+46,3,15.0,False,2026-01-14,Temu,
+46,3,15.0,False,2026-01-16,Temu,
+46,3,15.0,False,2026-01-26,Temu,
+46,3,15.0,False,2026-01-27,Temu,
+46,3,15.0,False,2026-01-30,Temu,
+46,3,15.0,False,2026-02-01,Temu,
+46,3,15.0,False,2026-02-11,Temu,
+46,3,15.0,False,2026-03-15,Temu,
+46,3,15.0,False,2026-03-23,Temu,47
+46,3,15.0,False,2026-03-30,Temu,
+47,3,12.0,False,2026-01-22,Facebook Marketplace,
+47,3,12.0,False,2026-01-28,Facebook Marketplace,
+47,3,12.0,False,2026-02-10,Facebook Marketplace,
+47,3,12.0,False,2026-02-11,Facebook Marketplace,
+47,3,12.0,False,2026-02-13,Facebook Marketplace,
+47,3,12.0,False,2026-02-24,Facebook Marketplace,
+47,3,12.0,False,2026-02-24,Facebook Marketplace,
+47,3,12.0,False,2026-03-04,Facebook Marketplace,
+47,3,12.0,False,2026-03-04,Facebook Marketplace,
+47,3,12.0,False,2026-03-18,Facebook Marketplace,
+47,3,12.0,True,2026-03-22,Facebook Marketplace,48
+47,3,12.0,False,2026-03-24,Facebook Marketplace,
+47,3,12.0,False,2026-03-28,Facebook Marketplace,
+47,3,12.0,False,2026-04-02,Facebook Marketplace,
+48,3,18.0,False,2026-01-17,Facebook Marketplace,
+48,3,18.0,False,2026-02-06,Facebook Marketplace,
+48,3,18.0,False,2026-02-07,Facebook Marketplace,
+48,3,18.0,False,2026-02-11,Facebook Marketplace,
+48,3,18.0,False,2026-02-18,Facebook Marketplace,
+48,3,18.0,False,2026-02-26,Facebook Marketplace,
+48,3,18.0,False,2026-03-31,Facebook Marketplace,
+48,3,18.0,False,2026-04-05,Facebook Marketplace,
+48,3,18.0,False,2026-04-08,Facebook Marketplace,
+49,3,24.0,False,2026-01-15,Temu,
+49,3,24.0,False,2026-01-21,Temu,
+49,3,24.0,False,2026-01-26,Temu,
+49,3,24.0,False,2026-01-29,Temu,50
+49,3,24.0,False,2026-02-10,Temu,
+49,3,24.0,False,2026-02-16,Temu,
+49,3,24.0,False,2026-02-18,Temu,
+49,3,24.0,False,2026-02-28,Temu,
+49,3,24.0,False,2026-03-12,Temu,
+49,3,24.0,False,2026-03-16,Temu,
+49,3,24.0,False,2026-03-18,Temu,
+49,3,24.0,False,2026-03-21,Temu,
+49,3,24.0,False,2026-03-22,Temu,
+49,3,24.0,False,2026-03-30,Temu,
+49,3,24.0,False,2026-04-07,Temu,
+50,3,21.0,True,2026-01-09,Shopee,
+50,3,21.0,False,2026-01-10,Shopee,51
+50,3,21.0,False,2026-01-26,Shopee,
+50,3,21.0,True,2026-01-28,Shopee,
+50,3,21.0,False,2026-02-11,Shopee,
+50,3,21.0,False,2026-02-14,Shopee,
+50,3,21.0,False,2026-02-16,Shopee,
+50,3,21.0,False,2026-02-22,Shopee,
+50,3,21.0,False,2026-02-24,Shopee,
+50,3,21.0,False,2026-03-02,Shopee,
+50,3,21.0,False,2026-03-10,Shopee,
+50,3,21.0,False,2026-03-16,Shopee,
+51,3,12.0,False,2026-01-10,Shopee,52
+51,3,12.0,False,2026-01-14,Shopee,
+51,3,12.0,False,2026-02-09,Shopee,
+51,3,12.0,False,2026-02-28,Shopee,
+51,3,12.0,False,2026-03-10,Shopee,
+51,3,12.0,False,2026-03-24,Shopee,
+51,3,12.0,False,2026-03-26,Shopee,
+51,3,12.0,False,2026-04-07,Shopee,
+51,3,12.0,False,2026-04-07,Shopee,
+52,3,30.0,False,2026-01-10,Temu,
+52,3,30.0,False,2026-01-15,Temu,
+52,3,30.0,False,2026-01-18,Temu,
+52,3,30.0,False,2026-01-19,Temu,
+52,3,30.0,False,2026-02-04,Temu,
+52,3,30.0,False,2026-02-06,Temu,
+52,3,30.0,False,2026-02-24,Temu,
+52,3,30.0,False,2026-03-09,Temu,
+52,3,30.0,False,2026-03-12,Temu,
+52,3,30.0,False,2026-03-27,Temu,
+52,3,30.0,False,2026-03-31,Temu,
+52,3,30.0,False,2026-04-02,Temu,
+53,3,21.0,False,2026-01-16,Facebook Marketplace,
+53,3,21.0,False,2026-01-19,Facebook Marketplace,
+53,3,21.0,False,2026-02-20,Facebook Marketplace,
+53,3,21.0,False,2026-02-22,Facebook Marketplace,
+53,3,21.0,False,2026-02-26,Facebook Marketplace,
+53,3,21.0,False,2026-03-03,Facebook Marketplace,
+53,3,21.0,False,2026-03-05,Facebook Marketplace,
+53,3,21.0,False,2026-03-23,Facebook Marketplace,
+54,3,21.0,False,2026-01-16,JD,
+54,3,21.0,False,2026-01-30,JD,
+54,3,21.0,False,2026-02-03,JD,
+54,3,21.0,False,2026-02-10,JD,
+54,3,21.0,False,2026-02-12,JD,
+54,3,21.0,False,2026-02-14,JD,
+54,3,21.0,False,2026-03-29,JD,
+54,3,21.0,False,2026-04-08,JD,
+55,3,84.0,True,2026-01-22,Taobao,
+55,3,84.0,False,2026-01-25,Taobao,
+55,3,84.0,False,2026-01-28,Taobao,56
+55,3,84.0,False,2026-02-02,Taobao,
+55,3,84.0,False,2026-02-13,Taobao,
+55,3,84.0,False,2026-02-16,Taobao,
+55,3,84.0,False,2026-03-06,Taobao,
+55,2,56.0,False,2026-03-31,Taobao,
+56,3,15.0,False,2026-01-19,Taobao,
+56,3,15.0,False,2026-01-23,Taobao,
+56,3,15.0,False,2026-02-24,Taobao,
+56,3,15.0,False,2026-02-27,Taobao,
+56,3,15.0,False,2026-03-07,Taobao,
+56,3,15.0,False,2026-03-15,Taobao,
+56,3,15.0,False,2026-03-17,Taobao,57
+56,3,15.0,False,2026-03-28,Taobao,
+56,3,15.0,False,2026-03-31,Taobao,57
+57,1,48.0,False,2026-01-12,JD,
+57,3,144.0,False,2026-01-24,JD,
+57,3,144.0,False,2026-03-09,JD,
+58,3,32.97,False,2026-01-13,Taobao,
+58,3,32.97,False,2026-01-23,Taobao,
+58,3,32.97,False,2026-02-01,Taobao,
+58,3,32.97,False,2026-02-12,Taobao,
+58,3,32.97,False,2026-02-17,Taobao,59
+58,3,32.97,False,2026-02-18,Taobao,
+58,3,32.97,False,2026-02-27,Taobao,
+58,3,32.97,False,2026-03-23,Taobao,
+58,3,32.97,False,2026-03-26,Taobao,
+58,3,32.97,False,2026-03-27,Taobao,
+59,3,102.0,False,2026-02-17,Shopee,
+59,3,102.0,False,2026-02-20,Shopee,
+59,3,102.0,False,2026-02-23,Shopee,60
+59,3,102.0,False,2026-03-07,Shopee,
+59,3,102.0,False,2026-03-25,Shopee,
+59,3,102.0,False,2026-03-28,Shopee,
+59,3,102.0,False,2026-03-30,Shopee,
+59,3,102.0,False,2026-04-07,Shopee,
+59,3,102.0,False,2026-04-08,Shopee,60
+60,3,63.0,False,2026-02-15,Facebook Marketplace,
+60,3,63.0,False,2026-02-27,Facebook Marketplace,
+60,3,63.0,False,2026-03-07,Facebook Marketplace,
+60,3,63.0,False,2026-03-18,Facebook Marketplace,
+60,3,63.0,False,2026-03-23,Facebook Marketplace,
+60,3,63.0,False,2026-03-28,Facebook Marketplace,
+61,3,90.0,False,2026-01-19,Shopee,
+61,3,90.0,False,2026-01-20,Shopee,
+61,3,90.0,False,2026-02-09,Shopee,
+61,3,90.0,False,2026-02-13,Shopee,
+61,3,90.0,False,2026-03-09,Shopee,
+61,3,90.0,False,2026-03-10,Shopee,62
+61,3,90.0,False,2026-03-16,Shopee,
+61,2,60.0,False,2026-03-16,Shopee,
+61,2,60.0,False,2026-03-28,Shopee,
+62,3,120.0,False,2026-02-12,JD,63
+62,3,120.0,False,2026-02-20,JD,
+62,2,80.0,False,2026-03-05,JD,
+62,2,80.0,False,2026-03-28,JD,
+62,2,80.0,False,2026-04-02,JD,63
+63,3,102.0,False,2026-01-22,Temu,
+63,3,102.0,False,2026-01-31,Temu,
+63,3,102.0,True,2026-02-28,Temu,64
+63,3,102.0,False,2026-03-12,Temu,64
+63,3,102.0,False,2026-03-28,Temu,
+63,2,68.0,False,2026-04-01,Temu,
+64,3,72.0,False,2026-01-10,JD,65
+64,3,72.0,False,2026-01-15,JD,
+64,3,72.0,False,2026-01-21,JD,
+64,3,72.0,False,2026-01-25,JD,
+64,3,72.0,False,2026-01-31,JD,
+64,3,72.0,False,2026-02-17,JD,
+64,3,72.0,False,2026-03-08,JD,
+64,3,72.0,False,2026-03-28,JD,
+64,3,72.0,False,2026-03-30,JD,
+64,3,72.0,False,2026-04-02,JD,
+65,3,114.0,False,2026-01-18,Facebook Marketplace,
+65,3,114.0,False,2026-01-23,Facebook Marketplace,
+65,3,114.0,False,2026-02-08,Facebook Marketplace,
+65,3,114.0,False,2026-02-19,Facebook Marketplace,
+65,3,114.0,False,2026-03-06,Facebook Marketplace,66
+65,3,114.0,False,2026-03-15,Facebook Marketplace,
+65,3,114.0,False,2026-03-24,Facebook Marketplace,
+65,3,114.0,False,2026-03-25,Facebook Marketplace,
+66,3,78.0,False,2026-01-09,Temu,
+66,3,78.0,False,2026-01-18,Temu,
+66,3,78.0,False,2026-02-27,Temu,67
+66,3,78.0,False,2026-03-09,Temu,67
+66,3,78.0,False,2026-03-30,Temu,
+66,3,78.0,False,2026-03-30,Temu,67
+66,3,78.0,False,2026-03-31,Temu,
+67,3,90.0,False,2026-01-25,Temu,
+67,2,60.0,False,2026-01-30,Temu,
+67,3,90.0,False,2026-02-07,Temu,
+67,3,90.0,False,2026-02-11,Temu,
+67,3,90.0,False,2026-02-16,Temu,
+67,3,90.0,False,2026-02-17,Temu,
+67,3,90.0,False,2026-03-06,Temu,
+67,2,60.0,False,2026-03-08,Temu,
+67,3,90.0,False,2026-03-22,Temu,
+68,3,108.0,False,2026-01-20,JD,
+68,3,108.0,False,2026-02-05,JD,
+68,3,108.0,False,2026-02-17,JD,
+68,3,108.0,False,2026-03-03,JD,69
+68,3,108.0,False,2026-03-06,JD,
+68,3,108.0,False,2026-03-07,JD,
+68,3,108.0,False,2026-03-21,JD,
+69,3,33.0,False,2026-01-10,Temu,
+69,3,33.0,False,2026-01-21,Temu,
+69,3,33.0,False,2026-01-26,Temu,
+69,3,33.0,False,2026-01-27,Temu,
+69,3,33.0,False,2026-02-12,Temu,
+69,3,33.0,False,2026-02-23,Temu,
+69,3,33.0,False,2026-02-24,Temu,
+69,3,33.0,False,2026-03-18,Temu,
+69,3,33.0,False,2026-03-24,Temu,
+69,3,33.0,False,2026-04-06,Temu,
+69,3,33.0,False,2026-04-07,Temu,
+69,3,33.0,False,2026-04-08,Temu,70
+70,3,135.0,False,2026-01-23,Taobao,
+70,3,135.0,False,2026-01-24,Taobao,71
+70,3,135.0,False,2026-01-26,Taobao,
+70,3,135.0,False,2026-03-09,Taobao,
+70,3,135.0,False,2026-03-16,Taobao,
+71,3,114.0,False,2026-02-03,Taobao,
+71,3,114.0,True,2026-02-11,Taobao,
+71,3,114.0,False,2026-02-15,Taobao,
+71,3,114.0,False,2026-03-09,Taobao,
+71,3,114.0,True,2026-03-12,Taobao,
+71,3,114.0,False,2026-03-13,Taobao,
+71,3,114.0,False,2026-03-14,Taobao,
+71,3,114.0,False,2026-04-03,Taobao,
+72,3,78.0,False,2026-01-18,Facebook Marketplace,
+72,3,78.0,False,2026-01-30,Facebook Marketplace,
+72,3,78.0,False,2026-02-03,Facebook Marketplace,
+72,3,78.0,False,2026-02-16,Facebook Marketplace,
+72,3,78.0,False,2026-02-21,Facebook Marketplace,
+72,3,78.0,False,2026-02-24,Facebook Marketplace,
+72,3,78.0,False,2026-03-05,Facebook Marketplace,
+72,3,78.0,False,2026-03-13,Facebook Marketplace,
+72,3,78.0,False,2026-03-28,Facebook Marketplace,
+72,3,78.0,False,2026-03-31,Facebook Marketplace,
+73,3,42.0,False,2026-01-20,Facebook Marketplace,
+73,3,42.0,False,2026-01-24,Facebook Marketplace,
+73,3,42.0,False,2026-02-05,Facebook Marketplace,
+73,3,42.0,False,2026-02-08,Facebook Marketplace,
+73,3,42.0,False,2026-02-08,Facebook Marketplace,
+73,3,42.0,False,2026-02-18,Facebook Marketplace,
+73,3,42.0,False,2026-02-20,Facebook Marketplace,
+73,3,42.0,True,2026-02-27,Facebook Marketplace,
+73,3,42.0,True,2026-03-04,Facebook Marketplace,
+73,3,42.0,False,2026-03-13,Facebook Marketplace,
+73,3,42.0,False,2026-03-24,Facebook Marketplace,
+73,3,42.0,False,2026-03-26,Facebook Marketplace,
+74,2,78.0,False,2026-01-30,Shopee,
+74,3,117.0,False,2026-02-03,Shopee,
+74,3,117.0,False,2026-02-11,Shopee,
+74,3,117.0,False,2026-03-09,Shopee,
+74,3,117.0,False,2026-04-08,Shopee,
+75,2,84.0,False,2026-02-11,Taobao,
+75,2,84.0,False,2026-02-18,Taobao,
+75,3,126.0,False,2026-03-05,Taobao,
+75,2,84.0,False,2026-03-16,Taobao,
+75,2,84.0,False,2026-03-28,Taobao,
+76,3,102.0,True,2026-01-18,Taobao,
+76,3,102.0,False,2026-01-20,Taobao,
+76,3,102.0,False,2026-01-31,Taobao,
+76,3,102.0,False,2026-02-08,Taobao,
+76,3,102.0,False,2026-02-10,Taobao,77
+76,3,102.0,False,2026-02-26,Taobao,
+76,3,102.0,False,2026-03-01,Taobao,
+76,3,102.0,False,2026-03-01,Taobao,
+76,3,102.0,False,2026-03-20,Taobao,
+76,3,102.0,False,2026-03-27,Taobao,
+77,3,18.0,False,2026-01-09,Facebook Marketplace,
+77,3,18.0,False,2026-01-10,Facebook Marketplace,
+77,3,18.0,False,2026-01-23,Facebook Marketplace,
+77,3,18.0,False,2026-01-30,Facebook Marketplace,
+77,3,18.0,False,2026-02-28,Facebook Marketplace,78
+77,3,18.0,True,2026-03-08,Facebook Marketplace,
+77,3,18.0,False,2026-03-11,Facebook Marketplace,
+77,3,18.0,False,2026-04-02,Facebook Marketplace,
+78,3,34.5,False,2026-01-20,JD,
+78,3,34.5,False,2026-01-25,JD,
+78,3,34.5,False,2026-01-29,JD,
+78,3,34.5,False,2026-01-29,JD,
+78,3,34.5,True,2026-01-31,JD,79
+78,3,34.5,False,2026-02-03,JD,
+78,3,34.5,False,2026-02-04,JD,
+78,3,34.5,False,2026-02-14,JD,
+78,3,34.5,False,2026-03-10,JD,
+78,3,34.5,False,2026-03-11,JD,
+78,3,34.5,False,2026-03-29,JD,
+78,3,34.5,False,2026-04-04,JD,
+78,3,34.5,False,2026-04-07,JD,
+79,3,54.0,False,2026-01-27,Facebook Marketplace,
+79,3,54.0,False,2026-02-04,Facebook Marketplace,
+79,3,54.0,True,2026-03-01,Facebook Marketplace,
+79,3,54.0,False,2026-03-07,Facebook Marketplace,
+79,3,54.0,False,2026-03-19,Facebook Marketplace,
+79,3,54.0,False,2026-03-28,Facebook Marketplace,
+79,2,36.0,True,2026-03-29,Facebook Marketplace,
+79,3,54.0,False,2026-04-01,Facebook Marketplace,
+79,3,54.0,False,2026-04-08,Facebook Marketplace,
+80,3,55.5,False,2026-01-14,Temu,
+80,3,55.5,False,2026-01-23,Temu,81
+80,3,55.5,False,2026-01-24,Temu,
+80,2,37.0,False,2026-01-28,Temu,
+80,3,55.5,False,2026-02-15,Temu,
+80,3,55.5,True,2026-02-25,Temu,
+80,3,55.5,False,2026-03-02,Temu,
+80,3,55.5,False,2026-03-16,Temu,
+80,3,55.5,False,2026-03-23,Temu,
+81,3,162.0,False,2026-01-15,JD,
+81,3,162.0,False,2026-02-03,JD,
+81,1,54.0,False,2026-02-08,JD,
+82,3,102.0,False,2026-01-26,Shopee,
+82,3,102.0,False,2026-02-04,Shopee,
+82,3,102.0,False,2026-02-13,Shopee,
+82,3,102.0,False,2026-03-05,Shopee,
+82,3,102.0,True,2026-03-21,Shopee,
+83,3,72.0,False,2026-01-11,JD,
+83,3,72.0,True,2026-01-17,JD,
+83,2,48.0,False,2026-01-25,JD,
+83,3,72.0,False,2026-02-02,JD,
+83,3,72.0,False,2026-02-07,JD,
+83,2,48.0,False,2026-02-11,JD,
+83,3,72.0,False,2026-02-13,JD,
+83,3,72.0,True,2026-03-16,JD,
+83,3,72.0,False,2026-03-22,JD,
+83,3,72.0,False,2026-04-05,JD,
+84,3,102.0,False,2026-02-02,Taobao,
+84,3,102.0,False,2026-02-20,Taobao,
+84,3,102.0,False,2026-03-08,Taobao,
+84,3,102.0,False,2026-03-16,Taobao,
+84,3,102.0,False,2026-03-25,Taobao,
+85,1,67.0,False,2026-01-09,Shopee,
+85,3,201.0,False,2026-01-10,Shopee,
+85,3,201.0,True,2026-01-18,Shopee,86
+85,2,134.0,False,2026-02-01,Shopee,
+85,3,201.0,False,2026-02-23,Shopee,
+85,3,201.0,False,2026-02-24,Shopee,
+86,2,134.0,False,2026-01-17,Temu,
+86,3,201.0,False,2026-01-19,Temu,
+86,2,134.0,False,2026-02-04,Temu,
+86,3,201.0,False,2026-03-10,Temu,
+86,3,201.0,False,2026-03-28,Temu,
+86,3,201.0,False,2026-04-03,Temu,
+87,3,84.0,False,2026-02-10,JD,
+87,3,84.0,False,2026-02-13,JD,88
+87,3,84.0,False,2026-02-16,JD,
+87,3,84.0,False,2026-02-20,JD,
+87,2,56.0,False,2026-04-05,JD,
+87,3,84.0,False,2026-04-06,JD,
+88,3,81.0,True,2026-01-13,JD,
+88,3,81.0,False,2026-01-20,JD,
+88,3,81.0,False,2026-01-22,JD,89
+88,3,81.0,True,2026-01-30,JD,
+88,3,81.0,False,2026-01-31,JD,
+88,3,81.0,False,2026-03-20,JD,
+88,3,81.0,False,2026-04-05,JD,
+89,3,54.0,False,2026-01-10,Shopee,
+89,3,54.0,False,2026-01-13,Shopee,90
+89,3,54.0,False,2026-01-23,Shopee,
+89,3,54.0,False,2026-02-02,Shopee,
+89,3,54.0,False,2026-02-10,Shopee,
+89,3,54.0,False,2026-02-21,Shopee,
+89,3,54.0,False,2026-02-26,Shopee,
+89,2,36.0,False,2026-02-28,Shopee,
+89,3,54.0,False,2026-03-01,Shopee,
+89,3,54.0,False,2026-03-09,Shopee,
+90,3,48.0,False,2026-02-26,Facebook Marketplace,
+90,2,32.0,False,2026-03-07,Facebook Marketplace,
+90,3,48.0,False,2026-03-15,Facebook Marketplace,
+90,3,48.0,False,2026-03-24,Facebook Marketplace,91
+90,3,48.0,False,2026-03-27,Facebook Marketplace,
+91,3,40.5,False,2026-01-11,Temu,
+91,3,40.5,False,2026-01-19,Temu,
+91,3,40.5,False,2026-01-28,Temu,
+91,3,40.5,False,2026-01-31,Temu,
+91,3,40.5,False,2026-02-10,Temu,
+91,3,40.5,False,2026-02-16,Temu,
+91,3,40.5,False,2026-02-17,Temu,
+91,3,40.5,False,2026-02-26,Temu,92
+91,3,40.5,False,2026-02-26,Temu,
+91,3,40.5,False,2026-03-04,Temu,
+91,3,40.5,False,2026-03-08,Temu,
+91,3,40.5,False,2026-03-09,Temu,
+91,3,40.5,False,2026-03-18,Temu,
+91,3,40.5,False,2026-03-20,Temu,
+91,3,40.5,False,2026-03-26,Temu,
+92,3,45.0,False,2026-01-19,JD,
+92,3,45.0,True,2026-01-22,JD,
+92,3,45.0,False,2026-01-30,JD,
+92,2,30.0,False,2026-02-15,JD,
+92,2,30.0,False,2026-03-06,JD,
+92,2,30.0,False,2026-03-29,JD,
+92,3,45.0,False,2026-03-30,JD,
+92,3,45.0,False,2026-03-31,JD,
+93,3,114.0,False,2026-02-06,Taobao,
+93,3,114.0,False,2026-02-10,Taobao,
+93,3,114.0,False,2026-02-13,Taobao,
+93,3,114.0,False,2026-02-27,Taobao,
+93,3,114.0,False,2026-03-10,Taobao,
+93,3,114.0,False,2026-04-04,Taobao,
+93,3,114.0,False,2026-04-04,Taobao,
+94,3,54.0,False,2026-01-21,Shopee,
+94,2,36.0,False,2026-01-25,Shopee,
+94,3,54.0,False,2026-02-02,Shopee,
+94,3,54.0,False,2026-02-28,Shopee,
+94,3,54.0,False,2026-03-20,Shopee,
+94,3,54.0,False,2026-04-08,Shopee,95
+94,3,54.0,False,2026-04-08,Shopee,
+95,3,51.0,False,2026-01-11,Taobao,
+95,3,51.0,False,2026-02-01,Taobao,
+95,3,51.0,False,2026-02-28,Taobao,
+95,3,51.0,True,2026-03-01,Taobao,
+95,3,51.0,False,2026-03-12,Taobao,
+95,3,51.0,False,2026-03-17,Taobao,96
+95,3,51.0,False,2026-03-18,Taobao,96
+95,3,51.0,False,2026-03-21,Taobao,
+95,3,51.0,False,2026-04-08,Taobao,
+96,3,48.0,False,2026-01-12,Temu,
+96,3,48.0,False,2026-01-18,Temu,
+96,3,48.0,False,2026-01-24,Temu,
+96,3,48.0,False,2026-02-09,Temu,97
+96,3,48.0,False,2026-02-12,Temu,
+96,3,48.0,False,2026-02-26,Temu,
+96,3,48.0,False,2026-03-18,Temu,
+96,3,48.0,False,2026-03-27,Temu,
+97,3,32.97,False,2026-01-14,Facebook Marketplace,
+97,3,32.97,False,2026-01-30,Facebook Marketplace,
+97,3,32.97,False,2026-02-09,Facebook Marketplace,
+97,3,32.97,False,2026-02-22,Facebook Marketplace,
+97,3,32.97,False,2026-03-07,Facebook Marketplace,
+97,3,32.97,False,2026-03-17,Facebook Marketplace,
+97,3,32.97,True,2026-03-17,Facebook Marketplace,
+97,3,32.97,False,2026-03-18,Facebook Marketplace,
+97,3,32.97,False,2026-03-27,Facebook Marketplace,
+97,3,32.97,False,2026-03-27,Facebook Marketplace,
+97,3,32.97,False,2026-04-03,Facebook Marketplace,
+97,3,32.97,False,2026-04-05,Facebook Marketplace,
+97,3,32.97,False,2026-04-06,Facebook Marketplace,
+97,3,32.97,True,2026-04-08,Facebook Marketplace,
+98,3,32.97,False,2026-01-23,JD,
+98,3,32.97,False,2026-02-03,JD,
+98,3,32.97,False,2026-02-09,JD,
+98,3,32.97,False,2026-02-09,JD,99
+98,3,32.97,False,2026-02-11,JD,
+98,3,32.97,False,2026-02-13,JD,
+98,3,32.97,False,2026-03-04,JD,
+98,3,32.97,False,2026-03-10,JD,
+98,3,32.97,False,2026-04-04,JD,
+98,3,32.97,False,2026-04-08,JD,
+99,3,32.97,False,2026-01-11,JD,
+99,3,32.97,False,2026-01-17,JD,100
+99,3,32.97,False,2026-01-24,JD,
+99,3,32.97,False,2026-01-30,JD,
+99,3,32.97,False,2026-02-24,JD,
+99,3,32.97,False,2026-03-03,JD,
+99,3,32.97,False,2026-03-05,JD,
+99,3,32.97,False,2026-03-07,JD,
+99,3,32.97,False,2026-03-11,JD,
+99,3,32.97,False,2026-03-14,JD,
+99,3,32.97,False,2026-03-17,JD,
+99,3,32.97,False,2026-03-26,JD,
+99,3,32.97,True,2026-03-30,JD,
+100,2,76.0,False,2026-01-21,Facebook Marketplace,
+100,2,76.0,False,2026-01-26,Facebook Marketplace,101
+100,2,76.0,False,2026-03-01,Facebook Marketplace,
+100,3,114.0,False,2026-03-08,Facebook Marketplace,
+100,2,76.0,False,2026-03-17,Facebook Marketplace,101
+100,3,114.0,False,2026-04-01,Facebook Marketplace,
+101,3,50.97,False,2026-01-20,Taobao,
+101,3,50.97,False,2026-01-25,Taobao,
+101,3,50.97,False,2026-01-27,Taobao,
+101,3,50.97,False,2026-02-01,Taobao,
+101,3,50.97,False,2026-02-13,Taobao,
+101,3,50.97,False,2026-02-18,Taobao,
+101,3,50.97,False,2026-02-19,Taobao,
+101,2,33.98,False,2026-02-23,Taobao,
+101,3,50.97,False,2026-02-27,Taobao,
+101,3,50.97,False,2026-03-13,Taobao,
+102,3,99.0,False,2026-01-16,Shopee,
+102,3,99.0,False,2026-01-18,Shopee,
+102,3,99.0,False,2026-02-01,Shopee,
+102,3,99.0,False,2026-02-06,Shopee,
+102,3,99.0,True,2026-02-28,Shopee,
+102,3,99.0,False,2026-03-21,Shopee,
+102,2,66.0,False,2026-03-27,Shopee,
+102,3,99.0,False,2026-03-29,Shopee,
+103,3,72.0,False,2026-01-18,Facebook Marketplace,104
+103,3,72.0,False,2026-01-28,Facebook Marketplace,
+103,3,72.0,False,2026-02-04,Facebook Marketplace,
+103,3,72.0,False,2026-02-08,Facebook Marketplace,
+103,3,72.0,False,2026-02-27,Facebook Marketplace,
+103,3,72.0,False,2026-03-22,Facebook Marketplace,
+103,3,72.0,False,2026-03-27,Facebook Marketplace,
+103,3,72.0,False,2026-03-28,Facebook Marketplace,
+103,3,72.0,False,2026-03-30,Facebook Marketplace,
+103,3,72.0,False,2026-04-06,Facebook Marketplace,
+104,3,96.0,False,2026-01-15,Taobao,
+104,3,96.0,False,2026-01-20,Taobao,
+104,3,96.0,False,2026-02-01,Taobao,
+104,3,96.0,False,2026-02-05,Taobao,
+104,3,96.0,False,2026-02-11,Taobao,
+104,3,96.0,False,2026-03-04,Taobao,
+104,3,96.0,False,2026-03-17,Taobao,
+104,3,96.0,True,2026-04-04,Taobao,
+105,3,117.0,False,2026-01-09,Shopee,
+105,3,117.0,False,2026-01-24,Shopee,
+105,3,117.0,False,2026-02-22,Shopee,106
+105,3,117.0,True,2026-02-25,Shopee,106
+105,3,117.0,False,2026-02-28,Shopee,
+105,3,117.0,False,2026-03-02,Shopee,
+105,3,117.0,False,2026-03-09,Shopee,
+105,3,117.0,False,2026-04-01,Shopee,
+106,3,66.0,False,2026-01-18,Facebook Marketplace,
+106,3,66.0,False,2026-01-20,Facebook Marketplace,107
+106,3,66.0,False,2026-01-22,Facebook Marketplace,
+106,3,66.0,False,2026-01-24,Facebook Marketplace,
+106,3,66.0,False,2026-01-27,Facebook Marketplace,
+106,3,66.0,False,2026-02-01,Facebook Marketplace,107
+106,3,66.0,False,2026-02-11,Facebook Marketplace,
+106,2,44.0,False,2026-02-14,Facebook Marketplace,
+106,3,66.0,False,2026-03-13,Facebook Marketplace,
+107,3,87.0,False,2026-01-10,Shopee,
+107,3,87.0,False,2026-01-10,Shopee,
+107,3,87.0,False,2026-01-24,Shopee,
+107,3,87.0,False,2026-02-05,Shopee,
+107,3,87.0,False,2026-02-18,Shopee,
+107,3,87.0,False,2026-02-20,Shopee,
+107,3,87.0,True,2026-04-07,Shopee,
+108,3,117.0,False,2026-01-24,JD,
+108,3,117.0,False,2026-01-25,JD,
+108,3,117.0,False,2026-01-26,JD,
+108,3,117.0,False,2026-01-27,JD,
+108,3,117.0,False,2026-01-30,JD,
+108,3,117.0,False,2026-02-18,JD,
+108,3,117.0,False,2026-03-02,JD,109
+108,3,117.0,False,2026-03-08,JD,109
+108,3,117.0,False,2026-03-24,JD,
+108,3,117.0,False,2026-03-24,JD,
+109,3,66.0,False,2026-01-17,Taobao,
+109,3,66.0,False,2026-02-08,Taobao,
+109,3,66.0,False,2026-02-12,Taobao,
+109,3,66.0,False,2026-03-18,Taobao,
+109,3,66.0,False,2026-03-23,Taobao,110
+110,3,102.0,False,2026-01-31,Taobao,
+110,3,102.0,True,2026-02-11,Taobao,
+110,3,102.0,False,2026-02-20,Taobao,
+110,3,102.0,False,2026-02-22,Taobao,
+110,3,102.0,False,2026-02-28,Taobao,
+110,3,102.0,False,2026-03-07,Taobao,
+110,3,102.0,False,2026-03-17,Taobao,
+110,3,102.0,False,2026-03-19,Taobao,
+110,3,102.0,False,2026-04-05,Taobao,
+110,3,102.0,True,2026-04-05,Taobao,
+111,3,129.0,False,2026-01-21,Shopee,
+111,1,43.0,False,2026-02-20,Shopee,
+111,3,129.0,False,2026-03-26,Shopee,112
+112,3,54.0,False,2026-02-03,Facebook Marketplace,
+112,3,54.0,False,2026-03-10,Facebook Marketplace,
+112,3,54.0,False,2026-03-11,Facebook Marketplace,
+112,3,54.0,False,2026-03-15,Facebook Marketplace,
+112,3,54.0,False,2026-03-19,Facebook Marketplace,
+112,2,36.0,False,2026-04-08,Facebook Marketplace,113
+113,3,26.97,False,2026-01-09,Facebook Marketplace,
+113,3,26.97,False,2026-01-18,Facebook Marketplace,
+113,3,26.97,False,2026-02-01,Facebook Marketplace,
+113,3,26.97,False,2026-02-21,Facebook Marketplace,
+113,3,26.97,False,2026-02-24,Facebook Marketplace,114
+113,3,26.97,False,2026-03-02,Facebook Marketplace,
+113,3,26.97,False,2026-03-19,Facebook Marketplace,
+113,3,26.97,False,2026-03-22,Facebook Marketplace,114
+113,3,26.97,False,2026-04-01,Facebook Marketplace,
+113,3,26.97,False,2026-04-06,Facebook Marketplace,
+114,3,24.0,False,2026-01-16,Temu,
+114,3,24.0,False,2026-02-02,Temu,
+114,3,24.0,False,2026-02-07,Temu,
+114,3,24.0,False,2026-02-08,Temu,
+114,3,24.0,False,2026-02-21,Temu,
+114,3,24.0,False,2026-02-23,Temu,
+114,3,24.0,False,2026-02-25,Temu,
+114,3,24.0,False,2026-03-05,Temu,
+114,3,24.0,False,2026-03-28,Temu,115
+115,3,26.97,False,2026-01-12,Shopee,
+115,3,26.97,False,2026-01-12,Shopee,
+115,3,26.97,False,2026-01-13,Shopee,
+115,3,26.97,False,2026-02-05,Shopee,
+115,3,26.97,False,2026-02-11,Shopee,
+115,3,26.97,False,2026-02-21,Shopee,
+115,3,26.97,False,2026-02-21,Shopee,
+115,3,26.97,False,2026-02-22,Shopee,116
+115,3,26.97,False,2026-03-19,Shopee,
+115,3,26.97,False,2026-03-25,Shopee,
+115,3,26.97,False,2026-03-27,Shopee,
+115,3,26.97,False,2026-03-29,Shopee,
+116,3,26.97,False,2026-01-13,JD,
+116,3,26.97,False,2026-01-18,JD,
+116,3,26.97,False,2026-01-19,JD,
+116,3,26.97,False,2026-01-28,JD,
+116,3,26.97,False,2026-02-05,JD,
+116,3,26.97,False,2026-02-06,JD,
+116,3,26.97,False,2026-02-26,JD,
+116,3,26.97,False,2026-02-26,JD,
+116,3,26.97,False,2026-03-14,JD,
+116,3,26.97,False,2026-03-22,JD,
+116,3,26.97,False,2026-03-24,JD,
+116,3,26.97,False,2026-04-02,JD,
+116,3,26.97,False,2026-04-03,JD,
+117,3,26.97,False,2026-01-14,Facebook Marketplace,
+117,3,26.97,False,2026-01-27,Facebook Marketplace,
+117,3,26.97,False,2026-01-31,Facebook Marketplace,
+117,3,26.97,False,2026-02-04,Facebook Marketplace,
+117,3,26.97,False,2026-02-13,Facebook Marketplace,
+117,3,26.97,False,2026-02-18,Facebook Marketplace,
+117,3,26.97,True,2026-02-19,Facebook Marketplace,
+117,3,26.97,False,2026-02-27,Facebook Marketplace,
+117,3,26.97,False,2026-03-05,Facebook Marketplace,118
+117,3,26.97,False,2026-03-16,Facebook Marketplace,
+117,3,26.97,False,2026-03-23,Facebook Marketplace,
+117,3,26.97,False,2026-03-28,Facebook Marketplace,
+118,3,30.0,False,2026-02-08,Shopee,
+118,3,30.0,False,2026-02-11,Shopee,
+118,3,30.0,False,2026-02-26,Shopee,
+118,3,30.0,False,2026-03-03,Shopee,
+118,3,30.0,False,2026-03-24,Shopee,
+118,3,30.0,False,2026-03-28,Shopee,
+118,3,30.0,False,2026-03-30,Shopee,
+118,3,30.0,False,2026-04-07,Shopee,
+119,3,29.97,False,2026-01-11,Temu,120
+119,3,29.97,False,2026-01-13,Temu,
+119,3,29.97,False,2026-01-14,Temu,
+119,3,29.97,False,2026-01-22,Temu,
+119,3,29.97,False,2026-02-28,Temu,
+119,3,29.97,False,2026-03-12,Temu,
+119,3,29.97,False,2026-03-14,Temu,120
+119,3,29.97,False,2026-03-17,Temu,
+120,3,32.97,False,2026-01-18,JD,
+120,3,32.97,False,2026-01-19,JD,
+120,3,32.97,True,2026-01-22,JD,
+120,3,32.97,False,2026-02-19,JD,
+120,3,32.97,False,2026-02-26,JD,
+120,3,32.97,True,2026-03-04,JD,
+120,3,32.97,False,2026-03-09,JD,
+120,3,32.97,False,2026-03-11,JD,
+120,3,32.97,False,2026-03-15,JD,
+120,3,32.97,False,2026-03-21,JD,
+120,3,32.97,False,2026-04-08,JD,
+121,3,33.0,False,2026-01-24,Shopee,
+121,3,33.0,False,2026-02-08,Shopee,
+121,3,33.0,False,2026-02-16,Shopee,122
+121,3,33.0,False,2026-02-19,Shopee,
+121,3,33.0,False,2026-03-04,Shopee,
+121,3,33.0,False,2026-03-06,Shopee,
+121,3,33.0,False,2026-03-10,Shopee,
+121,3,33.0,False,2026-03-14,Shopee,
+121,3,33.0,False,2026-03-15,Shopee,
+121,3,33.0,False,2026-04-04,Shopee,
+122,3,32.97,False,2026-01-14,Facebook Marketplace,
+122,3,32.97,False,2026-01-19,Facebook Marketplace,
+122,3,32.97,False,2026-01-31,Facebook Marketplace,
+122,3,32.97,False,2026-01-31,Facebook Marketplace,
+122,3,32.97,False,2026-02-03,Facebook Marketplace,
+122,3,32.97,False,2026-02-13,Facebook Marketplace,
+122,3,32.97,False,2026-03-02,Facebook Marketplace,
+122,3,32.97,False,2026-03-06,Facebook Marketplace,
+122,3,32.97,False,2026-03-14,Facebook Marketplace,
+122,3,32.97,False,2026-03-27,Facebook Marketplace,
+122,3,32.97,False,2026-03-31,Facebook Marketplace,
+122,3,32.97,False,2026-04-07,Facebook Marketplace,
+123,3,29.97,False,2026-03-01,Shopee,
+123,3,29.97,False,2026-03-05,Shopee,
+123,3,29.97,False,2026-03-06,Shopee,
+123,3,29.97,False,2026-03-08,Shopee,
+123,3,29.97,False,2026-03-23,Shopee,
+123,3,29.97,False,2026-03-25,Shopee,
+123,3,29.97,False,2026-03-28,Shopee,
+123,3,29.97,False,2026-04-07,Shopee,
+124,3,44.97,False,2026-01-13,Temu,
+124,3,44.97,False,2026-01-28,Temu,125
+124,3,44.97,False,2026-02-11,Temu,
+124,3,44.97,False,2026-02-14,Temu,125
+124,3,44.97,False,2026-02-17,Temu,
+124,3,44.97,False,2026-02-27,Temu,
+124,3,44.97,False,2026-03-03,Temu,
+124,3,44.97,False,2026-03-04,Temu,
+124,3,44.97,False,2026-03-11,Temu,
+124,3,44.97,False,2026-04-05,Temu,
+125,3,30.0,False,2026-01-11,JD,
+125,3,30.0,False,2026-01-19,JD,126
+125,3,30.0,False,2026-02-16,JD,
+125,3,30.0,False,2026-02-21,JD,
+125,3,30.0,False,2026-02-26,JD,
+125,3,30.0,False,2026-03-01,JD,
+125,3,30.0,False,2026-03-04,JD,
+125,3,30.0,False,2026-03-15,JD,
+125,3,30.0,False,2026-03-31,JD,126
+126,3,114.0,False,2026-02-08,Shopee,
+126,3,114.0,False,2026-02-14,Shopee,
+126,3,114.0,False,2026-02-26,Shopee,
+126,3,114.0,False,2026-03-12,Shopee,
+126,3,114.0,False,2026-03-21,Shopee,
+127,3,84.0,False,2026-01-23,JD,
+127,3,84.0,True,2026-02-20,JD,128
+127,3,84.0,False,2026-03-09,JD,
+127,3,84.0,False,2026-03-14,JD,
+127,3,84.0,False,2026-03-27,JD,
+127,3,84.0,False,2026-04-01,JD,
+128,2,50.0,False,2026-02-07,Temu,
+128,3,75.0,False,2026-02-10,Temu,
+128,3,75.0,False,2026-02-15,Temu,
+128,3,75.0,False,2026-02-27,Temu,
+128,3,75.0,False,2026-03-27,Temu,
+128,3,75.0,False,2026-03-31,Temu,
+129,3,78.0,False,2026-01-09,Temu,
+129,3,78.0,False,2026-02-10,Temu,
+129,3,78.0,False,2026-02-12,Temu,
+129,3,78.0,False,2026-03-02,Temu,
+129,3,78.0,False,2026-03-08,Temu,
+129,3,78.0,True,2026-03-13,Temu,
+129,3,78.0,False,2026-03-26,Temu,
+129,3,78.0,False,2026-03-28,Temu,
+129,3,78.0,False,2026-03-31,Temu,
+130,3,96.0,False,2026-02-09,Taobao,
+130,2,64.0,False,2026-02-27,Taobao,
+130,3,96.0,False,2026-03-12,Taobao,
+130,3,96.0,False,2026-04-03,Taobao,
+130,3,96.0,False,2026-04-07,Taobao,
+131,2,64.0,False,2026-01-11,Shopee,
+131,2,64.0,False,2026-02-15,Shopee,
+131,3,96.0,False,2026-02-21,Shopee,
+131,3,96.0,False,2026-03-01,Shopee,
+131,3,96.0,False,2026-03-05,Shopee,
+131,3,96.0,False,2026-03-08,Shopee,
+131,3,96.0,False,2026-03-17,Shopee,
+131,3,96.0,False,2026-03-23,Shopee,132
+131,2,64.0,False,2026-04-07,Shopee,
+132,3,147.0,False,2026-01-09,JD,
+132,1,49.0,False,2026-01-11,JD,
+132,3,147.0,False,2026-01-21,JD,
+132,3,147.0,False,2026-02-26,JD,133
+132,3,147.0,False,2026-03-01,JD,
+132,1,49.0,False,2026-03-03,JD,
+133,3,96.0,False,2026-01-25,Shopee,
+133,3,96.0,False,2026-02-19,Shopee,
+133,3,96.0,False,2026-02-24,Shopee,134
+133,3,96.0,False,2026-03-19,Shopee,
+133,3,96.0,False,2026-03-28,Shopee,
+133,3,96.0,False,2026-04-03,Shopee,
+133,3,96.0,False,2026-04-04,Shopee,
+134,3,81.0,False,2026-01-11,Shopee,
+134,3,81.0,False,2026-01-27,Shopee,
+134,3,81.0,False,2026-02-03,Shopee,
+134,3,81.0,False,2026-02-06,Shopee,
+134,3,81.0,False,2026-02-23,Shopee,
+134,3,81.0,False,2026-04-06,Shopee,
+135,3,48.0,False,2026-01-20,Temu,
+135,3,48.0,False,2026-01-22,Temu,
+135,3,48.0,False,2026-02-06,Temu,
+135,3,48.0,False,2026-02-24,Temu,
+135,3,48.0,False,2026-03-16,Temu,136
+135,3,48.0,False,2026-03-26,Temu,
+135,3,48.0,False,2026-03-27,Temu,
+136,3,57.0,False,2026-01-20,Shopee,
+136,3,57.0,False,2026-01-31,Shopee,
+136,3,57.0,False,2026-02-20,Shopee,
+136,3,57.0,False,2026-02-23,Shopee,
+136,3,57.0,False,2026-03-13,Shopee,
+136,3,57.0,False,2026-03-18,Shopee,
+136,3,57.0,True,2026-03-28,Shopee,
+137,3,56.97,False,2026-01-22,Taobao,
+137,3,56.97,False,2026-02-07,Taobao,138
+137,3,56.97,False,2026-02-18,Taobao,
+137,3,56.97,True,2026-02-22,Taobao,
+137,2,37.98,False,2026-03-10,Taobao,
+137,3,56.97,False,2026-03-18,Taobao,
+137,3,56.97,False,2026-03-27,Taobao,
+137,2,37.98,False,2026-04-01,Taobao,
+137,3,56.97,False,2026-04-08,Taobao,
+138,3,38.97,True,2026-01-12,Temu,
+138,3,38.97,False,2026-01-28,Temu,
+138,3,38.97,False,2026-01-31,Temu,
+138,3,38.97,False,2026-01-31,Temu,
+138,3,38.97,False,2026-02-25,Temu,
+138,3,38.97,False,2026-03-06,Temu,
+138,3,38.97,False,2026-03-06,Temu,
+138,3,38.97,False,2026-03-14,Temu,
+138,3,38.97,False,2026-03-23,Temu,
+138,3,38.97,False,2026-03-26,Temu,
+139,3,33.0,False,2026-01-27,JD,
+139,3,33.0,False,2026-01-28,JD,
+139,3,33.0,False,2026-02-09,JD,
+139,3,33.0,True,2026-02-11,JD,
+139,3,33.0,False,2026-03-04,JD,
+139,3,33.0,False,2026-03-26,JD,
+139,3,33.0,False,2026-03-29,JD,140
+139,3,33.0,False,2026-04-04,JD,
+140,3,18.0,False,2026-01-12,Taobao,
+140,3,18.0,False,2026-01-17,Taobao,
+140,3,18.0,False,2026-01-28,Taobao,
+140,3,18.0,False,2026-02-01,Taobao,141
+140,3,18.0,False,2026-02-02,Taobao,
+140,3,18.0,True,2026-02-06,Taobao,
+140,3,18.0,False,2026-02-15,Taobao,
+140,3,18.0,False,2026-02-20,Taobao,
+140,3,18.0,False,2026-02-26,Taobao,
+140,3,18.0,True,2026-03-06,Taobao,
+140,3,18.0,False,2026-03-06,Taobao,
+140,3,18.0,False,2026-03-14,Taobao,
+140,3,18.0,False,2026-03-30,Taobao,
+140,3,18.0,False,2026-04-03,Taobao,
+141,3,45.0,False,2026-01-12,JD,
+141,3,45.0,False,2026-02-01,JD,
+141,3,45.0,False,2026-02-04,JD,
+141,3,45.0,False,2026-02-27,JD,
+141,3,45.0,False,2026-03-06,JD,
+141,3,45.0,False,2026-03-22,JD,
+141,3,45.0,False,2026-04-04,JD,142
+141,2,30.0,False,2026-04-07,JD,
+142,3,51.0,False,2026-01-11,Facebook Marketplace,
+142,3,51.0,False,2026-01-19,Facebook Marketplace,
+142,3,51.0,False,2026-02-03,Facebook Marketplace,143
+142,3,51.0,False,2026-02-15,Facebook Marketplace,143
+142,3,51.0,False,2026-02-19,Facebook Marketplace,
+142,3,51.0,False,2026-02-23,Facebook Marketplace,
+142,3,51.0,False,2026-03-13,Facebook Marketplace,
+142,2,34.0,False,2026-03-27,Facebook Marketplace,
+142,2,34.0,False,2026-03-29,Facebook Marketplace,143
+142,3,51.0,False,2026-03-31,Facebook Marketplace,
+143,3,29.97,False,2026-01-18,Temu,
+143,3,29.97,False,2026-01-24,Temu,
+143,3,29.97,False,2026-02-01,Temu,
+143,3,29.97,False,2026-02-02,Temu,
+143,3,29.97,False,2026-02-02,Temu,
+143,3,29.97,False,2026-02-19,Temu,
+143,3,29.97,False,2026-03-19,Temu,
+143,3,29.97,False,2026-03-23,Temu,
+143,3,29.97,False,2026-04-08,Temu,
+143,3,29.97,False,2026-04-08,Temu,
+144,3,21.0,False,2026-01-16,Facebook Marketplace,
+144,3,21.0,False,2026-01-17,Facebook Marketplace,
+144,3,21.0,False,2026-01-22,Facebook Marketplace,
+144,3,21.0,False,2026-02-15,Facebook Marketplace,
+144,3,21.0,False,2026-02-19,Facebook Marketplace,
+144,3,21.0,False,2026-02-23,Facebook Marketplace,
+144,3,21.0,False,2026-03-11,Facebook Marketplace,
+144,3,21.0,True,2026-03-12,Facebook Marketplace,
+144,3,21.0,False,2026-03-27,Facebook Marketplace,
+144,3,21.0,False,2026-04-04,Facebook Marketplace,
+145,3,105.0,False,2026-01-27,Taobao,
+145,3,105.0,False,2026-01-29,Taobao,
+145,3,105.0,False,2026-02-26,Taobao,
+145,3,105.0,False,2026-03-07,Taobao,
+145,3,105.0,False,2026-03-09,Taobao,
+145,3,105.0,False,2026-03-21,Taobao,
+145,2,70.0,False,2026-03-30,Taobao,
+146,3,32.97,False,2026-01-24,Facebook Marketplace,
+146,3,32.97,False,2026-01-29,Facebook Marketplace,
+146,3,32.97,False,2026-02-03,Facebook Marketplace,147
+146,3,32.97,False,2026-02-03,Facebook Marketplace,
+146,3,32.97,False,2026-02-10,Facebook Marketplace,
+146,3,32.97,False,2026-02-11,Facebook Marketplace,
+146,3,32.97,False,2026-02-19,Facebook Marketplace,
+146,3,32.97,False,2026-02-20,Facebook Marketplace,
+146,3,32.97,False,2026-02-27,Facebook Marketplace,
+146,3,32.97,False,2026-02-28,Facebook Marketplace,147
+146,3,32.97,False,2026-03-15,Facebook Marketplace,
+146,3,32.97,False,2026-03-27,Facebook Marketplace,
+146,3,32.97,False,2026-04-02,Facebook Marketplace,
+147,3,78.0,False,2026-01-12,JD,
+147,2,52.0,False,2026-02-03,JD,148
+147,3,78.0,False,2026-02-12,JD,
+147,3,78.0,False,2026-02-12,JD,
+147,3,78.0,False,2026-02-14,JD,
+147,3,78.0,False,2026-03-11,JD,
+147,3,78.0,False,2026-04-04,JD,
+148,3,96.0,False,2026-01-11,Facebook Marketplace,
+148,3,96.0,False,2026-01-12,Facebook Marketplace,
+148,3,96.0,False,2026-01-12,Facebook Marketplace,
+148,2,64.0,False,2026-01-24,Facebook Marketplace,
+148,3,96.0,False,2026-02-04,Facebook Marketplace,
+148,3,96.0,False,2026-02-15,Facebook Marketplace,
+149,2,68.0,False,2026-01-21,Taobao,
+149,3,102.0,True,2026-01-23,Taobao,
+149,3,102.0,False,2026-01-25,Taobao,
+149,3,102.0,True,2026-01-26,Taobao,
+149,3,102.0,False,2026-01-30,Taobao,150
+149,3,102.0,False,2026-02-07,Taobao,
+149,3,102.0,False,2026-03-06,Taobao,
+149,3,102.0,True,2026-04-08,Taobao,150
+150,3,47.97,True,2026-01-14,Taobao,
+150,3,47.97,False,2026-01-16,Taobao,
+150,3,47.97,False,2026-02-06,Taobao,
+150,3,47.97,False,2026-02-11,Taobao,
+150,3,47.97,False,2026-02-19,Taobao,
+150,3,47.97,False,2026-03-02,Taobao,
+150,2,31.98,False,2026-03-05,Taobao,
+151,3,47.97,False,2026-02-12,Temu,
+151,3,47.97,False,2026-02-28,Temu,
+151,3,47.97,False,2026-03-08,Temu,152
+151,3,47.97,False,2026-03-11,Temu,
+151,3,47.97,False,2026-03-18,Temu,
+151,3,47.97,False,2026-03-22,Temu,
+152,3,45.0,False,2026-01-19,Taobao,
+152,3,45.0,True,2026-01-21,Taobao,
+152,3,45.0,False,2026-02-07,Taobao,
+152,3,45.0,False,2026-03-02,Taobao,153
+152,3,45.0,False,2026-03-06,Taobao,
+152,3,45.0,False,2026-03-06,Taobao,
+153,3,41.97,False,2026-01-10,JD,
+153,3,41.97,False,2026-01-11,JD,
+153,3,41.97,False,2026-01-28,JD,
+153,3,41.97,False,2026-01-30,JD,
+153,3,41.97,False,2026-01-31,JD,
+153,3,41.97,False,2026-02-01,JD,154
+153,3,41.97,False,2026-02-09,JD,
+153,3,41.97,False,2026-02-12,JD,
+153,3,41.97,False,2026-02-19,JD,
+153,3,41.97,False,2026-03-14,JD,
+153,3,41.97,False,2026-03-14,JD,
+153,3,41.97,False,2026-03-15,JD,
+153,3,41.97,False,2026-03-18,JD,
+154,3,75.0,False,2026-01-15,Temu,
+154,3,75.0,False,2026-01-24,Temu,
+154,3,75.0,False,2026-02-14,Temu,
+154,3,75.0,False,2026-02-25,Temu,
+154,3,75.0,False,2026-03-06,Temu,
+154,3,75.0,False,2026-03-16,Temu,
+154,3,75.0,False,2026-03-24,Temu,155
+155,3,69.0,False,2026-01-17,Shopee,156
+155,3,69.0,False,2026-01-19,Shopee,
+155,3,69.0,False,2026-01-29,Shopee,
+155,3,69.0,False,2026-02-09,Shopee,
+155,3,69.0,False,2026-02-16,Shopee,
+155,3,69.0,False,2026-02-20,Shopee,
+155,3,69.0,False,2026-03-11,Shopee,
+155,3,69.0,False,2026-03-29,Shopee,
+155,3,69.0,False,2026-04-03,Shopee,
+156,3,90.0,False,2026-02-08,JD,
+156,3,90.0,True,2026-02-17,JD,157
+156,3,90.0,False,2026-02-19,JD,
+156,3,90.0,False,2026-03-01,JD,157
+156,3,90.0,False,2026-03-03,JD,
+156,3,90.0,False,2026-04-02,JD,
+156,3,90.0,False,2026-04-04,JD,
+157,3,84.0,False,2026-01-14,Temu,
+157,3,84.0,True,2026-02-03,Temu,
+157,3,84.0,False,2026-02-28,Temu,
+157,3,84.0,False,2026-03-05,Temu,
+157,3,84.0,False,2026-03-08,Temu,
+157,3,84.0,False,2026-03-17,Temu,
+157,3,84.0,False,2026-03-25,Temu,
+157,2,56.0,False,2026-03-28,Temu,
+157,3,84.0,False,2026-03-28,Temu,158
+158,3,69.0,False,2026-01-17,Shopee,
+158,3,69.0,False,2026-01-23,Shopee,
+158,3,69.0,False,2026-01-31,Shopee,
+158,3,69.0,False,2026-02-12,Shopee,
+158,3,69.0,False,2026-02-21,Shopee,
+158,2,46.0,False,2026-03-07,Shopee,
+159,3,36.0,False,2026-01-16,Shopee,
+159,3,36.0,False,2026-01-22,Shopee,
+159,3,36.0,False,2026-01-26,Shopee,
+159,3,36.0,True,2026-02-11,Shopee,
+159,3,36.0,False,2026-02-16,Shopee,
+159,3,36.0,False,2026-02-26,Shopee,
+159,3,36.0,False,2026-04-04,Shopee,
+159,3,36.0,False,2026-04-08,Shopee,
+160,3,36.0,False,2026-01-09,Shopee,
+160,3,36.0,False,2026-01-23,Shopee,
+160,3,36.0,False,2026-01-24,Shopee,
+160,3,36.0,True,2026-02-09,Shopee,
+160,3,36.0,True,2026-02-10,Shopee,161
+160,3,36.0,False,2026-03-01,Shopee,
+160,3,36.0,False,2026-03-03,Shopee,
+160,3,36.0,False,2026-03-13,Shopee,
+160,3,36.0,False,2026-03-25,Shopee,
+160,3,36.0,False,2026-03-27,Shopee,
+160,3,36.0,False,2026-03-28,Shopee,
+160,3,36.0,False,2026-04-01,Shopee,
+161,3,30.0,False,2026-01-09,Facebook Marketplace,
+161,3,30.0,False,2026-01-11,Facebook Marketplace,
+161,3,30.0,False,2026-01-28,Facebook Marketplace,
+161,3,30.0,False,2026-02-19,Facebook Marketplace,
+161,3,30.0,False,2026-03-03,Facebook Marketplace,
+161,3,30.0,False,2026-03-13,Facebook Marketplace,
+161,3,30.0,False,2026-03-17,Facebook Marketplace,
+161,3,30.0,False,2026-03-20,Facebook Marketplace,
+161,3,30.0,False,2026-03-30,Facebook Marketplace,
+161,3,30.0,False,2026-04-07,Facebook Marketplace,
+162,3,38.97,True,2026-01-11,Shopee,
+162,3,38.97,False,2026-01-29,Shopee,
+162,3,38.97,False,2026-01-31,Shopee,
+162,3,38.97,True,2026-02-02,Shopee,
+162,3,38.97,False,2026-02-07,Shopee,
+162,3,38.97,False,2026-02-13,Shopee,
+162,3,38.97,False,2026-03-23,Shopee,
+162,3,38.97,False,2026-03-30,Shopee,163
+162,3,38.97,True,2026-04-04,Shopee,
+163,3,43.5,False,2026-01-10,Shopee,
+163,3,43.5,False,2026-01-12,Shopee,
+163,3,43.5,False,2026-01-12,Shopee,164
+163,3,43.5,False,2026-01-12,Shopee,
+163,3,43.5,False,2026-01-12,Shopee,
+163,3,43.5,False,2026-01-13,Shopee,
+163,3,43.5,False,2026-01-19,Shopee,
+163,3,43.5,False,2026-01-30,Shopee,
+163,3,43.5,False,2026-02-19,Shopee,
+163,3,43.5,False,2026-03-24,Shopee,
+163,3,43.5,False,2026-03-31,Shopee,
+163,3,43.5,False,2026-04-04,Shopee,
+163,3,43.5,False,2026-04-07,Shopee,
+164,3,26.97,False,2026-01-11,Facebook Marketplace,
+164,3,26.97,False,2026-01-29,Facebook Marketplace,
+164,3,26.97,False,2026-01-30,Facebook Marketplace,
+164,3,26.97,False,2026-02-15,Facebook Marketplace,
+164,3,26.97,False,2026-02-16,Facebook Marketplace,
+164,3,26.97,False,2026-02-17,Facebook Marketplace,
+164,3,26.97,False,2026-03-02,Facebook Marketplace,
+164,3,26.97,False,2026-03-16,Facebook Marketplace,
+164,3,26.97,False,2026-03-23,Facebook Marketplace,
+164,3,26.97,False,2026-03-29,Facebook Marketplace,
+164,3,26.97,True,2026-04-01,Facebook Marketplace,165
+164,3,26.97,False,2026-04-04,Facebook Marketplace,
+164,3,26.97,False,2026-04-04,Facebook Marketplace,
+164,3,26.97,False,2026-04-05,Facebook Marketplace,
+165,3,141.0,False,2026-01-19,Facebook Marketplace,
+165,3,141.0,False,2026-03-14,Facebook Marketplace,
+165,3,141.0,False,2026-03-28,Facebook Marketplace,
+166,3,23.97,False,2026-01-11,Shopee,
+166,3,23.97,False,2026-01-14,Shopee,167
+166,3,23.97,False,2026-01-25,Shopee,
+166,3,23.97,False,2026-02-08,Shopee,
+166,3,23.97,False,2026-02-21,Shopee,
+166,3,23.97,False,2026-02-24,Shopee,
+166,3,23.97,True,2026-02-28,Shopee,
+166,3,23.97,False,2026-03-02,Shopee,
+166,3,23.97,False,2026-03-13,Shopee,
+166,3,23.97,False,2026-03-16,Shopee,
+166,3,23.97,False,2026-03-18,Shopee,
+166,3,23.97,False,2026-03-30,Shopee,
+167,1,99.0,False,2026-01-31,JD,
+167,1,99.0,False,2026-02-02,JD,
+168,2,338.0,False,2026-02-02,Temu,
+168,1,169.0,False,2026-03-17,Temu,
+169,2,72.0,False,2026-01-25,JD,170
+169,3,108.0,False,2026-01-26,JD,
+169,3,108.0,False,2026-01-26,JD,
+169,3,108.0,False,2026-02-22,JD,
+169,3,108.0,False,2026-03-01,JD,
+169,3,108.0,False,2026-03-02,JD,
+169,3,108.0,False,2026-03-26,JD,170
+169,3,108.0,False,2026-04-04,JD,
+170,3,45.0,False,2026-01-10,Facebook Marketplace,
+170,3,45.0,False,2026-01-18,Facebook Marketplace,
+170,3,45.0,False,2026-01-20,Facebook Marketplace,
+170,3,45.0,False,2026-01-29,Facebook Marketplace,
+170,3,45.0,False,2026-03-12,Facebook Marketplace,
+170,3,45.0,False,2026-03-31,Facebook Marketplace,
+171,3,108.0,False,2026-02-08,Temu,
+171,3,108.0,False,2026-02-12,Temu,
+171,3,108.0,False,2026-03-05,Temu,
+171,3,108.0,False,2026-03-18,Temu,
+171,3,108.0,False,2026-03-19,Temu,
+171,3,108.0,False,2026-03-25,Temu,
+171,3,108.0,False,2026-03-27,Temu,172
+171,3,108.0,False,2026-03-29,Temu,
+171,3,108.0,False,2026-04-06,Temu,
+172,2,170.0,False,2026-02-21,Facebook Marketplace,
+172,2,170.0,False,2026-02-25,Facebook Marketplace,
+173,2,170.0,False,2026-01-09,JD,
+173,1,85.0,False,2026-02-02,JD,
+173,2,170.0,False,2026-02-06,JD,
+174,3,93.0,False,2026-01-26,Shopee,
+174,3,93.0,False,2026-01-29,Shopee,
+174,3,93.0,False,2026-02-20,Shopee,
+174,3,93.0,False,2026-02-22,Shopee,
+174,3,93.0,False,2026-03-01,Shopee,
+174,3,93.0,False,2026-03-04,Shopee,
+174,3,93.0,False,2026-03-17,Shopee,
+174,3,93.0,False,2026-03-21,Shopee,
+174,3,93.0,False,2026-03-21,Shopee,
+175,3,87.0,False,2026-02-11,Taobao,
+175,3,87.0,False,2026-02-19,Taobao,
+175,2,58.0,False,2026-02-22,Taobao,
+175,3,87.0,False,2026-02-24,Taobao,
+175,3,87.0,False,2026-03-09,Taobao,
+175,3,87.0,False,2026-03-11,Taobao,
+176,1,88.0,False,2026-03-20,Temu,
+177,2,108.0,False,2026-01-15,Shopee,
+177,2,108.0,False,2026-01-20,Shopee,
+177,3,162.0,False,2026-01-23,Shopee,
+177,2,108.0,False,2026-01-27,Shopee,
+177,1,54.0,False,2026-02-28,Shopee,
+177,1,54.0,False,2026-03-27,Shopee,
+178,3,216.0,False,2026-01-09,Taobao,
+178,3,216.0,False,2026-02-05,Taobao,179
+178,1,72.0,False,2026-04-02,Taobao,
+179,3,33.0,False,2026-01-17,Shopee,
+179,3,33.0,False,2026-02-14,Shopee,
+179,3,33.0,False,2026-02-17,Shopee,
+179,3,33.0,True,2026-02-22,Shopee,180
+179,3,33.0,False,2026-02-25,Shopee,
+179,3,33.0,False,2026-02-25,Shopee,
+179,3,33.0,False,2026-02-25,Shopee,
+179,3,33.0,False,2026-03-04,Shopee,
+179,3,33.0,False,2026-03-06,Shopee,
+179,3,33.0,False,2026-03-07,Shopee,
+179,3,33.0,False,2026-03-22,Shopee,
+179,3,33.0,False,2026-03-25,Shopee,180
+179,3,33.0,False,2026-03-29,Shopee,
+179,3,33.0,False,2026-03-31,Shopee,
+179,3,33.0,False,2026-04-05,Shopee,
+180,3,23.97,True,2026-01-09,Temu,
+180,3,23.97,False,2026-01-14,Temu,
+180,3,23.97,False,2026-01-17,Temu,
+180,3,23.97,False,2026-01-31,Temu,
+180,3,23.97,False,2026-02-09,Temu,
+180,3,23.97,False,2026-02-10,Temu,
+180,3,23.97,False,2026-02-18,Temu,
+180,3,23.97,False,2026-02-18,Temu,
+180,3,23.97,False,2026-03-23,Temu,181
+180,3,23.97,False,2026-03-27,Temu,
+180,3,23.97,False,2026-03-28,Temu,
+180,3,23.97,False,2026-04-04,Temu,
+181,3,26.7,False,2026-01-19,Taobao,
+181,3,26.7,False,2026-01-20,Taobao,
+181,3,26.7,False,2026-01-20,Taobao,
+181,3,26.7,False,2026-02-01,Taobao,
+181,3,26.7,False,2026-02-02,Taobao,
+181,3,26.7,False,2026-02-16,Taobao,
+181,3,26.7,False,2026-02-26,Taobao,182
+181,3,26.7,False,2026-03-01,Taobao,
+181,3,26.7,False,2026-03-10,Taobao,
+181,3,26.7,False,2026-03-22,Taobao,182
+181,3,26.7,False,2026-03-26,Taobao,
+181,3,26.7,False,2026-04-01,Taobao,
+181,3,26.7,False,2026-04-04,Taobao,
+182,3,19.5,False,2026-01-22,Taobao,183
+182,3,19.5,False,2026-01-29,Taobao,183
+182,3,19.5,False,2026-02-04,Taobao,
+182,3,19.5,False,2026-02-05,Taobao,
+182,3,19.5,False,2026-02-07,Taobao,
+182,3,19.5,False,2026-02-23,Taobao,
+182,3,19.5,False,2026-03-02,Taobao,183
+182,3,19.5,False,2026-03-10,Taobao,
+182,3,19.5,False,2026-03-26,Taobao,183
+182,3,19.5,False,2026-03-31,Taobao,
+182,3,19.5,False,2026-04-03,Taobao,
+183,3,60.0,False,2026-01-21,Shopee,
+183,2,40.0,False,2026-01-25,Shopee,184
+183,2,40.0,False,2026-02-04,Shopee,
+183,3,60.0,False,2026-02-09,Shopee,
+183,3,60.0,False,2026-02-18,Shopee,
+183,3,60.0,False,2026-02-28,Shopee,
+183,3,60.0,False,2026-03-02,Shopee,
+183,3,60.0,False,2026-03-03,Shopee,
+183,3,60.0,False,2026-04-01,Shopee,
+184,3,38.97,False,2026-01-09,Facebook Marketplace,
+184,3,38.97,False,2026-01-10,Facebook Marketplace,
+184,3,38.97,False,2026-01-16,Facebook Marketplace,
+184,3,38.97,False,2026-01-22,Facebook Marketplace,
+184,3,38.97,False,2026-02-10,Facebook Marketplace,
+184,3,38.97,False,2026-02-27,Facebook Marketplace,
+184,3,38.97,False,2026-03-10,Facebook Marketplace,
+184,3,38.97,False,2026-03-14,Facebook Marketplace,
+184,3,38.97,False,2026-03-16,Facebook Marketplace,
+184,3,38.97,False,2026-03-18,Facebook Marketplace,
+184,3,38.97,False,2026-03-18,Facebook Marketplace,
+184,3,38.97,False,2026-03-25,Facebook Marketplace,
+184,3,38.97,True,2026-03-31,Facebook Marketplace,
+185,2,58.0,False,2026-01-10,Facebook Marketplace,
+185,3,87.0,False,2026-01-27,Facebook Marketplace,
+185,3,87.0,False,2026-02-07,Facebook Marketplace,
+185,3,87.0,False,2026-02-07,Facebook Marketplace,
+185,3,87.0,False,2026-02-12,Facebook Marketplace,
+185,3,87.0,False,2026-02-17,Facebook Marketplace,
+185,3,87.0,False,2026-02-20,Facebook Marketplace,186
+185,3,87.0,False,2026-03-14,Facebook Marketplace,
+185,3,87.0,False,2026-03-19,Facebook Marketplace,
+185,3,87.0,False,2026-03-29,Facebook Marketplace,
+186,3,126.0,False,2026-01-15,JD,
+186,1,42.0,True,2026-03-15,JD,
+186,2,84.0,False,2026-03-16,JD,
+186,1,42.0,False,2026-03-23,JD,
+187,3,147.0,False,2026-01-11,Temu,
+187,3,147.0,False,2026-01-14,Temu,188
+187,1,49.0,False,2026-01-18,Temu,
+187,3,147.0,False,2026-02-20,Temu,188
+187,1,49.0,False,2026-02-26,Temu,
+187,2,98.0,False,2026-03-06,Temu,188
+187,3,147.0,False,2026-04-07,Temu,
+188,3,87.0,False,2026-01-24,Facebook Marketplace,
+188,3,87.0,False,2026-02-18,Facebook Marketplace,
+188,3,87.0,False,2026-02-20,Facebook Marketplace,189
+188,3,87.0,False,2026-02-24,Facebook Marketplace,189
+188,3,87.0,False,2026-03-08,Facebook Marketplace,
+188,3,87.0,False,2026-03-08,Facebook Marketplace,
+188,3,87.0,False,2026-03-12,Facebook Marketplace,
+188,3,87.0,False,2026-03-15,Facebook Marketplace,
+189,3,105.0,False,2026-01-09,Taobao,
+189,2,70.0,False,2026-01-20,Taobao,
+189,3,105.0,False,2026-01-22,Taobao,
+189,3,105.0,True,2026-01-31,Taobao,
+189,3,105.0,False,2026-02-18,Taobao,
+189,2,70.0,False,2026-02-25,Taobao,
+189,3,105.0,False,2026-03-09,Taobao,
+189,3,105.0,False,2026-03-28,Taobao,
+189,3,105.0,False,2026-04-03,Taobao,
+190,3,48.0,False,2026-01-19,Facebook Marketplace,191
+190,2,32.0,False,2026-01-29,Facebook Marketplace,
+190,3,48.0,False,2026-02-04,Facebook Marketplace,
+190,3,48.0,False,2026-02-20,Facebook Marketplace,
+190,3,48.0,False,2026-02-23,Facebook Marketplace,191
+190,3,48.0,False,2026-02-24,Facebook Marketplace,
+190,3,48.0,False,2026-02-28,Facebook Marketplace,191
+190,2,32.0,False,2026-03-29,Facebook Marketplace,
+191,1,59.0,False,2026-01-13,Taobao,
+191,3,177.0,False,2026-01-25,Taobao,
+191,3,177.0,False,2026-02-05,Taobao,
+191,3,177.0,False,2026-02-22,Taobao,
+191,2,118.0,False,2026-03-04,Taobao,
+192,3,177.0,False,2026-01-22,Temu,
+192,3,177.0,False,2026-02-01,Temu,
+192,2,118.0,False,2026-02-10,Temu,
+192,1,59.0,True,2026-03-08,Temu,
+192,3,177.0,True,2026-03-18,Temu,
+193,3,38.97,False,2026-01-17,Taobao,
+193,3,38.97,False,2026-01-21,Taobao,194
+193,3,38.97,False,2026-01-24,Taobao,
+193,3,38.97,False,2026-01-30,Taobao,
+193,3,38.97,False,2026-02-23,Taobao,
+193,3,38.97,False,2026-03-16,Taobao,
+193,3,38.97,False,2026-03-17,Taobao,
+193,3,38.97,False,2026-03-27,Taobao,194
+193,3,38.97,False,2026-04-01,Taobao,
+193,3,38.97,False,2026-04-03,Taobao,
+194,3,44.97,False,2026-01-18,JD,
+194,3,44.97,False,2026-01-20,JD,
+194,3,44.97,True,2026-02-16,JD,
+194,3,44.97,False,2026-02-26,JD,
+194,3,44.97,False,2026-03-03,JD,
+194,3,44.97,False,2026-03-10,JD,
+194,3,44.97,False,2026-03-26,JD,195
+194,3,44.97,False,2026-03-27,JD,
+194,3,44.97,False,2026-04-06,JD,
+194,3,44.97,False,2026-04-06,JD,
+195,3,44.97,False,2026-01-14,JD,
+195,3,44.97,False,2026-01-21,JD,
+195,3,44.97,False,2026-01-28,JD,
+195,3,44.97,False,2026-03-13,JD,
+195,3,44.97,False,2026-03-15,JD,
+195,3,44.97,False,2026-03-15,JD,
+195,3,44.97,False,2026-03-18,JD,
+195,3,44.97,False,2026-03-26,JD,
+195,3,44.97,False,2026-03-31,JD,
+195,3,44.97,False,2026-04-05,JD,
+195,3,44.97,False,2026-04-05,JD,
+195,3,44.97,False,2026-04-06,JD,
+196,3,102.0,False,2026-01-29,Temu,
+196,3,102.0,False,2026-02-03,Temu,
+196,3,102.0,False,2026-02-09,Temu,
+196,3,102.0,False,2026-03-03,Temu,
+196,2,68.0,True,2026-03-19,Temu,
+196,3,102.0,False,2026-03-24,Temu,
+196,3,102.0,False,2026-04-02,Temu,
+197,3,87.0,False,2026-01-12,JD,
+197,3,87.0,False,2026-01-28,JD,
+197,3,87.0,False,2026-01-31,JD,
+197,3,87.0,False,2026-03-11,JD,
+197,3,87.0,False,2026-04-06,JD,
+198,3,20.97,False,2026-01-20,Temu,
+198,3,20.97,False,2026-02-01,Temu,
+198,3,20.97,False,2026-02-11,Temu,
+198,3,20.97,False,2026-03-05,Temu,
+198,3,20.97,False,2026-03-13,Temu,
+198,3,20.97,True,2026-03-21,Temu,
+198,3,20.97,False,2026-03-21,Temu,
+198,3,20.97,False,2026-03-30,Temu,
+198,3,20.97,False,2026-03-30,Temu,
+198,3,20.97,False,2026-04-04,Temu,
+198,3,20.97,False,2026-04-05,Temu,
+199,3,20.97,False,2026-01-10,Taobao,
+199,3,20.97,False,2026-01-11,Taobao,200
+199,3,20.97,False,2026-01-18,Taobao,
+199,3,20.97,False,2026-01-29,Taobao,
+199,3,20.97,False,2026-01-30,Taobao,
+199,3,20.97,True,2026-02-10,Taobao,
+199,3,20.97,False,2026-03-05,Taobao,
+199,3,20.97,False,2026-03-29,Taobao,
+199,3,20.97,False,2026-04-02,Taobao,
+199,3,20.97,False,2026-04-04,Taobao,
+200,3,108.0,False,2026-02-16,Facebook Marketplace,
+200,3,108.0,False,2026-03-01,Facebook Marketplace,
+200,2,72.0,False,2026-03-05,Facebook Marketplace,
+200,2,72.0,False,2026-03-07,Facebook Marketplace,
+200,3,108.0,False,2026-03-07,Facebook Marketplace,
+200,3,108.0,False,2026-03-13,Facebook Marketplace,
+200,3,108.0,False,2026-03-23,Facebook Marketplace,
+200,3,108.0,False,2026-03-25,Facebook Marketplace,
+200,3,108.0,False,2026-04-04,Facebook Marketplace,
+163,2,29.0,False,2026-01-04,Shopee,1
+163,3,43.5,False,2026-02-04,Shopee,2
+163,3,43.5,False,2026-04-11,Shopee,3
+163,3,43.5,False,2026-01-12,Shopee,4
+163,3,43.5,False,2026-01-05,Shopee,5
+163,2,29.0,False,2026-01-28,Shopee,6
+163,3,43.5,False,2026-03-22,Shopee,7
+163,3,43.5,False,2026-01-26,Shopee,8
+163,3,43.5,False,2026-02-26,Shopee,9
+163,3,43.5,False,2026-03-20,Shopee,10
+163,1,14.5,False,2026-04-14,Shopee,11
+163,3,43.5,False,2026-04-06,Shopee,12
+163,3,43.5,False,2026-02-08,Shopee,13
+163,3,43.5,False,2026-04-14,Shopee,14
+163,2,29.0,False,2026-01-12,Shopee,15
+163,2,29.0,False,2026-02-18,Shopee,16
+163,3,43.5,False,2026-02-06,Shopee,17
+163,1,14.5,False,2026-04-10,Shopee,18
+163,3,43.5,False,2026-01-16,Shopee,19
+163,2,29.0,False,2026-03-15,Shopee,20
+163,3,43.5,False,2026-04-27,Shopee,21
+163,3,43.5,False,2026-01-25,Shopee,22
+163,2,29.0,False,2026-01-06,Shopee,23
+163,3,43.5,False,2026-04-15,Shopee,24
+163,2,29.0,False,2026-04-26,Shopee,25
+163,2,29.0,False,2026-02-21,Shopee,26
+163,3,43.5,False,2026-03-26,Shopee,27
+163,3,43.5,False,2026-02-20,Shopee,28
+163,3,43.5,False,2026-04-02,Shopee,29
+163,2,29.0,False,2026-03-22,Shopee,30
+163,3,43.5,False,2026-03-13,Shopee,31
+163,3,43.5,False,2026-01-21,Shopee,32
+163,3,43.5,False,2026-02-07,Shopee,33
+163,3,43.5,False,2026-02-01,Shopee,34
+163,3,43.5,False,2026-04-24,Shopee,35
+163,1,14.5,False,2026-02-02,Shopee,36
+163,3,43.5,False,2026-02-24,Shopee,37
+163,2,29.0,False,2026-01-28,Shopee,38
+163,3,43.5,False,2026-01-28,Shopee,39
+163,3,43.5,False,2026-02-23,Shopee,40
+163,3,43.5,False,2026-01-19,Shopee,41
+163,3,43.5,False,2026-02-04,Shopee,42
+163,3,43.5,False,2026-03-13,Shopee,43
+163,3,43.5,False,2026-02-27,Shopee,44
+163,3,43.5,False,2026-02-19,Shopee,45
+163,3,43.5,False,2026-03-10,Shopee,46
+163,2,29.0,False,2026-04-13,Shopee,47
+163,2,29.0,False,2026-01-20,Shopee,48
+163,3,43.5,False,2026-04-18,Shopee,49
+163,3,43.5,False,2026-03-21,Shopee,50
+163,3,43.5,False,2026-02-21,Shopee,51
+163,3,43.5,False,2026-03-12,Shopee,52
+163,3,43.5,False,2026-04-27,Shopee,53
+163,2,29.0,False,2026-04-04,Shopee,54
+163,3,43.5,False,2026-04-15,Shopee,55
+163,3,43.5,False,2026-01-15,Shopee,56
+163,3,43.5,False,2026-01-21,Shopee,57
+163,1,14.5,False,2026-04-09,Shopee,58
+163,3,43.5,False,2026-03-09,Shopee,59
+163,3,43.5,False,2026-03-09,Shopee,60
+163,3,43.5,False,2026-04-24,Shopee,61
+163,3,43.5,False,2026-03-22,Shopee,62
+163,3,43.5,False,2026-02-20,Shopee,63
+163,3,43.5,False,2026-03-14,Shopee,64
+163,3,43.5,False,2026-01-01,Shopee,65
+163,3,43.5,False,2026-03-07,Shopee,66
+163,2,29.0,False,2026-02-19,Shopee,67
+163,3,43.5,False,2026-02-03,Shopee,68
+163,3,43.5,False,2026-03-17,Shopee,69
+163,2,29.0,False,2026-04-10,Shopee,70
+163,2,29.0,False,2026-04-14,Shopee,71
+163,3,43.5,False,2026-01-17,Shopee,72
+163,3,43.5,False,2026-03-15,Shopee,73
+163,3,43.5,False,2026-03-12,Shopee,74
+163,3,43.5,False,2026-01-28,Shopee,75
+163,3,43.5,False,2026-04-08,Shopee,76
+163,3,43.5,False,2026-04-02,Shopee,77
+163,3,43.5,False,2026-03-01,Shopee,78
+163,3,43.5,False,2026-01-16,Shopee,79
+163,3,43.5,False,2026-01-09,Shopee,80
+163,1,14.5,False,2026-03-20,Shopee,81
+163,3,43.5,False,2026-03-20,Shopee,82
+163,1,14.5,False,2026-01-10,Shopee,83
+163,1,14.5,False,2026-02-02,Shopee,84
+163,1,14.5,False,2026-04-27,Shopee,85
+163,2,29.0,False,2026-03-10,Shopee,86
+163,3,43.5,False,2026-04-02,Shopee,87
+163,3,43.5,False,2026-03-14,Shopee,88
+163,3,43.5,False,2026-03-18,Shopee,89
+163,3,43.5,False,2026-04-17,Shopee,90
+163,3,43.5,False,2026-01-25,Shopee,91
+163,2,29.0,False,2026-04-01,Shopee,92
+163,3,43.5,False,2026-02-27,Shopee,93
+163,3,43.5,False,2026-04-27,Shopee,94
+163,1,14.5,False,2026-04-03,Shopee,95
+163,2,29.0,False,2026-01-08,Shopee,96
+163,3,43.5,False,2026-04-19,Shopee,97
+163,3,43.5,False,2026-01-25,Shopee,98
+163,3,43.5,False,2026-03-02,Shopee,99
+163,3,43.5,False,2026-01-24,Shopee,100
+163,3,43.5,False,2026-02-04,Shopee,101
+163,3,43.5,False,2026-04-20,Shopee,102
+163,2,29.0,False,2026-01-07,Shopee,103
+163,3,43.5,False,2026-04-24,Shopee,104
+163,2,29.0,False,2026-04-13,Shopee,105
+163,3,43.5,False,2026-02-25,Shopee,106
+163,3,43.5,False,2026-01-28,Shopee,107
+163,1,14.5,False,2026-01-22,Shopee,108
+163,1,14.5,False,2026-02-22,Shopee,109
+163,3,43.5,False,2026-02-09,Shopee,110
+163,3,43.5,False,2026-04-01,Shopee,111
+163,3,43.5,False,2026-01-20,Shopee,112
+163,3,43.5,False,2026-01-28,Shopee,113
+163,3,43.5,False,2026-04-11,Shopee,114
+163,1,14.5,False,2026-04-12,Shopee,115
+163,1,14.5,False,2026-01-07,Shopee,116
+163,3,43.5,False,2026-03-09,Shopee,117
+163,3,43.5,False,2026-01-08,Shopee,118
+163,2,29.0,False,2026-04-25,Shopee,119
+163,2,29.0,False,2026-03-21,Shopee,120
+163,3,43.5,False,2026-02-24,Shopee,121
+163,3,43.5,False,2026-02-04,Shopee,122
+163,3,43.5,False,2026-01-06,Shopee,123
+163,2,29.0,False,2026-02-26,Shopee,124
+163,3,43.5,False,2026-03-17,Shopee,125
+163,3,43.5,False,2026-02-06,Shopee,126
+163,3,43.5,False,2026-02-03,Shopee,127
+163,3,43.5,False,2026-01-17,Shopee,128
+163,3,43.5,False,2026-03-03,Shopee,129
+163,2,29.0,False,2026-01-02,Shopee,130
+163,3,43.5,False,2026-03-17,Shopee,131
+163,2,29.0,False,2026-03-13,Shopee,132
+163,3,43.5,False,2026-02-06,Shopee,133
+163,3,43.5,False,2026-01-09,Shopee,134
+163,3,43.5,False,2026-02-09,Shopee,135
+163,3,43.5,False,2026-04-23,Shopee,136
+163,3,43.5,False,2026-03-23,Shopee,137
+163,3,43.5,False,2026-01-02,Shopee,138
+163,3,43.5,False,2026-02-11,Shopee,139
+163,2,29.0,False,2026-01-18,Shopee,140
+163,2,29.0,False,2026-01-14,Shopee,141
+163,3,43.5,False,2026-01-20,Shopee,142
+163,3,43.5,False,2026-03-22,Shopee,143
+163,3,43.5,False,2026-01-27,Shopee,144
+163,3,43.5,False,2026-03-09,Shopee,145
+163,3,43.5,False,2026-04-25,Shopee,146
+163,2,29.0,False,2026-03-26,Shopee,147
+163,3,43.5,False,2026-01-06,Shopee,148
+163,3,43.5,False,2026-04-15,Shopee,149
+163,3,43.5,False,2026-01-21,Shopee,150
+163,3,43.5,False,2026-03-15,Shopee,151
+163,3,43.5,False,2026-03-16,Shopee,152
+163,2,29.0,False,2026-01-10,Shopee,153
+163,3,43.5,False,2026-03-14,Shopee,154
+163,3,43.5,False,2026-03-19,Shopee,155
+163,3,43.5,False,2026-02-28,Shopee,156
+163,1,14.5,False,2026-02-12,Shopee,157
+163,1,14.5,False,2026-02-18,Shopee,158
+163,3,43.5,False,2026-04-02,Shopee,159
+163,3,43.5,False,2026-04-16,Shopee,160
+163,3,43.5,False,2026-03-24,Shopee,161
+163,3,43.5,False,2026-02-03,Shopee,165
+163,3,43.5,False,2026-02-25,Shopee,166
+163,3,43.5,False,2026-04-11,Shopee,167
+163,3,43.5,False,2026-04-19,Shopee,168
+163,3,43.5,False,2026-02-07,Shopee,169
+163,2,29.0,False,2026-02-21,Shopee,170
+163,3,43.5,False,2026-02-01,Shopee,171
+163,3,43.5,False,2026-02-17,Shopee,172
+163,3,43.5,False,2026-02-01,Shopee,173
+163,3,43.5,False,2026-02-24,Shopee,174
+163,3,43.5,False,2026-04-27,Shopee,175
+163,3,43.5,False,2026-02-17,Shopee,176
+163,3,43.5,False,2026-02-24,Shopee,177
+163,3,43.5,False,2026-02-15,Shopee,178
+163,2,29.0,False,2026-02-06,Shopee,179
+163,3,43.5,False,2026-02-06,Shopee,180
+163,2,29.0,False,2026-03-21,Shopee,181
+163,3,43.5,False,2026-04-10,Shopee,182
+163,3,43.5,False,2026-02-28,Shopee,183
+163,3,43.5,False,2026-01-15,Shopee,184
+163,3,43.5,False,2026-01-25,Shopee,185
+163,1,14.5,False,2026-04-07,Shopee,186
+163,1,14.5,False,2026-03-11,Shopee,187
+163,3,43.5,False,2026-04-04,Shopee,188
+163,3,43.5,False,2026-02-19,Shopee,189
+163,2,29.0,False,2026-04-02,Shopee,190
+163,3,43.5,False,2026-02-13,Shopee,191
+163,2,29.0,False,2026-04-09,Shopee,192
+163,3,43.5,False,2026-02-12,Shopee,193
+163,3,43.5,False,2026-02-14,Shopee,194
+163,3,43.5,False,2026-03-15,Shopee,195
+163,3,43.5,False,2026-02-26,Shopee,196
+163,3,43.5,False,2026-04-03,Shopee,197
+163,3,43.5,False,2026-03-23,Shopee,198
+163,3,43.5,False,2026-02-24,Shopee,199
+163,1,14.5,False,2026-02-11,Shopee,200
+153,3,41.97,False,2026-02-28,JD,1
+153,3,41.97,False,2026-03-22,JD,2
+153,3,41.97,False,2026-03-04,JD,3
+153,3,41.97,False,2026-04-03,JD,4
+153,3,41.97,False,2026-03-05,JD,5
+153,3,41.97,False,2026-04-01,JD,6
+153,3,41.97,False,2026-03-10,JD,7
+153,3,41.97,False,2026-02-15,JD,8
+153,3,41.97,False,2026-04-03,JD,9
+153,3,41.97,False,2026-04-20,JD,10
+153,3,41.97,False,2026-01-04,JD,11
+153,3,41.97,False,2026-03-05,JD,12
+153,2,27.98,False,2026-03-03,JD,13
+153,3,41.97,False,2026-01-25,JD,14
+153,3,41.97,False,2026-03-08,JD,15
+153,3,41.97,False,2026-01-19,JD,16
+153,1,13.99,False,2026-04-13,JD,17
+153,2,27.98,False,2026-04-16,JD,18
+153,3,41.97,False,2026-01-23,JD,19
+153,3,41.97,False,2026-03-04,JD,20
+153,3,41.97,False,2026-02-04,JD,21
+153,3,41.97,False,2026-01-18,JD,22
+153,3,41.97,False,2026-04-02,JD,23
+153,3,41.97,False,2026-03-21,JD,24
+153,3,41.97,False,2026-03-23,JD,25
+153,3,41.97,False,2026-02-27,JD,26
+153,3,41.97,False,2026-01-21,JD,27
+153,3,41.97,False,2026-03-02,JD,28
+153,3,41.97,False,2026-04-24,JD,29
+153,3,41.97,False,2026-04-15,JD,30
+153,3,41.97,False,2026-03-07,JD,31
+153,3,41.97,False,2026-02-08,JD,32
+153,2,27.98,False,2026-04-08,JD,33
+153,3,41.97,False,2026-02-07,JD,34
+153,3,41.97,False,2026-03-14,JD,35
+153,3,41.97,False,2026-01-20,JD,36
+153,3,41.97,False,2026-04-05,JD,37
+153,3,41.97,False,2026-01-09,JD,38
+153,3,41.97,False,2026-02-15,JD,39
+153,3,41.97,False,2026-02-26,JD,40
+153,3,41.97,False,2026-04-23,JD,41
+153,3,41.97,False,2026-04-15,JD,42
+153,1,13.99,False,2026-04-26,JD,43
+153,3,41.97,False,2026-02-21,JD,44
+153,1,13.99,False,2026-02-18,JD,45
+153,3,41.97,False,2026-04-26,JD,46
+153,3,41.97,False,2026-04-12,JD,47
+153,3,41.97,False,2026-04-19,JD,48
+153,3,41.97,False,2026-03-07,JD,49
+153,3,41.97,False,2026-02-28,JD,50
+153,1,13.99,False,2026-02-22,JD,51
+153,3,41.97,False,2026-04-09,JD,52
+153,3,41.97,False,2026-01-17,JD,53
+153,3,41.97,False,2026-01-04,JD,54
+153,3,41.97,False,2026-03-17,JD,55
+153,1,13.99,False,2026-01-11,JD,56
+153,3,41.97,False,2026-01-18,JD,57
+153,3,41.97,False,2026-01-07,JD,58
+153,3,41.97,False,2026-02-14,JD,59
+153,3,41.97,False,2026-02-14,JD,60
+153,3,41.97,False,2026-02-08,JD,61
+153,3,41.97,False,2026-02-05,JD,62
+153,3,41.97,False,2026-01-03,JD,63
+153,3,41.97,False,2026-01-07,JD,64
+153,3,41.97,False,2026-03-28,JD,65
+153,1,13.99,False,2026-04-13,JD,66
+153,3,41.97,False,2026-01-26,JD,67
+153,3,41.97,False,2026-01-20,JD,68
+153,3,41.97,False,2026-03-05,JD,69
+153,2,27.98,False,2026-03-17,JD,70
+153,3,41.97,False,2026-04-06,JD,71
+153,3,41.97,False,2026-01-22,JD,72
+153,3,41.97,False,2026-04-12,JD,73
+153,2,27.98,False,2026-04-16,JD,74
+153,3,41.97,False,2026-01-14,JD,75
+153,1,13.99,False,2026-02-12,JD,76
+153,3,41.97,False,2026-02-23,JD,77
+153,3,41.97,False,2026-01-10,JD,78
+153,3,41.97,False,2026-01-14,JD,79
+153,3,41.97,False,2026-04-25,JD,80
+153,3,41.97,False,2026-04-20,JD,81
+153,3,41.97,False,2026-04-17,JD,82
+153,3,41.97,False,2026-03-13,JD,83
+153,3,41.97,False,2026-01-09,JD,84
+153,3,41.97,False,2026-01-02,JD,85
+153,3,41.97,False,2026-01-14,JD,86
+153,3,41.97,False,2026-03-26,JD,87
+153,3,41.97,False,2026-02-28,JD,88
+153,3,41.97,False,2026-03-28,JD,89
+153,3,41.97,False,2026-04-20,JD,90
+153,3,41.97,False,2026-03-04,JD,91
+153,3,41.97,False,2026-02-07,JD,92
+153,3,41.97,False,2026-04-23,JD,93
+153,3,41.97,False,2026-03-02,JD,94
+153,3,41.97,False,2026-03-17,JD,95
+153,3,41.97,False,2026-02-16,JD,96
+153,3,41.97,False,2026-04-25,JD,97
+153,3,41.97,False,2026-03-07,JD,98
+153,3,41.97,False,2026-04-19,JD,99
+153,3,41.97,False,2026-02-08,JD,100
+153,3,41.97,False,2026-03-16,JD,101
+153,3,41.97,False,2026-01-25,JD,102
+153,3,41.97,False,2026-04-09,JD,103
+153,3,41.97,False,2026-03-16,JD,104
+153,3,41.97,False,2026-04-05,JD,105
+153,3,41.97,False,2026-03-02,JD,106
+153,1,13.99,False,2026-01-12,JD,107
+153,3,41.97,False,2026-02-24,JD,108
+153,3,41.97,False,2026-02-12,JD,109
+153,3,41.97,False,2026-02-20,JD,110
+153,3,41.97,False,2026-03-12,JD,111
+153,3,41.97,False,2026-04-12,JD,112
+153,3,41.97,False,2026-02-18,JD,113
+153,3,41.97,False,2026-02-07,JD,114
+153,3,41.97,False,2026-02-02,JD,115
+153,3,41.97,False,2026-02-13,JD,116
+153,3,41.97,False,2026-04-14,JD,117
+153,3,41.97,False,2026-01-25,JD,118
+153,3,41.97,False,2026-02-08,JD,119
+153,3,41.97,False,2026-04-14,JD,120
+153,3,41.97,False,2026-02-09,JD,121
+153,3,41.97,False,2026-02-10,JD,122
+153,3,41.97,False,2026-01-23,JD,123
+153,1,13.99,False,2026-04-07,JD,124
+153,3,41.97,False,2026-02-08,JD,125
+153,1,13.99,False,2026-03-15,JD,126
+153,3,41.97,False,2026-03-26,JD,127
+153,3,41.97,False,2026-01-14,JD,128
+153,3,41.97,False,2026-02-09,JD,129
+153,3,41.97,False,2026-03-01,JD,130
+153,3,41.97,False,2026-01-07,JD,131
+153,3,41.97,False,2026-01-15,JD,132
+153,3,41.97,False,2026-03-07,JD,133
+153,3,41.97,False,2026-03-25,JD,134
+153,1,13.99,False,2026-01-20,JD,135
+153,3,41.97,False,2026-02-11,JD,136
+153,3,41.97,False,2026-01-16,JD,137
+153,3,41.97,False,2026-03-22,JD,138
+153,3,41.97,False,2026-02-01,JD,139
+153,3,41.97,False,2026-02-21,JD,140
+153,3,41.97,False,2026-02-11,JD,141
+153,3,41.97,False,2026-02-12,JD,142
+153,3,41.97,False,2026-01-08,JD,143
+153,2,27.98,False,2026-04-14,JD,144
+153,3,41.97,False,2026-02-06,JD,145
+153,2,27.98,False,2026-01-21,JD,146
+153,3,41.97,False,2026-03-15,JD,147
+153,3,41.97,False,2026-01-01,JD,148
+153,3,41.97,False,2026-04-05,JD,149
+153,3,41.97,False,2026-02-10,JD,150
+153,3,41.97,False,2026-02-09,JD,151
+153,3,41.97,False,2026-04-06,JD,155
+153,2,27.98,False,2026-04-04,JD,156
+153,3,41.97,False,2026-04-17,JD,157
+153,3,41.97,False,2026-04-01,JD,158
+153,3,41.97,False,2026-02-27,JD,159
+153,3,41.97,False,2026-02-01,JD,160
+153,3,41.97,False,2026-02-07,JD,161
+153,2,27.98,False,2026-01-08,JD,162
+153,3,41.97,False,2026-03-21,JD,163
+153,3,41.97,False,2026-02-09,JD,164
+153,2,27.98,False,2026-03-04,JD,165
+153,3,41.97,False,2026-04-06,JD,166
+153,3,41.97,False,2026-03-09,JD,167
+153,3,41.97,False,2026-03-01,JD,168
+153,3,41.97,False,2026-01-06,JD,169
+153,3,41.97,False,2026-03-22,JD,170
+153,1,13.99,False,2026-01-12,JD,171
+153,3,41.97,False,2026-03-20,JD,172
+153,3,41.97,False,2026-03-18,JD,173
+153,3,41.97,False,2026-03-05,JD,174
+153,3,41.97,False,2026-02-08,JD,175
+153,3,41.97,False,2026-02-28,JD,176
+153,3,41.97,False,2026-01-12,JD,177
+153,3,41.97,False,2026-02-25,JD,178
+153,3,41.97,False,2026-04-02,JD,179
+153,3,41.97,False,2026-02-15,JD,180
+153,3,41.97,False,2026-02-09,JD,181
+153,3,41.97,False,2026-04-21,JD,182
+153,3,41.97,False,2026-01-05,JD,183
+153,2,27.98,False,2026-02-13,JD,184
+153,3,41.97,False,2026-01-15,JD,185
+153,3,41.97,False,2026-04-27,JD,186
+153,1,13.99,False,2026-04-01,JD,187
+153,3,41.97,False,2026-02-25,JD,188
+153,3,41.97,False,2026-03-11,JD,189
+153,3,41.97,False,2026-04-13,JD,190
+153,3,41.97,False,2026-04-14,JD,191
+153,3,41.97,False,2026-02-07,JD,192
+153,3,41.97,False,2026-02-09,JD,193
+153,3,41.97,False,2026-01-16,JD,194
+153,3,41.97,False,2026-04-19,JD,195
+153,3,41.97,False,2026-02-12,JD,196
+153,1,13.99,False,2026-03-15,JD,197
+153,2,27.98,False,2026-02-01,JD,198
+153,3,41.97,False,2026-01-16,JD,199
+153,3,41.97,False,2026-03-08,JD,200
+73,3,42.0,False,2026-03-10,Facebook Marketplace,1
+73,3,42.0,False,2026-02-26,Facebook Marketplace,2
+73,3,42.0,False,2026-02-04,Facebook Marketplace,3
+73,3,42.0,False,2026-01-19,Facebook Marketplace,4
+73,3,42.0,False,2026-03-21,Facebook Marketplace,5
+73,3,42.0,False,2026-04-27,Facebook Marketplace,6
+73,3,42.0,False,2026-04-15,Facebook Marketplace,7
+73,3,42.0,False,2026-04-17,Facebook Marketplace,8
+73,3,42.0,False,2026-04-22,Facebook Marketplace,9
+73,3,42.0,False,2026-04-09,Facebook Marketplace,10
+73,3,42.0,False,2026-03-19,Facebook Marketplace,11
+73,3,42.0,False,2026-04-27,Facebook Marketplace,12
+73,3,42.0,False,2026-03-13,Facebook Marketplace,13
+73,3,42.0,False,2026-02-15,Facebook Marketplace,14
+73,3,42.0,False,2026-02-21,Facebook Marketplace,15
+73,3,42.0,False,2026-04-28,Facebook Marketplace,16
+73,3,42.0,False,2026-03-18,Facebook Marketplace,17
+73,3,42.0,False,2026-04-26,Facebook Marketplace,18
+73,1,14.0,False,2026-02-13,Facebook Marketplace,19
+73,3,42.0,False,2026-04-07,Facebook Marketplace,20
+73,3,42.0,False,2026-04-01,Facebook Marketplace,21
+73,3,42.0,False,2026-03-08,Facebook Marketplace,22
+73,3,42.0,False,2026-03-09,Facebook Marketplace,23
+73,3,42.0,False,2026-04-28,Facebook Marketplace,24
+73,3,42.0,False,2026-01-13,Facebook Marketplace,25
+73,3,42.0,False,2026-01-02,Facebook Marketplace,26
+73,3,42.0,False,2026-02-25,Facebook Marketplace,27
+73,3,42.0,False,2026-01-10,Facebook Marketplace,28
+73,3,42.0,False,2026-02-16,Facebook Marketplace,29
+73,3,42.0,False,2026-03-28,Facebook Marketplace,30
+73,3,42.0,False,2026-04-26,Facebook Marketplace,31
+73,3,42.0,False,2026-02-21,Facebook Marketplace,32
+73,3,42.0,False,2026-04-28,Facebook Marketplace,33
+73,1,14.0,False,2026-03-24,Facebook Marketplace,34
+73,3,42.0,False,2026-03-25,Facebook Marketplace,35
+73,3,42.0,False,2026-02-02,Facebook Marketplace,36
+73,2,28.0,False,2026-02-28,Facebook Marketplace,37
+73,2,28.0,False,2026-03-01,Facebook Marketplace,38
+73,3,42.0,False,2026-01-04,Facebook Marketplace,39
+73,3,42.0,False,2026-04-18,Facebook Marketplace,40
+73,3,42.0,False,2026-02-18,Facebook Marketplace,41
+73,3,42.0,False,2026-01-19,Facebook Marketplace,42
+73,3,42.0,False,2026-02-25,Facebook Marketplace,43
+73,3,42.0,False,2026-01-22,Facebook Marketplace,44
+73,2,28.0,False,2026-03-23,Facebook Marketplace,45
+73,3,42.0,False,2026-04-04,Facebook Marketplace,46
+73,3,42.0,False,2026-03-19,Facebook Marketplace,47
+73,3,42.0,False,2026-03-04,Facebook Marketplace,48
+73,3,42.0,False,2026-03-03,Facebook Marketplace,49
+73,1,14.0,False,2026-04-19,Facebook Marketplace,50
+73,3,42.0,False,2026-04-03,Facebook Marketplace,51
+73,3,42.0,False,2026-01-10,Facebook Marketplace,52
+73,3,42.0,False,2026-03-20,Facebook Marketplace,53
+73,3,42.0,False,2026-04-05,Facebook Marketplace,54
+73,3,42.0,False,2026-04-25,Facebook Marketplace,55
+73,3,42.0,False,2026-02-22,Facebook Marketplace,56
+73,2,28.0,False,2026-02-03,Facebook Marketplace,57
+73,3,42.0,False,2026-02-18,Facebook Marketplace,58
+73,3,42.0,False,2026-04-06,Facebook Marketplace,59
+73,1,14.0,False,2026-04-23,Facebook Marketplace,60
+73,3,42.0,False,2026-02-08,Facebook Marketplace,61
+73,3,42.0,False,2026-04-27,Facebook Marketplace,62
+73,1,14.0,False,2026-03-22,Facebook Marketplace,63
+73,3,42.0,False,2026-04-23,Facebook Marketplace,64
+73,3,42.0,False,2026-03-22,Facebook Marketplace,65
+73,3,42.0,False,2026-03-26,Facebook Marketplace,66
+73,3,42.0,False,2026-02-05,Facebook Marketplace,67
+73,3,42.0,False,2026-03-25,Facebook Marketplace,68
+73,1,14.0,False,2026-02-12,Facebook Marketplace,69
+73,1,14.0,False,2026-03-19,Facebook Marketplace,70
+73,3,42.0,False,2026-01-12,Facebook Marketplace,71
+73,3,42.0,False,2026-04-12,Facebook Marketplace,72
+73,3,42.0,False,2026-01-26,Facebook Marketplace,74
+73,3,42.0,False,2026-02-19,Facebook Marketplace,75
+73,3,42.0,False,2026-02-07,Facebook Marketplace,76
+73,3,42.0,False,2026-04-22,Facebook Marketplace,77
+73,3,42.0,False,2026-04-12,Facebook Marketplace,78
+73,2,28.0,False,2026-03-04,Facebook Marketplace,79
+73,3,42.0,False,2026-04-13,Facebook Marketplace,80
+73,3,42.0,False,2026-04-25,Facebook Marketplace,81
+73,3,42.0,False,2026-01-12,Facebook Marketplace,82
+73,1,14.0,False,2026-02-06,Facebook Marketplace,83
+73,2,28.0,False,2026-03-03,Facebook Marketplace,84
+73,3,42.0,False,2026-03-19,Facebook Marketplace,85
+73,3,42.0,False,2026-01-14,Facebook Marketplace,86
+73,3,42.0,False,2026-03-05,Facebook Marketplace,87
+73,3,42.0,False,2026-03-16,Facebook Marketplace,88
+73,3,42.0,False,2026-02-01,Facebook Marketplace,89
+73,2,28.0,False,2026-03-26,Facebook Marketplace,90
+73,3,42.0,False,2026-03-28,Facebook Marketplace,91
+73,2,28.0,False,2026-01-18,Facebook Marketplace,92
+73,1,14.0,False,2026-02-11,Facebook Marketplace,93
+73,2,28.0,False,2026-01-13,Facebook Marketplace,94
+73,3,42.0,False,2026-01-18,Facebook Marketplace,95
+73,3,42.0,False,2026-02-20,Facebook Marketplace,96
+73,3,42.0,False,2026-02-26,Facebook Marketplace,97
+73,3,42.0,False,2026-02-26,Facebook Marketplace,98
+73,2,28.0,False,2026-04-23,Facebook Marketplace,99
+73,3,42.0,False,2026-02-25,Facebook Marketplace,100
+73,1,14.0,False,2026-04-05,Facebook Marketplace,101
+73,3,42.0,False,2026-03-01,Facebook Marketplace,102
+73,3,42.0,False,2026-04-26,Facebook Marketplace,103
+73,2,28.0,False,2026-04-04,Facebook Marketplace,104
+73,3,42.0,False,2026-03-27,Facebook Marketplace,105
+73,1,14.0,False,2026-02-23,Facebook Marketplace,106
+73,3,42.0,False,2026-01-16,Facebook Marketplace,107
+73,2,28.0,False,2026-04-01,Facebook Marketplace,108
+73,3,42.0,False,2026-01-03,Facebook Marketplace,109
+73,3,42.0,False,2026-02-04,Facebook Marketplace,110
+73,3,42.0,False,2026-01-27,Facebook Marketplace,111
+73,3,42.0,False,2026-01-27,Facebook Marketplace,112
+73,3,42.0,False,2026-04-21,Facebook Marketplace,113
+73,3,42.0,False,2026-04-16,Facebook Marketplace,114
+73,3,42.0,False,2026-01-01,Facebook Marketplace,115
+73,3,42.0,False,2026-01-17,Facebook Marketplace,116
+73,3,42.0,False,2026-04-19,Facebook Marketplace,117
+73,2,28.0,False,2026-04-01,Facebook Marketplace,118
+73,3,42.0,False,2026-01-02,Facebook Marketplace,119
+73,3,42.0,False,2026-03-20,Facebook Marketplace,120
+73,1,14.0,False,2026-01-23,Facebook Marketplace,121
+73,1,14.0,False,2026-01-17,Facebook Marketplace,122
+73,3,42.0,False,2026-03-12,Facebook Marketplace,123
+73,2,28.0,False,2026-03-05,Facebook Marketplace,124
+73,3,42.0,False,2026-03-10,Facebook Marketplace,125
+73,2,28.0,False,2026-03-02,Facebook Marketplace,126
+73,3,42.0,False,2026-03-23,Facebook Marketplace,127
+73,3,42.0,False,2026-02-11,Facebook Marketplace,128
+73,1,14.0,False,2026-01-08,Facebook Marketplace,129
+73,3,42.0,False,2026-02-27,Facebook Marketplace,130
+73,2,28.0,False,2026-03-07,Facebook Marketplace,131
+73,3,42.0,False,2026-01-10,Facebook Marketplace,132
+73,3,42.0,False,2026-03-22,Facebook Marketplace,133
+73,2,28.0,False,2026-01-17,Facebook Marketplace,134
+73,3,42.0,False,2026-03-26,Facebook Marketplace,135
+73,3,42.0,False,2026-04-08,Facebook Marketplace,136
+73,3,42.0,False,2026-03-21,Facebook Marketplace,137
+73,3,42.0,False,2026-03-03,Facebook Marketplace,138
+73,3,42.0,False,2026-02-28,Facebook Marketplace,139
+73,2,28.0,False,2026-04-26,Facebook Marketplace,140
+73,3,42.0,False,2026-04-09,Facebook Marketplace,141
+73,3,42.0,False,2026-03-02,Facebook Marketplace,142
+73,3,42.0,False,2026-02-16,Facebook Marketplace,143
+73,3,42.0,False,2026-02-26,Facebook Marketplace,144
+73,2,28.0,False,2026-02-13,Facebook Marketplace,145
+73,3,42.0,False,2026-04-02,Facebook Marketplace,146
+73,3,42.0,False,2026-01-20,Facebook Marketplace,147
+73,3,42.0,False,2026-01-09,Facebook Marketplace,148
+73,2,28.0,False,2026-01-12,Facebook Marketplace,149
+73,2,28.0,False,2026-04-12,Facebook Marketplace,150
+73,3,42.0,False,2026-04-20,Facebook Marketplace,151
+73,3,42.0,False,2026-01-08,Facebook Marketplace,152
+73,3,42.0,False,2026-03-16,Facebook Marketplace,153
+73,2,28.0,False,2026-02-25,Facebook Marketplace,154
+73,3,42.0,False,2026-04-28,Facebook Marketplace,155
+73,1,14.0,False,2026-02-09,Facebook Marketplace,156
+73,3,42.0,False,2026-02-18,Facebook Marketplace,157
+73,3,42.0,False,2026-03-09,Facebook Marketplace,158
+73,3,42.0,False,2026-04-01,Facebook Marketplace,159
+73,3,42.0,False,2026-04-25,Facebook Marketplace,160
+73,3,42.0,False,2026-04-25,Facebook Marketplace,161
+73,3,42.0,False,2026-01-15,Facebook Marketplace,162
+73,3,42.0,False,2026-02-01,Facebook Marketplace,163
+73,3,42.0,False,2026-04-15,Facebook Marketplace,164
+73,3,42.0,False,2026-04-03,Facebook Marketplace,165
+73,3,42.0,False,2026-01-04,Facebook Marketplace,166
+73,3,42.0,False,2026-01-04,Facebook Marketplace,167
+73,3,42.0,False,2026-04-06,Facebook Marketplace,168
+73,3,42.0,False,2026-02-17,Facebook Marketplace,169
+73,3,42.0,False,2026-04-28,Facebook Marketplace,170
+73,3,42.0,False,2026-04-01,Facebook Marketplace,171
+73,2,28.0,False,2026-01-19,Facebook Marketplace,172
+73,1,14.0,False,2026-01-12,Facebook Marketplace,173
+73,3,42.0,False,2026-01-28,Facebook Marketplace,174
+73,3,42.0,False,2026-03-03,Facebook Marketplace,175
+73,3,42.0,False,2026-02-20,Facebook Marketplace,176
+73,3,42.0,False,2026-04-16,Facebook Marketplace,177
+73,3,42.0,False,2026-01-11,Facebook Marketplace,178
+73,3,42.0,False,2026-01-21,Facebook Marketplace,179
+73,1,14.0,False,2026-04-03,Facebook Marketplace,180
+73,3,42.0,False,2026-03-01,Facebook Marketplace,181
+73,3,42.0,False,2026-03-07,Facebook Marketplace,182
+73,3,42.0,False,2026-02-26,Facebook Marketplace,183
+73,3,42.0,False,2026-04-13,Facebook Marketplace,184
+73,2,28.0,False,2026-02-17,Facebook Marketplace,185
+73,2,28.0,False,2026-02-09,Facebook Marketplace,186
+73,3,42.0,False,2026-03-07,Facebook Marketplace,187
+73,3,42.0,False,2026-01-06,Facebook Marketplace,188
+73,3,42.0,False,2026-03-21,Facebook Marketplace,189
+73,1,14.0,False,2026-01-27,Facebook Marketplace,190
+73,3,42.0,False,2026-04-15,Facebook Marketplace,191
+73,3,42.0,False,2026-02-10,Facebook Marketplace,192
+73,2,28.0,False,2026-01-01,Facebook Marketplace,193
+73,3,42.0,False,2026-01-23,Facebook Marketplace,194
+73,3,42.0,False,2026-03-13,Facebook Marketplace,195
+73,3,42.0,False,2026-03-09,Facebook Marketplace,196
+73,3,42.0,False,2026-01-10,Facebook Marketplace,197
+73,1,14.0,False,2026-02-28,Facebook Marketplace,198
+73,3,42.0,False,2026-01-10,Facebook Marketplace,199
+73,3,42.0,False,2026-02-27,Facebook Marketplace,200
+23,3,40.47,False,2026-04-07,Taobao,1
+23,3,40.47,False,2026-02-10,Taobao,2
+23,3,40.47,False,2026-01-03,Taobao,3
+23,3,40.47,False,2026-04-19,Taobao,4
+23,3,40.47,False,2026-04-23,Taobao,5
+23,3,40.47,False,2026-01-12,Taobao,6
+23,2,26.98,False,2026-02-04,Taobao,7
+23,3,40.47,False,2026-02-24,Taobao,8
+23,2,26.98,False,2026-02-23,Taobao,9
+23,3,40.47,False,2026-02-01,Taobao,10
+23,3,40.47,False,2026-01-10,Taobao,11
+23,2,26.98,False,2026-03-12,Taobao,12
+23,3,40.47,False,2026-04-16,Taobao,13
+23,3,40.47,False,2026-04-10,Taobao,14
+23,3,40.47,False,2026-02-03,Taobao,15
+23,3,40.47,False,2026-02-05,Taobao,16
+23,3,40.47,False,2026-03-22,Taobao,17
+23,2,26.98,False,2026-01-23,Taobao,18
+23,3,40.47,False,2026-03-04,Taobao,19
+23,3,40.47,False,2026-04-14,Taobao,20
+23,3,40.47,False,2026-04-04,Taobao,21
+23,3,40.47,False,2026-02-14,Taobao,25
+23,3,40.47,False,2026-01-20,Taobao,26
+23,2,26.98,False,2026-03-05,Taobao,27
+23,3,40.47,False,2026-04-18,Taobao,28
+23,3,40.47,False,2026-01-08,Taobao,29
+23,3,40.47,False,2026-01-10,Taobao,30
+23,3,40.47,False,2026-03-02,Taobao,31
+23,1,13.49,False,2026-02-20,Taobao,32
+23,2,26.98,False,2026-03-27,Taobao,33
+23,3,40.47,False,2026-03-21,Taobao,34
+23,3,40.47,False,2026-03-04,Taobao,35
+23,3,40.47,False,2026-04-18,Taobao,36
+23,1,13.49,False,2026-03-02,Taobao,37
+23,3,40.47,False,2026-03-28,Taobao,38
+23,3,40.47,False,2026-03-22,Taobao,39
+23,3,40.47,False,2026-01-20,Taobao,40
+23,3,40.47,False,2026-01-14,Taobao,41
+23,3,40.47,False,2026-04-08,Taobao,42
+23,3,40.47,False,2026-03-27,Taobao,43
+23,1,13.49,False,2026-02-04,Taobao,44
+23,3,40.47,False,2026-03-01,Taobao,45
+23,3,40.47,False,2026-03-23,Taobao,46
+23,3,40.47,False,2026-02-20,Taobao,47
+23,3,40.47,False,2026-02-25,Taobao,48
+23,3,40.47,False,2026-04-03,Taobao,49
+23,1,13.49,False,2026-04-18,Taobao,50
+23,3,40.47,False,2026-01-09,Taobao,51
+23,2,26.98,False,2026-03-16,Taobao,52
+23,3,40.47,False,2026-02-09,Taobao,53
+23,3,40.47,False,2026-04-28,Taobao,54
+23,3,40.47,False,2026-01-11,Taobao,55
+23,3,40.47,False,2026-02-17,Taobao,56
+23,3,40.47,False,2026-01-17,Taobao,57
+23,2,26.98,False,2026-02-12,Taobao,58
+23,3,40.47,False,2026-03-27,Taobao,59
+23,3,40.47,False,2026-04-21,Taobao,60
+23,3,40.47,False,2026-01-12,Taobao,61
+23,3,40.47,False,2026-03-10,Taobao,62
+23,1,13.49,False,2026-02-19,Taobao,63
+23,3,40.47,False,2026-01-28,Taobao,64
+23,3,40.47,False,2026-01-25,Taobao,65
+23,3,40.47,False,2026-01-20,Taobao,66
+23,3,40.47,False,2026-04-25,Taobao,67
+23,2,26.98,False,2026-03-09,Taobao,68
+23,3,40.47,False,2026-04-23,Taobao,69
+23,3,40.47,False,2026-01-05,Taobao,70
+23,3,40.47,False,2026-04-15,Taobao,71
+23,3,40.47,False,2026-03-21,Taobao,72
+23,3,40.47,False,2026-01-21,Taobao,73
+23,3,40.47,False,2026-04-20,Taobao,74
+23,3,40.47,False,2026-01-06,Taobao,75
+23,3,40.47,False,2026-04-03,Taobao,76
+23,3,40.47,False,2026-03-01,Taobao,77
+23,3,40.47,False,2026-04-13,Taobao,78
+23,3,40.47,False,2026-02-02,Taobao,79
+23,3,40.47,False,2026-02-12,Taobao,80
+23,3,40.47,False,2026-04-23,Taobao,81
+23,3,40.47,False,2026-04-03,Taobao,82
+23,3,40.47,False,2026-03-04,Taobao,83
+23,3,40.47,False,2026-04-16,Taobao,84
+23,3,40.47,False,2026-03-12,Taobao,85
+23,3,40.47,False,2026-04-21,Taobao,86
+23,3,40.47,False,2026-01-18,Taobao,87
+23,1,13.49,False,2026-03-27,Taobao,88
+23,3,40.47,False,2026-03-15,Taobao,89
+23,3,40.47,False,2026-04-25,Taobao,90
+23,3,40.47,False,2026-01-11,Taobao,91
+23,3,40.47,False,2026-02-07,Taobao,92
+23,3,40.47,False,2026-01-19,Taobao,93
+23,2,26.98,False,2026-02-01,Taobao,94
+23,3,40.47,False,2026-01-04,Taobao,95
+23,1,13.49,False,2026-02-23,Taobao,96
+23,3,40.47,False,2026-02-03,Taobao,97
+23,2,26.98,False,2026-02-20,Taobao,98
+23,1,13.49,False,2026-02-13,Taobao,99
+23,3,40.47,False,2026-04-18,Taobao,100
+23,3,40.47,False,2026-01-05,Taobao,101
+23,3,40.47,False,2026-04-06,Taobao,102
+23,3,40.47,False,2026-03-02,Taobao,103
+23,1,13.49,False,2026-01-11,Taobao,104
+23,3,40.47,False,2026-01-28,Taobao,105
+23,3,40.47,False,2026-04-10,Taobao,106
+23,3,40.47,False,2026-02-27,Taobao,107
+23,3,40.47,False,2026-02-03,Taobao,108
+23,2,26.98,False,2026-01-07,Taobao,109
+23,3,40.47,False,2026-03-26,Taobao,110
+23,3,40.47,False,2026-03-03,Taobao,111
+23,2,26.98,False,2026-04-24,Taobao,112
+23,3,40.47,False,2026-03-13,Taobao,113
+23,3,40.47,False,2026-03-18,Taobao,114
+23,3,40.47,False,2026-02-10,Taobao,115
+23,1,13.49,False,2026-03-23,Taobao,116
+23,3,40.47,False,2026-03-18,Taobao,117
+23,3,40.47,False,2026-04-02,Taobao,118
+23,2,26.98,False,2026-03-12,Taobao,119
+23,2,26.98,False,2026-03-12,Taobao,120
+23,3,40.47,False,2026-04-17,Taobao,121
+23,3,40.47,False,2026-01-03,Taobao,122
+23,3,40.47,False,2026-01-06,Taobao,123
+23,3,40.47,False,2026-02-20,Taobao,124
+23,1,13.49,False,2026-02-18,Taobao,125
+23,2,26.98,False,2026-02-17,Taobao,126
+23,2,26.98,False,2026-04-15,Taobao,127
+23,3,40.47,False,2026-01-18,Taobao,128
+23,3,40.47,False,2026-03-14,Taobao,129
+23,3,40.47,False,2026-04-23,Taobao,130
+23,3,40.47,False,2026-04-06,Taobao,131
+23,3,40.47,False,2026-04-20,Taobao,132
+23,2,26.98,False,2026-04-08,Taobao,133
+23,3,40.47,False,2026-01-05,Taobao,134
+23,3,40.47,False,2026-01-06,Taobao,135
+23,3,40.47,False,2026-01-06,Taobao,136
+23,3,40.47,False,2026-03-10,Taobao,137
+23,3,40.47,False,2026-03-05,Taobao,138
+23,1,13.49,False,2026-04-13,Taobao,139
+23,3,40.47,False,2026-02-09,Taobao,140
+23,1,13.49,False,2026-04-27,Taobao,141
+23,3,40.47,False,2026-02-07,Taobao,142
+23,3,40.47,False,2026-02-28,Taobao,143
+23,3,40.47,False,2026-02-22,Taobao,144
+23,3,40.47,False,2026-03-08,Taobao,145
+23,3,40.47,False,2026-02-20,Taobao,146
+23,3,40.47,False,2026-02-07,Taobao,147
+23,2,26.98,False,2026-04-10,Taobao,148
+23,2,26.98,False,2026-02-28,Taobao,149
+23,3,40.47,False,2026-03-14,Taobao,150
+23,3,40.47,False,2026-01-14,Taobao,151
+23,3,40.47,False,2026-04-01,Taobao,152
+23,3,40.47,False,2026-03-02,Taobao,153
+23,3,40.47,False,2026-01-22,Taobao,154
+23,3,40.47,False,2026-02-17,Taobao,155
+23,1,13.49,False,2026-04-10,Taobao,156
+23,3,40.47,False,2026-02-28,Taobao,157
+23,1,13.49,False,2026-01-10,Taobao,158
+23,3,40.47,False,2026-02-19,Taobao,159
+23,3,40.47,False,2026-01-04,Taobao,160
+23,3,40.47,False,2026-04-03,Taobao,161
+23,3,40.47,False,2026-01-05,Taobao,162
+23,2,26.98,False,2026-02-03,Taobao,163
+23,3,40.47,False,2026-02-19,Taobao,164
+23,3,40.47,False,2026-01-05,Taobao,165
+23,3,40.47,False,2026-04-03,Taobao,166
+23,3,40.47,False,2026-02-20,Taobao,167
+23,2,26.98,False,2026-03-18,Taobao,168
+23,3,40.47,False,2026-02-19,Taobao,169
+23,3,40.47,False,2026-03-28,Taobao,170
+23,3,40.47,False,2026-01-15,Taobao,171
+23,3,40.47,False,2026-03-08,Taobao,172
+23,3,40.47,False,2026-03-16,Taobao,173
+23,3,40.47,False,2026-04-16,Taobao,174
+23,3,40.47,False,2026-01-28,Taobao,175
+23,3,40.47,False,2026-04-05,Taobao,176
+23,3,40.47,False,2026-01-16,Taobao,177
+23,2,26.98,False,2026-03-02,Taobao,178
+23,3,40.47,False,2026-01-12,Taobao,179
+23,3,40.47,False,2026-04-02,Taobao,180
+23,2,26.98,False,2026-03-15,Taobao,181
+23,3,40.47,False,2026-02-11,Taobao,182
+23,3,40.47,False,2026-04-18,Taobao,183
+23,3,40.47,False,2026-02-01,Taobao,184
+23,3,40.47,False,2026-04-18,Taobao,185
+23,3,40.47,False,2026-04-18,Taobao,186
+23,1,13.49,False,2026-02-19,Taobao,187
+23,3,40.47,False,2026-02-20,Taobao,188
+23,3,40.47,False,2026-01-17,Taobao,189
+23,2,26.98,False,2026-01-09,Taobao,190
+23,3,40.47,False,2026-04-08,Taobao,191
+23,3,40.47,False,2026-03-12,Taobao,192
+23,3,40.47,False,2026-04-22,Taobao,193
+23,2,26.98,False,2026-01-17,Taobao,194
+23,2,26.98,False,2026-03-02,Taobao,195
+23,3,40.47,False,2026-02-17,Taobao,196
+23,3,40.47,False,2026-03-26,Taobao,197
+23,3,40.47,False,2026-04-15,Taobao,198
+23,3,40.47,False,2026-03-09,Taobao,199
+23,2,26.98,False,2026-03-11,Taobao,200
+16,3,44.97,False,2026-01-22,Taobao,1
+16,3,44.97,False,2026-04-07,Taobao,2
+16,3,44.97,False,2026-03-11,Taobao,3
+16,2,29.98,False,2026-02-05,Taobao,4
+16,3,44.97,False,2026-02-08,Taobao,5
+16,3,44.97,False,2026-03-23,Taobao,6
+16,2,29.98,False,2026-03-09,Taobao,7
+16,3,44.97,False,2026-03-20,Taobao,8
+16,3,44.97,False,2026-01-22,Taobao,9
+16,3,44.97,False,2026-04-09,Taobao,10
+16,3,44.97,False,2026-04-24,Taobao,11
+16,1,14.99,False,2026-04-22,Taobao,12
+16,2,29.98,False,2026-01-06,Taobao,13
+16,3,44.97,False,2026-02-06,Taobao,14
+16,3,44.97,False,2026-04-15,Taobao,18
+16,3,44.97,False,2026-03-24,Taobao,19
+16,1,14.99,False,2026-03-08,Taobao,20
+16,3,44.97,False,2026-02-10,Taobao,21
+16,3,44.97,False,2026-03-06,Taobao,22
+16,3,44.97,False,2026-02-11,Taobao,23
+16,2,29.98,False,2026-04-05,Taobao,24
+16,3,44.97,False,2026-03-01,Taobao,25
+16,3,44.97,False,2026-03-04,Taobao,26
+16,3,44.97,False,2026-03-22,Taobao,27
+16,3,44.97,False,2026-04-27,Taobao,28
+16,3,44.97,False,2026-04-10,Taobao,29
+16,3,44.97,False,2026-01-17,Taobao,30
+16,3,44.97,False,2026-03-10,Taobao,31
+16,2,29.98,False,2026-02-13,Taobao,32
+16,3,44.97,False,2026-01-16,Taobao,33
+16,3,44.97,False,2026-02-04,Taobao,34
+16,2,29.98,False,2026-01-07,Taobao,35
+16,3,44.97,False,2026-04-27,Taobao,36
+16,3,44.97,False,2026-02-04,Taobao,37
+16,3,44.97,False,2026-03-18,Taobao,38
+16,3,44.97,False,2026-01-25,Taobao,39
+16,3,44.97,False,2026-03-08,Taobao,40
+16,3,44.97,False,2026-03-08,Taobao,41
+16,3,44.97,False,2026-01-03,Taobao,42
+16,3,44.97,False,2026-03-09,Taobao,43
+16,3,44.97,False,2026-01-28,Taobao,44
+16,3,44.97,False,2026-01-07,Taobao,45
+16,3,44.97,False,2026-03-08,Taobao,46
+16,3,44.97,False,2026-02-09,Taobao,47
+16,1,14.99,False,2026-04-25,Taobao,48
+16,3,44.97,False,2026-01-18,Taobao,49
+16,3,44.97,False,2026-04-14,Taobao,50
+16,3,44.97,False,2026-01-06,Taobao,51
+16,1,14.99,False,2026-03-17,Taobao,52
+16,3,44.97,False,2026-02-19,Taobao,53
+16,3,44.97,False,2026-01-10,Taobao,54
+16,3,44.97,False,2026-03-02,Taobao,55
+16,3,44.97,False,2026-02-08,Taobao,56
+16,3,44.97,False,2026-01-16,Taobao,57
+16,2,29.98,False,2026-02-23,Taobao,58
+16,3,44.97,False,2026-03-16,Taobao,59
+16,3,44.97,False,2026-01-26,Taobao,60
+16,3,44.97,False,2026-02-24,Taobao,61
+16,1,14.99,False,2026-01-06,Taobao,62
+16,3,44.97,False,2026-04-08,Taobao,63
+16,3,44.97,False,2026-03-11,Taobao,64
+16,3,44.97,False,2026-03-22,Taobao,65
+16,3,44.97,False,2026-02-14,Taobao,66
+16,3,44.97,False,2026-01-21,Taobao,67
+16,3,44.97,False,2026-04-11,Taobao,68
+16,3,44.97,False,2026-02-16,Taobao,69
+16,3,44.97,False,2026-03-13,Taobao,70
+16,3,44.97,False,2026-02-11,Taobao,71
+16,1,14.99,False,2026-02-20,Taobao,72
+16,2,29.98,False,2026-02-26,Taobao,73
+16,3,44.97,False,2026-04-18,Taobao,74
+16,1,14.99,False,2026-03-21,Taobao,75
+16,3,44.97,False,2026-03-28,Taobao,76
+16,3,44.97,False,2026-03-18,Taobao,77
+16,1,14.99,False,2026-03-19,Taobao,78
+16,3,44.97,False,2026-03-12,Taobao,79
+16,3,44.97,False,2026-04-16,Taobao,80
+16,3,44.97,False,2026-04-22,Taobao,81
+16,3,44.97,False,2026-01-05,Taobao,82
+16,2,29.98,False,2026-01-25,Taobao,83
+16,3,44.97,False,2026-02-13,Taobao,84
+16,3,44.97,False,2026-02-25,Taobao,85
+16,3,44.97,False,2026-02-25,Taobao,86
+16,3,44.97,False,2026-03-05,Taobao,87
+16,1,14.99,False,2026-04-07,Taobao,88
+16,3,44.97,False,2026-01-27,Taobao,89
+16,3,44.97,False,2026-04-01,Taobao,90
+16,3,44.97,False,2026-02-21,Taobao,91
+16,3,44.97,False,2026-03-03,Taobao,92
+16,3,44.97,False,2026-03-14,Taobao,93
+16,3,44.97,False,2026-03-23,Taobao,94
+16,3,44.97,False,2026-02-04,Taobao,95
+16,3,44.97,False,2026-02-11,Taobao,96
+16,3,44.97,False,2026-04-15,Taobao,97
+16,3,44.97,False,2026-04-05,Taobao,98
+16,3,44.97,False,2026-02-13,Taobao,99
+16,3,44.97,False,2026-03-16,Taobao,100
+16,3,44.97,False,2026-02-09,Taobao,101
+16,3,44.97,False,2026-04-03,Taobao,102
+16,3,44.97,False,2026-02-23,Taobao,103
+16,3,44.97,False,2026-02-10,Taobao,104
+16,3,44.97,False,2026-04-08,Taobao,105
+16,3,44.97,False,2026-03-01,Taobao,106
+16,3,44.97,False,2026-04-12,Taobao,107
+16,3,44.97,False,2026-01-26,Taobao,108
+16,3,44.97,False,2026-03-16,Taobao,109
+16,3,44.97,False,2026-01-18,Taobao,110
+16,3,44.97,False,2026-04-11,Taobao,111
+16,3,44.97,False,2026-02-04,Taobao,112
+16,3,44.97,False,2026-02-01,Taobao,113
+16,3,44.97,False,2026-01-07,Taobao,114
+16,3,44.97,False,2026-02-15,Taobao,115
+16,3,44.97,False,2026-01-13,Taobao,116
+16,3,44.97,False,2026-01-01,Taobao,117
+16,3,44.97,False,2026-02-25,Taobao,118
+16,3,44.97,False,2026-03-06,Taobao,119
+16,3,44.97,False,2026-04-13,Taobao,120
+16,3,44.97,False,2026-02-09,Taobao,121
+16,1,14.99,False,2026-04-15,Taobao,122
+16,3,44.97,False,2026-02-02,Taobao,123
+16,1,14.99,False,2026-01-23,Taobao,124
+16,3,44.97,False,2026-01-05,Taobao,125
+16,3,44.97,False,2026-01-24,Taobao,126
+16,3,44.97,False,2026-01-05,Taobao,127
+16,3,44.97,False,2026-03-17,Taobao,128
+16,2,29.98,False,2026-02-15,Taobao,129
+16,3,44.97,False,2026-03-27,Taobao,130
+16,3,44.97,False,2026-03-08,Taobao,131
+16,3,44.97,False,2026-03-04,Taobao,132
+16,3,44.97,False,2026-04-20,Taobao,133
+16,3,44.97,False,2026-01-21,Taobao,134
+16,3,44.97,False,2026-03-27,Taobao,135
+16,3,44.97,False,2026-01-02,Taobao,136
+16,3,44.97,False,2026-04-18,Taobao,137
+16,3,44.97,False,2026-04-03,Taobao,138
+16,3,44.97,False,2026-01-23,Taobao,139
+16,3,44.97,False,2026-04-22,Taobao,140
+16,3,44.97,False,2026-02-14,Taobao,141
+16,3,44.97,False,2026-04-02,Taobao,142
+16,3,44.97,False,2026-01-18,Taobao,143
+16,3,44.97,False,2026-02-04,Taobao,144
+16,3,44.97,False,2026-02-22,Taobao,145
+16,3,44.97,False,2026-04-13,Taobao,146
+16,3,44.97,False,2026-02-11,Taobao,147
+16,3,44.97,False,2026-01-02,Taobao,148
+16,3,44.97,False,2026-04-05,Taobao,149
+16,1,14.99,False,2026-04-02,Taobao,150
+16,3,44.97,False,2026-02-12,Taobao,151
+16,3,44.97,False,2026-04-04,Taobao,152
+16,3,44.97,False,2026-04-05,Taobao,153
+16,3,44.97,False,2026-02-20,Taobao,154
+16,3,44.97,False,2026-02-01,Taobao,155
+16,3,44.97,False,2026-01-20,Taobao,156
+16,3,44.97,False,2026-02-20,Taobao,157
+16,3,44.97,False,2026-03-05,Taobao,158
+16,3,44.97,False,2026-04-19,Taobao,159
+16,3,44.97,False,2026-04-14,Taobao,160
+16,3,44.97,False,2026-04-28,Taobao,161
+16,2,29.98,False,2026-03-12,Taobao,162
+16,3,44.97,False,2026-04-07,Taobao,163
+16,2,29.98,False,2026-03-17,Taobao,164
+16,1,14.99,False,2026-04-23,Taobao,165
+16,3,44.97,False,2026-01-26,Taobao,166
+16,3,44.97,False,2026-01-20,Taobao,167
+16,3,44.97,False,2026-04-26,Taobao,168
+16,3,44.97,False,2026-01-15,Taobao,169
+16,3,44.97,False,2026-04-08,Taobao,170
+16,3,44.97,False,2026-01-12,Taobao,171
+16,3,44.97,False,2026-04-20,Taobao,172
+16,3,44.97,False,2026-01-17,Taobao,173
+16,3,44.97,False,2026-03-03,Taobao,174
+16,1,14.99,False,2026-03-16,Taobao,175
+16,3,44.97,False,2026-04-09,Taobao,176
+16,3,44.97,False,2026-02-05,Taobao,177
+16,3,44.97,False,2026-03-19,Taobao,178
+16,1,14.99,False,2026-02-27,Taobao,179
+16,2,29.98,False,2026-03-14,Taobao,180
+16,2,29.98,False,2026-03-05,Taobao,181
+16,3,44.97,False,2026-02-25,Taobao,182
+16,3,44.97,False,2026-04-15,Taobao,183
+16,3,44.97,False,2026-02-20,Taobao,184
+16,3,44.97,False,2026-04-28,Taobao,185
+16,3,44.97,False,2026-01-11,Taobao,186
+16,3,44.97,False,2026-01-18,Taobao,187
+16,3,44.97,False,2026-01-16,Taobao,188
+16,3,44.97,False,2026-02-23,Taobao,189
+16,3,44.97,False,2026-04-10,Taobao,190
+16,1,14.99,False,2026-04-13,Taobao,191
+16,3,44.97,False,2026-03-04,Taobao,192
+16,3,44.97,False,2026-02-27,Taobao,193
+16,3,44.97,False,2026-04-22,Taobao,194
+16,3,44.97,False,2026-03-03,Taobao,195
+16,3,44.97,False,2026-02-08,Taobao,196
+16,2,29.98,False,2026-01-05,Taobao,197
+16,3,44.97,False,2026-03-23,Taobao,198
+16,1,14.99,False,2026-02-03,Taobao,199
+16,2,29.98,False,2026-01-13,Taobao,200
+78,1,11.5,False,2026-03-02,JD,1
+78,1,11.5,False,2026-02-04,JD,2
+78,1,11.5,False,2026-02-24,JD,3
+78,3,34.5,False,2026-03-14,JD,4
+78,1,11.5,False,2026-01-18,JD,5
+78,3,34.5,False,2026-02-02,JD,6
+78,3,34.5,False,2026-02-13,JD,7
+78,3,34.5,False,2026-04-15,JD,8
+78,3,34.5,False,2026-02-03,JD,9
+78,3,34.5,False,2026-04-01,JD,10
+78,3,34.5,False,2026-02-25,JD,11
+78,3,34.5,False,2026-01-08,JD,12
+78,3,34.5,False,2026-04-11,JD,13
+78,3,34.5,False,2026-03-16,JD,14
+78,1,11.5,False,2026-02-17,JD,15
+78,3,34.5,False,2026-04-17,JD,16
+78,3,34.5,False,2026-04-06,JD,17
+78,3,34.5,False,2026-01-20,JD,18
+78,3,34.5,False,2026-01-24,JD,19
+78,3,34.5,False,2026-03-05,JD,20
+78,3,34.5,False,2026-02-11,JD,21
+78,3,34.5,False,2026-04-20,JD,22
+78,1,11.5,False,2026-03-16,JD,23
+78,3,34.5,False,2026-03-16,JD,24
+78,3,34.5,False,2026-02-22,JD,25
+78,3,34.5,False,2026-01-27,JD,26
+78,2,23.0,False,2026-03-02,JD,27
+78,2,23.0,False,2026-03-13,JD,28
+78,3,34.5,False,2026-01-07,JD,29
+78,3,34.5,False,2026-04-03,JD,30
+78,3,34.5,False,2026-01-06,JD,31
+78,3,34.5,False,2026-04-19,JD,32
+78,3,34.5,False,2026-04-09,JD,33
+78,3,34.5,False,2026-01-28,JD,34
+78,3,34.5,False,2026-04-28,JD,35
+78,3,34.5,False,2026-01-02,JD,36
+78,3,34.5,False,2026-04-11,JD,37
+78,3,34.5,False,2026-02-04,JD,38
+78,3,34.5,False,2026-04-07,JD,39
+78,3,34.5,False,2026-02-03,JD,40
+78,3,34.5,False,2026-04-16,JD,41
+78,3,34.5,False,2026-03-04,JD,42
+78,3,34.5,False,2026-02-12,JD,43
+78,3,34.5,False,2026-03-10,JD,44
+78,3,34.5,False,2026-01-13,JD,45
+78,3,34.5,False,2026-04-14,JD,46
+78,3,34.5,False,2026-02-20,JD,47
+78,3,34.5,False,2026-01-06,JD,48
+78,3,34.5,False,2026-04-11,JD,49
+78,1,11.5,False,2026-02-06,JD,50
+78,3,34.5,False,2026-03-19,JD,51
+78,3,34.5,False,2026-02-10,JD,52
+78,3,34.5,False,2026-02-15,JD,53
+78,3,34.5,False,2026-03-17,JD,54
+78,3,34.5,False,2026-03-15,JD,55
+78,3,34.5,False,2026-02-05,JD,56
+78,3,34.5,False,2026-04-09,JD,57
+78,3,34.5,False,2026-03-03,JD,58
+78,3,34.5,False,2026-01-22,JD,59
+78,3,34.5,False,2026-03-07,JD,60
+78,3,34.5,False,2026-03-27,JD,61
+78,3,34.5,False,2026-01-05,JD,62
+78,1,11.5,False,2026-04-14,JD,63
+78,3,34.5,False,2026-01-18,JD,64
+78,3,34.5,False,2026-01-09,JD,65
+78,3,34.5,False,2026-01-02,JD,66
+78,3,34.5,False,2026-03-03,JD,67
+78,1,11.5,False,2026-03-24,JD,68
+78,3,34.5,False,2026-03-06,JD,69
+78,3,34.5,False,2026-01-03,JD,70
+78,3,34.5,False,2026-03-15,JD,71
+78,1,11.5,False,2026-01-03,JD,72
+78,3,34.5,False,2026-03-13,JD,73
+78,1,11.5,False,2026-03-09,JD,74
+78,3,34.5,False,2026-04-20,JD,75
+78,2,23.0,False,2026-01-13,JD,76
+78,3,34.5,False,2026-02-03,JD,80
+78,3,34.5,False,2026-03-12,JD,81
+78,3,34.5,False,2026-02-07,JD,82
+78,3,34.5,False,2026-01-11,JD,83
+78,3,34.5,False,2026-03-03,JD,84
+78,3,34.5,False,2026-04-06,JD,85
+78,3,34.5,False,2026-04-04,JD,86
+78,1,11.5,False,2026-01-12,JD,87
+78,3,34.5,False,2026-02-21,JD,88
+78,3,34.5,False,2026-01-08,JD,89
+78,1,11.5,False,2026-04-06,JD,90
+78,2,23.0,False,2026-03-08,JD,91
+78,3,34.5,False,2026-03-17,JD,92
+78,3,34.5,False,2026-01-06,JD,93
+78,3,34.5,False,2026-04-28,JD,94
+78,3,34.5,False,2026-03-05,JD,95
+78,1,11.5,False,2026-01-10,JD,96
+78,3,34.5,False,2026-03-14,JD,97
+78,1,11.5,False,2026-01-23,JD,98
+78,1,11.5,False,2026-01-27,JD,99
+78,3,34.5,False,2026-04-13,JD,100
+78,3,34.5,False,2026-01-10,JD,101
+78,3,34.5,False,2026-03-17,JD,102
+78,3,34.5,False,2026-04-23,JD,103
+78,3,34.5,False,2026-02-15,JD,104
+78,3,34.5,False,2026-04-18,JD,105
+78,2,23.0,False,2026-03-09,JD,106
+78,3,34.5,False,2026-01-07,JD,107
+78,3,34.5,False,2026-02-02,JD,108
+78,3,34.5,False,2026-03-22,JD,109
+78,3,34.5,False,2026-03-21,JD,110
+78,3,34.5,False,2026-01-04,JD,111
+78,3,34.5,False,2026-04-17,JD,112
+78,3,34.5,False,2026-02-02,JD,113
+78,3,34.5,False,2026-02-21,JD,114
+78,3,34.5,False,2026-04-04,JD,115
+78,3,34.5,False,2026-01-11,JD,116
+78,3,34.5,False,2026-02-10,JD,117
+78,3,34.5,False,2026-04-08,JD,118
+78,2,23.0,False,2026-02-07,JD,119
+78,3,34.5,False,2026-04-08,JD,120
+78,3,34.5,False,2026-04-11,JD,121
+78,3,34.5,False,2026-02-19,JD,122
+78,2,23.0,False,2026-01-01,JD,123
+78,3,34.5,False,2026-02-19,JD,124
+78,3,34.5,False,2026-01-14,JD,125
+78,2,23.0,False,2026-01-24,JD,126
+78,3,34.5,False,2026-03-16,JD,127
+78,3,34.5,False,2026-02-25,JD,128
+78,1,11.5,False,2026-01-12,JD,129
+78,3,34.5,False,2026-01-12,JD,130
+78,3,34.5,False,2026-04-17,JD,131
+78,3,34.5,False,2026-01-02,JD,132
+78,3,34.5,False,2026-02-22,JD,133
+78,2,23.0,False,2026-04-09,JD,134
+78,3,34.5,False,2026-03-18,JD,135
+78,3,34.5,False,2026-04-04,JD,136
+78,3,34.5,False,2026-01-18,JD,137
+78,3,34.5,False,2026-02-07,JD,138
+78,3,34.5,False,2026-01-09,JD,139
+78,3,34.5,False,2026-02-08,JD,140
+78,3,34.5,False,2026-03-06,JD,141
+78,2,23.0,False,2026-02-19,JD,142
+78,3,34.5,False,2026-04-09,JD,143
+78,3,34.5,False,2026-03-21,JD,144
+78,3,34.5,False,2026-03-03,JD,145
+78,3,34.5,False,2026-02-11,JD,146
+78,3,34.5,False,2026-02-15,JD,147
+78,3,34.5,False,2026-04-19,JD,148
+78,3,34.5,False,2026-02-15,JD,149
+78,3,34.5,False,2026-01-18,JD,150
+78,3,34.5,False,2026-03-22,JD,151
+78,3,34.5,False,2026-03-06,JD,152
+78,3,34.5,False,2026-02-23,JD,153
+78,3,34.5,False,2026-04-11,JD,154
+78,3,34.5,False,2026-03-18,JD,155
+78,3,34.5,False,2026-02-14,JD,156
+78,3,34.5,False,2026-04-21,JD,157
+78,3,34.5,False,2026-02-19,JD,158
+78,3,34.5,False,2026-01-26,JD,159
+78,3,34.5,False,2026-01-24,JD,160
+78,3,34.5,False,2026-01-04,JD,161
+78,3,34.5,False,2026-04-07,JD,162
+78,3,34.5,False,2026-04-19,JD,163
+78,2,23.0,False,2026-04-21,JD,164
+78,3,34.5,False,2026-04-03,JD,165
+78,3,34.5,False,2026-03-26,JD,166
+78,3,34.5,False,2026-02-05,JD,167
+78,3,34.5,False,2026-04-08,JD,168
+78,3,34.5,False,2026-01-10,JD,169
+78,3,34.5,False,2026-03-06,JD,170
+78,3,34.5,False,2026-03-13,JD,171
+78,3,34.5,False,2026-03-14,JD,172
+78,3,34.5,False,2026-04-06,JD,173
+78,3,34.5,False,2026-03-21,JD,174
+78,2,23.0,False,2026-01-14,JD,175
+78,3,34.5,False,2026-04-01,JD,176
+78,3,34.5,False,2026-01-22,JD,177
+78,3,34.5,False,2026-01-06,JD,178
+78,3,34.5,False,2026-04-13,JD,179
+78,3,34.5,False,2026-01-14,JD,180
+78,2,23.0,False,2026-02-06,JD,181
+78,3,34.5,False,2026-04-12,JD,182
+78,3,34.5,False,2026-03-19,JD,183
+78,3,34.5,False,2026-02-01,JD,184
+78,3,34.5,False,2026-02-23,JD,185
+78,3,34.5,False,2026-04-05,JD,186
+78,3,34.5,False,2026-02-17,JD,187
+78,3,34.5,False,2026-01-14,JD,188
+78,3,34.5,False,2026-01-11,JD,189
+78,3,34.5,False,2026-02-17,JD,190
+78,3,34.5,False,2026-03-03,JD,191
+78,3,34.5,False,2026-03-11,JD,192
+78,3,34.5,False,2026-03-05,JD,193
+78,3,34.5,False,2026-04-09,JD,194
+78,3,34.5,False,2026-02-13,JD,195
+78,3,34.5,False,2026-01-06,JD,196
+78,2,23.0,False,2026-01-03,JD,197
+78,2,23.0,False,2026-04-03,JD,198
+78,3,34.5,False,2026-04-11,JD,199
+78,3,34.5,False,2026-01-23,JD,200
+195,3,44.97,False,2026-02-15,JD,1
+195,3,44.97,False,2026-03-04,JD,2
+195,3,44.97,False,2026-03-25,JD,3
+195,3,44.97,False,2026-03-26,JD,4
+195,3,44.97,False,2026-02-23,JD,5
+195,3,44.97,False,2026-01-26,JD,6
+195,3,44.97,False,2026-02-27,JD,7
+195,1,14.99,False,2026-04-07,JD,8
+195,3,44.97,False,2026-02-08,JD,9
+195,2,29.98,False,2026-03-18,JD,10
+195,3,44.97,False,2026-01-24,JD,11
+195,3,44.97,False,2026-01-26,JD,12
+195,2,29.98,False,2026-02-06,JD,13
+195,3,44.97,False,2026-03-12,JD,14
+195,3,44.97,False,2026-03-21,JD,15
+195,3,44.97,False,2026-02-23,JD,16
+195,2,29.98,False,2026-02-17,JD,17
+195,3,44.97,False,2026-03-24,JD,18
+195,3,44.97,False,2026-03-23,JD,19
+195,2,29.98,False,2026-04-03,JD,20
+195,3,44.97,False,2026-01-16,JD,21
+195,3,44.97,False,2026-01-15,JD,22
+195,3,44.97,False,2026-04-05,JD,23
+195,3,44.97,False,2026-02-22,JD,24
+195,3,44.97,False,2026-01-18,JD,25
+195,3,44.97,False,2026-02-27,JD,26
+195,3,44.97,False,2026-03-26,JD,27
+195,3,44.97,False,2026-03-16,JD,28
+195,3,44.97,False,2026-02-09,JD,29
+195,3,44.97,False,2026-02-13,JD,30
+195,3,44.97,False,2026-01-07,JD,31
+195,1,14.99,False,2026-03-07,JD,32
+195,3,44.97,False,2026-04-21,JD,33
+195,3,44.97,False,2026-03-09,JD,34
+195,3,44.97,False,2026-02-25,JD,35
+195,3,44.97,False,2026-02-26,JD,36
+195,3,44.97,False,2026-03-07,JD,37
+195,2,29.98,False,2026-03-17,JD,38
+195,3,44.97,False,2026-02-10,JD,39
+195,3,44.97,False,2026-02-01,JD,40
+195,3,44.97,False,2026-01-22,JD,41
+195,3,44.97,False,2026-04-12,JD,42
+195,3,44.97,False,2026-03-10,JD,43
+195,3,44.97,False,2026-01-15,JD,44
+195,3,44.97,False,2026-04-22,JD,45
+195,3,44.97,False,2026-04-22,JD,46
+195,3,44.97,False,2026-03-14,JD,47
+195,3,44.97,False,2026-01-14,JD,48
+195,3,44.97,False,2026-02-11,JD,49
+195,3,44.97,False,2026-02-06,JD,50
+195,2,29.98,False,2026-03-01,JD,51
+195,3,44.97,False,2026-01-27,JD,52
+195,3,44.97,False,2026-04-05,JD,53
+195,3,44.97,False,2026-03-25,JD,54
+195,3,44.97,False,2026-03-23,JD,55
+195,3,44.97,False,2026-04-21,JD,56
+195,1,14.99,False,2026-03-17,JD,57
+195,3,44.97,False,2026-02-08,JD,58
+195,3,44.97,False,2026-01-22,JD,59
+195,3,44.97,False,2026-02-10,JD,60
+195,3,44.97,False,2026-04-26,JD,61
+195,2,29.98,False,2026-01-18,JD,62
+195,1,14.99,False,2026-02-08,JD,63
+195,3,44.97,False,2026-04-06,JD,64
+195,3,44.97,False,2026-01-19,JD,65
+195,3,44.97,False,2026-04-23,JD,66
+195,3,44.97,False,2026-03-07,JD,67
+195,3,44.97,False,2026-03-25,JD,68
+195,3,44.97,False,2026-02-21,JD,69
+195,2,29.98,False,2026-03-26,JD,70
+195,3,44.97,False,2026-03-10,JD,71
+195,3,44.97,False,2026-04-05,JD,72
+195,3,44.97,False,2026-03-07,JD,73
+195,3,44.97,False,2026-01-01,JD,74
+195,2,29.98,False,2026-04-10,JD,75
+195,3,44.97,False,2026-04-25,JD,76
+195,3,44.97,False,2026-02-23,JD,77
+195,3,44.97,False,2026-04-22,JD,78
+195,3,44.97,False,2026-02-07,JD,79
+195,3,44.97,False,2026-02-16,JD,80
+195,3,44.97,False,2026-01-17,JD,81
+195,3,44.97,False,2026-04-17,JD,82
+195,1,14.99,False,2026-01-06,JD,83
+195,3,44.97,False,2026-01-03,JD,84
+195,3,44.97,False,2026-03-01,JD,85
+195,1,14.99,False,2026-02-27,JD,86
+195,3,44.97,False,2026-03-28,JD,87
+195,3,44.97,False,2026-04-28,JD,88
+195,2,29.98,False,2026-03-28,JD,89
+195,3,44.97,False,2026-01-11,JD,90
+195,3,44.97,False,2026-01-07,JD,91
+195,3,44.97,False,2026-04-09,JD,92
+195,3,44.97,False,2026-02-27,JD,93
+195,2,29.98,False,2026-04-07,JD,94
+195,1,14.99,False,2026-01-28,JD,95
+195,2,29.98,False,2026-01-17,JD,96
+195,3,44.97,False,2026-03-11,JD,97
+195,3,44.97,False,2026-01-02,JD,98
+195,3,44.97,False,2026-04-21,JD,99
+195,3,44.97,False,2026-04-05,JD,100
+195,3,44.97,False,2026-01-10,JD,101
+195,3,44.97,False,2026-01-12,JD,102
+195,2,29.98,False,2026-01-14,JD,103
+195,3,44.97,False,2026-02-11,JD,104
+195,3,44.97,False,2026-04-16,JD,105
+195,3,44.97,False,2026-01-09,JD,106
+195,3,44.97,False,2026-01-02,JD,107
+195,3,44.97,False,2026-03-01,JD,108
+195,3,44.97,False,2026-03-25,JD,109
+195,3,44.97,False,2026-02-25,JD,110
+195,3,44.97,False,2026-04-27,JD,111
+195,2,29.98,False,2026-01-13,JD,112
+195,2,29.98,False,2026-03-20,JD,113
+195,3,44.97,False,2026-02-17,JD,114
+195,3,44.97,False,2026-04-18,JD,115
+195,3,44.97,False,2026-02-08,JD,116
+195,2,29.98,False,2026-02-04,JD,117
+195,3,44.97,False,2026-03-21,JD,118
+195,3,44.97,False,2026-02-09,JD,119
+195,1,14.99,False,2026-04-25,JD,120
+195,3,44.97,False,2026-01-27,JD,121
+195,3,44.97,False,2026-03-10,JD,122
+195,3,44.97,False,2026-02-10,JD,123
+195,1,14.99,False,2026-04-17,JD,124
+195,3,44.97,False,2026-02-22,JD,125
+195,3,44.97,False,2026-03-08,JD,126
+195,3,44.97,False,2026-01-10,JD,127
+195,1,14.99,False,2026-02-19,JD,128
+195,3,44.97,False,2026-02-22,JD,129
+195,3,44.97,False,2026-02-19,JD,130
+195,3,44.97,False,2026-04-14,JD,131
+195,2,29.98,False,2026-01-03,JD,132
+195,2,29.98,False,2026-01-02,JD,133
+195,3,44.97,False,2026-01-06,JD,134
+195,3,44.97,False,2026-03-09,JD,135
+195,3,44.97,False,2026-04-15,JD,136
+195,3,44.97,False,2026-04-06,JD,137
+195,2,29.98,False,2026-03-26,JD,138
+195,3,44.97,False,2026-03-23,JD,139
+195,3,44.97,False,2026-01-11,JD,140
+195,2,29.98,False,2026-03-10,JD,141
+195,3,44.97,False,2026-03-13,JD,142
+195,3,44.97,False,2026-03-20,JD,143
+195,2,29.98,False,2026-02-12,JD,144
+195,3,44.97,False,2026-04-10,JD,145
+195,1,14.99,False,2026-02-04,JD,146
+195,3,44.97,False,2026-01-15,JD,147
+195,3,44.97,False,2026-03-22,JD,148
+195,3,44.97,False,2026-04-02,JD,149
+195,3,44.97,False,2026-01-16,JD,150
+195,3,44.97,False,2026-04-06,JD,151
+195,3,44.97,False,2026-03-08,JD,152
+195,3,44.97,False,2026-03-11,JD,153
+195,3,44.97,False,2026-01-22,JD,154
+195,3,44.97,False,2026-04-12,JD,155
+195,2,29.98,False,2026-04-15,JD,156
+195,3,44.97,False,2026-04-20,JD,157
+195,3,44.97,False,2026-03-12,JD,158
+195,3,44.97,False,2026-04-08,JD,159
+195,2,29.98,False,2026-03-08,JD,160
+195,3,44.97,False,2026-02-19,JD,161
+195,3,44.97,False,2026-04-26,JD,162
+195,3,44.97,False,2026-02-20,JD,163
+195,3,44.97,False,2026-04-15,JD,164
+195,3,44.97,False,2026-04-03,JD,165
+195,2,29.98,False,2026-02-02,JD,166
+195,3,44.97,False,2026-01-01,JD,167
+195,1,14.99,False,2026-02-04,JD,168
+195,3,44.97,False,2026-02-19,JD,169
+195,3,44.97,False,2026-01-23,JD,170
+195,3,44.97,False,2026-04-19,JD,171
+195,3,44.97,False,2026-02-01,JD,172
+195,3,44.97,False,2026-02-26,JD,173
+195,3,44.97,False,2026-02-07,JD,174
+195,3,44.97,False,2026-02-20,JD,175
+195,3,44.97,False,2026-04-03,JD,176
+195,3,44.97,False,2026-02-01,JD,177
+195,1,14.99,False,2026-02-24,JD,178
+195,3,44.97,False,2026-04-27,JD,179
+195,3,44.97,False,2026-02-14,JD,180
+195,3,44.97,False,2026-03-03,JD,181
+195,3,44.97,False,2026-01-26,JD,182
+195,3,44.97,False,2026-04-17,JD,183
+195,3,44.97,False,2026-02-04,JD,184
+195,3,44.97,False,2026-03-20,JD,185
+195,3,44.97,False,2026-04-10,JD,186
+195,3,44.97,False,2026-01-20,JD,187
+195,3,44.97,False,2026-01-04,JD,188
+195,3,44.97,False,2026-02-17,JD,189
+195,1,14.99,False,2026-02-15,JD,190
+195,3,44.97,False,2026-04-25,JD,191
+195,3,44.97,False,2026-01-14,JD,192
+195,3,44.97,False,2026-02-03,JD,193
+195,3,44.97,False,2026-01-08,JD,196
+195,3,44.97,False,2026-01-12,JD,197
+195,3,44.97,False,2026-04-25,JD,198
+195,3,44.97,False,2026-04-06,JD,199
+195,3,44.97,False,2026-04-12,JD,200
+194,3,44.97,False,2026-01-13,JD,1
+194,3,44.97,False,2026-03-26,JD,2
+194,2,29.98,False,2026-03-20,JD,3
+194,1,14.99,False,2026-02-28,JD,4
+194,3,44.97,False,2026-02-10,JD,5
+194,3,44.97,False,2026-04-19,JD,6
+194,3,44.97,False,2026-02-13,JD,7
+194,3,44.97,False,2026-02-02,JD,8
+194,3,44.97,False,2026-01-18,JD,9
+194,2,29.98,False,2026-01-20,JD,10
+194,3,44.97,False,2026-03-02,JD,11
+194,3,44.97,False,2026-02-25,JD,12
+194,3,44.97,False,2026-02-18,JD,13
+194,3,44.97,False,2026-02-12,JD,14
+194,3,44.97,False,2026-04-26,JD,15
+194,2,29.98,False,2026-01-21,JD,16
+194,3,44.97,False,2026-01-06,JD,17
+194,3,44.97,False,2026-01-19,JD,18
+194,3,44.97,False,2026-02-18,JD,19
+194,3,44.97,False,2026-01-07,JD,20
+194,3,44.97,False,2026-04-21,JD,21
+194,1,14.99,False,2026-02-24,JD,22
+194,3,44.97,False,2026-04-12,JD,23
+194,3,44.97,False,2026-01-13,JD,24
+194,2,29.98,False,2026-04-19,JD,25
+194,2,29.98,False,2026-01-02,JD,26
+194,3,44.97,False,2026-01-17,JD,27
+194,3,44.97,False,2026-02-20,JD,28
+194,3,44.97,False,2026-03-20,JD,29
+194,2,29.98,False,2026-01-03,JD,30
+194,3,44.97,False,2026-03-27,JD,31
+194,3,44.97,False,2026-01-12,JD,32
+194,2,29.98,False,2026-01-06,JD,33
+194,1,14.99,False,2026-01-22,JD,34
+194,3,44.97,False,2026-04-22,JD,35
+194,3,44.97,False,2026-01-04,JD,36
+194,3,44.97,False,2026-01-23,JD,37
+194,3,44.97,False,2026-01-24,JD,38
+194,3,44.97,False,2026-03-02,JD,39
+194,1,14.99,False,2026-03-23,JD,40
+194,3,44.97,False,2026-02-04,JD,41
+194,3,44.97,False,2026-02-25,JD,42
+194,3,44.97,False,2026-01-08,JD,43
+194,3,44.97,False,2026-02-22,JD,44
+194,3,44.97,False,2026-01-26,JD,45
+194,3,44.97,False,2026-03-25,JD,46
+194,1,14.99,False,2026-02-21,JD,47
+194,3,44.97,False,2026-03-14,JD,48
+194,3,44.97,False,2026-03-17,JD,49
+194,3,44.97,False,2026-02-22,JD,50
+194,3,44.97,False,2026-01-04,JD,51
+194,3,44.97,False,2026-02-01,JD,52
+194,3,44.97,False,2026-01-08,JD,53
+194,3,44.97,False,2026-02-18,JD,54
+194,3,44.97,False,2026-01-21,JD,55
+194,3,44.97,False,2026-04-01,JD,56
+194,3,44.97,False,2026-03-13,JD,57
+194,3,44.97,False,2026-03-18,JD,58
+194,3,44.97,False,2026-04-24,JD,59
+194,3,44.97,False,2026-02-03,JD,60
+194,3,44.97,False,2026-04-20,JD,61
+194,3,44.97,False,2026-01-04,JD,62
+194,3,44.97,False,2026-03-17,JD,63
+194,3,44.97,False,2026-01-25,JD,64
+194,3,44.97,False,2026-02-12,JD,65
+194,3,44.97,False,2026-01-05,JD,66
+194,1,14.99,False,2026-02-02,JD,67
+194,3,44.97,False,2026-01-03,JD,68
+194,3,44.97,False,2026-01-01,JD,69
+194,3,44.97,False,2026-01-26,JD,70
+194,3,44.97,False,2026-04-08,JD,71
+194,3,44.97,False,2026-01-08,JD,72
+194,3,44.97,False,2026-03-20,JD,73
+194,2,29.98,False,2026-04-25,JD,74
+194,3,44.97,False,2026-01-10,JD,75
+194,3,44.97,False,2026-03-20,JD,76
+194,3,44.97,False,2026-02-11,JD,77
+194,3,44.97,False,2026-01-21,JD,78
+194,3,44.97,False,2026-03-28,JD,79
+194,3,44.97,False,2026-04-07,JD,80
+194,3,44.97,False,2026-04-17,JD,81
+194,3,44.97,False,2026-04-02,JD,82
+194,3,44.97,False,2026-02-21,JD,83
+194,3,44.97,False,2026-01-17,JD,84
+194,1,14.99,False,2026-04-06,JD,85
+194,3,44.97,False,2026-04-25,JD,86
+194,1,14.99,False,2026-01-24,JD,87
+194,3,44.97,False,2026-04-20,JD,88
+194,3,44.97,False,2026-03-26,JD,89
+194,2,29.98,False,2026-03-08,JD,90
+194,3,44.97,False,2026-04-12,JD,91
+194,3,44.97,False,2026-02-17,JD,92
+194,3,44.97,False,2026-03-26,JD,93
+194,3,44.97,False,2026-03-02,JD,94
+194,3,44.97,False,2026-01-27,JD,95
+194,2,29.98,False,2026-02-17,JD,96
+194,2,29.98,False,2026-04-09,JD,97
+194,1,14.99,False,2026-02-22,JD,98
+194,3,44.97,False,2026-01-22,JD,99
+194,3,44.97,False,2026-02-21,JD,100
+194,3,44.97,False,2026-02-21,JD,101
+194,3,44.97,False,2026-04-17,JD,102
+194,3,44.97,False,2026-01-21,JD,103
+194,2,29.98,False,2026-04-19,JD,104
+194,3,44.97,False,2026-01-03,JD,105
+194,3,44.97,False,2026-01-14,JD,106
+194,3,44.97,False,2026-01-22,JD,107
+194,3,44.97,False,2026-04-10,JD,108
+194,3,44.97,False,2026-01-12,JD,109
+194,3,44.97,False,2026-03-23,JD,110
+194,1,14.99,False,2026-02-28,JD,111
+194,3,44.97,False,2026-02-28,JD,112
+194,1,14.99,False,2026-01-13,JD,113
+194,3,44.97,False,2026-01-25,JD,114
+194,3,44.97,False,2026-04-09,JD,115
+194,3,44.97,False,2026-04-01,JD,116
+194,3,44.97,False,2026-02-03,JD,117
+194,1,14.99,False,2026-02-23,JD,118
+194,3,44.97,False,2026-04-24,JD,119
+194,3,44.97,False,2026-01-07,JD,120
+194,1,14.99,False,2026-02-27,JD,121
+194,3,44.97,False,2026-04-22,JD,122
+194,3,44.97,False,2026-01-26,JD,123
+194,1,14.99,False,2026-01-27,JD,124
+194,3,44.97,False,2026-01-11,JD,125
+194,2,29.98,False,2026-02-12,JD,126
+194,3,44.97,False,2026-03-07,JD,127
+194,2,29.98,False,2026-03-27,JD,128
+194,3,44.97,False,2026-01-24,JD,129
+194,3,44.97,False,2026-02-20,JD,130
+194,3,44.97,False,2026-01-06,JD,131
+194,3,44.97,False,2026-03-04,JD,132
+194,3,44.97,False,2026-04-24,JD,133
+194,3,44.97,False,2026-01-08,JD,134
+194,2,29.98,False,2026-01-11,JD,135
+194,3,44.97,False,2026-02-25,JD,136
+194,3,44.97,False,2026-03-15,JD,137
+194,3,44.97,False,2026-04-21,JD,138
+194,3,44.97,False,2026-03-13,JD,139
+194,3,44.97,False,2026-02-03,JD,140
+194,3,44.97,False,2026-01-11,JD,141
+194,1,14.99,False,2026-03-09,JD,142
+194,3,44.97,False,2026-04-19,JD,143
+194,3,44.97,False,2026-01-19,JD,144
+194,3,44.97,False,2026-01-23,JD,145
+194,3,44.97,False,2026-04-20,JD,146
+194,3,44.97,False,2026-01-06,JD,147
+194,2,29.98,False,2026-04-04,JD,148
+194,3,44.97,False,2026-04-22,JD,149
+194,3,44.97,False,2026-02-06,JD,150
+194,2,29.98,False,2026-01-12,JD,151
+194,3,44.97,False,2026-02-23,JD,152
+194,3,44.97,False,2026-04-26,JD,153
+194,3,44.97,False,2026-03-03,JD,154
+194,3,44.97,False,2026-03-20,JD,155
+194,3,44.97,False,2026-01-15,JD,156
+194,3,44.97,False,2026-01-19,JD,157
+194,3,44.97,False,2026-03-19,JD,158
+194,2,29.98,False,2026-03-17,JD,159
+194,3,44.97,False,2026-04-28,JD,160
+194,3,44.97,False,2026-02-25,JD,161
+194,3,44.97,False,2026-03-28,JD,162
+194,3,44.97,False,2026-03-22,JD,163
+194,1,14.99,False,2026-01-23,JD,164
+194,3,44.97,False,2026-01-19,JD,165
+194,3,44.97,False,2026-04-04,JD,166
+194,1,14.99,False,2026-02-23,JD,167
+194,3,44.97,False,2026-01-07,JD,168
+194,3,44.97,False,2026-02-20,JD,169
+194,3,44.97,False,2026-04-21,JD,170
+194,3,44.97,False,2026-02-08,JD,171
+194,2,29.98,False,2026-04-28,JD,172
+194,3,44.97,False,2026-02-11,JD,173
+194,3,44.97,False,2026-02-07,JD,174
+194,3,44.97,False,2026-03-27,JD,175
+194,3,44.97,False,2026-03-01,JD,176
+194,3,44.97,False,2026-04-11,JD,177
+194,3,44.97,False,2026-04-28,JD,178
+194,1,14.99,False,2026-03-10,JD,179
+194,2,29.98,False,2026-02-12,JD,180
+194,3,44.97,False,2026-01-18,JD,181
+194,3,44.97,False,2026-01-04,JD,182
+194,3,44.97,False,2026-04-23,JD,183
+194,1,14.99,False,2026-02-04,JD,184
+194,3,44.97,False,2026-01-07,JD,185
+194,3,44.97,False,2026-02-08,JD,186
+194,3,44.97,False,2026-03-09,JD,187
+194,2,29.98,False,2026-04-04,JD,188
+194,3,44.97,False,2026-02-20,JD,189
+194,3,44.97,False,2026-03-02,JD,190
+194,3,44.97,False,2026-03-20,JD,191
+194,3,44.97,False,2026-02-17,JD,192
+194,3,44.97,False,2026-04-12,JD,196
+194,3,44.97,False,2026-01-04,JD,197
+194,1,14.99,False,2026-01-21,JD,198
+194,3,44.97,False,2026-04-26,JD,199
+194,3,44.97,False,2026-04-03,JD,200
+91,3,40.5,False,2026-03-28,Temu,1
+91,3,40.5,False,2026-01-03,Temu,2
+91,1,13.5,False,2026-03-05,Temu,3
+91,3,40.5,False,2026-03-27,Temu,4
+91,3,40.5,False,2026-04-19,Temu,5
+91,3,40.5,False,2026-02-05,Temu,6
+91,3,40.5,False,2026-04-08,Temu,7
+91,3,40.5,False,2026-02-27,Temu,8
+91,3,40.5,False,2026-04-26,Temu,9
+91,3,40.5,False,2026-02-05,Temu,10
+91,3,40.5,False,2026-02-11,Temu,11
+91,3,40.5,False,2026-04-22,Temu,12
+91,3,40.5,False,2026-03-19,Temu,13
+91,1,13.5,False,2026-03-10,Temu,14
+91,3,40.5,False,2026-03-16,Temu,15
+91,3,40.5,False,2026-03-22,Temu,16
+91,3,40.5,False,2026-04-04,Temu,17
+91,3,40.5,False,2026-01-09,Temu,18
+91,3,40.5,False,2026-03-26,Temu,19
+91,3,40.5,False,2026-02-06,Temu,20
+91,3,40.5,False,2026-01-25,Temu,21
+91,3,40.5,False,2026-04-14,Temu,22
+91,1,13.5,False,2026-04-20,Temu,23
+91,3,40.5,False,2026-02-24,Temu,24
+91,3,40.5,False,2026-04-04,Temu,25
+91,1,13.5,False,2026-03-28,Temu,26
+91,3,40.5,False,2026-02-06,Temu,27
+91,3,40.5,False,2026-02-24,Temu,28
+91,1,13.5,False,2026-03-19,Temu,29
+91,3,40.5,False,2026-04-21,Temu,30
+91,3,40.5,False,2026-04-09,Temu,31
+91,3,40.5,False,2026-04-04,Temu,32
+91,3,40.5,False,2026-04-02,Temu,33
+91,3,40.5,False,2026-02-11,Temu,34
+91,3,40.5,False,2026-04-24,Temu,35
+91,3,40.5,False,2026-01-24,Temu,36
+91,2,27.0,False,2026-03-05,Temu,37
+91,3,40.5,False,2026-04-09,Temu,38
+91,3,40.5,False,2026-04-14,Temu,39
+91,3,40.5,False,2026-04-04,Temu,40
+91,3,40.5,False,2026-03-28,Temu,41
+91,3,40.5,False,2026-02-18,Temu,42
+91,3,40.5,False,2026-02-26,Temu,43
+91,3,40.5,False,2026-02-20,Temu,44
+91,3,40.5,False,2026-02-10,Temu,45
+91,2,27.0,False,2026-03-05,Temu,46
+91,3,40.5,False,2026-03-19,Temu,47
+91,2,27.0,False,2026-03-05,Temu,48
+91,3,40.5,False,2026-03-09,Temu,49
+91,3,40.5,False,2026-03-12,Temu,50
+91,3,40.5,False,2026-01-07,Temu,51
+91,3,40.5,False,2026-01-18,Temu,52
+91,3,40.5,False,2026-02-25,Temu,53
+91,3,40.5,False,2026-01-19,Temu,54
+91,3,40.5,False,2026-04-16,Temu,55
+91,3,40.5,False,2026-02-15,Temu,56
+91,3,40.5,False,2026-02-13,Temu,57
+91,1,13.5,False,2026-01-01,Temu,58
+91,3,40.5,False,2026-01-27,Temu,59
+91,3,40.5,False,2026-03-18,Temu,60
+91,3,40.5,False,2026-03-07,Temu,61
+91,2,27.0,False,2026-01-17,Temu,62
+91,3,40.5,False,2026-03-26,Temu,63
+91,3,40.5,False,2026-02-27,Temu,64
+91,3,40.5,False,2026-01-01,Temu,65
+91,3,40.5,False,2026-01-26,Temu,66
+91,3,40.5,False,2026-01-02,Temu,67
+91,3,40.5,False,2026-04-13,Temu,68
+91,3,40.5,False,2026-01-25,Temu,69
+91,1,13.5,False,2026-03-25,Temu,70
+91,3,40.5,False,2026-02-01,Temu,71
+91,3,40.5,False,2026-02-12,Temu,72
+91,2,27.0,False,2026-02-22,Temu,73
+91,3,40.5,False,2026-02-12,Temu,74
+91,2,27.0,False,2026-04-22,Temu,75
+91,3,40.5,False,2026-02-10,Temu,76
+91,3,40.5,False,2026-03-21,Temu,77
+91,3,40.5,False,2026-02-28,Temu,78
+91,3,40.5,False,2026-02-16,Temu,79
+91,3,40.5,False,2026-02-18,Temu,80
+91,3,40.5,False,2026-01-22,Temu,81
+91,3,40.5,False,2026-01-03,Temu,82
+91,3,40.5,False,2026-04-10,Temu,83
+91,3,40.5,False,2026-04-10,Temu,84
+91,3,40.5,False,2026-03-09,Temu,85
+91,2,27.0,False,2026-02-19,Temu,86
+91,1,13.5,False,2026-02-21,Temu,87
+91,3,40.5,False,2026-04-15,Temu,88
+91,3,40.5,False,2026-01-07,Temu,89
+91,1,13.5,False,2026-04-01,Temu,93
+91,1,13.5,False,2026-01-07,Temu,94
+91,2,27.0,False,2026-02-26,Temu,95
+91,3,40.5,False,2026-01-16,Temu,96
+91,3,40.5,False,2026-03-05,Temu,97
+91,3,40.5,False,2026-01-27,Temu,98
+91,1,13.5,False,2026-02-11,Temu,99
+91,2,27.0,False,2026-04-01,Temu,100
+91,3,40.5,False,2026-03-24,Temu,101
+91,3,40.5,False,2026-02-26,Temu,102
+91,2,27.0,False,2026-03-10,Temu,103
+91,3,40.5,False,2026-01-16,Temu,104
+91,2,27.0,False,2026-04-17,Temu,105
+91,3,40.5,False,2026-01-26,Temu,106
+91,3,40.5,False,2026-04-16,Temu,107
+91,3,40.5,False,2026-01-26,Temu,108
+91,3,40.5,False,2026-02-10,Temu,109
+91,1,13.5,False,2026-03-15,Temu,110
+91,3,40.5,False,2026-04-05,Temu,111
+91,3,40.5,False,2026-02-15,Temu,112
+91,1,13.5,False,2026-01-02,Temu,113
+91,2,27.0,False,2026-01-15,Temu,114
+91,3,40.5,False,2026-04-02,Temu,115
+91,3,40.5,False,2026-01-12,Temu,116
+91,3,40.5,False,2026-01-10,Temu,117
+91,2,27.0,False,2026-02-05,Temu,118
+91,3,40.5,False,2026-03-03,Temu,119
+91,3,40.5,False,2026-03-04,Temu,120
+91,2,27.0,False,2026-04-21,Temu,121
+91,1,13.5,False,2026-04-26,Temu,122
+91,3,40.5,False,2026-04-19,Temu,123
+91,3,40.5,False,2026-02-27,Temu,124
+91,2,27.0,False,2026-01-13,Temu,125
+91,1,13.5,False,2026-01-02,Temu,126
+91,3,40.5,False,2026-04-01,Temu,127
+91,3,40.5,False,2026-02-15,Temu,128
+91,3,40.5,False,2026-03-24,Temu,129
+91,2,27.0,False,2026-02-20,Temu,130
+91,3,40.5,False,2026-01-24,Temu,131
+91,3,40.5,False,2026-02-24,Temu,132
+91,3,40.5,False,2026-04-23,Temu,133
+91,3,40.5,False,2026-04-19,Temu,134
+91,3,40.5,False,2026-01-15,Temu,135
+91,1,13.5,False,2026-04-25,Temu,136
+91,2,27.0,False,2026-02-26,Temu,137
+91,3,40.5,False,2026-03-06,Temu,138
+91,3,40.5,False,2026-04-03,Temu,139
+91,3,40.5,False,2026-03-23,Temu,140
+91,3,40.5,False,2026-03-23,Temu,141
+91,3,40.5,False,2026-03-06,Temu,142
+91,3,40.5,False,2026-01-15,Temu,143
+91,3,40.5,False,2026-03-01,Temu,144
+91,2,27.0,False,2026-02-06,Temu,145
+91,3,40.5,False,2026-01-02,Temu,146
+91,3,40.5,False,2026-04-15,Temu,147
+91,3,40.5,False,2026-04-09,Temu,148
+91,3,40.5,False,2026-04-02,Temu,149
+91,3,40.5,False,2026-03-11,Temu,150
+91,3,40.5,False,2026-01-13,Temu,151
+91,3,40.5,False,2026-03-06,Temu,152
+91,3,40.5,False,2026-01-20,Temu,153
+91,3,40.5,False,2026-03-23,Temu,154
+91,1,13.5,False,2026-03-27,Temu,155
+91,3,40.5,False,2026-03-09,Temu,156
+91,3,40.5,False,2026-04-26,Temu,157
+91,3,40.5,False,2026-01-10,Temu,158
+91,3,40.5,False,2026-02-14,Temu,159
+91,3,40.5,False,2026-02-08,Temu,160
+91,3,40.5,False,2026-02-01,Temu,161
+91,3,40.5,False,2026-02-24,Temu,162
+91,3,40.5,False,2026-01-11,Temu,163
+91,3,40.5,False,2026-04-19,Temu,164
+91,3,40.5,False,2026-01-12,Temu,165
+91,3,40.5,False,2026-03-02,Temu,166
+91,2,27.0,False,2026-03-08,Temu,167
+91,1,13.5,False,2026-01-14,Temu,168
+91,3,40.5,False,2026-01-05,Temu,169
+91,3,40.5,False,2026-01-01,Temu,170
+91,2,27.0,False,2026-04-18,Temu,171
+91,3,40.5,False,2026-03-26,Temu,172
+91,3,40.5,False,2026-03-16,Temu,173
+91,3,40.5,False,2026-02-16,Temu,174
+91,1,13.5,False,2026-04-21,Temu,175
+91,3,40.5,False,2026-02-15,Temu,176
+91,3,40.5,False,2026-03-21,Temu,177
+91,3,40.5,False,2026-04-08,Temu,178
+91,2,27.0,False,2026-01-13,Temu,179
+91,3,40.5,False,2026-01-01,Temu,180
+91,3,40.5,False,2026-04-23,Temu,181
+91,3,40.5,False,2026-03-15,Temu,182
+91,3,40.5,False,2026-04-06,Temu,183
+91,1,13.5,False,2026-01-22,Temu,184
+91,3,40.5,False,2026-04-22,Temu,185
+91,3,40.5,False,2026-01-14,Temu,186
+91,3,40.5,False,2026-01-26,Temu,187
+91,2,27.0,False,2026-04-26,Temu,188
+91,3,40.5,False,2026-03-03,Temu,189
+91,3,40.5,False,2026-04-08,Temu,190
+91,2,27.0,False,2026-04-13,Temu,191
+91,1,13.5,False,2026-03-26,Temu,192
+91,3,40.5,False,2026-01-16,Temu,193
+91,3,40.5,False,2026-03-03,Temu,194
+91,3,40.5,False,2026-03-09,Temu,195
+91,3,40.5,False,2026-01-01,Temu,196
+91,1,13.5,False,2026-03-15,Temu,197
+91,3,40.5,False,2026-04-24,Temu,198
+91,3,40.5,False,2026-03-10,Temu,199
+91,3,40.5,False,2026-04-05,Temu,200
+31,3,42.0,False,2026-04-10,JD,1
+31,2,28.0,False,2026-02-22,JD,2
+31,3,42.0,False,2026-02-14,JD,3
+31,3,42.0,False,2026-02-26,JD,4
+31,3,42.0,False,2026-02-08,JD,5
+31,3,42.0,False,2026-02-10,JD,6
+31,3,42.0,False,2026-01-18,JD,7
+31,3,42.0,False,2026-04-06,JD,8
+31,3,42.0,False,2026-04-24,JD,9
+31,3,42.0,False,2026-04-08,JD,10
+31,3,42.0,False,2026-01-26,JD,11
+31,3,42.0,False,2026-04-08,JD,12
+31,3,42.0,False,2026-04-03,JD,13
+31,3,42.0,False,2026-03-09,JD,14
+31,3,42.0,False,2026-04-07,JD,15
+31,3,42.0,False,2026-03-16,JD,16
+31,3,42.0,False,2026-03-18,JD,17
+31,3,42.0,False,2026-02-09,JD,18
+31,1,14.0,False,2026-03-11,JD,19
+31,1,14.0,False,2026-02-21,JD,20
+31,1,14.0,False,2026-04-02,JD,21
+31,3,42.0,False,2026-02-07,JD,22
+31,3,42.0,False,2026-04-04,JD,23
+31,3,42.0,False,2026-04-24,JD,24
+31,3,42.0,False,2026-01-27,JD,25
+31,1,14.0,False,2026-02-18,JD,26
+31,2,28.0,False,2026-03-23,JD,27
+31,3,42.0,False,2026-04-12,JD,28
+31,3,42.0,False,2026-02-03,JD,29
+31,3,42.0,False,2026-04-05,JD,30
+31,3,42.0,False,2026-02-22,JD,33
+31,3,42.0,False,2026-03-15,JD,34
+31,1,14.0,False,2026-04-12,JD,35
+31,3,42.0,False,2026-03-24,JD,36
+31,3,42.0,False,2026-03-26,JD,37
+31,3,42.0,False,2026-03-14,JD,38
+31,3,42.0,False,2026-04-16,JD,39
+31,3,42.0,False,2026-03-02,JD,40
+31,2,28.0,False,2026-01-24,JD,41
+31,3,42.0,False,2026-01-16,JD,42
+31,1,14.0,False,2026-02-27,JD,43
+31,3,42.0,False,2026-02-06,JD,44
+31,3,42.0,False,2026-03-19,JD,45
+31,1,14.0,False,2026-02-15,JD,46
+31,3,42.0,False,2026-01-06,JD,47
+31,3,42.0,False,2026-03-21,JD,48
+31,3,42.0,False,2026-04-24,JD,49
+31,3,42.0,False,2026-04-18,JD,50
+31,3,42.0,False,2026-02-18,JD,51
+31,3,42.0,False,2026-03-12,JD,52
+31,3,42.0,False,2026-03-11,JD,53
+31,3,42.0,False,2026-01-21,JD,54
+31,3,42.0,False,2026-03-13,JD,55
+31,2,28.0,False,2026-02-17,JD,56
+31,3,42.0,False,2026-04-01,JD,57
+31,3,42.0,False,2026-02-19,JD,58
+31,3,42.0,False,2026-04-13,JD,59
+31,3,42.0,False,2026-03-05,JD,60
+31,1,14.0,False,2026-01-15,JD,61
+31,3,42.0,False,2026-02-03,JD,62
+31,3,42.0,False,2026-02-04,JD,63
+31,3,42.0,False,2026-02-21,JD,64
+31,3,42.0,False,2026-02-05,JD,65
+31,3,42.0,False,2026-01-04,JD,66
+31,3,42.0,False,2026-03-10,JD,67
+31,3,42.0,False,2026-03-07,JD,68
+31,3,42.0,False,2026-03-28,JD,69
+31,3,42.0,False,2026-03-10,JD,70
+31,2,28.0,False,2026-01-22,JD,71
+31,3,42.0,False,2026-01-01,JD,72
+31,3,42.0,False,2026-04-02,JD,73
+31,3,42.0,False,2026-04-23,JD,74
+31,3,42.0,False,2026-03-13,JD,75
+31,2,28.0,False,2026-04-12,JD,76
+31,1,14.0,False,2026-03-03,JD,77
+31,1,14.0,False,2026-01-12,JD,78
+31,1,14.0,False,2026-01-23,JD,79
+31,3,42.0,False,2026-01-10,JD,80
+31,3,42.0,False,2026-02-06,JD,81
+31,3,42.0,False,2026-03-02,JD,82
+31,3,42.0,False,2026-02-13,JD,83
+31,3,42.0,False,2026-04-03,JD,84
+31,3,42.0,False,2026-01-01,JD,85
+31,2,28.0,False,2026-04-13,JD,86
+31,1,14.0,False,2026-04-06,JD,87
+31,3,42.0,False,2026-03-09,JD,88
+31,3,42.0,False,2026-04-17,JD,89
+31,3,42.0,False,2026-01-12,JD,90
+31,3,42.0,False,2026-02-21,JD,91
+31,1,14.0,False,2026-03-05,JD,92
+31,3,42.0,False,2026-02-01,JD,93
+31,3,42.0,False,2026-04-18,JD,94
+31,3,42.0,False,2026-03-26,JD,95
+31,3,42.0,False,2026-04-03,JD,96
+31,1,14.0,False,2026-03-15,JD,97
+31,3,42.0,False,2026-01-16,JD,98
+31,1,14.0,False,2026-03-18,JD,99
+31,3,42.0,False,2026-03-13,JD,100
+31,2,28.0,False,2026-02-12,JD,101
+31,3,42.0,False,2026-01-28,JD,102
+31,3,42.0,False,2026-01-19,JD,103
+31,3,42.0,False,2026-02-01,JD,104
+31,3,42.0,False,2026-01-25,JD,105
+31,3,42.0,False,2026-04-02,JD,106
+31,1,14.0,False,2026-04-25,JD,107
+31,3,42.0,False,2026-03-27,JD,108
+31,2,28.0,False,2026-02-10,JD,109
+31,3,42.0,False,2026-01-13,JD,110
+31,3,42.0,False,2026-03-07,JD,111
+31,3,42.0,False,2026-01-17,JD,112
+31,2,28.0,False,2026-02-09,JD,113
+31,2,28.0,False,2026-01-25,JD,114
+31,3,42.0,False,2026-03-02,JD,115
+31,3,42.0,False,2026-04-01,JD,116
+31,3,42.0,False,2026-01-20,JD,117
+31,3,42.0,False,2026-02-19,JD,118
+31,3,42.0,False,2026-01-22,JD,119
+31,3,42.0,False,2026-02-04,JD,120
+31,3,42.0,False,2026-02-08,JD,121
+31,3,42.0,False,2026-04-03,JD,122
+31,3,42.0,False,2026-03-04,JD,123
+31,3,42.0,False,2026-04-16,JD,124
+31,3,42.0,False,2026-03-15,JD,125
+31,3,42.0,False,2026-03-27,JD,126
+31,2,28.0,False,2026-04-24,JD,127
+31,3,42.0,False,2026-03-13,JD,128
+31,3,42.0,False,2026-04-10,JD,129
+31,2,28.0,False,2026-01-03,JD,130
+31,1,14.0,False,2026-04-21,JD,131
+31,3,42.0,False,2026-02-24,JD,132
+31,3,42.0,False,2026-01-05,JD,133
+31,3,42.0,False,2026-03-14,JD,134
+31,3,42.0,False,2026-03-28,JD,135
+31,3,42.0,False,2026-02-23,JD,136
+31,3,42.0,False,2026-04-10,JD,137
+31,3,42.0,False,2026-03-04,JD,138
+31,3,42.0,False,2026-01-12,JD,139
+31,3,42.0,False,2026-03-09,JD,140
+31,3,42.0,False,2026-04-25,JD,141
+31,3,42.0,False,2026-04-13,JD,142
+31,3,42.0,False,2026-03-02,JD,143
+31,3,42.0,False,2026-03-17,JD,144
+31,3,42.0,False,2026-04-11,JD,145
+31,3,42.0,False,2026-01-06,JD,146
+31,3,42.0,False,2026-02-02,JD,147
+31,3,42.0,False,2026-02-20,JD,148
+31,1,14.0,False,2026-04-02,JD,149
+31,3,42.0,False,2026-04-18,JD,150
+31,3,42.0,False,2026-03-05,JD,151
+31,1,14.0,False,2026-01-06,JD,152
+31,2,28.0,False,2026-04-07,JD,153
+31,3,42.0,False,2026-04-23,JD,154
+31,3,42.0,False,2026-03-14,JD,155
+31,3,42.0,False,2026-02-21,JD,156
+31,3,42.0,False,2026-03-20,JD,157
+31,3,42.0,False,2026-02-05,JD,158
+31,3,42.0,False,2026-03-11,JD,159
+31,3,42.0,False,2026-04-21,JD,160
+31,3,42.0,False,2026-04-18,JD,161
+31,3,42.0,False,2026-01-01,JD,162
+31,3,42.0,False,2026-03-01,JD,163
+31,3,42.0,False,2026-01-10,JD,164
+31,3,42.0,False,2026-01-28,JD,165
+31,3,42.0,False,2026-01-21,JD,166
+31,3,42.0,False,2026-04-08,JD,167
+31,3,42.0,False,2026-02-26,JD,168
+31,2,28.0,False,2026-03-06,JD,169
+31,3,42.0,False,2026-01-27,JD,170
+31,3,42.0,False,2026-03-27,JD,171
+31,1,14.0,False,2026-02-04,JD,172
+31,3,42.0,False,2026-03-18,JD,173
+31,3,42.0,False,2026-01-18,JD,174
+31,1,14.0,False,2026-03-18,JD,175
+31,1,14.0,False,2026-01-22,JD,176
+31,3,42.0,False,2026-03-11,JD,177
+31,3,42.0,False,2026-03-17,JD,178
+31,3,42.0,False,2026-01-11,JD,179
+31,3,42.0,False,2026-03-22,JD,180
+31,3,42.0,False,2026-01-22,JD,181
+31,3,42.0,False,2026-03-21,JD,182
+31,3,42.0,False,2026-04-22,JD,183
+31,3,42.0,False,2026-04-01,JD,184
+31,3,42.0,False,2026-01-22,JD,185
+31,3,42.0,False,2026-03-21,JD,186
+31,2,28.0,False,2026-02-02,JD,187
+31,3,42.0,False,2026-01-17,JD,188
+31,1,14.0,False,2026-01-26,JD,189
+31,3,42.0,False,2026-04-04,JD,190
+31,3,42.0,False,2026-03-22,JD,191
+31,3,42.0,False,2026-03-05,JD,192
+31,3,42.0,False,2026-01-05,JD,193
+31,3,42.0,False,2026-04-13,JD,194
+31,2,28.0,False,2026-03-06,JD,195
+31,3,42.0,False,2026-03-14,JD,196
+31,3,42.0,False,2026-03-11,JD,197
+31,3,42.0,False,2026-04-28,JD,198
+31,3,42.0,False,2026-02-27,JD,199
+31,3,42.0,False,2026-04-18,JD,200

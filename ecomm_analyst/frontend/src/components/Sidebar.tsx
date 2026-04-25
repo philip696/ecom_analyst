@@ -32,20 +32,20 @@ export default function Sidebar() {
   const { user, logout } = useAuth();
 
   return (
-    <aside className="w-64 min-h-screen bg-white border-r border-slate-100 flex flex-col">
+    <aside className="w-[17rem] min-h-screen bg-white border-r border-slate-100 flex flex-col">
       {/* Logo */}
       <div className="px-6 py-5 border-b border-slate-100">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center">
+        <div className="flex items-center gap-2.5">
+          <div className="w-9 h-9 bg-brand-500 rounded-lg flex items-center justify-center">
             <BarChart2 className="w-5 h-5 text-white" />
           </div>
-          <span className="font-bold text-lg text-slate-800">MarketLens</span>
+          <span className="font-bold text-xl text-slate-800">MarketLens</span>
         </div>
-        <p className="text-xs text-slate-400 mt-1">E-Commerce Analytics</p>
+        <p className="text-sm text-slate-400 mt-1">E-Commerce Analytics</p>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
+      <nav className="flex-1 px-3 py-5 space-y-2">
         {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
           <Link
             key={href}
@@ -55,7 +55,7 @@ export default function Sidebar() {
               pathname === href && "sidebar-link-active"
             )}
           >
-            <Icon className="w-4 h-4" />
+            <Icon className="w-5 h-5 shrink-0" />
             {label}
           </Link>
         ))}
@@ -64,11 +64,11 @@ export default function Sidebar() {
       {/* User + Logout */}
       <div className="px-3 py-4 border-t border-slate-100">
         <div className="px-4 py-2 mb-1">
-          <p className="text-sm font-semibold text-slate-700 truncate">{user?.username}</p>
-          <p className="text-xs text-slate-400 truncate">{user?.email}</p>
+          <p className="text-base font-semibold text-slate-700 truncate">{user?.username}</p>
+          <p className="text-sm text-slate-400 truncate">{user?.email}</p>
         </div>
         <button onClick={logout} className="sidebar-link w-full text-red-500 hover:bg-red-50 hover:text-red-600">
-          <LogOut className="w-4 h-4" />
+          <LogOut className="w-5 h-5 shrink-0" />
           Logout
         </button>
       </div>

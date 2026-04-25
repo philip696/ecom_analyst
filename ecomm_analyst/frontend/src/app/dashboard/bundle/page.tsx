@@ -1,15 +1,32 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, Cell,
 } from "recharts";
-import { Package, DollarSign, Layers, TrendingUp } from "lucide-react";
+import { Package, DollarSign, Layers, Network, TrendingUp } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import KpiCard from "@/components/KpiCard";
 import { salesApi } from "@/lib/api";
 import { clsx } from "clsx";
+import type { DirectedBundleEdge } from "@/lib/bundle-analytics-types";
+
+const BundleNetworkGraph = dynamic(
+  () => import("@/components/BundleNetworkGraph"),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="flex items-center justify-center rounded-xl border border-slate-100 bg-slate-50/50 text-slate-400 text-sm"
+        style={{ minHeight: 600 }}
+      >
+        Loading co-purchase network…
+      </div>
+    ),
+  }
+);
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -84,12 +101,14 @@ export default function BundlePage() {
   const [channel, setChannel] = useState<ChannelId>("all");
   const [summary, setSummary] = useState<Summary | null>(null);
   const [pairs, setPairs] = useState<BundlePair[]>([]);
+  const [directedEdges, setDirectedEdges] = useState<DirectedBundleEdge[]>([]);
   const [chartData, setChartData] = useState<ChartPoint[]>([]);
   const [loading, setLoading] = useState(true);
   const [sortKey, setSortKey] = useState<SortKey>("count");
   const [sortAsc, setSortAsc] = useState(false);
   const [search, setSearch] = useState("");
   const [chartMode, setChartMode] = useState<"count" | "revenue">("count");
+  const [networkMetric, setNetworkMetric] = useState<"count" | "revenue">("count");
 
   const mkt = channel === "all" ? undefined : channel;
 
@@ -99,6 +118,9 @@ export default function BundlePage() {
       .then((res) => {
         setSummary(res.data.summary);
         setPairs(res.data.pairs);
+        setDirectedEdges(
+          (res.data as { directed_edges?: DirectedBundleEdge[] }).directed_edges ?? []
+        );
         setChartData(res.data.chart_data);
       })
       .finally(() => setLoading(false));
@@ -296,6 +318,46 @@ export default function BundlePage() {
                 </div>
               )}
             </div>
+          </div>
+
+          {/* Co-purchase network graph */}
+          <div className="card mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-1">
+              <div className="flex items-center gap-2">
+                <Network className="h-4 w-4 text-brand-500" aria-hidden />
+                <h2 className="text-base font-semibold text-slate-700">Co-purchase network</h2>
+              </div>
+              <div className="flex items-center bg-slate-100 rounded-lg p-0.5 text-xs font-medium">
+                <button
+                  type="button"
+                  onClick={() => setNetworkMetric("count")}
+                  className={clsx(
+                    "px-3 py-1 rounded-md transition-all",
+                    networkMetric === "count" ? "bg-white text-brand-600 shadow-sm" : "text-slate-500"
+                  )}
+                >
+                  By count
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setNetworkMetric("revenue")}
+                  className={clsx(
+                    "px-3 py-1 rounded-md transition-all",
+                    networkMetric === "revenue" ? "bg-white text-brand-600 shadow-sm" : "text-slate-500"
+                  )}
+                >
+                  By revenue
+                </button>
+              </div>
+            </div>
+            <p className="text-xs text-slate-400 mb-2">
+              Same as <span className="text-slate-500">sales.csv</span> semantics: each row is a
+              line-item <code className="text-slate-500">product_id</code> with an optional{" "}
+              <code className="text-slate-500">bundled_with</code> target — arrows go from the line
+              product to the add-on. Thicker lines =
+              {networkMetric === "count" ? " more co-purchased line items" : " more revenue on those orders"}.
+            </p>
+            <BundleNetworkGraph directedEdges={directedEdges} linkMetric={networkMetric} height={650} />
           </div>
 
           {/* Full Table */}

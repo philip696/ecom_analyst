@@ -188,6 +188,9 @@ def bundle_analytics(
     # Pair → {count, revenue, qty}
     pair_data: dict = defaultdict(lambda: {"count": 0, "revenue": 0.0, "qty": 0})
 
+    # (line-item product) → (bundled id), as in sales rows / reference directed graph
+    directed_data: dict = defaultdict(lambda: {"count": 0, "revenue": 0.0, "qty": 0})
+
     for r in records:
         for bid in r.bundled_with.split(","):
             bid = bid.strip()
@@ -197,6 +200,28 @@ def bundle_analytics(
             pair_data[pair]["count"] += 1
             pair_data[pair]["revenue"] += r.revenue
             pair_data[pair]["qty"] += r.quantity
+            t = int(bid)
+            dkey = (r.product_id, t)
+            directed_data[dkey]["count"] += 1
+            directed_data[dkey]["revenue"] += r.revenue
+            directed_data[dkey]["qty"] += r.quantity
+
+    directed_edges = []
+    for (src, tgt), d in directed_data.items():
+        ps = db.get(models.Product, int(src))
+        pt = db.get(models.Product, int(tgt))
+        directed_edges.append({
+            "source_id": int(src),
+            "target_id": int(tgt),
+            "source_name": ps.name if ps else str(src),
+            "target_name": pt.name if pt else str(tgt),
+            "source_image_url": (ps.image_url or "") if ps else "",
+            "target_image_url": (pt.image_url or "") if pt else "",
+            "count": d["count"],
+            "revenue": round(d["revenue"], 2),
+            "avg_order_qty": round(d["qty"] / d["count"], 1) if d["count"] else 0,
+        })
+    directed_edges.sort(key=lambda x: x["count"], reverse=True)
 
     # Resolve names
     pairs = []
@@ -244,6 +269,8 @@ def bundle_analytics(
             }
             for p in pairs[:10]
         ],
+        # sales.csv semantics: line item product_id → each bundled product id
+        "directed_edges": directed_edges,
     }
 
 

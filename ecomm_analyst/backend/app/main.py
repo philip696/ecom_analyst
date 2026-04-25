@@ -6,10 +6,38 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
+from starlette.responses import Response
 
 from app.config import settings
 from app.database import Base, engine
 from app.routers import auth, comments, dashboard, engagement, insights, products, sales
+
+
+# Mounted StaticFiles can omit CORS headers; canvas needs them when img.crossOrigin = "anonymous".
+class StaticImagesCORSMiddleware(BaseHTTPMiddleware):
+    """Ensure /images/* responses include CORS for the browser (Next.js on :3000)."""
+
+    _allowed = (settings.FRONTEND_URL, "http://localhost:3000", "http://127.0.0.1:3000")
+
+    async def dispatch(self, request: Request, call_next):
+        if request.url.path.startswith("/images") and request.method == "OPTIONS":
+            o = request.headers.get("origin", "")
+            allow = o if o in self._allowed else settings.FRONTEND_URL
+            h = {
+                "Access-Control-Allow-Origin": allow,
+                "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Max-Age": "600",
+            }
+            return Response(status_code=204, headers=h)
+        response = await call_next(request)
+        if request.url.path.startswith("/images"):
+            o = request.headers.get("origin", "")
+            allow = o if o in self._allowed else settings.FRONTEND_URL
+            response.headers["Access-Control-Allow-Origin"] = allow
+        return response
 
 # Create all tables on startup (fine for SQLite/dev; use Alembic for production)
 Base.metadata.create_all(bind=engine)
@@ -20,10 +48,11 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# ── CORS ──────────────────────────────────────
+# ── CORS (API JSON). Static /images also patched above for canvas + crossOrigin. ──
+app.add_middleware(StaticImagesCORSMiddleware)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_URL, "http://localhost:3000"],
+    allow_origins=[settings.FRONTEND_URL, "http://localhost:3000", "http://127.0.0.1:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -40,8 +69,8 @@ app.include_router(insights.router)
 
 
 
-# ── Static files (product images) ─────────────────────────────────────────────
-_images_dir = os.path.join(os.path.dirname(__file__), "..", "data_200", "image")
+# ── Static files (product images) — backend/data200/image/ ─────────────────
+_images_dir = os.path.join(os.path.dirname(__file__), "..", "data200", "image")
 if os.path.isdir(_images_dir):
     app.mount("/images", StaticFiles(directory=_images_dir), name="images")
 

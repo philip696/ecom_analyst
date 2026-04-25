@@ -25,8 +25,9 @@ ENV/
 env/
 .venv
 
-# Database
+# Database (track demo db for out-of-the-box run)
 *.db
+!backend/ecommerce.db
 *.sqlite
 *.sqlite3
 

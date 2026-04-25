@@ -22,7 +22,7 @@ python seed.py
 uvicorn app.main:app --reload --port 8000
 ```
 
-> After `copy .env.example .env` you can optionally open `.env` and add your `OPENAI_API_KEY` before continuing.
+> After `copy .env.example .env` you can optionally add `LLM_API_KEY` (Deepseek) before continuing.
 
 - **API base URL**: http://localhost:8000
 - **Interactive API docs (Swagger)**: http://localhost:8000/docs
@@ -68,5 +68,5 @@ Password: demo1234
 
 - **Switch to PostgreSQL**: Uncomment `psycopg2-binary==2.9.9` in `requirements.txt` and update `DATABASE_URL` in `.env`
 - **SECRET_KEY**: Replace with a long random string (e.g. `openssl rand -hex 32`)
-- **OPENAI_API_KEY**: Add a real key to enable live GPT-4o-mini responses
+- **LLM_API_KEY** (or **OPENAI_API_KEY**): Add a [Deepseek](https://platform.deepseek.com) API key to enable live AI Insights (`deepseek-chat` by default; override `LLM_BASE_URL` / `LLM_MODEL` in `app/config.py` for other providers)
 - **Database migrations**: Alembic is installed — use it instead of `Base.metadata.create_all` for schema management in production

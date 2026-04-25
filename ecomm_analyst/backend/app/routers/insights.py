@@ -1,5 +1,5 @@
 """
-AI Insights router – uses OpenAI to answer analytics questions.
+AI Insights router – uses Deepseek (OpenAI-compatible API) by default.
 Falls back to mock responses if no API key is configured.
 """
 from datetime import datetime
@@ -166,7 +166,7 @@ def _build_context(segments: List[str], db: Session) -> str:
 
 
 def _mock_response(segments: List[str], question: str, context: str) -> str:
-    """Rule-based fallback when no OpenAI key is provided.
+    """Rule-based fallback when no LLM API key is provided.
     Parses the rich context so the mock reply reflects actual store data.
     """
     seg_label = " + ".join(s.capitalize() for s in segments)
@@ -211,7 +211,7 @@ def _mock_response(segments: List[str], question: str, context: str) -> str:
     lines.append(
         f"\nQuestion asked: \"{question}\"\n"
         "Note: this is a mock response based on your store data structure. "
-        "Add your OpenAI API key to .env to get real AI-powered analysis."
+        "Add LLM_API_KEY (or OPENAI_API_KEY) to backend .env to get real AI-powered analysis (Deepseek by default)."
     )
     return "\n".join(lines)
 
@@ -240,17 +240,18 @@ async def ask_insight(
         f"Question: {payload.question}"
     )
 
+    api_key = (settings.LLM_API_KEY or settings.OPENAI_API_KEY or "").strip()
     is_real_key = (
-        settings.OPENAI_API_KEY
-        and settings.OPENAI_API_KEY.startswith("sk-")
-        and "your" not in settings.OPENAI_API_KEY.lower()
-        and len(settings.OPENAI_API_KEY) > 20
+        bool(api_key)
+        and len(api_key) > 15
+        and "your_api_key" not in api_key.lower()
+        and "replace" not in api_key.lower()
     )
     if is_real_key:
         from openai import AsyncOpenAI
-        client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+        client = AsyncOpenAI(api_key=api_key, base_url=settings.LLM_BASE_URL)
         completion = await client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=settings.LLM_MODEL,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_message},
