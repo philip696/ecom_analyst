@@ -8,6 +8,18 @@ This directory deploys the **same FastAPI app** as `../backend/` to **Cloudflare
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Astral’s Python installer)
 - Cloudflare account + `npx wrangler login`
 
+### Cloudflare Workers “Build command” (Git integration)
+
+If Cloudflare’s **root path** is the **repository root** (not `cloudflare-worker/`), `npm ci` will fail because `package-lock.json` is not there. Use **one** of these:
+
+| Root path in dashboard | Build command |
+|-------------------------|---------------|
+| **`ecomm_analyst/cloudflare-worker`** | `npm ci && bash scripts/sync-ecommerce-db.sh` |
+| **`/`** (clone root) | `bash ecomm_analyst/build-cloudflare-worker.sh` |
+| **`ecomm_analyst`** (app folder) | `bash build-cloudflare-worker.sh` |
+
+The wrapper script lives next to `cloudflare-worker/`: **`ecomm_analyst/build-cloudflare-worker.sh`**.
+
 ## One-time Cloudflare setup
 
 1. **Create the R2 bucket** (name must match `wrangler.jsonc` → `bucket_name`, default `ecom-analyst-product-images`):
