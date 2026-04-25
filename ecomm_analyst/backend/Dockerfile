@@ -8,5 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app ./app
 COPY data200 ./data200
 COPY data_200 ./data_200
+# Demo SQLite DB (optional locally); baked in so Fly boots with data without a volume
+COPY ecommerce.db ./ecommerce.db
 EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -4,6 +4,7 @@ venv
 ENV
 *.pyc
 *.db
+!ecommerce.db
 *.sqlite
 .DS_Store
 .git

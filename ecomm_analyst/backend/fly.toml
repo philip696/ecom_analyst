@@ -1,0 +1,33 @@
+# Deploy from this directory: fly launch / fly deploy
+# https://fly.io/docs/languages-and-frameworks/docker/
+
+app = "ecom-analyst-api"
+primary_region = "sin"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  # SQLite path inside the image (matches WORKDIR /app)
+  DATABASE_URL = "sqlite:///./ecommerce.db"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[http_service.checks]]
+  type = "http"
+  interval = "30s"
+  timeout = "5s"
+  grace_period = "15s"
+  method = "GET"
+  path = "/"
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1
