@@ -19,6 +19,8 @@ Use **two different commands**:
 
 Do **not** put `deploy-cloudflare-worker.sh` in the **build** field — that runs `wrangler deploy` too early and duplicates work.
 
+**If the log looks like yours:** build runs `deploy-cloudflare-worker.sh` (Worker uploads successfully), then **Deploy** runs plain `npx wrangler deploy` from the **repo root** → *“Could not detect a directory containing static files”*. **Fix:** set **Build** to `bash ecomm_analyst/build-cloudflare-worker.sh` only, and set **Deploy** to `bash ecomm_analyst/deploy-cloudflare-worker.sh` (never bare `npx wrangler deploy` unless you `cd ecomm_analyst/cloudflare-worker` first).
+
 If Cloudflare’s **Path** is **`ecomm_analyst`**, use `bash build-cloudflare-worker.sh` / `bash deploy-cloudflare-worker.sh`.
 
 ### Cloudflare Workers “Build command” (details)
