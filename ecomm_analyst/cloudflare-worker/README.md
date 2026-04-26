@@ -30,6 +30,22 @@ Edit **`wrangler.jsonc`**:
 
 **Fly** must be deployed and reachable at `API_UPSTREAM`.
 
+### Cloudflare **1016** on `*.fly.dev` (“Origin DNS error”)
+
+That hostname is served through Cloudflare (Fly’s edge). **1016** means the name **did not resolve to a live Fly app** — most often the app **was never created**, **`fly.toml` `app` name does not match** the app on your Fly org, or **`fly deploy` has not succeeded** for that app.
+
+1. Install **[flyctl](https://fly.io/docs/hands-on/install-flyctl/)** (use `flyctl` if your shell’s `fly` is a different program, e.g. Concourse).
+2. From **`backend/`** (this repo’s `fly.toml`):
+
+   ```bash
+   flyctl apps list
+   flyctl status -a ecom-analyst-api
+   flyctl deploy
+   ```
+
+3. Open **`https://ecom-analyst-api.fly.dev/`** (or whatever **`flyctl status`** shows). You should get a **200** from the API **before** the Worker can proxy reliably.
+4. If your real app name differs, set **`app = "…"`** in **`backend/fly.toml`** and the same host (no trailing slash) in **`wrangler.jsonc`** → **`API_UPSTREAM`**, then redeploy the Worker.
+
 ## Frontend
 
 Set **`NEXT_PUBLIC_API_URL`** on Pages to this Worker’s URL. Pages `_redirects` can still proxy `/api/*` to the same origin if you use that pattern.
@@ -56,7 +72,8 @@ Bucket name must match `wrangler.jsonc` → `r2_buckets[].bucket_name`.
 | Symptom | Fix |
 |--------|-----|
 | **503** API_UPSTREAM | Set **`API_UPSTREAM`** in `wrangler.jsonc` or Dashboard → Variables. |
-| **502** from proxy | Fly app down, wrong URL, or TLS — check `fly status` and the var. |
+| **502** from proxy | Fly app down, wrong URL, or TLS — check `flyctl status` and the var. |
+| **1016** on `…fly.dev` | Fly DNS: app missing or not deployed — follow **§ Fly API hostname** above. |
 | **CORS** | Set **`FRONTEND_URL`** on Fly to your Pages origin (see `backend/app/main.py`). |
 | **Images 404** | Run R2 sync; keys are `image/<slug>.jpg`. |
 
