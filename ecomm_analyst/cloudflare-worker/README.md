@@ -123,7 +123,7 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 
 ## Limitations
 
-- **Python Workers are beta**; not every PyPI package works. If `bcrypt` fails to import, passwords fall back to **pbkdf2_sha256** for *new* hashes only — existing bcrypt hashes in `ecommerce.db` would need re-registration or a migration.
+- **Python Workers (Pyodide)** cannot install **bcrypt**; the worker bundle omits it and uses **pbkdf2_sha256** only. `deploy-cloudflare-worker.sh` runs `scripts/rehash_demo_password_pyodide.py` on the copied SQLite file so `demo@example.com` stays on `demo1234`. Other users seeded with bcrypt would need a similar migration or re-register.
 - **SQLite** in the bundle is fine for demos; production should use **Postgres + Hyperdrive** (or another supported pattern).
 - **Cold starts** and **CPU limits** apply; long-running jobs are a poor fit.
 

@@ -27,4 +27,7 @@ _ensure_uv() {
 
 _ensure_uv
 uv sync --group dev
+# Pyodide has no bcrypt wheel; vendored security.py uses pbkdf2_sha256. Rehash demo user
+# so login still works (demo@example.com / demo1234) after copying backend/ecommerce.db.
+uv run python scripts/rehash_demo_password_pyodide.py src/ecommerce.db
 exec uv run pywrangler deploy
