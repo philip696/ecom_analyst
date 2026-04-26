@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
-// Cloudflare Pages sets CF_PAGES=1 during build — require API URL so the static bundle does not call localhost:8000.
+// Cloudflare Pages sets CF_PAGES=1 during build. NEXT_PUBLIC_* must be set on the **Pages** project
+// (Workers & Pages → your *frontend* Pages project → Settings → Variables and Secrets → + Add).
+// Wrangler’s “Build environment variables: (none found)” only reflects [vars] in wrangler.toml, not the dashboard.
 if (process.env.CF_PAGES === "1" && !String(process.env.NEXT_PUBLIC_API_URL || "").trim()) {
-  throw new Error(
-    "Cloudflare Pages: set NEXT_PUBLIC_API_URL to your deployed API (e.g. https://ecom-analyst.xxx.workers.dev) " +
-      "under Settings → Environment variables, then redeploy.",
+  console.warn(
+    "\n[Pages] NEXT_PUBLIC_API_URL is not set for this build. " +
+      "Add it on your Pages project (frontend): Settings → Variables and Secrets → Production (and Preview if needed). " +
+      "Value = Worker API origin, e.g. https://ecom-analyst.xxx.workers.dev (no trailing slash). " +
+      "Without it, the built site will still use http://localhost:8000.\n",
   );
 }
 

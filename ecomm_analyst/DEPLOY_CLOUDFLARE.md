@@ -20,7 +20,11 @@ The app is built as a static export (`next.config.js` → `output: "export"`). T
 |----------|----------|-------------|
 | `NEXT_PUBLIC_API_URL` | Yes | HTTPS origin of the **Worker** (or Fly) API, e.g. `https://ecom-analyst.your-subdomain.workers.dev` — **no trailing slash**. Baked in at **build** time; rebuild Pages after changing it. |
 
-Set these under **Pages project → Settings → Environment variables** for **Production** and **Preview** as needed. On Cloudflare Pages builds, `next.config.js` **fails the build** if `NEXT_PUBLIC_API_URL` is missing (`CF_PAGES=1`), so the shipped JS never defaults to `localhost:8000` by accident.
+Set these under **Pages project → Settings → Variables and Secrets → + Add** for **Production** (and **Preview** if you use preview deployments). Use the **same** name exactly: `NEXT_PUBLIC_API_URL`.
+
+If the build log says **“Build environment variables: (none found)”**, that line only describes **`[vars]` inside `wrangler.toml`** — it does **not** mean your dashboard vars are missing. As long as `NEXT_PUBLIC_API_URL` is set on the **Pages** project, `next build` will see it.
+
+`next.config.js` prints a **warning** (not a hard error) if `CF_PAGES=1` and `NEXT_PUBLIC_API_URL` is still empty, so you can fix the dashboard and redeploy without changing code.
 
 **Worker / API CORS:** set **`FRONTEND_URL`** to your **Pages** site origin (e.g. `https://your-app.pages.dev`). Optional **`ALLOWED_CORS_ORIGINS`** (comma-separated) if you need several origins (e.g. preview + production). Set in **`cloudflare-worker/wrangler.jsonc`** `vars` and/or Wrangler **secrets**, then redeploy the Worker.
 
