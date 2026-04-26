@@ -5,7 +5,7 @@
 #   Build output:    out
 #
 # Required on the **Pages** project (not the Worker): Environment variable
-#   NEXT_PUBLIC_API_URL = https://<your-worker>.workers.dev   (no trailing slash)
+#   NEXT_PUBLIC_API_URL = https://ecom-analyst.philip-dewanto.workers.dev   (no trailing slash)
 # so `next build` bakes in the API origin. "Build environment variables: (none found)" in logs
 # only refers to [vars] below; dashboard vars still apply — add NEXT_PUBLIC_API_URL in the UI.
 name = "ecomm-analyst-frontend"

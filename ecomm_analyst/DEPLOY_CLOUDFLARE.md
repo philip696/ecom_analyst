@@ -6,7 +6,7 @@ Cloudflare **Pages** hosts the **static Next.js** export. The **Cloudflare Worke
 
 A workflow in `.github/workflows/cloudflare-pages.yml` runs on pushes to `main` that touch `frontend/`. Add repository **variables** and **secrets**:
 
-- **Variable** `NEXT_PUBLIC_API_URL` — your live API `https` origin (baked in at build time for GHA; empty falls back to `http://localhost:8000` in `api.ts` at runtime only if unset).
+- **Variable** `NEXT_PUBLIC_API_URL` — use **`https://ecom-analyst.philip-dewanto.workers.dev`** (no trailing slash) so GHA builds match production; `frontend/deploy-urls.js` is the fallback when unset locally.
 - **Secrets** `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` (see [Direct Upload / CI](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/)).
 - The deploy command uses `--project-name=ecomm-analyst-frontend`; create that Pages project in Cloudflare or change the name in the workflow.
 
@@ -18,7 +18,7 @@ The app is built as a static export (`next.config.js` → `output: "export"`). T
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `NEXT_PUBLIC_API_URL` | Yes | HTTPS origin of the **Worker** API, e.g. `https://ecom-analyst.your-subdomain.workers.dev` — **no trailing slash**. Baked in at **build** time; rebuild Pages after changing it. |
+| `NEXT_PUBLIC_API_URL` | Yes | HTTPS origin of the **Worker** API: **`https://ecom-analyst.philip-dewanto.workers.dev`** — **no trailing slash**. Baked in at **build** time; rebuild Pages after changing it. (Defaults also come from `frontend/deploy-urls.js`.) |
 | `NEXT_PUBLIC_API_USE_PROXY` | No | Defaults to proxy mode. Set to `0` to call the Worker origin directly from the browser (then CORS on the Worker must allow your Pages origin). |
 
 Set these under **Pages project → Settings → Variables and Secrets → + Add** for **Production** (and **Preview** if you use preview deployments). Use the **same** name exactly: `NEXT_PUBLIC_API_URL`.

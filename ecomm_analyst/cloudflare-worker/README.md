@@ -1,6 +1,8 @@
 # E‑Commerce Analyst — Cloudflare Worker (JavaScript gateway)
 
-This Worker is a **small JavaScript** script (`src/gateway.js`) for **Cloudflare Workers**:
+This Worker is a **small JavaScript** script (`src/gateway.js`) for **Cloudflare Workers**.
+
+**Deployed URL:** `https://ecom-analyst.philip-dewanto.workers.dev/` (script name **`ecom-analyst`** on account **`philip-dewanto.workers.dev`**; see `wrangler.jsonc` → `name`).
 
 1. **`/images/*`** — objects from **R2** (`image/<filename>` keys, same as local Docker).
 2. **Everything else** — **`fetch(new Request(upstream, request))`** to **`API_UPSTREAM`**.
@@ -36,7 +38,7 @@ If the Worker’s **`fetch(API_UPSTREAM + …)`** fails with **1016**, Cloudflar
 
 ## Frontend (Pages)
 
-Set **`NEXT_PUBLIC_API_URL`** on Pages to this **Worker** URL. Pages `_redirects` can proxy `/api/*` to the same origin if you use that pattern.
+Set **`NEXT_PUBLIC_API_URL`** on Pages to **`https://ecom-analyst.philip-dewanto.workers.dev`** (no trailing slash), or rely on **`frontend/deploy-urls.js`** which already defaults to that origin. Pages `_redirects` can proxy `/api/*` to the Worker if you use that pattern.
 
 ## R2 images
 

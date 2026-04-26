@@ -1,4 +1,6 @@
 {
+  // Canonical Workers URL: https://ecom-analyst.philip-dewanto.workers.dev/
+  // `name` must match the script name in that hostname (before the first dot).
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ecom-analyst",
   "main": "src/gateway.js",

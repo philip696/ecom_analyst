@@ -1,6 +1,6 @@
 # Build static Next app and deploy `frontend/out` to Cloudflare Pages.
 # Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID
-# Variable: NEXT_PUBLIC_API_URL (GitHub → Settings → Variables) so the build bakes in your API base URL
+# Variable: NEXT_PUBLIC_API_URL (repo → Settings → Variables), e.g. https://ecom-analyst.philip-dewanto.workers.dev
 name: Deploy frontend to Cloudflare Pages
 on:
   push:

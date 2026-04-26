@@ -6,7 +6,7 @@ const { DEPLOY_WORKER_API_ORIGIN } = require("../../deploy-urls.js") as {
 /**
  * Public env (NEXT_PUBLIC_*) baked in at `next build` for static export.
  *
- * - **Defaults:** `deploy-urls.js` → Worker `https://ecom-analyst.workers.dev`; production builds use it unless
+ * - **Defaults:** `deploy-urls.js` → Worker `https://ecom-analyst.philip-dewanto.workers.dev`; production builds use it unless
  *   `NEXT_PUBLIC_API_URL` is set. `next.config.js` may use same-origin `_redirects` (empty browser base).
  * - **Local API:** `NEXT_PUBLIC_API_URL=http://localhost:8000` in `frontend/.env.local`.
  * - **Direct-to-Worker:** `NEXT_PUBLIC_API_USE_PROXY=0` on the Pages build.
