@@ -1,6 +1,6 @@
 # Deploy MarketLens to Cloudflare (and the API elsewhere)
 
-Cloudflare **Pages** hosts the **static Next.js** app. The **FastAPI** API runs on **Fly.io** by default. The **Cloudflare Python Worker** is a **slim** service: **R2** for `/images/*` and an **`API_UPSTREAM` proxy** to Fly (fits Workers Free gzip limits). Details: [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
+Cloudflare **Pages** hosts the **static Next.js** app. The **FastAPI** API runs on **Fly.io** by default. The **Cloudflare Worker** (`cloudflare-worker/src/gateway.js`) is a **slim JavaScript** gateway: **R2** for `/images/*` and a **`fetch` proxy** to Fly via **`API_UPSTREAM`**. Details: [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
 
 ## GitHub Actions (optional)
 
@@ -77,9 +77,9 @@ A sample **`backend/Dockerfile`** is provided. Set environment variables in that
 
 For product images, include **`data200/image/`** in the image or mount a volume; CSV seed data is under `data_200/`.
 
-### Option B — Cloudflare Python Worker + R2 (beta)
+### Option B — Cloudflare Worker + R2 (JavaScript gateway)
 
-Deploy from **`cloudflare-worker/`**: product images are stored in **R2** and served at the same **`/images/...`** paths; JSON routes use the shared **`backend/app`** code. Requires **`uv run pywrangler deploy`** (used by **`deploy-cloudflare-worker.sh`**) so `pyproject.toml` deps (FastAPI, SQLAlchemy, …) are bundled; **`npx wrangler deploy` alone** uploads only your Python sources and fails at import with `ModuleNotFoundError: fastapi`. The deploy script installs **uv** via the official installer if it is not on `PATH`. See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, secrets, and limitations.
+Deploy from **`cloudflare-worker/`**: **`src/gateway.js`** serves **`/images/*`** from **R2** and **proxies** all other paths to **`API_UPSTREAM`** (your Fly API). Use **`bash ecomm_analyst/deploy-cloudflare-worker.sh`** (`npm ci` + **`npx wrangler deploy`**). No Python/Pyodide on the edge. See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, and vars.
 
 ## 3. CORS
 

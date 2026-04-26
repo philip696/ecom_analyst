@@ -1,9 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ecom-analyst",
-  "main": "src/worker.py",
+  "main": "src/gateway.js",
   "compatibility_date": "2025-11-02",
-  "compatibility_flags": ["python_workers"],
   "vars": {
     "FRONTEND_URL": "https://ecom-analyst.pages.dev",
     "API_UPSTREAM": "https://ecom-analyst-api.fly.dev"

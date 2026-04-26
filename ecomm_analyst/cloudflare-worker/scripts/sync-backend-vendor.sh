@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Copy backend/app into cloudflare-worker/src/app/ so Wrangler bundles it.
-# moduleRoot for main = src/worker.py is only the `src/` tree; sibling `vendor/` is never uploaded.
+# Copy backend/app into cloudflare-worker/src/app/ (legacy: in-Worker Python API experiments only).
+# Default deploy uses src/gateway.js and does not bundle this tree.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SRC="$ROOT/../backend/app"
