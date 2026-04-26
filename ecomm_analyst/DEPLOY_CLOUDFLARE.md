@@ -60,6 +60,19 @@ npx --yes wrangler@3 pages deploy out --project-name=YOUR_PROJECT_NAME
 
 ## 2. Backend
 
+### Cloudflare Pages cannot host this FastAPI app
+
+**Pages** only serves **static files** from your Next export (`out/`). It does **not** run Python, Uvicorn, or long‑lived API processes. **Pages Functions** are lightweight **Workers** colocated with the site; they are **not** a drop‑in host for this whole **`backend/`** FastAPI codebase.
+
+To keep **everything under Cloudflare** (while Pages stays frontend‑only), use one of these **separate** products for compute:
+
+| Product | What it is | Fit for this repo |
+|--------|-------------|-------------------|
+| **[Cloudflare Containers](https://developers.cloudflare.com/containers/)** | Run a **Docker** image on Cloudflare; a **Worker** routes traffic to the container. | Closest to “host the **`backend/Dockerfile`** on Cloudflare”. You get an HTTPS origin to set as **`API_UPSTREAM`**. Check Cloudflare’s current **beta / pricing / limits** and cold‑start behavior. |
+| **[Python Workers — FastAPI](https://developers.cloudflare.com/workers/languages/python/packages/fastapi/)** | ASGI FastAPI on the **Workers** runtime (**Pyodide** / managed Python). | Possible for **small** APIs; **package / binary / size / CPU** limits differ from normal Linux. This repo **previously** moved the edge gateway to **JavaScript** because Workers Python was a poor fit for the full stack—treat as experimental unless you trim dependencies heavily. |
+
+Example community template: [fastapi-on-cloudflare-containers](https://github.com/abyesilyurt/fastapi-on-cloudflare-containers).
+
 ### Option A — Container (recommended for production)
 
 Run FastAPI in a **container** or PaaS, for example:
