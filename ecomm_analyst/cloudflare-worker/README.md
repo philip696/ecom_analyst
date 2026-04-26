@@ -134,4 +134,4 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 | `../backend/app/` | Source of truth; copy via `scripts/sync-backend-vendor.sh` |
 | `scripts/sync-r2-images.sh` | Upload `data200/image/*` → R2 |
 | `scripts/sync-backend-vendor.sh` | Copy FastAPI package into `src/app/` |
-| `scripts/sync-ecommerce-db.sh` | Copy `ecommerce.db` for the bundle |
+| `scripts/sync-ecommerce-db.sh` | Copy `ecommerce.db` → `src/ecommerce.db` (must ship inside `src/` + `rules` Data `**/*.db`) |

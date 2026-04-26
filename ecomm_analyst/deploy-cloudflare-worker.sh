@@ -7,7 +7,7 @@ npm ci
 if [[ ! -d src/app ]]; then
   bash scripts/sync-backend-vendor.sh
 fi
-if [[ ! -f ecommerce.db ]]; then
+if [[ ! -f src/ecommerce.db ]]; then
   bash scripts/sync-ecommerce-db.sh
 fi
 exec npx wrangler deploy

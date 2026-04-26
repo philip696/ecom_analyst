@@ -5,5 +5,5 @@ __pycache__/
 node_modules/
 .wrangler/
 dist/
-ecommerce.db
+src/ecommerce.db
 uv.lock

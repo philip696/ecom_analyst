@@ -40,8 +40,9 @@ env/
 node_modules/
 frontend/public/_redirects
 
-# Cloudflare Worker — vendored FastAPI app (created by scripts/sync-backend-vendor.sh)
+# Cloudflare Worker — build artifacts (created by sync scripts before deploy)
 cloudflare-worker/src/app/
+cloudflare-worker/src/ecommerce.db
 .next/
 out/
 .next

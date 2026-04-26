@@ -22,7 +22,7 @@ if (_SRC_DIR / "app").is_dir():
 else:
     sys.path.insert(0, str(_REPO_BACKEND))
 
-_DB = _WORKER_ROOT / "ecommerce.db"
+_DB = _SRC_DIR / "ecommerce.db"
 
 _fastapi_app = None
 
