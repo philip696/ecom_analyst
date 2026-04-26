@@ -29,7 +29,7 @@ If the **root path** is the **repository root** (not `cloudflare-worker/`), `npm
 
 | Root path in dashboard | Build command |
 |-------------------------|---------------|
-| **`ecomm_analyst/cloudflare-worker`** | `npm ci && bash scripts/sync-backend-vendor.sh && bash scripts/sync-ecommerce-db.sh` |
+| **`ecomm_analyst/cloudflare-worker`** | `npm ci && bash scripts/sync-backend-vendor.sh && bash scripts/sync-ecommerce-db.sh` (vendor copies `backend/app` → `src/app/` so Wrangler bundles it) |
 | **`/`** (clone root) | `bash ecomm_analyst/build-cloudflare-worker.sh` |
 | **`ecomm_analyst`** (app folder) | `bash build-cloudflare-worker.sh` |
 
@@ -68,7 +68,7 @@ aws s3 sync ../backend/data200/image/ "s3://${R2_BUCKET}/image/" --only-show-err
 
 Use the same bucket name as in `wrangler.jsonc` (`ecom-analyst-product-images` by default).
 
-4. **Vendor the FastAPI app** into this folder before deploy (required in production; `../backend` is not in the Worker bundle):
+4. **Vendor the FastAPI app** into `src/app/` before deploy (required: Wrangler’s Python `moduleRoot` is only `src/`, so code outside `src/` — including an old `vendor/` tree — is **not** uploaded):
 
    ```bash
    ./scripts/sync-backend-vendor.sh
@@ -117,7 +117,7 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 
 | Symptom | Fix |
 |--------|-----|
-| **1101 Worker threw exception** on first API hit | Ensure **`sync-backend-vendor.sh`** ran before deploy (see `build-cloudflare-worker.sh`). Without `vendor/backend/app`, `from app.main` fails. Also confirm **`asgi.fetch(app, request, env)`** uses the Workers `request`, not `request.js_object`. |
+| **1101 Worker threw exception** on first API hit | Ensure **`sync-backend-vendor.sh`** ran before deploy. The FastAPI package must live under **`src/app/`** (Wrangler only bundles `src/**/*.py` when `main` is `src/worker.py`). A copy under `vendor/` is never uploaded. |
 
 ## Limitations
 
@@ -130,8 +130,8 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 | Path | Role |
 |------|------|
 | `src/worker.py` | R2 handler for `/images/*`, then ASGI → FastAPI |
-| `vendor/backend/app/` | Vendored copy of `../backend/app` for deploy (local dev can use `../backend` only) |
+| `src/app/` | Vendored copy of `../backend/app` (must be under `src/` for Wrangler to upload) |
 | `../backend/app/` | Source of truth; copy via `scripts/sync-backend-vendor.sh` |
 | `scripts/sync-r2-images.sh` | Upload `data200/image/*` → R2 |
-| `scripts/sync-backend-vendor.sh` | Copy FastAPI package into `vendor/backend/` |
+| `scripts/sync-backend-vendor.sh` | Copy FastAPI package into `src/app/` |
 | `scripts/sync-ecommerce-db.sh` | Copy `ecommerce.db` for the bundle |

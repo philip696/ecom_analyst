@@ -12,12 +12,13 @@ from urllib.parse import unquote, urlparse
 
 from workers import WorkerEntrypoint, Response
 
-_WORKER_ROOT = Path(__file__).resolve().parents[1]
-# Production bundle: `scripts/sync-backend-vendor.sh` copies `backend/app` here (parent `../backend` is not uploaded).
-_VENDOR_BACKEND = _WORKER_ROOT / "vendor" / "backend"
+# Wrangler's Python moduleRoot is this file's directory (`src/` only). Vendored API must live under `src/app/`
+# (see scripts/sync-backend-vendor.sh), not `vendor/`, or it is omitted from the Worker upload.
+_SRC_DIR = Path(__file__).resolve().parent
+_WORKER_ROOT = _SRC_DIR.parent
 _REPO_BACKEND = _WORKER_ROOT.parent / "backend"
-if (_VENDOR_BACKEND / "app").is_dir():
-    sys.path.insert(0, str(_VENDOR_BACKEND))
+if (_SRC_DIR / "app").is_dir():
+    sys.path.insert(0, str(_SRC_DIR))
 else:
     sys.path.insert(0, str(_REPO_BACKEND))
 
