@@ -123,7 +123,8 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 
 ## Limitations
 
-- **Python Workers (Pyodide)** cannot install **bcrypt**; the worker bundle omits it and uses **pbkdf2_sha256** only. `deploy-cloudflare-worker.sh` runs **`node scripts/rehash-demo-password-sqljs.mjs`** ( **[sql.js](https://sql.js.org/)** in Node — no system `sqlite3` CLI or Python `_sqlite3`) to set a fixed **pbkdf2** hash for `demo@example.com` / `demo1234`. Other users seeded with bcrypt would need a similar migration or re-register.
+- **Python Workers (Pyodide)** cannot install **bcrypt**; the worker bundle omits it and uses **pbkdf2_sha256** only. Build and deploy run **`node scripts/prepare-worker-sqlite.mjs`** ([sql.js](https://sql.js.org/)) to set a fixed **pbkdf2** hash for `demo@example.com` / `demo1234` and to **trim** the demo SQLite so the upload stays smaller. Other users seeded with bcrypt would need a similar migration or re-register.
+- **Worker bundle size (gzip):** the full stack (**FastAPI + Pydantic v2 + SQLAlchemy** vendored into Pyodide) is typically **above the Workers Free limit (~3 MiB)** — deploy logs list `pydantic_core` as the largest piece. Use **Workers Paid** ([10 MiB gzip](https://developers.cloudflare.com/workers/platform/limits/#worker-size)) for this Python Worker, or host the API on **Fly** / elsewhere and use a tiny Worker only for `/images` + proxying.
 - **SQLite** in the bundle is fine for demos; production should use **Postgres + Hyperdrive** (or another supported pattern).
 - **Cold starts** and **CPU limits** apply; long-running jobs are a poor fit.
 
@@ -137,3 +138,4 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 | `scripts/sync-r2-images.sh` | Upload `data200/image/*` → R2 |
 | `scripts/sync-backend-vendor.sh` | Copy FastAPI package into `src/app/` |
 | `scripts/sync-ecommerce-db.sh` | Copy `ecommerce.db` → `src/ecommerce.db` (must ship inside `src/` + `rules` Data `**/*.db`) |
+| `scripts/prepare-worker-sqlite.mjs` | sql.js: pbkdf2 demo password + trim rows / `VACUUM` (build + deploy) |

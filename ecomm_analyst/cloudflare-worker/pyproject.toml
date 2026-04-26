@@ -13,8 +13,6 @@ dependencies = [
   "passlib>=1.7.4",
   "email-validator>=2.0.0",
   "python-multipart>=0.0.9",
-  "openai>=1.0.0",
-  "httpx>=0.25.0",
 ]
 
 [dependency-groups]

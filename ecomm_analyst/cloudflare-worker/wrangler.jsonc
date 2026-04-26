@@ -3,7 +3,7 @@
   "name": "ecom-analyst",
   "main": "src/worker.py",
   "compatibility_date": "2025-11-02",
-  "compatibility_flags": ["python_workers", "python_dedicated_snapshot"],
+  "compatibility_flags": ["python_workers"],
   "rules": [{ "type": "Data", "globs": ["**/*.db"], "fallthrough": true }],
   "vars": {
     "CF_WORKER": "1",

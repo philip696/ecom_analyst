@@ -248,17 +248,22 @@ async def ask_insight(
         and "replace" not in api_key.lower()
     )
     if is_real_key:
-        from openai import AsyncOpenAI
-        client = AsyncOpenAI(api_key=api_key, base_url=settings.LLM_BASE_URL)
-        completion = await client.chat.completions.create(
-            model=settings.LLM_MODEL,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_message},
-            ],
-            max_tokens=700,
-        )
-        answer = completion.choices[0].message.content or ""
+        try:
+            from openai import AsyncOpenAI
+        except ImportError:
+            # Cloudflare Worker bundle omits openai (size); PyPI-only installs still have it.
+            answer = _mock_response(payload.segments, payload.question, context)
+        else:
+            client = AsyncOpenAI(api_key=api_key, base_url=settings.LLM_BASE_URL)
+            completion = await client.chat.completions.create(
+                model=settings.LLM_MODEL,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_message},
+                ],
+                max_tokens=700,
+            )
+            answer = completion.choices[0].message.content or ""
     else:
         answer = _mock_response(payload.segments, payload.question, context)
 

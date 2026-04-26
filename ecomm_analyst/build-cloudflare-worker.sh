@@ -6,3 +6,4 @@ cd "$HERE/cloudflare-worker"
 npm ci
 bash scripts/sync-backend-vendor.sh
 bash scripts/sync-ecommerce-db.sh
+node scripts/prepare-worker-sqlite.mjs src/ecommerce.db

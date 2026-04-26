@@ -27,8 +27,6 @@ _ensure_uv() {
 
 _ensure_uv
 uv sync --group dev
-# Pyodide has no bcrypt wheel; vendored security.py uses pbkdf2_sha256. The copied DB still
-# has bcrypt hashes — rewrite demo user with a fixed pbkdf2_sha256 hash for demo1234.
-# Cloudflare build images often lack Python _sqlite3 and the sqlite3 CLI; use sql.js (WASM) via Node.
-node scripts/rehash-demo-password-sqljs.mjs src/ecommerce.db
+# Pyodide has no bcrypt wheel; trim bundled SQLite (gzip budget). Uses sql.js (WASM) via Node.
+node scripts/prepare-worker-sqlite.mjs src/ecommerce.db
 exec uv run pywrangler deploy
