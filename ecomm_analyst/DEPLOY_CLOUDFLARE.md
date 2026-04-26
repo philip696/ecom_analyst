@@ -18,9 +18,11 @@ The app is built as a static export (`next.config.js` → `output: "export"`). T
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `NEXT_PUBLIC_API_URL` | Yes | Public URL of the FastAPI backend, e.g. `https://api.yourdomain.com` (no trailing slash) |
+| `NEXT_PUBLIC_API_URL` | Yes | HTTPS origin of the **Worker** (or Fly) API, e.g. `https://ecom-analyst.your-subdomain.workers.dev` — **no trailing slash**. Baked in at **build** time; rebuild Pages after changing it. |
 
-Set these under **Pages project → Settings → Environment variables** for **Production** and **Preview** as needed.
+Set these under **Pages project → Settings → Environment variables** for **Production** and **Preview** as needed. On Cloudflare Pages builds, `next.config.js` **fails the build** if `NEXT_PUBLIC_API_URL` is missing (`CF_PAGES=1`), so the shipped JS never defaults to `localhost:8000` by accident.
+
+**Worker / API CORS:** set **`FRONTEND_URL`** to your **Pages** site origin (e.g. `https://your-app.pages.dev`). Optional **`ALLOWED_CORS_ORIGINS`** (comma-separated) if you need several origins (e.g. preview + production). Set in **`cloudflare-worker/wrangler.jsonc`** `vars` and/or Wrangler **secrets**, then redeploy the Worker.
 
 ### Build settings (dashboard)
 

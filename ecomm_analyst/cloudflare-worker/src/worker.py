@@ -55,8 +55,19 @@ def _load_fastapi_app(env):
 
 
 def _allowed_origins(env) -> set[str]:
-    fe = getattr(env, "FRONTEND_URL", None) or os.environ.get("FRONTEND_URL", "")
-    out = {fe, "http://localhost:3000", "http://127.0.0.1:3000"}
+    """Match backend `cors_allow_origins`: FRONTEND_URL + localhost, or ALLOWED_CORS_ORIGINS list."""
+    raw = (getattr(env, "ALLOWED_CORS_ORIGINS", None) or os.environ.get("ALLOWED_CORS_ORIGINS") or "").strip()
+    fe = (getattr(env, "FRONTEND_URL", None) or os.environ.get("FRONTEND_URL", "")).strip()
+    out: set[str] = set()
+    if raw:
+        for x in raw.split(","):
+            x = x.strip()
+            if x:
+                out.add(x)
+    else:
+        if fe:
+            out.add(fe)
+        out.update(["http://localhost:3000", "http://127.0.0.1:3000"])
     return {x for x in out if x}
 
 

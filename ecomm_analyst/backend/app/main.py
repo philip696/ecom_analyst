@@ -17,14 +17,15 @@ from app.routers import auth, comments, dashboard, engagement, insights, product
 
 # Mounted StaticFiles can omit CORS headers; canvas needs them when img.crossOrigin = "anonymous".
 class StaticImagesCORSMiddleware(BaseHTTPMiddleware):
-    """Ensure /images/* responses include CORS for the browser (Next.js / Pages)."""
-
-    _allowed = frozenset(cors_allow_origins())
+    """Ensure /images/* responses include CORS (origins from FRONTEND_URL / ALLOWED_CORS_ORIGINS)."""
 
     async def dispatch(self, request: Request, call_next):
+        origins = cors_allow_origins()
+        allowed = frozenset(origins)
+        primary = origins[0] if origins else settings.FRONTEND_URL
         if request.url.path.startswith("/images") and request.method == "OPTIONS":
             o = request.headers.get("origin", "")
-            allow = o if o in self._allowed else settings.FRONTEND_URL
+            allow = o if o in allowed else primary
             h = {
                 "Access-Control-Allow-Origin": allow,
                 "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
@@ -35,7 +36,7 @@ class StaticImagesCORSMiddleware(BaseHTTPMiddleware):
         response = await call_next(request)
         if request.url.path.startswith("/images"):
             o = request.headers.get("origin", "")
-            allow = o if o in self._allowed else settings.FRONTEND_URL
+            allow = o if o in allowed else primary
             response.headers["Access-Control-Allow-Origin"] = allow
         return response
 
