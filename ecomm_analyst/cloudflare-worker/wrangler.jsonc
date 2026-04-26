@@ -6,7 +6,7 @@
   "compatibility_flags": ["python_workers", "python_dedicated_snapshot"],
   "vars": {
     "CF_WORKER": "1",
-    "FRONTEND_URL": "https://YOUR-PAGES-PROJECT.pages.dev"
+    "FRONTEND_URL": "https://ecom-analyst.pages.dev"
   },
   "r2_buckets": [
     {

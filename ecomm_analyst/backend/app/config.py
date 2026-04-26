@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str = ""
     LLM_BASE_URL: str = "https://api.deepseek.com/v1"
     LLM_MODEL: str = "deepseek-chat"
-    FRONTEND_URL: str = "http://localhost:3000"
+    FRONTEND_URL: str = "https://ecom-analyst.pages.dev"
     # Comma-separated browser origins for CORS. Empty = FRONTEND_URL + local Next (3000).
     ALLOWED_CORS_ORIGINS: str = ""
 

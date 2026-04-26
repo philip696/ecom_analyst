@@ -2,35 +2,31 @@
 const fs = require("fs");
 const path = require("path");
 
-// Cloudflare Pages sets CF_PAGES=1 during build. NEXT_PUBLIC_* must be set on the **Pages** project
-// (Workers & Pages → your *frontend* Pages project → Settings → Variables and Secrets → + Add).
-// Wrangler’s “Build environment variables: (none found)” only reflects [vars] in wrangler.toml, not the dashboard.
-if (process.env.CF_PAGES === "1" && !String(process.env.NEXT_PUBLIC_API_URL || "").trim()) {
-  console.warn(
-    "\n[Pages] NEXT_PUBLIC_API_URL is not set for this build. " +
-      "Add it on your Pages project (frontend): Settings → Variables and Secrets → Production (and Preview if needed). " +
-      "Value = Worker API origin, e.g. https://ecom-analyst.xxx.workers.dev (no trailing slash). " +
-      "Without it, the built site will still use http://localhost:8000.\n",
-  );
-}
+const { DEPLOY_WORKER_API_ORIGIN } = require("./deploy-urls.js");
 
-const apiUrlRaw = String(process.env.NEXT_PUBLIC_API_URL || "")
+// Optional override: NEXT_PUBLIC_API_URL on Pages / .env.local. Otherwise production builds use deploy-urls.js.
+const fromEnv = String(process.env.NEXT_PUBLIC_API_URL || "")
   .trim()
   .replace(/\/$/, "");
+const useDeployDefault =
+  !fromEnv && (process.env.NODE_ENV === "production" || process.env.CF_PAGES === "1");
+const apiUrlRaw = fromEnv || (useDeployDefault ? DEPLOY_WORKER_API_ORIGIN : "");
+const effectiveApiUrl = apiUrlRaw || "http://localhost:8000";
+
 /** Same-origin proxy on Pages: avoid browser CORS to the Worker when API URL is a public https origin. */
 const usePagesApiProxy =
   process.env.NEXT_PUBLIC_API_USE_PROXY !== "0" &&
-  /^https:\/\//.test(apiUrlRaw) &&
-  !/localhost|127\.0\.0\.1/i.test(apiUrlRaw);
+  /^https:\/\//.test(effectiveApiUrl) &&
+  !/localhost|127\.0\.0\.1/i.test(effectiveApiUrl);
 
-const browserApiBase = usePagesApiProxy ? "" : apiUrlRaw || "http://localhost:8000";
+const browserApiBase = usePagesApiProxy ? "" : effectiveApiUrl;
 
 const redirectsPath = path.join(__dirname, "public", "_redirects");
 try {
   if (usePagesApiProxy) {
     const lines = [
-      `/api/* ${apiUrlRaw}/api/:splat 200`,
-      `/images/* ${apiUrlRaw}/images/:splat 200`,
+      `/api/* ${effectiveApiUrl}/api/:splat 200`,
+      `/images/* ${effectiveApiUrl}/images/:splat 200`,
       "",
     ].join("\n");
     fs.mkdirSync(path.dirname(redirectsPath), { recursive: true });
