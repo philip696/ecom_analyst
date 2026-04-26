@@ -111,7 +111,7 @@ App runs at: http://localhost:3000
 
 ### Deploy to Cloudflare Pages (static site)
 
-The frontend is configured for a **static export** (`out/`). Cloudflare **Pages** can host it; the **Python API** is deployed separately (container / Fly.io / Railway / etc.). See **[DEPLOY_CLOUDFLARE.md](DEPLOY_CLOUDFLARE.md)** for build output path, `NEXT_PUBLIC_API_URL`, and a sample `Dockerfile` for the backend.
+The frontend is configured for a **static export** (`out/`). Cloudflare **Pages** can host it; the **Python API** is deployed separately (container / Railway / Render / etc.), and the **Worker** proxies to it via **`API_UPSTREAM`**. See **[DEPLOY_CLOUDFLARE.md](DEPLOY_CLOUDFLARE.md)** for build output path, `NEXT_PUBLIC_API_URL`, and a sample `Dockerfile` for the backend.
 
 ```bash
 cd frontend

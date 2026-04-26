@@ -1,6 +1,6 @@
-# Deploy MarketLens to Cloudflare (and the API elsewhere)
+# Deploy to Cloudflare (Pages + Worker)
 
-Cloudflare **Pages** hosts the **static Next.js** app. The **FastAPI** API runs on **Fly.io** by default. The **Cloudflare Worker** (`cloudflare-worker/src/gateway.js`) is a **slim JavaScript** gateway: **R2** for `/images/*` and a **`fetch` proxy** to Fly via **`API_UPSTREAM`**. Details: [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
+Cloudflare **Pages** hosts the **static Next.js** export. The **Cloudflare Worker** (`cloudflare-worker/src/gateway.js`) serves **`/images/*`** from **R2** and **proxies** everything else to **`API_UPSTREAM`** (your **FastAPI** HTTPS origin—set in the Worker dashboard or Wrangler; not committed by default). Details: [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
 
 ## GitHub Actions (optional)
 
@@ -18,7 +18,7 @@ The app is built as a static export (`next.config.js` → `output: "export"`). T
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `NEXT_PUBLIC_API_URL` | Yes | HTTPS origin of the **Worker** (or Fly) API, e.g. `https://ecom-analyst.your-subdomain.workers.dev` — **no trailing slash**. Baked in at **build** time; rebuild Pages after changing it. |
+| `NEXT_PUBLIC_API_URL` | Yes | HTTPS origin of the **Worker** API, e.g. `https://ecom-analyst.your-subdomain.workers.dev` — **no trailing slash**. Baked in at **build** time; rebuild Pages after changing it. |
 | `NEXT_PUBLIC_API_USE_PROXY` | No | Defaults to proxy mode. Set to `0` to call the Worker origin directly from the browser (then CORS on the Worker must allow your Pages origin). |
 
 Set these under **Pages project → Settings → Variables and Secrets → + Add** for **Production** (and **Preview** if you use preview deployments). Use the **same** name exactly: `NEXT_PUBLIC_API_URL`.
@@ -64,7 +64,7 @@ npx --yes wrangler@3 pages deploy out --project-name=YOUR_PROJECT_NAME
 
 Run FastAPI in a **container** or PaaS, for example:
 
-- **Fly.io** (`backend/fly.toml`), **Railway, Render, Google Cloud Run**, etc.
+- **Railway, Render, Google Cloud Run**, a VM, or any HTTPS host you control—then point the Worker’s **`API_UPSTREAM`** at that base URL.
 
 A sample **`backend/Dockerfile`** is provided. Set environment variables in that platform, for example:
 
@@ -79,7 +79,7 @@ For product images, include **`data200/image/`** in the image or mount a volume;
 
 ### Option B — Cloudflare Worker + R2 (JavaScript gateway)
 
-Deploy from **`cloudflare-worker/`**: **`src/gateway.js`** serves **`/images/*`** from **R2** and **proxies** all other paths to **`API_UPSTREAM`** (your Fly API). Use **`bash ecomm_analyst/deploy-cloudflare-worker.sh`** (`npm ci` + **`npx wrangler deploy`**). No Python/Pyodide on the edge. See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, and vars.
+Deploy from **`cloudflare-worker/`**: **`src/gateway.js`** serves **`/images/*`** from **R2** and **proxies** all other paths to **`API_UPSTREAM`** (your FastAPI base URL). Use **`bash ecomm_analyst/deploy-cloudflare-worker.sh`** (`npm ci` + **`npx wrangler deploy`**). See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, and vars.
 
 ## 3. CORS
 

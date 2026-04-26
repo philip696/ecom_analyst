@@ -1,11 +1,11 @@
 # E‑Commerce Analyst — Cloudflare Worker (JavaScript gateway)
 
-This Worker is a **small JavaScript** script (`src/gateway.js`) so it stays reliable on **Workers Free** and avoids Python-on-the-edge / Pyodide issues that showed up as opaque **1101** errors.
+This Worker is a **small JavaScript** script (`src/gateway.js`) for **Cloudflare Workers**:
 
-1. **`/images/*`** — objects from **R2** (`image/<filename>` keys, same as Fly/local).
-2. **Everything else** — **`fetch(new Request(upstream, request))`** to **`API_UPSTREAM`** (Fly: `https://ecom-analyst-api.fly.dev` by default in `wrangler.jsonc`).
+1. **`/images/*`** — objects from **R2** (`image/<filename>` keys, same as local Docker).
+2. **Everything else** — **`fetch(new Request(upstream, request))`** to **`API_UPSTREAM`**.
 
-The **FastAPI** app runs on **Fly** only; this Worker is a CDN + reverse proxy in front of it.
+The **FastAPI** app is **not** bundled here. Run it wherever you host the Python API (container, another URL, etc.), then set **`API_UPSTREAM`** in the Worker to that **HTTPS base URL** (no trailing slash). The repo ships **`API_UPSTREAM` empty** in `wrangler.jsonc` so you set it in the **Cloudflare dashboard** (Worker → **Variables and secrets**) or in your CI secrets—avoid committing a real API URL.
 
 ## Prerequisites
 
@@ -23,32 +23,20 @@ If **Path** is `ecomm_analyst`, use `bash build-cloudflare-worker.sh` / `bash de
 
 ## Configuration
 
-Edit **`wrangler.jsonc`**:
+Edit **`wrangler.jsonc`** or the Worker dashboard:
 
-- **`vars.API_UPSTREAM`** — HTTPS origin for FastAPI (no trailing slash).
-- **`vars.FRONTEND_URL`** — your Pages URL (used for `/images` CORS).
+- **`API_UPSTREAM`** — HTTPS origin for FastAPI (no trailing slash). **Required** for `/api/*` and `/` proxying. Example shape: `https://api.yourdomain.com` (your real host).
+- **`FRONTEND_URL`** — your **Pages** site origin (used for `/images` CORS and should match **`FRONTEND_URL`** on the API for JSON CORS).
 
-**Fly** must be deployed and reachable at `API_UPSTREAM`.
+**Before relying on the Worker:** open **`API_UPSTREAM`** in a browser or `curl -sI` it and confirm **200** from FastAPI.
 
-### Cloudflare **1016** on `*.fly.dev` (“Origin DNS error”)
+### Cloudflare **1016** (“Origin DNS error”) on subrequests
 
-That hostname is served through Cloudflare (Fly’s edge). **1016** means the name **did not resolve to a live Fly app** — most often the app **was never created**, **`fly.toml` `app` name does not match** the app on your Fly org, or **`fly deploy` has not succeeded** for that app.
+If the Worker’s **`fetch(API_UPSTREAM + …)`** fails with **1016**, Cloudflare could not resolve the **origin hostname** you set. Fix DNS for that host, or correct **`API_UPSTREAM`** to a hostname that actually exists and serves your API.
 
-1. Install **[flyctl](https://fly.io/docs/hands-on/install-flyctl/)** (use `flyctl` if your shell’s `fly` is a different program, e.g. Concourse).
-2. From **`backend/`** (this repo’s `fly.toml`):
+## Frontend (Pages)
 
-   ```bash
-   flyctl apps list
-   flyctl status -a ecom-analyst-api
-   flyctl deploy
-   ```
-
-3. Open **`https://ecom-analyst-api.fly.dev/`** (or whatever **`flyctl status`** shows). You should get a **200** from the API **before** the Worker can proxy reliably.
-4. If your real app name differs, set **`app = "…"`** in **`backend/fly.toml`** and the same host (no trailing slash) in **`wrangler.jsonc`** → **`API_UPSTREAM`**, then redeploy the Worker.
-
-## Frontend
-
-Set **`NEXT_PUBLIC_API_URL`** on Pages to this Worker’s URL. Pages `_redirects` can still proxy `/api/*` to the same origin if you use that pattern.
+Set **`NEXT_PUBLIC_API_URL`** on Pages to this **Worker** URL. Pages `_redirects` can proxy `/api/*` to the same origin if you use that pattern.
 
 ## R2 images
 
@@ -64,17 +52,17 @@ Bucket name must match `wrangler.jsonc` → `r2_buckets[].bucket_name`.
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/sync-backend-vendor.sh` | Only if you experiment with an **in-Worker** Python API again (not used by default). |
-| `scripts/sync-ecommerce-db.sh` | Same — bundled SQLite was for the old Python Worker. |
+| `scripts/sync-backend-vendor.sh` | Legacy experiments only (vendored Python app under `src/app/`). |
+| `scripts/sync-ecommerce-db.sh` | Same — not used by the default JS gateway. |
 
 ## Troubleshooting
 
 | Symptom | Fix |
 |--------|-----|
-| **503** API_UPSTREAM | Set **`API_UPSTREAM`** in `wrangler.jsonc` or Dashboard → Variables. |
-| **502** from proxy | Fly app down, wrong URL, or TLS — check `flyctl status` and the var. |
-| **1016** on `…fly.dev` | Fly DNS: app missing or not deployed — follow **§ Fly API hostname** above. |
-| **CORS** | Set **`FRONTEND_URL`** on Fly to your Pages origin (see `backend/app/main.py`). |
+| **503** API_UPSTREAM | Set **`API_UPSTREAM`** (Wrangler `vars`, dashboard variable, or **secret**), redeploy Worker. |
+| **502** from proxy | Origin down, wrong URL, or TLS — verify the API host directly. |
+| **1016** on proxy | Origin hostname does not resolve — fix DNS or **`API_UPSTREAM`**. |
+| **CORS** | Set **`FRONTEND_URL`** on the **FastAPI** host to your Pages origin (`backend/app/main.py`). |
 | **Images 404** | Run R2 sync; keys are `image/<slug>.jpg`. |
 
 ## Layout

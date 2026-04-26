@@ -1,5 +1,5 @@
 /**
- * Slim gateway Worker (JavaScript): R2 at /images/* + reverse proxy to API_UPSTREAM (Fly).
+ * Slim gateway Worker (JavaScript): R2 at /images/* + reverse proxy to API_UPSTREAM (your FastAPI HTTPS origin).
  *
  * The previous Python entrypoint hit opaque 1101 errors in production (Pyodide/FFI edge cases).
  * This module uses standard Workers fetch/R2 and stays tiny for the Free plan.
@@ -24,7 +24,7 @@ export default {
     const base = (env.API_UPSTREAM || "").toString().trim().replace(/\/+$/, "");
     if (!base) {
       return new Response(
-        "Worker misconfigured: set wrangler var API_UPSTREAM (e.g. https://ecom-analyst-api.fly.dev).",
+        "Worker misconfigured: set Worker var or secret API_UPSTREAM to your FastAPI base URL (https, no trailing slash).",
         { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } },
       );
     }
