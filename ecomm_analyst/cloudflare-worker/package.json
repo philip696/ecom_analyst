@@ -8,6 +8,7 @@
     "start": "uv run pywrangler dev"
   },
   "devDependencies": {
+    "sql.js": "^1.14.1",
     "wrangler": "^4.46.0"
   }
 }

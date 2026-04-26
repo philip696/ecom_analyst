@@ -123,7 +123,7 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 
 ## Limitations
 
-- **Python Workers (Pyodide)** cannot install **bcrypt**; the worker bundle omits it and uses **pbkdf2_sha256** only. `deploy-cloudflare-worker.sh` runs the **`sqlite3` CLI** (not Python’s `sqlite3` module — Cloudflare’s build Python often lacks `_sqlite3`) to set a fixed **pbkdf2** hash for `demo@example.com` / `demo1234`. Other users seeded with bcrypt would need a similar migration or re-register.
+- **Python Workers (Pyodide)** cannot install **bcrypt**; the worker bundle omits it and uses **pbkdf2_sha256** only. `deploy-cloudflare-worker.sh` runs **`node scripts/rehash-demo-password-sqljs.mjs`** ( **[sql.js](https://sql.js.org/)** in Node — no system `sqlite3` CLI or Python `_sqlite3`) to set a fixed **pbkdf2** hash for `demo@example.com` / `demo1234`. Other users seeded with bcrypt would need a similar migration or re-register.
 - **SQLite** in the bundle is fine for demos; production should use **Postgres + Hyperdrive** (or another supported pattern).
 - **Cold starts** and **CPU limits** apply; long-running jobs are a poor fit.
 
