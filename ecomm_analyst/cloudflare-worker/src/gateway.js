@@ -1,5 +1,6 @@
 /**
- * Slim gateway Worker (JavaScript): R2 at /images/* + reverse proxy to API_UPSTREAM (your FastAPI HTTPS origin).
+ * Slim gateway Worker (JavaScript): R2 at /images/* + reverse proxy for /api/* to API_UPSTREAM (FastAPI HTTPS origin).
+ * Static UI is served via wrangler `assets` (see wrangler.jsonc); `run_worker_first` routes only /api and /images here.
  *
  * The previous Python entrypoint hit opaque 1101 errors in production (Pyodide/FFI edge cases).
  * This module uses standard Workers fetch/R2 and stays tiny for the Free plan.

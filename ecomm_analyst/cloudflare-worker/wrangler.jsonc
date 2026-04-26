@@ -5,6 +5,12 @@
   "name": "ecom-analyst",
   "main": "src/gateway.js",
   "compatibility_date": "2025-11-02",
+  // Next static export: one Worker serves UI + /api + /images (see deploy-cloudflare-worker.sh).
+  "assets": {
+    "directory": "../frontend/out",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/images/*"]
+  },
   "vars": {
     "FRONTEND_URL": "https://ecom-analyst.pages.dev",
     "API_UPSTREAM": ""

@@ -1,6 +1,6 @@
 # Deploy to Cloudflare (Pages + Worker)
 
-Cloudflare **Pages** hosts the **static Next.js** export. The **Cloudflare Worker** (`cloudflare-worker/src/gateway.js`) serves **`/images/*`** from **R2** and **proxies** everything else to **`API_UPSTREAM`** (your **FastAPI** HTTPS origin—set in the Worker dashboard or Wrangler; not committed by default). Details: [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
+You can host the **static Next.js** export on **Cloudflare Pages** *or* ship it from the **same Worker** as **[static assets](https://developers.cloudflare.com/workers/static-assets/)** (`wrangler.jsonc` → `assets.directory`). The Worker script **`cloudflare-worker/src/gateway.js`** serves **`/images/*`** from **R2** and proxies **`/api/*`** to **`API_UPSTREAM`** (your **FastAPI** HTTPS origin—set in the dashboard or Wrangler; not committed by default). Details: [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
 
 ## GitHub Actions (optional)
 
@@ -29,7 +29,7 @@ If the build log says **“Build environment variables: (none found)”**, that 
 
 `next.config.js` prints a **warning** (not a hard error) if `CF_PAGES=1` and `NEXT_PUBLIC_API_URL` is still empty, so you can fix the dashboard and redeploy without changing code.
 
-**Worker / API CORS:** set **`FRONTEND_URL`** to your **Pages** site origin (e.g. `https://your-app.pages.dev`). Optional **`ALLOWED_CORS_ORIGINS`** (comma-separated) if you need several origins (e.g. preview + production). Set in **`cloudflare-worker/wrangler.jsonc`** `vars` and/or Wrangler **secrets**, then redeploy the Worker.
+**Worker / API CORS:** set **`FRONTEND_URL`** to the origin users actually open (e.g. **`https://ecom-analyst.pages.dev`** or **`https://ecom-analyst.philip-dewanto.workers.dev`** if you use the all-in-one Worker). Optional **`ALLOWED_CORS_ORIGINS`** (comma-separated) for several origins. Set in **`cloudflare-worker/wrangler.jsonc`** `vars` and/or Wrangler **secrets**, then redeploy the Worker.
 
 ### Build settings (dashboard)
 
@@ -90,9 +90,13 @@ A sample **`backend/Dockerfile`** is provided. Set environment variables in that
 
 For product images, include **`data200/image/`** in the image or mount a volume; CSV seed data is under `data_200/`.
 
-### Option B — Cloudflare Worker + R2 (JavaScript gateway)
+### Option B — Cloudflare Worker + R2 (static UI + gateway)
 
-Deploy from **`cloudflare-worker/`**: **`src/gateway.js`** serves **`/images/*`** from **R2** and **proxies** all other paths to **`API_UPSTREAM`** (your FastAPI base URL). Use **`bash ecomm_analyst/deploy-cloudflare-worker.sh`** (`npm ci` + **`npx wrangler deploy`**). See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, and vars.
+**`cloudflare-worker/wrangler.jsonc`** uses **[Workers static assets](https://developers.cloudflare.com/workers/static-assets/)** (`assets.directory` → **`../frontend/out`**): the **Next** export is served from the same **`*.workers.dev`** origin as **`/api/*`** (proxied to **`API_UPSTREAM`**) and **`/images/*`** (R2). Only **`/api/*`** and **`/images/*`** run **`gateway.js`** first (`run_worker_first`); other paths are **asset-first** with **`not_found_handling: single-page-application`** for client routes.
+
+Deploy: **`bash ecomm_analyst/deploy-cloudflare-worker.sh`** — builds **`frontend/`**, then **`wrangler deploy`**. Use **`SKIP_FRONTEND=1`** for a gateway-only redeploy. See **`cloudflare-worker/README.md`** for R2 sync and vars.
+
+**Not inside the Worker runtime:** the full **FastAPI** app (SQLAlchemy, bcrypt, OpenAI SDK, etc.) still runs at **`API_UPSTREAM`**. Porting *all* of that logic into **Worker JavaScript** or **Python Workers** would be a **large rewrite**; **Containers** (Option table above) are the realistic “API on Cloudflare” path if you want to avoid third‑party PaaS.
 
 **If the Worker returns 503** *Worker misconfigured … API_UPSTREAM* **:** the deployed Worker has no upstream. Set it once:
 

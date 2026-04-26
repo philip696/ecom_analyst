@@ -5,7 +5,24 @@ This Worker is a **small JavaScript** script (`src/gateway.js`) for **Cloudflare
 **Deployed URL:** `https://ecom-analyst.philip-dewanto.workers.dev/` (script name **`ecom-analyst`** on account **`philip-dewanto.workers.dev`**; see `wrangler.jsonc` → `name`).
 
 1. **`/images/*`** — objects from **R2** (`image/<filename>` keys, same as local Docker).
-2. **Everything else** — **`fetch(new Request(upstream, request))`** to **`API_UPSTREAM`**.
+2. **`/api/*`** — proxied to **`API_UPSTREAM`** (your FastAPI host).
+3. **All other paths** — **Workers [static assets](https://developers.cloudflare.com/workers/static-assets/)** from the Next **`out/`** build (`wrangler.jsonc` → `assets.directory`), with **`not_found_handling: single-page-application`** so client routes work.
+
+So one Worker can ship **UI + gateway** on the same `*.workers.dev` hostname; FastAPI still runs at **`API_UPSTREAM`** (any HTTPS host) or, if you adopt it separately, **[Cloudflare Containers](https://developers.cloudflare.com/containers/)**.
+
+### Deploy (UI + Worker together)
+
+From repo root:
+
+```bash
+bash ecomm_analyst/deploy-cloudflare-worker.sh
+```
+
+That runs **`frontend` → `npm ci` && `npm run build`**, then **`wrangler deploy`** from `cloudflare-worker/`. To redeploy only the gateway script (skip the Next build): **`SKIP_FRONTEND=1 bash ecomm_analyst/deploy-cloudflare-worker.sh`**.
+
+**`wrangler dev`:** build the frontend first so **`../frontend/out`** exists: `cd ../frontend && npm ci && npm run build`.
+
+**CORS / canvas:** if users open the app at **`*.workers.dev`** instead of Pages, set **`FRONTEND_URL`** (and optional **`ALLOWED_CORS_ORIGINS`**) to include that origin so `/images` CORS and API **`FRONTEND_URL`** stay aligned.
 
 The **FastAPI** app is **not** bundled here. Run it wherever you host the Python API (container, another URL, etc.), then set **`API_UPSTREAM`** in the Worker to that **HTTPS base URL** (no trailing slash). The repo ships **`API_UPSTREAM` empty** in `wrangler.jsonc` so you set it in the **Cloudflare dashboard** or via Wrangler—avoid committing a real API URL.
 
@@ -47,7 +64,7 @@ If **Path** is `ecomm_analyst`, use `bash build-cloudflare-worker.sh` / `bash de
 
 Edit **`wrangler.jsonc`** or the Worker dashboard:
 
-- **`API_UPSTREAM`** — HTTPS origin for FastAPI (no trailing slash). **Required** for `/api/*` and `/` proxying. Example shape: `https://api.yourdomain.com` (your real host).
+- **`API_UPSTREAM`** — HTTPS origin for FastAPI (no trailing slash). **Required** for **`/api/*`** proxying (the HTML UI is served from static assets, not from FastAPI). Example: `https://api.yourdomain.com`.
 - **`FRONTEND_URL`** — your **Pages** site origin (used for `/images` CORS and should match **`FRONTEND_URL`** on the API for JSON CORS).
 
 **Before relying on the Worker:** open **`API_UPSTREAM`** in a browser or `curl -sI` it and confirm **200** from FastAPI.
@@ -56,9 +73,10 @@ Edit **`wrangler.jsonc`** or the Worker dashboard:
 
 If the Worker’s **`fetch(API_UPSTREAM + …)`** fails with **1016**, Cloudflare could not resolve the **origin hostname** you set. Fix DNS for that host, or correct **`API_UPSTREAM`** to a hostname that actually exists and serves your API.
 
-## Frontend (Pages)
+## Frontend (Pages **or** this Worker)
 
-Set **`NEXT_PUBLIC_API_URL`** on Pages to **`https://ecom-analyst.philip-dewanto.workers.dev`** (no trailing slash), or rely on **`frontend/deploy-urls.js`** which already defaults to that origin. Pages `_redirects` can proxy `/api/*` to the Worker if you use that pattern.
+- **All-in-one Worker:** `deploy-cloudflare-worker.sh` bakes the Next app into the Worker. Open **`https://ecom-analyst.philip-dewanto.workers.dev/`** — use **same-origin** `/api` (build already sets empty browser API base when proxy mode targets that Worker URL).
+- **Cloudflare Pages only:** set **`NEXT_PUBLIC_API_URL`** to the Worker origin; **`_redirects`** proxies `/api/*` to the Worker. You can keep both Pages and Worker-hosted UI if you want; pick one primary URL for **`FRONTEND_URL`** on the API.
 
 ## R2 images
 
