@@ -1,0 +1,17 @@
+---
+description: After any fix, commit and push to origin
+alwaysApply: true
+---
+
+# Git: push after fix
+
+After you complete a **fix** (or any commit-worthy change the user asked for):
+
+1. **`git status`** — confirm what changed.
+2. **`git add`** only the files that belong to the fix.
+3. **`git commit`** with a short, imperative message (e.g. `fix(worker): …`).
+4. **`git push`** to the current branch’s upstream (usually `git push origin main` or `git push origin HEAD`).
+
+Do this **before** telling the user the fix is done, unless they explicitly asked not to push, there is **no `git` remote**, or **push fails** after a retry—in the failure case, say what failed and leave the commit local.
+
+Do not leave fixes **uncommitted** when the user expects them on GitHub/GitLab.
