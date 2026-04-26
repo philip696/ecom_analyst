@@ -1,107 +1,29 @@
 """
-Cloudflare Python Worker: serve product images from R2 at /images/*,
-then forward all other traffic to the existing FastAPI app (ASGI).
+Cloudflare Python Worker (slim, free-tier friendly):
+
+- Serve product images from R2 at /images/* (same keys as local/Fly).
+- Forward all other requests to **API_UPSTREAM** (Fly or any HTTPS origin) via fetch.
+
+Bundling FastAPI + Pydantic + SQLAlchemy in the Worker exceeds the Workers Free gzip limit (~3 MiB);
+run the API on Fly (see ../backend/fly.toml) and set `API_UPSTREAM` in wrangler vars.
 """
 from __future__ import annotations
 
 import mimetypes
-import os
-import sys
-from pathlib import Path
 from urllib.parse import unquote, urlparse
 
+from js import Request, fetch
 from workers import WorkerEntrypoint, Response
 
-# Wrangler's Python moduleRoot is this file's directory (`src/` only). Vendored API must live under `src/app/`
-# (see scripts/sync-backend-vendor.sh), not `vendor/`, or it is omitted from the Worker upload.
-_SRC_DIR = Path(__file__).resolve().parent
-_WORKER_ROOT = _SRC_DIR.parent
-_REPO_BACKEND = _WORKER_ROOT.parent / "backend"
-if (_SRC_DIR / "app").is_dir():
-    sys.path.insert(0, str(_SRC_DIR))
-else:
-    sys.path.insert(0, str(_REPO_BACKEND))
 
-_DB = _SRC_DIR / "ecommerce.db"
-
-_fastapi_app = None
-
-
-def _prepare_sqlite_database_url() -> None:
-    """Bundled `ecommerce.db` is a Data module, not always a real path in the isolate — copy to tmp for sqlite3."""
-    if os.environ.get("CF_WORKER") != "1":
-        if _DB.is_file():
-            os.environ.setdefault("DATABASE_URL", f"sqlite:///{_DB}")
-        return
-
-    if (os.environ.get("DATABASE_URL") or "").strip():
-        return
-
-    import shutil
-    import tempfile
-
-    tmp = Path(tempfile.gettempdir()) / "ecom-analyst-worker.sqlite3"
-    candidates = [
-        _SRC_DIR / "ecommerce.db",
-        Path("/session/metadata/ecommerce.db"),
-        Path("/session/metadata/src/ecommerce.db"),
-    ]
-    for src in candidates:
-        try:
-            if src.is_file():
-                shutil.copyfile(src, tmp)
-                os.environ["DATABASE_URL"] = f"sqlite:///{tmp}"
-                return
-        except OSError:
-            continue
-    for src in candidates:
-        try:
-            with open(src, "rb") as handle:
-                blob = handle.read()
-            if len(blob) >= 512:
-                tmp.write_bytes(blob)
-                os.environ["DATABASE_URL"] = f"sqlite:///{tmp}"
-                return
-        except OSError:
-            continue
-    os.environ.setdefault("DATABASE_URL", "sqlite:///:memory:")
-
-
-def _sync_os_environ_from_bindings(env) -> None:
-    """Wrangler vars/secrets live on `env`; pydantic reads os.environ."""
-    for key in (
-        "FRONTEND_URL",
-        "ALLOWED_CORS_ORIGINS",
-        "SECRET_KEY",
-        "DATABASE_URL",
-        "LLM_API_KEY",
-        "OPENAI_API_KEY",
-        "LLM_BASE_URL",
-        "LLM_MODEL",
-        "CF_WORKER",
-    ):
-        val = getattr(env, key, None)
-        if val is not None and str(val).strip():
-            os.environ[key] = str(val)
-    os.environ.setdefault("CF_WORKER", "1")
-    _prepare_sqlite_database_url()
-
-
-def _load_fastapi_app(env):
-    global _fastapi_app
-    if _fastapi_app is not None:
-        return _fastapi_app
-    _sync_os_environ_from_bindings(env)
-    from app.main import app as _loaded  # noqa: E402
-
-    _fastapi_app = _loaded
-    return _fastapi_app
+def _upstream_base(env) -> str:
+    raw = getattr(env, "API_UPSTREAM", None) or ""
+    return str(raw).strip().rstrip("/")
 
 
 def _allowed_origins(env) -> set[str]:
-    """Match backend `cors_allow_origins`: FRONTEND_URL + localhost, or ALLOWED_CORS_ORIGINS list."""
-    raw = (getattr(env, "ALLOWED_CORS_ORIGINS", None) or os.environ.get("ALLOWED_CORS_ORIGINS") or "").strip()
-    fe = (getattr(env, "FRONTEND_URL", None) or os.environ.get("FRONTEND_URL", "")).strip()
+    raw = (getattr(env, "ALLOWED_CORS_ORIGINS", None) or "").strip()
+    fe = (getattr(env, "FRONTEND_URL", None) or "").strip()
     out: set[str] = set()
     if raw:
         for x in raw.split(","):
@@ -120,7 +42,7 @@ def _cors_allow_origin(request, env) -> str:
     o = request.headers.get("origin", "") if request.headers else ""
     if o in allowed:
         return o
-    fe = getattr(env, "FRONTEND_URL", None) or os.environ.get("FRONTEND_URL", "")
+    fe = getattr(env, "FRONTEND_URL", None) or ""
     return fe or "*"
 
 
@@ -175,17 +97,17 @@ class Default(WorkerEntrypoint):
             body = obj.body if hasattr(obj, "body") else None
             return Response(body, status=200, headers=h)
 
-        import asgi
-        import traceback
-
-        try:
-            app = _load_fastapi_app(self.env)
-            # https://developers.cloudflare.com/workers/languages/python/packages/fastapi/
-            return await asgi.fetch(app, request, self.env)
-        except Exception:
-            body = traceback.format_exc()
+        base = _upstream_base(self.env)
+        if not base:
             return Response(
-                body[:12000],
-                status=500,
+                "Worker misconfigured: set wrangler var API_UPSTREAM to your HTTPS API "
+                "(e.g. https://ecom-analyst-api.fly.dev).",
+                status=503,
                 headers={"Content-Type": "text/plain; charset=utf-8"},
             )
+
+        tail = path or "/"
+        qs = ("?" + url.query) if url.query else ""
+        target = f"{base}{tail}{qs}"
+        new_req = Request.new(target, request)
+        return await fetch(new_req)

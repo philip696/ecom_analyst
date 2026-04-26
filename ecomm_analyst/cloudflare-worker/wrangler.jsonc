@@ -4,10 +4,9 @@
   "main": "src/worker.py",
   "compatibility_date": "2025-11-02",
   "compatibility_flags": ["python_workers"],
-  "rules": [{ "type": "Data", "globs": ["**/*.db"], "fallthrough": true }],
   "vars": {
-    "CF_WORKER": "1",
-    "FRONTEND_URL": "https://ecom-analyst.pages.dev"
+    "FRONTEND_URL": "https://ecom-analyst.pages.dev",
+    "API_UPSTREAM": "https://ecom-analyst-api.fly.dev"
   },
   "r2_buckets": [
     {

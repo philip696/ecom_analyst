@@ -1,19 +1,12 @@
 [project]
 name = "ecom-analyst-worker"
 version = "0.1.0"
-description = "Cloudflare Python Worker: FastAPI + R2 product images"
+description = "Cloudflare Python Worker: R2 images + proxy to Fly API (slim bundle)"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-  "fastapi>=0.104.0",
-  "sqlalchemy>=2.0.0",
-  "pydantic>=2.0.0",
-  "pydantic-settings>=2.0.0",
-  "python-jose>=3.3.0",
-  "passlib>=1.7.4",
-  "email-validator>=2.0.0",
-  "python-multipart>=0.0.9",
-]
+# Intentionally empty: FastAPI/Pydantic/SQLAlchemy exceed Workers Free gzip (~3 MiB).
+# API runs on Fly; this Worker only serves /images from R2 and proxies everything else.
+dependencies = []
 
 [dependency-groups]
 dev = [

@@ -1,6 +1,6 @@
 # Deploy MarketLens to Cloudflare (and the API elsewhere)
 
-Cloudflare **Pages** hosts the **static Next.js** app. The **FastAPI** API can run on **Fly.io / Docker** (default) or on **Cloudflare Python Workers** with **R2** for `/images/*` — see [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
+Cloudflare **Pages** hosts the **static Next.js** app. The **FastAPI** API runs on **Fly.io** by default. The **Cloudflare Python Worker** is a **slim** service: **R2** for `/images/*` and an **`API_UPSTREAM` proxy** to Fly (fits Workers Free gzip limits). Details: [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
 
 ## GitHub Actions (optional)
 
