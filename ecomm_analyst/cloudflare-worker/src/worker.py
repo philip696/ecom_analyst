@@ -27,6 +27,46 @@ _DB = _SRC_DIR / "ecommerce.db"
 _fastapi_app = None
 
 
+def _prepare_sqlite_database_url() -> None:
+    """Bundled `ecommerce.db` is a Data module, not always a real path in the isolate — copy to tmp for sqlite3."""
+    if os.environ.get("CF_WORKER") != "1":
+        if _DB.is_file():
+            os.environ.setdefault("DATABASE_URL", f"sqlite:///{_DB}")
+        return
+
+    if (os.environ.get("DATABASE_URL") or "").strip():
+        return
+
+    import shutil
+    import tempfile
+
+    tmp = Path(tempfile.gettempdir()) / "ecom-analyst-worker.sqlite3"
+    candidates = [
+        _SRC_DIR / "ecommerce.db",
+        Path("/session/metadata/ecommerce.db"),
+        Path("/session/metadata/src/ecommerce.db"),
+    ]
+    for src in candidates:
+        try:
+            if src.is_file():
+                shutil.copyfile(src, tmp)
+                os.environ["DATABASE_URL"] = f"sqlite:///{tmp}"
+                return
+        except OSError:
+            continue
+    for src in candidates:
+        try:
+            with open(src, "rb") as handle:
+                blob = handle.read()
+            if len(blob) >= 512:
+                tmp.write_bytes(blob)
+                os.environ["DATABASE_URL"] = f"sqlite:///{tmp}"
+                return
+        except OSError:
+            continue
+    os.environ.setdefault("DATABASE_URL", "sqlite:///:memory:")
+
+
 def _sync_os_environ_from_bindings(env) -> None:
     """Wrangler vars/secrets live on `env`; pydantic reads os.environ."""
     for key in (
@@ -44,8 +84,7 @@ def _sync_os_environ_from_bindings(env) -> None:
         if val is not None and str(val).strip():
             os.environ[key] = str(val)
     os.environ.setdefault("CF_WORKER", "1")
-    if _DB.is_file():
-        os.environ.setdefault("DATABASE_URL", f"sqlite:///{_DB}")
+    _prepare_sqlite_database_url()
 
 
 def _load_fastapi_app(env):
@@ -137,7 +176,16 @@ class Default(WorkerEntrypoint):
             return Response(body, status=200, headers=h)
 
         import asgi
+        import traceback
 
-        app = _load_fastapi_app(self.env)
-        # https://developers.cloudflare.com/workers/languages/python/packages/fastapi/
-        return await asgi.fetch(app, request, self.env)
+        try:
+            app = _load_fastapi_app(self.env)
+            # https://developers.cloudflare.com/workers/languages/python/packages/fastapi/
+            return await asgi.fetch(app, request, self.env)
+        except Exception:
+            body = traceback.format_exc()
+            return Response(
+                body[:12000],
+                status=500,
+                headers={"Content-Type": "text/plain; charset=utf-8"},
+            )
