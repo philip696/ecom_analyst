@@ -4,16 +4,15 @@ Cloudflare Python Worker (slim, free-tier friendly):
 - Serve product images from R2 at /images/* (same keys as local/Fly).
 - Forward all other requests to **API_UPSTREAM** (Fly or any HTTPS origin) via fetch.
 
-Bundling FastAPI + Pydantic + SQLAlchemy in the Worker exceeds the Workers Free gzip limit (~3 MiB);
-run the API on Fly (see ../backend/fly.toml) and set `API_UPSTREAM` in wrangler vars.
+Use **`from workers import fetch`** (not `js.fetch`) per Cloudflare runtime docs.
 """
 from __future__ import annotations
 
 import mimetypes
+import traceback
 from urllib.parse import unquote, urlparse
 
-from js import Request, fetch
-from workers import WorkerEntrypoint, Response
+from workers import WorkerEntrypoint, Response, fetch
 
 
 def _upstream_base(env) -> str:
@@ -65,9 +64,40 @@ def _r2_key_for_path(path: str) -> str | None:
     return f"image/{unquote(tail)}"
 
 
+def _request_url_str(request) -> str:
+    u = request.url
+    return str(u) if u is not None else ""
+
+
+def _clone_to_upstream(target: str, request):
+    """Build a JS Request to the upstream origin (import here so /images never depends on js.Request)."""
+    from js import Request as JSRequest
+
+    try:
+        return JSRequest.new(target, request)
+    except Exception:
+        pass
+    try:
+        return JSRequest(target, request)
+    except Exception:
+        pass
+    raise RuntimeError("Could not clone Request for upstream (Request.new / Request failed)")
+
+
 class Default(WorkerEntrypoint):
     async def fetch(self, request):
-        url = urlparse(str(request.url))
+        try:
+            return await self._fetch_impl(request)
+        except Exception:
+            body = traceback.format_exc()
+            return Response(
+                body[:12000],
+                status=500,
+                headers={"Content-Type": "text/plain; charset=utf-8"},
+            )
+
+    async def _fetch_impl(self, request):
+        url = urlparse(_request_url_str(request))
         path = url.path or "/"
 
         if path.startswith("/images"):
@@ -109,5 +139,5 @@ class Default(WorkerEntrypoint):
         tail = path or "/"
         qs = ("?" + url.query) if url.query else ""
         target = f"{base}{tail}{qs}"
-        new_req = Request.new(target, request)
+        new_req = _clone_to_upstream(target, request)
         return await fetch(new_req)
