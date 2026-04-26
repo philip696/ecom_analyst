@@ -7,7 +7,27 @@ This Worker is a **small JavaScript** script (`src/gateway.js`) for **Cloudflare
 1. **`/images/*`** — objects from **R2** (`image/<filename>` keys, same as local Docker).
 2. **Everything else** — **`fetch(new Request(upstream, request))`** to **`API_UPSTREAM`**.
 
-The **FastAPI** app is **not** bundled here. Run it wherever you host the Python API (container, another URL, etc.), then set **`API_UPSTREAM`** in the Worker to that **HTTPS base URL** (no trailing slash). The repo ships **`API_UPSTREAM` empty** in `wrangler.jsonc` so you set it in the **Cloudflare dashboard** (Worker → **Variables and secrets**) or in your CI secrets—avoid committing a real API URL.
+The **FastAPI** app is **not** bundled here. Run it wherever you host the Python API (container, another URL, etc.), then set **`API_UPSTREAM`** in the Worker to that **HTTPS base URL** (no trailing slash). The repo ships **`API_UPSTREAM` empty** in `wrangler.jsonc` so you set it in the **Cloudflare dashboard** or via Wrangler—avoid committing a real API URL.
+
+### API_UPSTREAM missing (503)
+
+You must define **`API_UPSTREAM`** on the deployed Worker (empty string in `wrangler.jsonc` is intentional).
+
+**Option A — Dashboard:** [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages** → **`ecom-analyst`** → **Settings** → **Variables and secrets** → **Add** → name **`API_UPSTREAM`**, value your FastAPI base (e.g. `https://api.example.com`, no trailing slash). Use type **Secret** if you prefer it hidden in the UI. Save; Worker environment updates apply without a new deployment in most cases.
+
+**Option B — CLI (recommended):** from `cloudflare-worker/` after `npx wrangler login`:
+
+```bash
+npx wrangler secret put API_UPSTREAM
+```
+
+Paste your FastAPI base URL when prompted (https, no trailing slash). Redeploy if your pipeline overwrites vars:
+
+```bash
+bash ../deploy-cloudflare-worker.sh
+```
+
+**Local `wrangler dev`:** copy **`.dev.vars.example`** to **`.dev.vars`** and set **`API_UPSTREAM`** there (`.dev.vars` is gitignored).
 
 ## Prerequisites
 

@@ -81,6 +81,14 @@ For product images, include **`data200/image/`** in the image or mount a volume;
 
 Deploy from **`cloudflare-worker/`**: **`src/gateway.js`** serves **`/images/*`** from **R2** and **proxies** all other paths to **`API_UPSTREAM`** (your FastAPI base URL). Use **`bash ecomm_analyst/deploy-cloudflare-worker.sh`** (`npm ci` + **`npx wrangler deploy`**). See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, and vars.
 
+**If the Worker returns 503** *Worker misconfigured … API_UPSTREAM* **:** the deployed Worker has no upstream. Set it once:
+
+```bash
+cd ecomm_analyst/cloudflare-worker && npx wrangler secret put API_UPSTREAM
+```
+
+Use your FastAPI **HTTPS** base URL only (no path, no trailing slash), e.g. `https://your-api.onrender.com`. Or add **`API_UPSTREAM`** under **Workers & Pages → ecom-analyst → Settings → Variables and secrets**. Full steps: [`cloudflare-worker/README.md`](cloudflare-worker/README.md#api_upstream-missing-503).
+
 ## 3. CORS
 
 The API already allows origins from `app/main.py` (see `CORSMiddleware` and `settings.FRONTEND_URL`). Set **`FRONTEND_URL`** to the exact **Pages URL** (including `https://`).

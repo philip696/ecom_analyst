@@ -1,3 +1,6 @@
+# Local Wrangler overrides (copy from .dev.vars.example)
+.dev.vars
+
 .python-version
 .venv/
 __pycache__/

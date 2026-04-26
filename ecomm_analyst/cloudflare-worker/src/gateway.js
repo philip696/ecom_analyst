@@ -23,10 +23,28 @@ export default {
 
     const base = (env.API_UPSTREAM || "").toString().trim().replace(/\/+$/, "");
     if (!base) {
-      return new Response(
-        "Worker misconfigured: set Worker var or secret API_UPSTREAM to your FastAPI base URL (https, no trailing slash).",
-        { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } },
-      );
+      const msg =
+        "Worker misconfigured: set Worker var or secret API_UPSTREAM to your FastAPI base URL (https, no trailing slash).";
+      const accept = request.headers.get("Accept") || "";
+      const asJson =
+        path.startsWith("/api") || accept.includes("application/json");
+      if (asJson) {
+        return new Response(
+          JSON.stringify({
+            error: "service_unavailable",
+            message: msg,
+            hint: "Cloudflare: Workers & Pages → ecom-analyst → Settings → Variables and secrets → API_UPSTREAM, or run: npx wrangler secret put API_UPSTREAM",
+          }),
+          {
+            status: 503,
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+          },
+        );
+      }
+      return new Response(msg, {
+        status: 503,
+        headers: { "Content-Type": "text/plain; charset=utf-8" },
+      });
     }
 
     const target = `${base}${path}${url.search}`;
