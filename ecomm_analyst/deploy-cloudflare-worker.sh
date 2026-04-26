@@ -4,6 +4,9 @@ set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$HERE/cloudflare-worker"
 npm ci
+if [[ ! -d vendor/backend/app ]]; then
+  bash scripts/sync-backend-vendor.sh
+fi
 if [[ ! -f ecommerce.db ]]; then
   bash scripts/sync-ecommerce-db.sh
 fi

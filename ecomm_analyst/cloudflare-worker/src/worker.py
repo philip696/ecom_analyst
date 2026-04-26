@@ -13,9 +13,13 @@ from urllib.parse import unquote, urlparse
 from workers import WorkerEntrypoint, Response
 
 _WORKER_ROOT = Path(__file__).resolve().parents[1]
-_REPO_ROOT = _WORKER_ROOT.parent
-_BACKEND = _REPO_ROOT / "backend"
-sys.path.insert(0, str(_BACKEND))
+# Production bundle: `scripts/sync-backend-vendor.sh` copies `backend/app` here (parent `../backend` is not uploaded).
+_VENDOR_BACKEND = _WORKER_ROOT / "vendor" / "backend"
+_REPO_BACKEND = _WORKER_ROOT.parent / "backend"
+if (_VENDOR_BACKEND / "app").is_dir():
+    sys.path.insert(0, str(_VENDOR_BACKEND))
+else:
+    sys.path.insert(0, str(_REPO_BACKEND))
 
 _DB = _WORKER_ROOT / "ecommerce.db"
 
@@ -134,4 +138,5 @@ class Default(WorkerEntrypoint):
         import asgi
 
         app = _load_fastapi_app(self.env)
-        return await asgi.fetch(app, request.js_object, self.env)
+        # https://developers.cloudflare.com/workers/languages/python/packages/fastapi/
+        return await asgi.fetch(app, request, self.env)

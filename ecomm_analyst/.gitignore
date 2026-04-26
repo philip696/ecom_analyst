@@ -39,6 +39,9 @@ env/
 # Node / Frontend
 node_modules/
 frontend/public/_redirects
+
+# Cloudflare Worker — vendored FastAPI app (created by scripts/sync-backend-vendor.sh)
+cloudflare-worker/vendor/
 .next/
 out/
 .next

@@ -4,4 +4,5 @@ set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$HERE/cloudflare-worker"
 npm ci
+bash scripts/sync-backend-vendor.sh
 bash scripts/sync-ecommerce-db.sh

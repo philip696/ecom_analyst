@@ -29,7 +29,7 @@ If the **root path** is the **repository root** (not `cloudflare-worker/`), `npm
 
 | Root path in dashboard | Build command |
 |-------------------------|---------------|
-| **`ecomm_analyst/cloudflare-worker`** | `npm ci && bash scripts/sync-ecommerce-db.sh` |
+| **`ecomm_analyst/cloudflare-worker`** | `npm ci && bash scripts/sync-backend-vendor.sh && bash scripts/sync-ecommerce-db.sh` |
 | **`/`** (clone root) | `bash ecomm_analyst/build-cloudflare-worker.sh` |
 | **`ecomm_analyst`** (app folder) | `bash build-cloudflare-worker.sh` |
 
@@ -68,7 +68,13 @@ aws s3 sync ../backend/data200/image/ "s3://${R2_BUCKET}/image/" --only-show-err
 
 Use the same bucket name as in `wrangler.jsonc` (`ecom-analyst-product-images` by default).
 
-4. **Copy the SQLite demo DB** into this folder before each deploy (file is gitignored here):
+4. **Vendor the FastAPI app** into this folder before deploy (required in production; `../backend` is not in the Worker bundle):
+
+   ```bash
+   ./scripts/sync-backend-vendor.sh
+   ```
+
+5. **Copy the SQLite demo DB** into this folder before each deploy (file is gitignored here):
 
    ```bash
    ./scripts/sync-ecommerce-db.sh
@@ -92,6 +98,7 @@ For **Postgres** instead of SQLite, set `DATABASE_URL` as a secret (and add a su
 cd cloudflare-worker
 npm ci
 uv sync
+./scripts/sync-backend-vendor.sh
 ./scripts/sync-ecommerce-db.sh
 uv run pywrangler deploy
 ```
@@ -106,6 +113,12 @@ uv run pywrangler dev
 
 Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-analyst.<your-subdomain>.workers.dev` (exact host is shown after deploy).
 
+## Troubleshooting
+
+| Symptom | Fix |
+|--------|-----|
+| **1101 Worker threw exception** on first API hit | Ensure **`sync-backend-vendor.sh`** ran before deploy (see `build-cloudflare-worker.sh`). Without `vendor/backend/app`, `from app.main` fails. Also confirm **`asgi.fetch(app, request, env)`** uses the Workers `request`, not `request.js_object`. |
+
 ## Limitations
 
 - **Python Workers are beta**; not every PyPI package works. If `bcrypt` fails to import, passwords fall back to **pbkdf2_sha256** for *new* hashes only — existing bcrypt hashes in `ecommerce.db` would need re-registration or a migration.
@@ -117,6 +130,8 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 | Path | Role |
 |------|------|
 | `src/worker.py` | R2 handler for `/images/*`, then ASGI → FastAPI |
-| `../backend/app/` | Shared API implementation |
+| `vendor/backend/app/` | Vendored copy of `../backend/app` for deploy (local dev can use `../backend` only) |
+| `../backend/app/` | Source of truth; copy via `scripts/sync-backend-vendor.sh` |
 | `scripts/sync-r2-images.sh` | Upload `data200/image/*` → R2 |
+| `scripts/sync-backend-vendor.sh` | Copy FastAPI package into `vendor/backend/` |
 | `scripts/sync-ecommerce-db.sh` | Copy `ecommerce.db` for the bundle |
