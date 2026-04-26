@@ -119,6 +119,7 @@ Set **`NEXT_PUBLIC_API_URL`** on Pages to your Worker URL, e.g. `https://ecom-an
 |--------|-----|
 | **1101 Worker threw exception** on first API hit | Ensure **`sync-backend-vendor.sh`** ran before deploy. The FastAPI package must live under **`src/app/`** (Wrangler only bundles `src/**/*.py` when `main` is `src/worker.py`). A copy under `vendor/` is never uploaded. |
 | **1101 after DB shows in upload** | Bundled `ecommerce.db` is not a real disk path in the isolate. The worker copies it to **`/tmp/ecom-analyst-worker.sqlite3`** and sets `DATABASE_URL` before importing FastAPI. Set `DATABASE_URL` yourself (secret) to skip that. |
+| **`ModuleNotFoundError: No module named 'fastapi'`** | Deploy must use **`uv run pywrangler deploy`** (see `deploy-cloudflare-worker.sh`). Plain **`npx wrangler deploy`** uploads your `src/` code only and **does not** bundle `pyproject.toml` dependencies. |
 
 ## Limitations
 

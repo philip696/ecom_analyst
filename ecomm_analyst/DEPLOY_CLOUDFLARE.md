@@ -79,7 +79,7 @@ For product images, include **`data200/image/`** in the image or mount a volume;
 
 ### Option B — Cloudflare Python Worker + R2 (beta)
 
-Deploy from **`cloudflare-worker/`**: product images are stored in **R2** and served at the same **`/images/...`** paths; JSON routes use the shared **`backend/app`** code. Requires **[uv](https://docs.astral.sh/uv/)** and **`uv run pywrangler deploy`**. See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, secrets, and limitations.
+Deploy from **`cloudflare-worker/`**: product images are stored in **R2** and served at the same **`/images/...`** paths; JSON routes use the shared **`backend/app`** code. Requires **`uv run pywrangler deploy`** (used by **`deploy-cloudflare-worker.sh`**) so `pyproject.toml` deps (FastAPI, SQLAlchemy, …) are bundled; **`npx wrangler deploy` alone** uploads only your Python sources and fails at import with `ModuleNotFoundError: fastapi`. The deploy script installs **uv** via the official installer if it is not on `PATH`. See **`cloudflare-worker/README.md`** for bucket creation, `sync-r2-images.sh`, secrets, and limitations.
 
 ## 3. CORS
 
