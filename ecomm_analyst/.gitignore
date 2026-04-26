@@ -38,6 +38,7 @@ env/
 
 # Node / Frontend
 node_modules/
+frontend/public/_redirects
 .next/
 out/
 .next

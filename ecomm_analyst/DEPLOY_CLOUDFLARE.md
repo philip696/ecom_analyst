@@ -19,8 +19,11 @@ The app is built as a static export (`next.config.js` → `output: "export"`). T
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `NEXT_PUBLIC_API_URL` | Yes | HTTPS origin of the **Worker** (or Fly) API, e.g. `https://ecom-analyst.your-subdomain.workers.dev` — **no trailing slash**. Baked in at **build** time; rebuild Pages after changing it. |
+| `NEXT_PUBLIC_API_USE_PROXY` | No | Defaults to proxy mode. Set to `0` to call the Worker origin directly from the browser (then CORS on the Worker must allow your Pages origin). |
 
 Set these under **Pages project → Settings → Variables and Secrets → + Add** for **Production** (and **Preview** if you use preview deployments). Use the **same** name exactly: `NEXT_PUBLIC_API_URL`.
+
+**Same-origin API (default):** when `NEXT_PUBLIC_API_URL` is a non-local `https://` URL, `next build` writes `public/_redirects` so Cloudflare Pages **proxies** `/api/*` and `/images/*` to that Worker. The static bundle uses a **relative** API base, so the browser only talks to your `*.pages.dev` origin (no cross-origin preflight to the Worker). Rebuild Pages after changing the Worker URL.
 
 If the build log says **“Build environment variables: (none found)”**, that line only describes **`[vars]` inside `wrangler.toml`** — it does **not** mean your dashboard vars are missing. As long as `NEXT_PUBLIC_API_URL` is set on the **Pages** project, `next build` will see it.
 
@@ -40,6 +43,7 @@ For this repository, the Next app and `package-lock.json` live under **`ecomm_an
 
 | Symptom | Fix |
 |--------|-----|
+| Browser calls `http://localhost:8000` from `*.pages.dev` / CORS errors | `NEXT_PUBLIC_API_URL` was missing at **build** time, so the bundle fell back to localhost. Set it on the Pages project and **redeploy** (rebuild). With a valid `https://` Worker URL, the app also emits `_redirects` for same-origin `/api` and `/images`. |
 | `npm ci` … no `package-lock.json` | Set **Root directory** to `ecomm_analyst/frontend`, or use `npm install && npm run build` (less reproducible than `npm ci`). |
 | Clone: `should have been pointers` for `ecommerce.db` | `.gitattributes` must not mark `*.db` as Git LFS unless every `.db` is actually stored as an LFS pointer. This repo keeps the demo DB as a normal Git file. |
 
