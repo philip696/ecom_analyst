@@ -74,8 +74,8 @@ const BAR_COLORS = [
   "#818cf8", "#7c3aed", "#4f46e5", "#4338ca", "#3730a3", "#312e81",
 ];
 
-/** Chart area only (pairs with title row above; keeps right column aligned to title + chart). */
-const BUNDLE_CHART_HEIGHT = 200;
+/** Pixel height of bar chart only; card total ≈ this + one title row. */
+const BUNDLE_CHART_HEIGHT = 176;
 
 // ── Custom Tooltip ─────────────────────────────────────────────────────────────
 function BundleTooltip({ active, payload, label }: {
@@ -224,7 +224,7 @@ export default function BundlePage() {
 
             {/* Bar Chart — 2/3 width */}
             <div className="card lg:col-span-2 flex flex-col min-h-0">
-              <div className="flex items-center justify-between gap-3 mb-3 shrink-0">
+              <div className="flex items-center justify-between gap-3 mb-2 shrink-0">
                 <h2 className="text-base font-semibold text-slate-700">Top Bundle Pairs</h2>
                 {/* Toggle count / revenue */}
                 <div className="flex items-center bg-slate-100 rounded-lg p-0.5 text-xs font-medium shrink-0">
@@ -289,10 +289,12 @@ export default function BundlePage() {
             </div>
 
             {/* Top Pairs ranked list — 1/3 width; matches chart card height on lg, scroll inside */}
-            <div className="card flex flex-col min-h-0 h-full max-h-[min(22rem,85vh)] lg:max-h-none">
-              <div className="shrink-0 mb-3">
+            <div className="card flex flex-col min-h-0 h-full max-h-[min(20rem,85vh)] lg:max-h-none">
+              <div className="flex items-center justify-between gap-3 mb-2 shrink-0">
                 <h2 className="text-base font-semibold text-slate-700">Most Common Bundles</h2>
-                <p className="text-xs text-slate-400 mt-0.5">Ranked by times purchased together</p>
+                <span className="text-[10px] font-medium uppercase tracking-wide text-slate-400 shrink-0 max-w-[8rem] text-right leading-tight">
+                  By times bundled
+                </span>
               </div>
 
               {pairs.length === 0 ? (
