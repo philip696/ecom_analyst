@@ -2,7 +2,7 @@
 Dashboard summary router – single call that returns all KPIs.
 """
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy import func, Integer, cast
+from sqlalchemy import func, Integer, cast, case, case
 from sqlalchemy.orm import Session
 
 from app import models, schemas
@@ -186,6 +186,18 @@ def kpi_detail(
                 models.SalesRecord.marketplace,
                 func.count(models.SalesRecord.id).label("total"),
                 func.sum(cast(models.SalesRecord.returned, Integer)).label("returned"),
+                func.sum(
+                    case(
+                        (models.SalesRecord.returned.is_(True), models.SalesRecord.revenue),
+                        else_=0,
+                    )
+                ).label("return_revenue"),
+                func.sum(
+                    case(
+                        (models.SalesRecord.returned.is_(True), models.SalesRecord.quantity),
+                        else_=0,
+                    )
+                ).label("returned_units"),
             )
             .group_by(models.SalesRecord.marketplace)
             .all()
@@ -214,6 +226,8 @@ def kpi_detail(
                     "returns": int(r.returned or 0),
                     "total": r.total,
                     "rate": round(int(r.returned or 0) / r.total * 100, 1) if r.total else 0,
+                    "revenue": round(float(r.return_revenue or 0), 2),
+                    "returned_units": int(r.returned_units or 0),
                 }
                 for r in rows
             ],

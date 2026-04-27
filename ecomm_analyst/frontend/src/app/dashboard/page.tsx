@@ -3,7 +3,7 @@
  * Main Dashboard – KPI cards + overview charts for all three segments.
  * KPI cards are clickable and reveal a drill-down detail panel.
  */
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import {
   AreaChart, Area, BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
@@ -510,14 +510,55 @@ export default function DashboardPage() {
 type DrillData = Record<string, unknown>;
 type MetaInfo = { label: string; color: string; unit?: string };
 
+type MarketplaceDrillRow = {
+  name: string;
+  value?: number;
+  returns?: number;
+  revenue?: number;
+  returned_units?: number;
+};
+
 function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; meta: MetaInfo }) {
-  const byMarketplace = (data.by_marketplace as { name: string; value: number }[]) || [];
+  const byMarketplaceRaw = (data.by_marketplace as MarketplaceDrillRow[]) || [];
   const topProducts = (data.top_products as { name: string; value: number }[]) || [];
   const byCategory = (data.by_category as { name: string; value: number }[]) || [];
   const sampleComments = (data.sample_comments as { text: string; rating: number; product: string }[]) || [];
 
+  const totalItemsReturned = useMemo(() => {
+    if (kpi !== "returns") return 0;
+    return byMarketplaceRaw.reduce((sum, r) => sum + (r.returned_units ?? 0), 0);
+  }, [kpi, byMarketplaceRaw]);
+
+  const byMarketplace = useMemo(() => {
+    if (kpi !== "returns") {
+      return byMarketplaceRaw.map((r) => ({ name: r.name, value: r.value ?? 0 }));
+    }
+    return byMarketplaceRaw.map((r) => {
+      const rev = r.revenue ?? 0;
+      const units = r.returned_units ?? 0;
+      if (rev > 0 && units > 0) {
+        return { name: r.name, value: rev / units };
+      }
+      if (rev > 0 && totalItemsReturned > 0) {
+        return { name: r.name, value: rev / totalItemsReturned };
+      }
+      return { name: r.name, value: r.returns ?? r.value ?? 0 };
+    });
+  }, [kpi, byMarketplaceRaw, totalItemsReturned]);
+
+  const returnsBarShowsRevenuePerItem =
+    kpi === "returns" &&
+    byMarketplaceRaw.some(
+      (r) =>
+        (r.revenue ?? 0) > 0 &&
+        ((r.returned_units ?? 0) > 0 || totalItemsReturned > 0)
+    );
+
   const formatVal = (v: number) => {
     if (kpi === "revenue") return `$${v.toLocaleString()}`;
+    if (kpi === "returns" && returnsBarShowsRevenuePerItem) {
+      return `$${v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
     if (kpi === "ctr") return `${v}%`;
     return v.toLocaleString();
   };
