@@ -26,31 +26,36 @@ export default function KpiCard({
     <div
       onClick={onClick}
       className={clsx(
-        "card flex flex-col gap-3 transition-all duration-200",
+        "card relative flex min-h-[168px] flex-col transition-all duration-200",
         onClick && "cursor-pointer hover:shadow-md hover:-translate-y-0.5",
         active && "ring-2 ring-brand-500 shadow-md -translate-y-0.5"
       )}
     >
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-xs font-medium text-slate-400 uppercase tracking-wide">{title}</p>
-          <p className="text-2xl font-bold text-slate-800 mt-1">{value}</p>
-          {subtitle && <p className="text-xs text-slate-400 mt-0.5">{subtitle}</p>}
-        </div>
-        <div className={clsx("w-10 h-10 rounded-xl flex items-center justify-center", iconColor)}>
-          <Icon className="w-5 h-5 text-white" />
-        </div>
+      <div
+        className={clsx(
+          "pointer-events-none absolute right-4 top-4 z-[1] flex size-10 shrink-0 items-center justify-center rounded-xl shadow-sm",
+          iconColor
+        )}
+        aria-hidden
+      >
+        <Icon className="size-5 shrink-0 text-white" strokeWidth={2} />
       </div>
-      {trend && (
-        <div className={clsx("text-xs font-medium", trend.value >= 0 ? "text-emerald-500" : "text-red-500")}>
-          {trend.value >= 0 ? "▲" : "▼"} {Math.abs(trend.value)}% {trend.label}
-        </div>
-      )}
-      {onClick && (
-        <p className={clsx("text-xs mt-0.5", active ? "text-brand-500 font-medium" : "text-slate-300")}>
-          {active ? "▲ showing details below" : "Click to view details"}
-        </p>
-      )}
+
+      <div className="flex flex-1 flex-col items-center justify-center gap-2 px-3 py-6 pr-14 text-center">
+        <p className="text-xs font-medium uppercase tracking-wide text-slate-400">{title}</p>
+        <p className="max-w-full break-words text-2xl font-bold leading-tight text-slate-800">{value}</p>
+        {subtitle && <p className="text-xs text-slate-400">{subtitle}</p>}
+        {trend && (
+          <div className={clsx("text-xs font-medium", trend.value >= 0 ? "text-emerald-500" : "text-red-500")}>
+            {trend.value >= 0 ? "▲" : "▼"} {Math.abs(trend.value)}% {trend.label}
+          </div>
+        )}
+        {onClick && (
+          <p className={clsx("text-xs", active ? "font-medium text-brand-500" : "text-slate-300")}>
+            {active ? "▲ showing details below" : "Click to view details"}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
