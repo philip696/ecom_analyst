@@ -1,3 +1,9 @@
+/** Full categorical tick label (no ellipsis). Pair with a wide `YAxis width` so text fits. */
+export function fullYAxisLabel(v: unknown): string {
+  if (v == null) return "";
+  return String(v);
+}
+
 /** Shorten categorical Y-axis labels; tooltips still receive full `name` from data. */
 export function truncateYAxisLabel(v: unknown, maxLen = 32): string {
   if (v == null) return "";

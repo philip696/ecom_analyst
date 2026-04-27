@@ -15,7 +15,7 @@ import {
 import KpiCard from "@/components/KpiCard";
 import PageHeader from "@/components/PageHeader";
 import { dashboardApi, engagementApi, commentsApi } from "@/lib/api";
-import { truncateYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
+import { fullYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { MapPin } from "lucide-react";
 
@@ -142,7 +142,7 @@ export default function DashboardPage() {
       />
 
       {/* KPI Row 1 */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+      <div className="grid grid-cols-2 items-stretch lg:grid-cols-4 gap-4 mb-4">
         <KpiCard
           title="Total Revenue"
           value={`$${summary.total_revenue?.toLocaleString()}`}
@@ -181,7 +181,7 @@ export default function DashboardPage() {
       </div>
 
       {/* KPI Row 2 */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 items-stretch lg:grid-cols-4 gap-4 mb-6">
         <KpiCard
           title="Page Visits"
           value={summary.total_page_visits?.toLocaleString()}
@@ -353,17 +353,17 @@ export default function DashboardPage() {
             <h2 className="text-lg font-semibold text-slate-700 mb-1">Revenue by Marketplace</h2>
             <p className="text-sm text-slate-400 mb-4">Shopee, Temu, Taobao, JD, Facebook Marketplace</p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <ResponsiveContainer width="100%" height={220}>
-                <PieChart>
+              <ResponsiveContainer width="100%" height={280}>
+                <PieChart margin={{ top: 0, right: 8, bottom: 8, left: 8 }}>
                   <Pie
                     data={charts.revenue_by_marketplace}
                     dataKey="revenue"
                     nameKey="name"
                     cx="50%"
-                    cy="50%"
-                    innerRadius={55}
-                    outerRadius={90}
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    cy="44%"
+                    innerRadius={50}
+                    outerRadius={82}
+                    label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
                     labelLine={false}
                   >
                     {charts.revenue_by_marketplace.map((_, i) => (
@@ -371,19 +371,24 @@ export default function DashboardPage() {
                     ))}
                   </Pie>
                   <Tooltip formatter={(v: number) => [`$${v.toLocaleString()}`, "Revenue"]} />
+                  <Legend
+                    layout="horizontal"
+                    verticalAlign="bottom"
+                    wrapperStyle={{ fontSize: "12px", paddingTop: "8px" }}
+                  />
                 </PieChart>
               </ResponsiveContainer>
               <ResponsiveContainer width="100%" height={revenueMktBarHeight}>
-                <BarChart data={charts.revenue_by_marketplace} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
+                <BarChart data={charts.revenue_by_marketplace} layout="vertical" margin={{ left: 8, right: 8, top: 4, bottom: 4 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                   <XAxis type="number" tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v}`} />
                   <YAxis
                     type="category"
                     dataKey="name"
                     tick={{ fontSize: 11, fill: "#64748b" }}
-                    width={152}
+                    width={268}
                     interval={0}
-                    tickFormatter={(v) => truncateYAxisLabel(v, 28)}
+                    tickFormatter={(v) => fullYAxisLabel(v)}
                   />
                   <Tooltip formatter={(v: number) => [`$${v.toLocaleString()}`, "Revenue"]} />
                   {charts.revenue_by_marketplace.map((_, i) => null)}
@@ -402,16 +407,16 @@ export default function DashboardPage() {
             <h2 className="text-lg font-semibold text-slate-700 mb-1">Top Products by Revenue</h2>
             <p className="text-sm text-slate-400 mb-4">Horizontal Bar Chart</p>
             <ResponsiveContainer width="100%" height={topProductsBarHeight}>
-              <BarChart data={charts.top_products} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
+              <BarChart data={charts.top_products} layout="vertical" margin={{ left: 8, right: 8, top: 4, bottom: 4 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v}`} />
                 <YAxis
                   type="category"
                   dataKey="name"
                   tick={{ fontSize: 11, fill: "#64748b" }}
-                  width={168}
+                  width={288}
                   interval={0}
-                  tickFormatter={(v) => truncateYAxisLabel(v, 26)}
+                  tickFormatter={(v) => fullYAxisLabel(v)}
                 />
                 <Tooltip formatter={(v: number) => [`$${v.toLocaleString()}`, "Revenue"]} />
                 <Bar dataKey="revenue" fill="#4f6ef7" radius={[0, 4, 4, 0]} />
@@ -467,12 +472,16 @@ export default function DashboardPage() {
               {countries.slice(0, 6).map((c, i) => {
                 const maxOrders = countries[0]?.orders || 1;
                 return (
-                  <div key={i} className="flex items-center gap-3">
-                    <span className="text-sm font-bold text-slate-300 w-4">{i + 1}</span>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-0.5">
-                        <span className="text-base font-medium text-slate-700">{c.name}</span>
-                        <span className="text-base font-semibold text-slate-500">{c.orders.toLocaleString()} orders</span>
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="w-5 shrink-0 pt-0.5 text-sm font-bold text-slate-300">{i + 1}</span>
+                    <div className="min-w-0 flex-1">
+                      <div className="mb-0.5 flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">
+                        <span className="min-w-0 flex-1 break-words text-base font-medium text-slate-700">
+                          {c.name}
+                        </span>
+                        <span className="shrink-0 text-base font-semibold text-slate-500">
+                          {c.orders.toLocaleString()} orders
+                        </span>
                       </div>
                       <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
                         <div
@@ -494,15 +503,15 @@ export default function DashboardPage() {
         {/* Sentiment Pie */}
         <div className="card lg:col-span-1">
           <h2 className="text-lg font-semibold text-slate-700 mb-4">Sentiment Breakdown</h2>
-          <ResponsiveContainer width="100%" height={220}>
-            <PieChart>
+          <ResponsiveContainer width="100%" height={260}>
+            <PieChart margin={{ top: 0, right: 8, bottom: 8, left: 8 }}>
               <Pie
                 data={sentiment}
                 dataKey="count"
                 nameKey="sentiment"
                 cx="50%"
-                cy="50%"
-                outerRadius={80}
+                cy="44%"
+                outerRadius={78}
                 label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                 labelLine={false}
               >
@@ -520,6 +529,11 @@ export default function DashboardPage() {
                 ))}
               </Pie>
               <Tooltip />
+              <Legend
+                layout="horizontal"
+                verticalAlign="bottom"
+                wrapperStyle={{ fontSize: "12px", paddingTop: "8px" }}
+              />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -611,16 +625,16 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
       <div>
         <h3 className="text-base font-medium text-slate-500 mb-3">By Marketplace</h3>
         <ResponsiveContainer width="100%" height={drillBarChartHeight}>
-          <BarChart data={byMarketplace} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
+          <BarChart data={byMarketplace} layout="vertical" margin={{ left: 8, right: 8, top: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
             <XAxis type="number" tick={{ fontSize: 12 }} tickFormatter={(v) => formatVal(v)} />
             <YAxis
               type="category"
               dataKey="name"
               tick={{ fontSize: 11, fill: "#64748b" }}
-              width={148}
+              width={268}
               interval={0}
-              tickFormatter={(v) => truncateYAxisLabel(v, 26)}
+              tickFormatter={(v) => fullYAxisLabel(v)}
             />
             <Tooltip formatter={(v: number) => [formatVal(v), meta.label]} />
             <Bar dataKey="value" fill={meta.color} radius={[0, 4, 4, 0]} />
@@ -633,21 +647,24 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
         {/* Returns special: show rate + marketplace table */}
         {kpi === "returns" && (
           <>
-            <div className="flex items-center gap-4 mb-4 p-3 rounded-xl bg-amber-50 border border-amber-200">
-              <div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-6 mb-4 p-3 rounded-xl bg-amber-50 border border-amber-200">
+              <div className="shrink-0">
                 <p className="text-sm text-amber-600 font-medium uppercase">Return Rate</p>
                 <p className="text-3xl font-bold text-amber-700">{String(data.return_rate)}%</p>
               </div>
-              <div className="text-sm text-amber-600">
+              <div className="min-w-0 flex-1 text-sm text-amber-600 break-words leading-snug">
                 {String(data.total_returns)} returned out of {String(data.total_orders)} orders
               </div>
             </div>
             <h3 className="text-base font-medium text-slate-500 mb-2">Most Returned Products</h3>
             <div className="space-y-2">
               {(data.top_returned_products as { name: string; value: number }[])?.map((p, i) => (
-                <div key={i} className="flex items-center justify-between text-base">
-                  <span className="text-slate-600 truncate max-w-[65%]">{p.name}</span>
-                  <span className="font-semibold text-amber-600">{p.value} returns</span>
+                <div
+                  key={i}
+                  className="flex flex-col gap-1 border-b border-slate-100 pb-2 text-base last:border-0 last:pb-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3"
+                >
+                  <span className="min-w-0 flex-1 break-words text-slate-600">{p.name}</span>
+                  <span className="shrink-0 font-semibold text-amber-600">{p.value} returns</span>
                 </div>
               ))}
             </div>
@@ -661,15 +678,19 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
             <div className="space-y-3">
               {sampleComments.map((c, i) => (
                 <div key={i} className="p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium text-slate-500 truncate">{c.product}</span>
-                    <span className="flex items-center gap-0.5 text-sm text-amber-500">
+                  <div className="mb-2 flex flex-wrap items-start justify-between gap-2">
+                    <span className="min-w-0 flex-1 break-words text-sm font-medium text-slate-500">
+                      {c.product}
+                    </span>
+                    <span className="flex shrink-0 items-center gap-0.5 text-sm text-amber-500">
                       {Array.from({ length: c.rating }).map((_, j) => (
                         <Star key={j} className="w-3 h-3 fill-amber-400 text-amber-400" />
                       ))}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-600 line-clamp-2">{c.text}</p>
+                  <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-slate-600">
+                    {c.text}
+                  </p>
                 </div>
               ))}
             </div>
@@ -684,12 +705,12 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
             </h3>
             <div className="space-y-2">
               {topProducts.map((p, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <span className="text-sm font-bold text-slate-300 w-4">{i + 1}</span>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-base text-slate-700 truncate max-w-[65%]">{p.name}</span>
-                      <span className="text-base font-semibold text-slate-800">{formatVal(p.value)}</span>
+                <div key={i} className="flex items-start gap-3">
+                  <span className="w-5 shrink-0 pt-0.5 text-sm font-bold text-slate-300">{i + 1}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-1 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">
+                      <span className="min-w-0 flex-1 break-words text-base text-slate-700">{p.name}</span>
+                      <span className="shrink-0 text-base font-semibold text-slate-800">{formatVal(p.value)}</span>
                     </div>
                     <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
                       <div
@@ -713,9 +734,14 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
             <h3 className="text-base font-medium text-slate-500 mt-4 mb-2">Top Products</h3>
             <div className="space-y-1">
               {topProducts.map((p, i) => (
-                <div key={i} className="flex items-center justify-between text-base">
-                  <span className="text-slate-600 truncate max-w-[70%]">{p.name}</span>
-                  <span className="font-medium" style={{ color: meta.color }}>{p.value} reviews</span>
+                <div
+                  key={i}
+                  className="flex flex-col gap-1 border-b border-slate-100 pb-2 text-base last:border-0 last:pb-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3"
+                >
+                  <span className="min-w-0 flex-1 break-words text-slate-600">{p.name}</span>
+                  <span className="shrink-0 font-medium" style={{ color: meta.color }}>
+                    {p.value} reviews
+                  </span>
                 </div>
               ))}
             </div>
@@ -726,10 +752,17 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
         {kpi === "orders" && byCategory.length > 0 && (
           <>
             <h3 className="text-base font-medium text-slate-500 mb-3">By Category</h3>
-            <ResponsiveContainer width="100%" height={180}>
-              <BarChart data={byCategory}>
+            <ResponsiveContainer width="100%" height={240}>
+              <BarChart data={byCategory} margin={{ top: 8, right: 8, bottom: 4, left: 4 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                <XAxis dataKey="name" tick={{ fontSize: 11 }} />
+                <XAxis
+                  dataKey="name"
+                  tick={{ fontSize: 11 }}
+                  angle={-22}
+                  textAnchor="end"
+                  height={88}
+                  interval={0}
+                />
                 <YAxis tick={{ fontSize: 12 }} />
                 <Tooltip />
                 <Bar dataKey="value" name="Orders" fill={meta.color} radius={[4, 4, 0, 0]} />
