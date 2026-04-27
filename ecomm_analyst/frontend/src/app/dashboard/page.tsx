@@ -220,7 +220,7 @@ export default function DashboardPage() {
       {activeKpi && (
         <div className="card mb-6 border border-slate-200 animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-base font-semibold text-slate-700">
+            <h2 className="text-lg font-semibold text-slate-700">
               {meta?.label} — Breakdown
             </h2>
             <button
@@ -246,8 +246,8 @@ export default function DashboardPage() {
         <>
           {/* Total Revenue Line Chart */}
           <div className="card mt-6">
-            <h2 className="text-base font-semibold text-slate-700 mb-1">Total Revenue</h2>
-            <p className="text-xs text-slate-400 mb-4">Line Chart – Last 60 Days</p>
+            <h2 className="text-lg font-semibold text-slate-700 mb-1">Total Revenue</h2>
+            <p className="text-sm text-slate-400 mb-4">Line Chart – Last 60 Days</p>
             <ResponsiveContainer width="100%" height={220}>
               <LineChart data={charts.revenue_trend}>
                 <defs>
@@ -257,8 +257,8 @@ export default function DashboardPage() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                <XAxis dataKey="day" tick={{ fontSize: 11 }} tickFormatter={(v) => v.slice(5)} />
-                <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+                <XAxis dataKey="day" tick={{ fontSize: 12 }} tickFormatter={(v) => v.slice(5)} />
+                <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v}`} />
                 <Tooltip formatter={(v: number) => [`$${v.toLocaleString()}`, "Revenue"]} />
                 <Line type="monotone" dataKey="revenue" stroke="#4f6ef7" strokeWidth={2} dot={false} />
               </LineChart>
@@ -267,8 +267,8 @@ export default function DashboardPage() {
 
           {/* Revenue Growth WoW / MoM */}
           <div className="card mt-6">
-            <h2 className="text-base font-semibold text-slate-700 mb-1">Revenue Growth (WoW / MoM)</h2>
-            <p className="text-xs text-slate-400 mb-4">Week-over-Week and Month-over-Month comparison</p>
+            <h2 className="text-lg font-semibold text-slate-700 mb-1">Revenue Growth (WoW / MoM)</h2>
+            <p className="text-sm text-slate-400 mb-4">Week-over-Week and Month-over-Month comparison</p>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Stat cards */}
               <div className="flex flex-col gap-4">
@@ -277,24 +277,24 @@ export default function DashboardPage() {
                   { label: "This Month", current: charts.revenue_growth.mom_current, previous: charts.revenue_growth.mom_previous, pct: charts.revenue_growth.mom_pct, period: "vs last month" },
                 ].map((g, i) => (
                   <div key={i} className="p-4 rounded-xl bg-slate-50 border border-slate-100">
-                    <p className="text-xs text-slate-500 font-medium mb-1">{g.label}</p>
-                    <p className="text-2xl font-bold text-slate-800">${g.current.toLocaleString()}</p>
+                    <p className="text-sm text-slate-500 font-medium mb-1">{g.label}</p>
+                    <p className="text-3xl font-bold text-slate-800">${g.current.toLocaleString()}</p>
                     <div className="flex items-center gap-1 mt-1">
                       {g.pct !== null && g.pct >= 0
                         ? <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
                         : <TrendingDown className="w-3.5 h-3.5 text-red-400" />}
-                      <span className={`text-xs font-semibold ${g.pct !== null && g.pct >= 0 ? "text-emerald-500" : "text-red-400"}`}>
+                      <span className={`text-sm font-semibold ${g.pct !== null && g.pct >= 0 ? "text-emerald-500" : "text-red-400"}`}>
                         {g.pct !== null ? `${g.pct > 0 ? "+" : ""}${g.pct}%` : "N/A"}
                       </span>
-                      <span className="text-xs text-slate-400">{g.period}</span>
+                      <span className="text-sm text-slate-400">{g.period}</span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-1">Previous: ${g.previous.toLocaleString()}</p>
+                    <p className="text-sm text-slate-400 mt-1">Previous: ${g.previous.toLocaleString()}</p>
                   </div>
                 ))}
               </div>
               {/* Line chart — last 30 days revenue trend */}
               <div className="lg:col-span-2">
-                <p className="text-xs text-slate-400 mb-2">Daily Revenue – Last 30 Days</p>
+                <p className="text-sm text-slate-400 mb-2">Daily Revenue – Last 30 Days</p>
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={charts.revenue_trend.slice(-30)} margin={{ top: 4, right: 16, left: 0, bottom: 0 }}>
                     <defs>
@@ -306,13 +306,13 @@ export default function DashboardPage() {
                     <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
                     <XAxis
                       dataKey="day"
-                      tick={{ fontSize: 11, fill: "#94a3b8" }}
+                      tick={{ fontSize: 12, fill: "#94a3b8" }}
                       tickFormatter={(v) => v.slice(5)}
                       tickLine={false}
                       axisLine={false}
                     />
                     <YAxis
-                      tick={{ fontSize: 11, fill: "#94a3b8" }}
+                      tick={{ fontSize: 12, fill: "#94a3b8" }}
                       tickFormatter={(v) => `$${v}`}
                       tickLine={false}
                       axisLine={false}
@@ -335,13 +335,13 @@ export default function DashboardPage() {
 
           {/* AOV Line Chart */}
           <div className="card mt-6">
-            <h2 className="text-base font-semibold text-slate-700 mb-1">Average Order Value (AOV)</h2>
-            <p className="text-xs text-slate-400 mb-4">Daily AOV – Last 60 Days</p>
+            <h2 className="text-lg font-semibold text-slate-700 mb-1">Average Order Value (AOV)</h2>
+            <p className="text-sm text-slate-400 mb-4">Daily AOV – Last 60 Days</p>
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={charts.revenue_trend}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                <XAxis dataKey="day" tick={{ fontSize: 11 }} tickFormatter={(v) => v.slice(5)} />
-                <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+                <XAxis dataKey="day" tick={{ fontSize: 12 }} tickFormatter={(v) => v.slice(5)} />
+                <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v}`} />
                 <Tooltip formatter={(v: number) => [`$${v}`, "AOV"]} />
                 <Line type="monotone" dataKey="aov" stroke="#8b5cf6" strokeWidth={2} dot={false} />
               </LineChart>
@@ -350,8 +350,8 @@ export default function DashboardPage() {
 
           {/* Revenue by Marketplace (Doughnut + Bar) */}
           <div className="card mt-6">
-            <h2 className="text-base font-semibold text-slate-700 mb-1">Revenue by Marketplace</h2>
-            <p className="text-xs text-slate-400 mb-4">Shopee, Temu, Taobao, JD, Facebook Marketplace</p>
+            <h2 className="text-lg font-semibold text-slate-700 mb-1">Revenue by Marketplace</h2>
+            <p className="text-sm text-slate-400 mb-4">Shopee, Temu, Taobao, JD, Facebook Marketplace</p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <ResponsiveContainer width="100%" height={220}>
                 <PieChart>
@@ -376,11 +376,11 @@ export default function DashboardPage() {
               <ResponsiveContainer width="100%" height={revenueMktBarHeight}>
                 <BarChart data={charts.revenue_by_marketplace} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
-                  <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+                  <XAxis type="number" tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v}`} />
                   <YAxis
                     type="category"
                     dataKey="name"
-                    tick={{ fontSize: 10, fill: "#64748b" }}
+                    tick={{ fontSize: 11, fill: "#64748b" }}
                     width={152}
                     interval={0}
                     tickFormatter={(v) => truncateYAxisLabel(v, 28)}
@@ -399,16 +399,16 @@ export default function DashboardPage() {
 
           {/* Top Products by Revenue */}
           <div className="card mt-6 mb-6">
-            <h2 className="text-base font-semibold text-slate-700 mb-1">Top Products by Revenue</h2>
-            <p className="text-xs text-slate-400 mb-4">Horizontal Bar Chart</p>
+            <h2 className="text-lg font-semibold text-slate-700 mb-1">Top Products by Revenue</h2>
+            <p className="text-sm text-slate-400 mb-4">Horizontal Bar Chart</p>
             <ResponsiveContainer width="100%" height={topProductsBarHeight}>
               <BarChart data={charts.top_products} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
-                <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+                <XAxis type="number" tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v}`} />
                 <YAxis
                   type="category"
                   dataKey="name"
-                  tick={{ fontSize: 10, fill: "#64748b" }}
+                  tick={{ fontSize: 11, fill: "#64748b" }}
                   width={168}
                   interval={0}
                   tickFormatter={(v) => truncateYAxisLabel(v, 26)}
@@ -426,11 +426,11 @@ export default function DashboardPage() {
         <div className="card mt-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-base font-semibold text-slate-700 flex items-center gap-2">
+              <h2 className="text-lg font-semibold text-slate-700 flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-brand-500" />
                 Sales by Countries
               </h2>
-              <p className="text-xs text-slate-400 mt-0.5">Orders and revenue by market region</p>
+              <p className="text-sm text-slate-400 mt-0.5">Orders and revenue by market region</p>
             </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -463,16 +463,16 @@ export default function DashboardPage() {
             </div>
             {/* Country list */}
             <div className="space-y-2">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3">Top Markets</p>
+              <p className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">Top Markets</p>
               {countries.slice(0, 6).map((c, i) => {
                 const maxOrders = countries[0]?.orders || 1;
                 return (
                   <div key={i} className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-slate-300 w-4">{i + 1}</span>
+                    <span className="text-sm font-bold text-slate-300 w-4">{i + 1}</span>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-0.5">
-                        <span className="text-sm font-medium text-slate-700">{c.name}</span>
-                        <span className="text-xs font-semibold text-slate-500">{c.orders.toLocaleString()} orders</span>
+                        <span className="text-base font-medium text-slate-700">{c.name}</span>
+                        <span className="text-base font-semibold text-slate-500">{c.orders.toLocaleString()} orders</span>
                       </div>
                       <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
                         <div
@@ -493,7 +493,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Sentiment Pie */}
         <div className="card lg:col-span-1">
-          <h2 className="text-base font-semibold text-slate-700 mb-4">Sentiment Breakdown</h2>
+          <h2 className="text-lg font-semibold text-slate-700 mb-4">Sentiment Breakdown</h2>
           <ResponsiveContainer width="100%" height={220}>
             <PieChart>
               <Pie
@@ -526,12 +526,12 @@ export default function DashboardPage() {
 
         {/* Engagement Trend */}
         <div className="card lg:col-span-2">
-          <h2 className="text-base font-semibold text-slate-700 mb-4">Engagement – Last 14 Days</h2>
+          <h2 className="text-lg font-semibold text-slate-700 mb-4">Engagement – Last 14 Days</h2>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={engagementTrend}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-              <XAxis dataKey="day" tick={{ fontSize: 11 }} tickFormatter={(v) => v.slice(5)} />
-              <YAxis tick={{ fontSize: 11 }} />
+              <XAxis dataKey="day" tick={{ fontSize: 12 }} tickFormatter={(v) => v.slice(5)} />
+              <YAxis tick={{ fontSize: 12 }} />
               <Tooltip />
               <Legend />
               <Bar dataKey="visits" name="Page Visits" fill="#4f6ef7" radius={[4, 4, 0, 0]} />
@@ -609,15 +609,15 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* By Marketplace Bar Chart */}
       <div>
-        <h3 className="text-sm font-medium text-slate-500 mb-3">By Marketplace</h3>
+        <h3 className="text-base font-medium text-slate-500 mb-3">By Marketplace</h3>
         <ResponsiveContainer width="100%" height={drillBarChartHeight}>
           <BarChart data={byMarketplace} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
-            <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => formatVal(v)} />
+            <XAxis type="number" tick={{ fontSize: 12 }} tickFormatter={(v) => formatVal(v)} />
             <YAxis
               type="category"
               dataKey="name"
-              tick={{ fontSize: 10, fill: "#64748b" }}
+              tick={{ fontSize: 11, fill: "#64748b" }}
               width={148}
               interval={0}
               tickFormatter={(v) => truncateYAxisLabel(v, 26)}
@@ -635,17 +635,17 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
           <>
             <div className="flex items-center gap-4 mb-4 p-3 rounded-xl bg-amber-50 border border-amber-200">
               <div>
-                <p className="text-xs text-amber-600 font-medium uppercase">Return Rate</p>
-                <p className="text-2xl font-bold text-amber-700">{String(data.return_rate)}%</p>
+                <p className="text-sm text-amber-600 font-medium uppercase">Return Rate</p>
+                <p className="text-3xl font-bold text-amber-700">{String(data.return_rate)}%</p>
               </div>
-              <div className="text-xs text-amber-600">
+              <div className="text-sm text-amber-600">
                 {String(data.total_returns)} returned out of {String(data.total_orders)} orders
               </div>
             </div>
-            <h3 className="text-sm font-medium text-slate-500 mb-2">Most Returned Products</h3>
+            <h3 className="text-base font-medium text-slate-500 mb-2">Most Returned Products</h3>
             <div className="space-y-2">
               {(data.top_returned_products as { name: string; value: number }[])?.map((p, i) => (
-                <div key={i} className="flex items-center justify-between text-sm">
+                <div key={i} className="flex items-center justify-between text-base">
                   <span className="text-slate-600 truncate max-w-[65%]">{p.name}</span>
                   <span className="font-semibold text-amber-600">{p.value} returns</span>
                 </div>
@@ -657,19 +657,19 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
         {/* Sample comments for sentiment KPIs */}
         {(kpi === "positive" || kpi === "negative") && sampleComments.length > 0 && (
           <>
-            <h3 className="text-sm font-medium text-slate-500 mb-3">Sample Reviews</h3>
+            <h3 className="text-base font-medium text-slate-500 mb-3">Sample Reviews</h3>
             <div className="space-y-3">
               {sampleComments.map((c, i) => (
                 <div key={i} className="p-3 rounded-xl bg-slate-50 border border-slate-100">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-medium text-slate-500 truncate">{c.product}</span>
-                    <span className="flex items-center gap-0.5 text-xs text-amber-500">
+                    <span className="text-sm font-medium text-slate-500 truncate">{c.product}</span>
+                    <span className="flex items-center gap-0.5 text-sm text-amber-500">
                       {Array.from({ length: c.rating }).map((_, j) => (
                         <Star key={j} className="w-3 h-3 fill-amber-400 text-amber-400" />
                       ))}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-600 line-clamp-2">{c.text}</p>
+                  <p className="text-sm text-slate-600 line-clamp-2">{c.text}</p>
                 </div>
               ))}
             </div>
@@ -679,17 +679,17 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
         {/* Top products for non-returns/non-sentiment KPIs, and for sentiment too */}
         {kpi !== "returns" && topProducts.length > 0 && sampleComments.length === 0 && (
           <>
-            <h3 className="text-sm font-medium text-slate-500 mb-3">
+            <h3 className="text-base font-medium text-slate-500 mb-3">
               Top Products by {meta.label}
             </h3>
             <div className="space-y-2">
               {topProducts.map((p, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <span className="text-xs font-bold text-slate-300 w-4">{i + 1}</span>
+                  <span className="text-sm font-bold text-slate-300 w-4">{i + 1}</span>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm text-slate-700 truncate max-w-[65%]">{p.name}</span>
-                      <span className="text-sm font-semibold text-slate-800">{formatVal(p.value)}</span>
+                      <span className="text-base text-slate-700 truncate max-w-[65%]">{p.name}</span>
+                      <span className="text-base font-semibold text-slate-800">{formatVal(p.value)}</span>
                     </div>
                     <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
                       <div
@@ -710,10 +710,10 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
         {/* Top products for positive/negative (shown under comments) */}
         {(kpi === "positive" || kpi === "negative") && topProducts.length > 0 && (
           <>
-            <h3 className="text-sm font-medium text-slate-500 mt-4 mb-2">Top Products</h3>
+            <h3 className="text-base font-medium text-slate-500 mt-4 mb-2">Top Products</h3>
             <div className="space-y-1">
               {topProducts.map((p, i) => (
-                <div key={i} className="flex items-center justify-between text-sm">
+                <div key={i} className="flex items-center justify-between text-base">
                   <span className="text-slate-600 truncate max-w-[70%]">{p.name}</span>
                   <span className="font-medium" style={{ color: meta.color }}>{p.value} reviews</span>
                 </div>
@@ -725,12 +725,12 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
         {/* By category for orders */}
         {kpi === "orders" && byCategory.length > 0 && (
           <>
-            <h3 className="text-sm font-medium text-slate-500 mb-3">By Category</h3>
+            <h3 className="text-base font-medium text-slate-500 mb-3">By Category</h3>
             <ResponsiveContainer width="100%" height={180}>
               <BarChart data={byCategory}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                <XAxis dataKey="name" tick={{ fontSize: 10 }} />
-                <YAxis tick={{ fontSize: 11 }} />
+                <XAxis dataKey="name" tick={{ fontSize: 11 }} />
+                <YAxis tick={{ fontSize: 12 }} />
                 <Tooltip />
                 <Bar dataKey="value" name="Orders" fill={meta.color} radius={[4, 4, 0, 0]} />
               </BarChart>

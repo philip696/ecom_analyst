@@ -35,32 +35,32 @@ export default function KpiCard({
     >
       <div
         className={clsx(
-          "pointer-events-none absolute right-2.5 top-2.5 z-[1] flex size-9 shrink-0 items-center justify-center rounded-lg shadow-sm",
+          "pointer-events-none absolute right-2.5 top-2.5 z-[1] flex size-10 shrink-0 items-center justify-center rounded-lg shadow-sm",
           iconColor
         )}
         aria-hidden
       >
-        <Icon className="size-[18px] shrink-0 text-white" strokeWidth={2} />
+        <Icon className="size-5 shrink-0 text-white" strokeWidth={2} />
       </div>
 
-      <p className="shrink-0 pr-11 text-center text-[10px] font-medium uppercase leading-tight tracking-wide text-slate-400 line-clamp-2">
+      <p className="shrink-0 pr-12 text-center text-xs font-medium uppercase leading-tight tracking-wide text-slate-400 line-clamp-2">
         {title}
       </p>
 
-      <div className="flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 pb-1 pr-11 text-center">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 pb-1 pr-12 text-center">
         <p
-          className="line-clamp-3 max-w-full break-words text-center text-lg font-bold leading-snug tracking-tight text-slate-800 sm:text-xl"
+          className="line-clamp-3 max-w-full break-words text-center text-xl font-bold leading-snug tracking-tight text-slate-800 sm:text-2xl"
           title={valueStr}
         >
           {value}
         </p>
         {subtitle && (
-          <p className="line-clamp-2 max-w-full text-[10px] leading-tight text-slate-400">{subtitle}</p>
+          <p className="line-clamp-2 max-w-full text-xs leading-tight text-slate-400">{subtitle}</p>
         )}
         {trend && (
           <div
             className={clsx(
-              "line-clamp-2 max-w-full text-[10px] font-medium leading-tight",
+              "line-clamp-2 max-w-full text-xs font-medium leading-tight",
               trend.value >= 0 ? "text-emerald-500" : "text-red-500"
             )}
             title={`${trend.value >= 0 ? "▲" : "▼"} ${Math.abs(trend.value)}% ${trend.label}`}
@@ -71,7 +71,7 @@ export default function KpiCard({
         {onClick && (
           <p
             className={clsx(
-              "line-clamp-2 max-w-full text-[10px] leading-tight",
+              "line-clamp-2 max-w-full text-xs leading-tight",
               active ? "font-medium text-brand-500" : "text-slate-300"
             )}
           >
