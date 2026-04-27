@@ -438,13 +438,14 @@ export default function BundlePage() {
               />
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="rounded-xl border border-slate-100 overflow-hidden">
               {filtered.length === 0 ? (
                 <p className="text-sm text-slate-400 text-center py-10">No records found</p>
               ) : (
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="text-xs text-slate-400 uppercase tracking-wide border-b border-slate-100">
+                <div className="max-h-[420px] overflow-auto overscroll-contain">
+                  <table className="w-full text-sm min-w-[640px]">
+                    <thead className="sticky top-0 z-10 bg-white border-b border-slate-100 shadow-[0_1px_0_0_rgb(241_245_249)]">
+                    <tr className="text-xs text-slate-400 uppercase tracking-wide">
                       {(
                         [
                           { key: "product_a",     label: "Product A",        align: "text-left" },
@@ -467,8 +468,8 @@ export default function BundlePage() {
                         </th>
                       ))}
                     </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-50">
+                    </thead>
+                    <tbody className="divide-y divide-slate-50">
                     {filtered.map((p, i) => (
                       <tr key={i} className="hover:bg-slate-50 transition-colors">
                         <td className="py-3 pr-4 font-medium text-slate-700 max-w-[180px] truncate">
@@ -490,8 +491,9 @@ export default function BundlePage() {
                         </td>
                       </tr>
                     ))}
-                  </tbody>
-                </table>
+                    </tbody>
+                  </table>
+                </div>
               )}
             </div>
 
