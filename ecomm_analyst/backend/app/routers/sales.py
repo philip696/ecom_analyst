@@ -223,6 +223,33 @@ def bundle_analytics(
         })
     directed_edges.sort(key=lambda x: x["count"], reverse=True)
 
+    # Main-line counts (product_id on bundle rows) for conditional bundle rates
+    main_counts = Counter(r.product_id for r in records)
+
+    lift_rows: list[dict] = []
+    processed_pairs: set[tuple[int, int]] = set()
+    for (src, tgt) in list(directed_data.keys()):
+        a, b = int(src), int(tgt)
+        lo, hi = (a, b) if a < b else (b, a)
+        if (lo, hi) in processed_pairs:
+            continue
+        processed_pairs.add((lo, hi))
+        c_lo_hi = directed_data[(lo, hi)]["count"]
+        c_hi_lo = directed_data[(hi, lo)]["count"]
+        m_lo = main_counts.get(lo, 0)
+        m_hi = main_counts.get(hi, 0)
+        pa = db.get(models.Product, lo)
+        pb = db.get(models.Product, hi)
+        la = pa.name if pa else str(lo)
+        lb = pb.name if pb else str(hi)
+        lift_rows.append({
+            "product_a": la,
+            "product_b": lb,
+            "confidence_ab": round(100 * c_lo_hi / m_lo, 1) if m_lo else 0.0,
+            "confidence_ba": round(100 * c_hi_lo / m_hi, 1) if m_hi else 0.0,
+        })
+    lift_rows.sort(key=lambda r: max(r["confidence_ab"], r["confidence_ba"]), reverse=True)
+
     # Resolve names
     pairs = []
     for (a, b), d in pair_data.items():
@@ -313,6 +340,7 @@ def bundle_analytics(
         ],
         # sales.csv semantics: line item product_id → each bundled product id
         "directed_edges": directed_edges,
+        "lift_rows": lift_rows,
     }
 
 
