@@ -6,7 +6,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, Cell,
 } from "recharts";
-import { Package, DollarSign, Layers, Network, TrendingUp } from "lucide-react";
+import { Package, DollarSign, Layers, Link2, Network, TrendingUp } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import KpiCard from "@/components/KpiCard";
 import { salesApi } from "@/lib/api";
@@ -65,6 +65,8 @@ type Summary = {
   avg_bundle_qty: number;
   most_common_pair: string;
   most_common_count: number;
+  max_association_lift?: number | null;
+  max_association_lift_pair?: string;
 };
 
 type SortKey = "count" | "revenue" | "avg_order_qty" | "product_a" | "product_b";
@@ -382,6 +384,35 @@ export default function BundlePage() {
                   })}
                 </div>
               )}
+            </div>
+          </div>
+
+          {/* Association strength (lift) — above co-purchase network */}
+          <div className="card mb-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex min-w-0 gap-3">
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
+                  <Link2 className="size-5" aria-hidden />
+                </div>
+                <div className="min-w-0">
+                  <h2 className="text-base font-semibold text-slate-700">Association strength (lift)</h2>
+                  <p className="mt-1 max-w-xl text-xs leading-relaxed text-slate-500">
+                    Co-purchase rate on the same line vs. independence. Above 1 means stronger than random; metric
+                    is the highest-lift pair for the current channel filter.
+                  </p>
+                </div>
+              </div>
+              <div className="shrink-0 sm:pl-4 sm:text-right">
+                <p className="text-3xl font-bold tabular-nums text-slate-800">
+                  {summary?.max_association_lift != null ? `${summary.max_association_lift}×` : "—"}
+                </p>
+                <p className="mt-1 text-xs font-medium text-slate-600 sm:max-w-[16rem] sm:ml-auto line-clamp-3">
+                  {summary?.max_association_lift_pair ?? "—"}
+                </p>
+                <p className="mt-1 text-[10px] font-medium uppercase tracking-wide text-slate-400">
+                  Strongest pair by lift
+                </p>
+              </div>
             </div>
           </div>
 

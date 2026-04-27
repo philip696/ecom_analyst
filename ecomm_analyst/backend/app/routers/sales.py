@@ -240,6 +240,46 @@ def bundle_analytics(
 
     pairs.sort(key=lambda x: x["count"], reverse=True)
 
+    # Marginal product presence per bundle line (line product ∪ bundled targets) for lift
+    freq: Counter = Counter()
+    for r in records:
+        items = {r.product_id}
+        for bid in r.bundled_with.split(","):
+            b = bid.strip()
+            if not b:
+                continue
+            try:
+                items.add(int(b))
+            except ValueError:
+                continue
+        for pid in items:
+            freq[pid] += 1
+
+    n_lines = len(records)
+    max_association_lift: float | None = None
+    max_association_lift_pair: str = "—"
+    if n_lines > 0 and pair_data:
+        best_lift: float | None = None
+        best_label = "—"
+        for (a, b), d in pair_data.items():
+            ia, ib = int(a), int(b)
+            fa, fb = freq.get(ia, 0), freq.get(ib, 0)
+            if fa <= 0 or fb <= 0:
+                continue
+            c = d["count"]
+            lift = (c * n_lines) / (fa * fb)
+            pa = db.get(models.Product, ia)
+            pb = db.get(models.Product, ib)
+            la = pa.name if pa else str(ia)
+            lb = pb.name if pb else str(ib)
+            label = f"{la} + {lb}"
+            if best_lift is None or lift > best_lift:
+                best_lift = lift
+                best_label = label
+        if best_lift is not None:
+            max_association_lift = round(best_lift, 2)
+            max_association_lift_pair = best_label
+
     total_bundles = sum(p["count"] for p in pairs)
     total_bundle_revenue = round(sum(p["revenue"] for p in pairs), 2)
     most_common = pairs[0] if pairs else None
@@ -257,6 +297,8 @@ def bundle_analytics(
                 f"{most_common['product_a']} + {most_common['product_b']}" if most_common else "—"
             ),
             "most_common_count": most_common["count"] if most_common else 0,
+            "max_association_lift": max_association_lift,
+            "max_association_lift_pair": max_association_lift_pair,
         },
         "pairs": pairs,
         "chart_data": [
