@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef, useLayoutEffect } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, Cell,
@@ -131,6 +131,36 @@ export default function BundlePage() {
     [sortedChartData.length]
   );
 
+  const topPairsCardRef = useRef<HTMLDivElement>(null);
+  const [commonBundlesHeight, setCommonBundlesHeight] = useState<number | undefined>(undefined);
+
+  useLayoutEffect(() => {
+    if (loading) {
+      setCommonBundlesHeight(undefined);
+      return;
+    }
+    const node = topPairsCardRef.current;
+    if (!node) return;
+
+    const sync = () => {
+      const wide = window.matchMedia("(min-width: 1024px)").matches;
+      if (!wide) {
+        setCommonBundlesHeight(undefined);
+        return;
+      }
+      setCommonBundlesHeight(node.offsetHeight);
+    };
+
+    const ro = new ResizeObserver(() => sync());
+    ro.observe(node);
+    sync();
+    window.addEventListener("resize", sync);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", sync);
+    };
+  }, [loading, bundleBarChartHeight, sortedChartData.length, chartMode, channel]);
+
   useEffect(() => {
     setLoading(true);
     salesApi.bundleAnalytics(mkt)
@@ -233,7 +263,10 @@ export default function BundlePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 lg:items-stretch gap-6 mb-6">
 
             {/* Bar Chart — 2/3 width; self-start so card does not stretch below the chart */}
-            <div className="card lg:col-span-2 flex flex-col lg:self-start w-full shrink-0">
+            <div
+              ref={topPairsCardRef}
+              className="card lg:col-span-2 flex flex-col lg:self-start w-full shrink-0"
+            >
               <div className="flex items-center justify-between mb-1">
                 <h2 className="text-base font-semibold text-slate-700">Top Bundle Pairs</h2>
                 {/* Toggle count / revenue */}
@@ -294,8 +327,15 @@ export default function BundlePage() {
               )}
             </div>
 
-            {/* Top Pairs ranked list — 1/3 width; matches chart card height, scrolls */}
-            <div className="card flex flex-col h-full min-h-0">
+            {/* Top Pairs ranked list — lg: same pixel height as Top Bundle Pairs, list scrolls */}
+            <div
+              className="card flex flex-col min-h-0 max-lg:h-auto"
+              style={
+                commonBundlesHeight != null
+                  ? { minHeight: commonBundlesHeight, height: commonBundlesHeight }
+                  : undefined
+              }
+            >
               <div className="shrink-0">
                 <h2 className="text-base font-semibold text-slate-700 mb-1">Most Common Bundles</h2>
                 <p className="text-xs text-slate-400 mb-3">Ranked by times purchased together</p>
