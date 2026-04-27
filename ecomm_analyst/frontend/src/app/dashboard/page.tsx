@@ -525,17 +525,20 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
   const sampleComments = (data.sample_comments as { text: string; rating: number; product: string }[]) || [];
 
   const byMarketplace = useMemo(() => {
+    let rows: { name: string; value: number }[];
     if (kpi !== "returns") {
-      return byMarketplaceRaw.map((r) => ({ name: r.name, value: r.value ?? 0 }));
+      rows = byMarketplaceRaw.map((r) => ({ name: r.name, value: r.value ?? 0 }));
+    } else {
+      rows = byMarketplaceRaw.map((r) => {
+        const rev = r.revenue ?? 0;
+        const units = r.returned_units ?? 0;
+        if (rev > 0 && units > 0) {
+          return { name: r.name, value: rev / units };
+        }
+        return { name: r.name, value: r.returns ?? r.value ?? 0 };
+      });
     }
-    return byMarketplaceRaw.map((r) => {
-      const rev = r.revenue ?? 0;
-      const units = r.returned_units ?? 0;
-      if (rev > 0 && units > 0) {
-        return { name: r.name, value: rev / units };
-      }
-      return { name: r.name, value: r.returns ?? r.value ?? 0 };
-    });
+    return [...rows].sort((a, b) => b.value - a.value);
   }, [kpi, byMarketplaceRaw]);
 
   const returnsBarShowsRevenuePerItem =
