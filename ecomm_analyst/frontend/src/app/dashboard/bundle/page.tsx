@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, Cell,
@@ -111,6 +111,12 @@ export default function BundlePage() {
   const [networkMetric, setNetworkMetric] = useState<"count" | "revenue">("count");
 
   const mkt = channel === "all" ? undefined : channel;
+
+  const sortedChartData = useMemo(() => {
+    if (chartData.length === 0) return chartData;
+    const key = chartMode;
+    return [...chartData].sort((a, b) => b[key] - a[key]);
+  }, [chartData, chartMode]);
 
   useEffect(() => {
     setLoading(true);
@@ -241,11 +247,11 @@ export default function BundlePage() {
               </div>
               <p className="text-xs text-slate-400 mb-5">Top 10 most frequently bundled product pairs</p>
 
-              {chartData.length === 0 ? (
+              {sortedChartData.length === 0 ? (
                 <div className="flex items-center justify-center h-56 text-slate-300 text-sm">No bundle data</div>
               ) : (
                 <ResponsiveContainer width="100%" height={280}>
-                  <BarChart data={chartData} layout="vertical" margin={{ left: 8, right: 24, top: 0, bottom: 0 }}>
+                  <BarChart data={sortedChartData} layout="vertical" margin={{ left: 8, right: 24, top: 0, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                     <XAxis
                       type="number"
@@ -264,7 +270,7 @@ export default function BundlePage() {
                     />
                     <Tooltip content={<BundleTooltip />} />
                     <Bar dataKey={chartMode} name={chartMode === "count" ? "Times Bundled" : "Revenue"} radius={[0, 4, 4, 0]}>
-                      {chartData.map((_, i) => (
+                      {sortedChartData.map((_, i) => (
                         <Cell key={i} fill={BAR_COLORS[i % BAR_COLORS.length]} />
                       ))}
                     </Bar>
