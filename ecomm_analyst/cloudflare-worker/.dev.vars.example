@@ -1,3 +1,0 @@
-# Copy to .dev.vars (gitignored) for `wrangler dev` / local proxy tests.
-# Use your real FastAPI origin: https only, no trailing slash.
-API_UPSTREAM=https://your-fastapi-host.example.com

@@ -71,9 +71,8 @@ app.include_router(insights.router)
 
 
 # ── Static files (product images) — backend/data200/image/ ─────────────────
-# On Cloudflare, /images/* is served from R2 by cloudflare-worker/src/gateway.js (see cloudflare-worker/).
 _images_dir = os.path.join(os.path.dirname(__file__), "..", "data200", "image")
-if os.environ.get("CF_WORKER") != "1" and os.path.isdir(_images_dir):
+if os.path.isdir(_images_dir):
     app.mount("/images", StaticFiles(directory=_images_dir), name="images")
 
 

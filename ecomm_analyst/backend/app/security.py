@@ -9,7 +9,7 @@ from passlib.context import CryptContext
 
 from app.config import settings
 
-# Cloudflare Python Workers may not ship bcrypt wheels; pbkdf2_sha256 is pure Python.
+# Prefer bcrypt when available; pbkdf2_sha256 is a pure-Python fallback.
 try:
     import bcrypt as _bcrypt  # noqa: F401
 

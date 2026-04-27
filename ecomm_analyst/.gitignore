@@ -39,10 +39,6 @@ env/
 # Node / Frontend
 node_modules/
 frontend/public/_redirects
-
-# Cloudflare Worker — build artifacts (created by sync scripts before deploy)
-cloudflare-worker/src/app/
-cloudflare-worker/src/ecommerce.db
 .next/
 out/
 .next

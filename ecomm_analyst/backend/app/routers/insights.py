@@ -251,7 +251,7 @@ async def ask_insight(
         try:
             from openai import AsyncOpenAI
         except ImportError:
-            # Cloudflare Worker bundle omits openai (size); PyPI-only installs still have it.
+            # openai optional: fall back to mock if not installed
             answer = _mock_response(payload.segments, payload.question, context)
         else:
             client = AsyncOpenAI(api_key=api_key, base_url=settings.LLM_BASE_URL)

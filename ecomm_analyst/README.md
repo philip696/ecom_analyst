@@ -109,14 +109,7 @@ npm run dev
 
 App runs at: http://localhost:3000
 
-### Deploy to Cloudflare Pages (static site)
-
-The frontend is configured for a **static export** (`out/`). Cloudflare **Pages** can host it; the **Worker** lives at **`https://ecom-analyst.philip-dewanto.workers.dev`** and proxies to your API via **`API_UPSTREAM`**. The **Python API** runs wherever you host it (container / Railway / Render / etc.). See **[DEPLOY_CLOUDFLARE.md](DEPLOY_CLOUDFLARE.md)** for build output path, `NEXT_PUBLIC_API_URL`, and a sample `Dockerfile` for the backend.
-
-```bash
-cd frontend
-npm run build     # produces ./out
-```
+A production static build (`npm run build` → `frontend/out/`) is available; point `NEXT_PUBLIC_API_URL` at your API host when you deploy the export elsewhere.
 
 ### 3. Login
 ```

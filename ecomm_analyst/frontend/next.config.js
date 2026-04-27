@@ -2,18 +2,13 @@
 const fs = require("fs");
 const path = require("path");
 
-const { DEPLOY_WORKER_API_ORIGIN } = require("./deploy-urls.js");
-
-// Optional override: NEXT_PUBLIC_API_URL on Pages / .env.local. Otherwise production builds use deploy-urls.js.
+// Optional: NEXT_PUBLIC_API_URL in .env / .env.local. Defaults to local API.
 const fromEnv = String(process.env.NEXT_PUBLIC_API_URL || "")
   .trim()
   .replace(/\/$/, "");
-const useDeployDefault =
-  !fromEnv && (process.env.NODE_ENV === "production" || process.env.CF_PAGES === "1");
-const apiUrlRaw = fromEnv || (useDeployDefault ? DEPLOY_WORKER_API_ORIGIN : "");
-const effectiveApiUrl = apiUrlRaw || "http://localhost:8000";
+const effectiveApiUrl = fromEnv || "http://localhost:8000";
 
-/** Same-origin proxy on Pages: avoid browser CORS to the Worker when API URL is a public https origin. */
+/** Same-origin proxy for static export: if API is a public https origin, _redirects can forward /api and /images. */
 const usePagesApiProxy =
   process.env.NEXT_PUBLIC_API_USE_PROXY !== "0" &&
   /^https:\/\//.test(effectiveApiUrl) &&
@@ -39,7 +34,6 @@ try {
 }
 
 const nextConfig = {
-  // Static export for Cloudflare Pages (or any static host)
   output: "export",
   env: {
     NEXT_PUBLIC_BROWSER_API_BASE: browserApiBase,

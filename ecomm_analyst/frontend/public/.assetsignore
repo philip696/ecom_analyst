@@ -1,3 +1,0 @@
-# Cloudflare Workers static assets: Pages-only routing files are not used at the Worker.
-_redirects
-_headers
