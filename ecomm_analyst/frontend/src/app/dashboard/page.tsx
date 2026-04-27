@@ -524,11 +524,6 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
   const byCategory = (data.by_category as { name: string; value: number }[]) || [];
   const sampleComments = (data.sample_comments as { text: string; rating: number; product: string }[]) || [];
 
-  const totalItemsReturned = useMemo(() => {
-    if (kpi !== "returns") return 0;
-    return byMarketplaceRaw.reduce((sum, r) => sum + (r.returned_units ?? 0), 0);
-  }, [kpi, byMarketplaceRaw]);
-
   const byMarketplace = useMemo(() => {
     if (kpi !== "returns") {
       return byMarketplaceRaw.map((r) => ({ name: r.name, value: r.value ?? 0 }));
@@ -539,20 +534,13 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
       if (rev > 0 && units > 0) {
         return { name: r.name, value: rev / units };
       }
-      if (rev > 0 && totalItemsReturned > 0) {
-        return { name: r.name, value: rev / totalItemsReturned };
-      }
       return { name: r.name, value: r.returns ?? r.value ?? 0 };
     });
-  }, [kpi, byMarketplaceRaw, totalItemsReturned]);
+  }, [kpi, byMarketplaceRaw]);
 
   const returnsBarShowsRevenuePerItem =
     kpi === "returns" &&
-    byMarketplaceRaw.some(
-      (r) =>
-        (r.revenue ?? 0) > 0 &&
-        ((r.returned_units ?? 0) > 0 || totalItemsReturned > 0)
-    );
+    byMarketplaceRaw.some((r) => (r.revenue ?? 0) > 0 && (r.returned_units ?? 0) > 0);
 
   const formatVal = (v: number) => {
     if (kpi === "revenue") return `$${v.toLocaleString()}`;
