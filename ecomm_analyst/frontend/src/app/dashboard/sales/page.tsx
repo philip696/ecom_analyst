@@ -13,20 +13,11 @@ import KpiCard from "@/components/KpiCard";
 import { salesApi } from "@/lib/api";
 import { clsx } from "clsx";
 import { truncateYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
-
-const CHANNELS = [
-  { id: "all",                  label: "All Channels",        color: "bg-slate-100 text-slate-700 border-slate-200",   logo: "🌐" },
-  { id: "Taobao",               label: "淘宝 Taobao",          color: "bg-orange-50 text-orange-600 border-orange-200", logo: "🛍️" },
-  { id: "JD",                   label: "京东 JD",              color: "bg-red-50 text-red-600 border-red-200",          logo: "🏪" },
-  { id: "Shopee",               label: "Shopee",               color: "bg-orange-50 text-orange-500 border-orange-300", logo: "🟠" },
-  { id: "Temu",                 label: "Temu",                 color: "bg-blue-50 text-blue-600 border-blue-200",       logo: "💰" },
-  { id: "Facebook Marketplace", label: "Facebook Marketplace", color: "bg-indigo-50 text-indigo-600 border-indigo-200", logo: "📘" },
-] as const;
-
-type ChannelId = typeof CHANNELS[number]["id"];
+import { SALES_CHANNELS, type SalesChannelId } from "@/lib/channels";
+import MarketplaceLogo from "@/components/MarketplaceLogo";
 
 export default function SalesPage() {
-  const [selectedChannel, setSelectedChannel] = useState<ChannelId>("all");
+  const [selectedChannel, setSelectedChannel] = useState<SalesChannelId>("all");
   const [trends, setTrends] = useState([]);
   const [topProducts, setTopProducts] = useState<{ name: string; total_revenue: number; total_units: number }[]>([]);
   const [returned, setReturned] = useState<{ name: string; return_count: number }[]>([]);
@@ -70,7 +61,7 @@ export default function SalesPage() {
 
       {/* Channel Filter Buttons */}
       <div className="flex flex-wrap gap-3 mb-6">
-        {CHANNELS.map((ch) => (
+        {SALES_CHANNELS.map((ch) => (
           <button
             key={ch.id}
             onClick={() => setSelectedChannel(ch.id)}
@@ -81,7 +72,13 @@ export default function SalesPage() {
                 : "bg-white text-slate-500 border-slate-200 hover:bg-slate-50"
             )}
           >
-            {ch.logo && <span className="text-lg">{ch.logo}</span>}
+            <MarketplaceLogo
+              assetSlug={ch.assetSlug}
+              emoji={ch.emoji}
+              label={ch.label}
+              size={22}
+              className="text-lg leading-none"
+            />
             <span>{ch.label}</span>
           </button>
         ))}

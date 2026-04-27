@@ -15,6 +15,8 @@ import { salesApi } from "@/lib/api";
 import { truncateYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
 import { clsx } from "clsx";
 import type { DirectedBundleEdge } from "@/lib/bundle-analytics-types";
+import { SALES_CHANNELS, type SalesChannelId } from "@/lib/channels";
+import MarketplaceLogo from "@/components/MarketplaceLogo";
 
 const BundleNetworkGraph = dynamic(
   () => import("@/components/BundleNetworkGraph"),
@@ -32,17 +34,6 @@ const BundleNetworkGraph = dynamic(
 );
 
 // ── Types ─────────────────────────────────────────────────────────────────────
-
-type ChannelId = "all" | "Taobao" | "JD" | "Shopee" | "Temu" | "Facebook Marketplace";
-
-const CHANNELS: { id: ChannelId; label: string; color: string; logo: string }[] = [
-  { id: "all",                  label: "All Channels",        color: "bg-slate-100 text-slate-700 border-slate-200",   logo: "🌐" },
-  { id: "Taobao",               label: "淘宝 Taobao",          color: "bg-orange-50 text-orange-600 border-orange-200", logo: "🛍️" },
-  { id: "JD",                   label: "京东 JD",              color: "bg-red-50 text-red-600 border-red-200",          logo: "🏪" },
-  { id: "Shopee",               label: "Shopee",               color: "bg-orange-50 text-orange-500 border-orange-300", logo: "🟠" },
-  { id: "Temu",                 label: "Temu",                 color: "bg-blue-50 text-blue-600 border-blue-200",       logo: "💰" },
-  { id: "Facebook Marketplace", label: "Facebook Marketplace", color: "bg-indigo-50 text-indigo-600 border-indigo-200", logo: "📘" },
-];
 
 type BundlePair = {
   product_a: string;
@@ -101,7 +92,7 @@ function BundleTooltip({ active, payload, label }: {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 export default function BundlePage() {
-  const [channel, setChannel] = useState<ChannelId>("all");
+  const [channel, setChannel] = useState<SalesChannelId>("all");
   const [summary, setSummary] = useState<Summary | null>(null);
   const [pairs, setPairs] = useState<BundlePair[]>([]);
   const [directedEdges, setDirectedEdges] = useState<DirectedBundleEdge[]>([]);
@@ -213,7 +204,7 @@ export default function BundlePage() {
 
       {/* Channel Filter */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {CHANNELS.map((ch) => (
+        {SALES_CHANNELS.map((ch) => (
           <button
             key={ch.id}
             onClick={() => setChannel(ch.id)}
@@ -224,7 +215,13 @@ export default function BundlePage() {
                 : "bg-white text-slate-500 border-slate-200 hover:bg-slate-50"
             )}
           >
-            <span className="text-base">{ch.logo}</span>
+            <MarketplaceLogo
+              assetSlug={ch.assetSlug}
+              emoji={ch.emoji}
+              label={ch.label}
+              size={20}
+              className="text-base leading-none"
+            />
             <span>{ch.label}</span>
           </button>
         ))}

@@ -15,15 +15,19 @@ from app.database import Base, engine
 from app.routers import auth, comments, dashboard, engagement, insights, products, sales
 
 
-# Mounted StaticFiles can omit CORS headers; canvas needs them when img.crossOrigin = "anonymous".
+def _is_static_asset_path(path: str) -> bool:
+    return path.startswith("/images") or path.startswith("/marketplace-assets")
+
+
+# Mounted StaticFiles can omit CORS headers; browser <img> from the Next app needs CORS on some setups.
 class StaticImagesCORSMiddleware(BaseHTTPMiddleware):
-    """Ensure /images/* responses include CORS (origins from FRONTEND_URL / ALLOWED_CORS_ORIGINS)."""
+    """Ensure /images/* and /marketplace-assets/* include CORS (FRONTEND_URL / ALLOWED_CORS_ORIGINS)."""
 
     async def dispatch(self, request: Request, call_next):
         origins = cors_allow_origins()
         allowed = frozenset(origins)
         primary = origins[0] if origins else settings.FRONTEND_URL
-        if request.url.path.startswith("/images") and request.method == "OPTIONS":
+        if _is_static_asset_path(request.url.path) and request.method == "OPTIONS":
             o = request.headers.get("origin", "")
             allow = o if o in allowed else primary
             h = {
@@ -34,7 +38,7 @@ class StaticImagesCORSMiddleware(BaseHTTPMiddleware):
             }
             return Response(status_code=204, headers=h)
         response = await call_next(request)
-        if request.url.path.startswith("/images"):
+        if _is_static_asset_path(request.url.path):
             o = request.headers.get("origin", "")
             allow = o if o in allowed else primary
             response.headers["Access-Control-Allow-Origin"] = allow
@@ -74,6 +78,15 @@ app.include_router(insights.router)
 _images_dir = os.path.join(os.path.dirname(__file__), "..", "data200", "image")
 if os.path.isdir(_images_dir):
     app.mount("/images", StaticFiles(directory=_images_dir), name="images")
+
+# ── Marketplace logos — backend/app/static/marketplaces/{slug}.png|.svg|.webp ─
+_marketplace_assets_dir = os.path.join(os.path.dirname(__file__), "static", "marketplaces")
+if os.path.isdir(_marketplace_assets_dir):
+    app.mount(
+        "/marketplace-assets",
+        StaticFiles(directory=_marketplace_assets_dir),
+        name="marketplace_assets",
+    )
 
 
 @app.get("/", tags=["health"])

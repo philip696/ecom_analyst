@@ -6,15 +6,8 @@
 import { useState } from "react";
 import { Check, Link2, Plug, RefreshCw } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-
-const MARKETPLACES = [
-  { name: "Shopee", logo: "🛍️", status: "connected", color: "text-orange-500 bg-orange-50" },
-  { name: "Taobao", logo: "🏪", status: "connected", color: "text-red-500 bg-red-50" },
-  { name: "Temu", logo: "🎯", status: "demo", color: "text-blue-500 bg-blue-50" },
-  { name: "Facebook Marketplace", logo: "📘", status: "coming_soon", color: "text-indigo-500 bg-indigo-50" },
-  { name: "JD.com", logo: "📦", status: "coming_soon", color: "text-red-600 bg-red-50" },
-  { name: "Lazada", logo: "🏬", status: "coming_soon", color: "text-purple-500 bg-purple-50" },
-];
+import MarketplaceLogo from "@/components/MarketplaceLogo";
+import { INTEGRATION_MARKETPLACES } from "@/lib/channels";
 
 export default function SettingsPage() {
   const [llmApiKey, setLlmApiKey] = useState("");
@@ -40,10 +33,16 @@ export default function SettingsPage() {
           Currently running on mock/demo data. Browser extension integration for live scraping is planned.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {MARKETPLACES.map((mp) => (
+          {INTEGRATION_MARKETPLACES.map((mp) => (
             <div key={mp.name} className="flex items-center justify-between border border-slate-100 rounded-xl px-4 py-3">
               <div className="flex items-center gap-3">
-                <span className="text-2xl">{mp.logo}</span>
+                <MarketplaceLogo
+                  assetSlug={mp.assetSlug}
+                  emoji={mp.emoji}
+                  label={mp.name}
+                  size={28}
+                  className="text-2xl leading-none"
+                />
                 <span className="text-sm font-medium text-slate-700">{mp.name}</span>
               </div>
               <span
