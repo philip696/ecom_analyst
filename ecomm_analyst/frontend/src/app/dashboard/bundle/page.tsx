@@ -216,12 +216,12 @@ export default function BundlePage() {
             />
           </div>
 
-          {/* Chart + Top Pairs — side by side */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          {/* Chart + Top Pairs — side by side (equal height on lg; list scrolls) */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 lg:items-stretch min-h-0">
 
             {/* Bar Chart — 2/3 width */}
-            <div className="card lg:col-span-2">
-              <div className="flex items-center justify-between mb-1">
+            <div className="card lg:col-span-2 flex flex-col min-h-0">
+              <div className="flex items-center justify-between mb-1 shrink-0">
                 <h2 className="text-base font-semibold text-slate-700">Top Bundle Pairs</h2>
                 {/* Toggle count / revenue */}
                 <div className="flex items-center bg-slate-100 rounded-lg p-0.5 text-xs font-medium">
@@ -245,12 +245,15 @@ export default function BundlePage() {
                   </button>
                 </div>
               </div>
-              <p className="text-xs text-slate-400 mb-5">Top 10 most frequently bundled product pairs</p>
+              <p className="text-xs text-slate-400 mb-5 shrink-0">Top 10 most frequently bundled product pairs</p>
 
               {sortedChartData.length === 0 ? (
-                <div className="flex items-center justify-center h-56 text-slate-300 text-sm">No bundle data</div>
+                <div className="flex flex-1 min-h-[280px] items-center justify-center text-slate-300 text-sm">
+                  No bundle data
+                </div>
               ) : (
-                <ResponsiveContainer width="100%" height={280}>
+                <div className="min-h-[280px] w-full shrink-0">
+                  <ResponsiveContainer width="100%" height={280}>
                   <BarChart data={sortedChartData} layout="vertical" margin={{ left: 8, right: 24, top: 0, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                     <XAxis
@@ -275,19 +278,24 @@ export default function BundlePage() {
                       ))}
                     </Bar>
                   </BarChart>
-                </ResponsiveContainer>
+                  </ResponsiveContainer>
+                </div>
               )}
             </div>
 
-            {/* Top Pairs ranked list — 1/3 width */}
-            <div className="card flex flex-col">
-              <h2 className="text-base font-semibold text-slate-700 mb-1">Most Common Bundles</h2>
-              <p className="text-xs text-slate-400 mb-4">Ranked by times purchased together</p>
+            {/* Top Pairs ranked list — 1/3 width; matches chart card height on lg, scroll inside */}
+            <div className="card flex flex-col min-h-0 h-full max-h-[min(28rem,85vh)] lg:max-h-none">
+              <div className="shrink-0">
+                <h2 className="text-base font-semibold text-slate-700 mb-1">Most Common Bundles</h2>
+                <p className="text-xs text-slate-400 mb-4">Ranked by times purchased together</p>
+              </div>
 
               {pairs.length === 0 ? (
-                <div className="flex-1 flex items-center justify-center text-slate-300 text-sm">No data</div>
+                <div className="flex flex-1 min-h-0 items-center justify-center text-slate-300 text-sm">
+                  No data
+                </div>
               ) : (
-                <div className="flex flex-col gap-2.5 overflow-y-auto">
+                <div className="flex flex-1 min-h-0 flex-col gap-2.5 overflow-y-auto overscroll-contain pr-1 -mr-1">
                   {pairs.slice(0, 8).map((p, i) => {
                     const maxCount = pairs[0]?.count || 1;
                     const pct = Math.round((p.count / maxCount) * 100);
