@@ -43,10 +43,11 @@ export default function KpiCard({
         <Icon className="size-[18px] shrink-0 text-white" strokeWidth={2} />
       </div>
 
+      <p className="shrink-0 pr-11 text-center text-[10px] font-medium uppercase leading-tight tracking-wide text-slate-400 line-clamp-2">
+        {title}
+      </p>
+
       <div className="flex min-h-0 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 pb-1 pr-11 text-center">
-        <p className="line-clamp-2 max-w-full text-[10px] font-medium uppercase leading-tight tracking-wide text-slate-400">
-          {title}
-        </p>
         <p
           className="line-clamp-3 max-w-full break-words text-center text-lg font-bold leading-snug tracking-tight text-slate-800 sm:text-xl"
           title={valueStr}
