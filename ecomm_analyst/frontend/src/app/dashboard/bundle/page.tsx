@@ -118,20 +118,6 @@ export default function BundlePage() {
     return [...chartData].sort((a, b) => b[key] - a[key]);
   }, [chartData, chartMode]);
 
-  /** Revenue bar axis: at least $0–$400 in $100 steps; grows if data exceeds $400. */
-  const revenueXAxisMax = useMemo(() => {
-    if (sortedChartData.length === 0) return 400;
-    const maxVal = Math.max(0, ...sortedChartData.map((d) => d.revenue));
-    const stepUp = Math.ceil(maxVal / 100) * 100;
-    return Math.max(400, stepUp);
-  }, [sortedChartData]);
-
-  const revenueXAxisTicks = useMemo(() => {
-    const ticks: number[] = [];
-    for (let v = 0; v <= revenueXAxisMax; v += 100) ticks.push(v);
-    return ticks;
-  }, [revenueXAxisMax]);
-
   useEffect(() => {
     setLoading(true);
     salesApi.bundleAnalytics(mkt)
@@ -230,11 +216,11 @@ export default function BundlePage() {
             />
           </div>
 
-          {/* Chart + Top Pairs — side by side; same row height on lg, list scrolls */}
+          {/* Chart + Top Pairs — side by side; chart card height = content only (ends after bar) */}
           <div className="grid grid-cols-1 lg:grid-cols-3 lg:items-stretch gap-6 mb-6">
 
-            {/* Bar Chart — 2/3 width */}
-            <div className="card lg:col-span-2 flex flex-col min-h-0">
+            {/* Bar Chart — 2/3 width; self-start so card does not stretch below the chart */}
+            <div className="card lg:col-span-2 flex flex-col lg:self-start w-full shrink-0">
               <div className="flex items-center justify-between mb-1">
                 <h2 className="text-base font-semibold text-slate-700">Top Bundle Pairs</h2>
                 {/* Toggle count / revenue */}
@@ -259,13 +245,13 @@ export default function BundlePage() {
                   </button>
                 </div>
               </div>
-              <p className="text-xs text-slate-400 mb-5">Top 10 most frequently bundled product pairs</p>
+              <p className="text-xs text-slate-400 mb-3">Top 10 most frequently bundled product pairs</p>
 
               {sortedChartData.length === 0 ? (
-                <div className="flex items-center justify-center h-56 text-slate-300 text-sm">No bundle data</div>
+                <div className="flex items-center justify-center h-56 text-slate-300 text-sm shrink-0">No bundle data</div>
               ) : (
-                <ResponsiveContainer width="100%" height={320}>
-                  <BarChart data={sortedChartData} layout="vertical" margin={{ left: 8, right: 24, top: 0, bottom: 0 }}>
+                <ResponsiveContainer width="100%" height={280} className="shrink-0">
+                  <BarChart data={sortedChartData} layout="vertical" margin={{ left: 8, right: 24, top: 0, bottom: 4 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                     <XAxis
                       type="number"
@@ -273,9 +259,6 @@ export default function BundlePage() {
                       tickLine={false}
                       axisLine={false}
                       tickFormatter={chartMode === "revenue" ? (v) => `$${v}` : undefined}
-                      {...(chartMode === "revenue"
-                        ? { domain: [0, revenueXAxisMax] as [number, number], ticks: revenueXAxisTicks }
-                        : {})}
                     />
                     <YAxis
                       type="category"
