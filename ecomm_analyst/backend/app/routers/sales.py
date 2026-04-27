@@ -250,6 +250,44 @@ def bundle_analytics(
         })
     lift_rows.sort(key=lambda r: max(r["confidence_ab"], r["confidence_ba"]), reverse=True)
 
+    # DB-driven N×N matrix: top products by bundle line volume, cell = P(col bundled | row line product) %
+    top_product_ids = [pid for pid, _ in main_counts.most_common(8)]
+    if not top_product_ids and directed_data:
+        seen: list[int] = []
+        for (src, _tgt) in directed_data.keys():
+            si = int(src)
+            if si not in seen:
+                seen.append(si)
+            if len(seen) >= 8:
+                break
+        top_product_ids = seen
+
+    def _directed_count(a: int, b: int) -> int:
+        return directed_data[(a, b)]["count"] if (a, b) in directed_data else 0
+
+    percent_matrix: list[list[float | None]] = []
+    matrix_names: list[str] = []
+    for pid in top_product_ids:
+        pr = db.get(models.Product, pid)
+        matrix_names.append(pr.name if pr else str(pid))
+
+    for i, ri in enumerate(top_product_ids):
+        row_vals: list[float | None] = []
+        for j, cj in enumerate(top_product_ids):
+            if i == j:
+                row_vals.append(None)
+            else:
+                c_ij = _directed_count(ri, cj)
+                m_ri = main_counts.get(ri, 0)
+                row_vals.append(round(100 * c_ij / m_ri, 1) if m_ri else 0.0)
+        percent_matrix.append(row_vals)
+
+    lift_matrix = {
+        "product_ids": top_product_ids,
+        "product_names": matrix_names,
+        "percent_matrix": percent_matrix,
+    }
+
     # Resolve names
     pairs = []
     for (a, b), d in pair_data.items():
@@ -341,6 +379,7 @@ def bundle_analytics(
         # sales.csv semantics: line item product_id → each bundled product id
         "directed_edges": directed_edges,
         "lift_rows": lift_rows,
+        "lift_matrix": lift_matrix,
     }
 
 

@@ -10,7 +10,7 @@ import { Package, DollarSign, Layers, Link2, Network, TrendingUp } from "lucide-
 import PageHeader from "@/components/PageHeader";
 import KpiCard from "@/components/KpiCard";
 import LiftMatrix from "@/components/LiftMatrix";
-import type { LiftRow } from "@/components/LiftMatrix";
+import type { LiftMatrixFromDb } from "@/components/LiftMatrix";
 import { salesApi } from "@/lib/api";
 import { truncateYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
 import { clsx } from "clsx";
@@ -106,7 +106,7 @@ export default function BundlePage() {
   const [pairs, setPairs] = useState<BundlePair[]>([]);
   const [directedEdges, setDirectedEdges] = useState<DirectedBundleEdge[]>([]);
   const [chartData, setChartData] = useState<ChartPoint[]>([]);
-  const [liftRows, setLiftRows] = useState<LiftRow[]>([]);
+  const [liftMatrix, setLiftMatrix] = useState<LiftMatrixFromDb | null>(null);
   const [loading, setLoading] = useState(true);
   const [sortKey, setSortKey] = useState<SortKey>("count");
   const [sortAsc, setSortAsc] = useState(false);
@@ -174,7 +174,9 @@ export default function BundlePage() {
           (res.data as { directed_edges?: DirectedBundleEdge[] }).directed_edges ?? []
         );
         setChartData(res.data.chart_data);
-        setLiftRows((res.data as { lift_rows?: LiftRow[] }).lift_rows ?? []);
+        setLiftMatrix(
+          (res.data as { lift_matrix?: LiftMatrixFromDb | null }).lift_matrix ?? null
+        );
       })
       .finally(() => setLoading(false));
   }, [channel]);
@@ -403,7 +405,7 @@ export default function BundlePage() {
                 </p>
               </div>
             </div>
-            <LiftMatrix rows={liftRows} />
+            <LiftMatrix matrix={liftMatrix} />
           </div>
 
           {/* Co-purchase network graph */}
