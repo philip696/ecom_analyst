@@ -2,7 +2,7 @@
 /**
  * Sales Analytics page – trends, top products, returns, bundles, competitor pricing.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import {
   AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
@@ -12,6 +12,7 @@ import PageHeader from "@/components/PageHeader";
 import KpiCard from "@/components/KpiCard";
 import { salesApi } from "@/lib/api";
 import { clsx } from "clsx";
+import { truncateYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
 
 const CHANNELS = [
   { id: "all",                  label: "All Channels",        color: "bg-slate-100 text-slate-700 border-slate-200",   logo: "🌐" },
@@ -50,6 +51,18 @@ export default function SalesPage() {
 
   const totalRevenue = trends.reduce((s: number, d: { revenue: number }) => s + d.revenue, 0);
   const totalOrders = trends.reduce((s: number, d: { orders: number }) => s + d.orders, 0);
+
+  const topProductsBarHeight = useMemo(
+    () =>
+      verticalCategoryBarChartHeight(topProducts.length, {
+        min: 200,
+        max: 440,
+        band: 40,
+        gutter: 56,
+        empty: 220,
+      }),
+    [topProducts.length]
+  );
 
   return (
     <div>
@@ -116,11 +129,18 @@ export default function SalesPage() {
             {/* Top Products */}
             <div className="card">
               <h2 className="text-base font-semibold text-slate-700 mb-4">Top Products by Revenue</h2>
-              <ResponsiveContainer width="100%" height={220}>
-                <BarChart data={topProducts} layout="vertical">
+              <ResponsiveContainer width="100%" height={topProductsBarHeight}>
+                <BarChart data={topProducts} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
                   <XAxis type="number" tick={{ fontSize: 11 }} />
-                  <YAxis dataKey="name" type="category" tick={{ fontSize: 11 }} width={130} />
+                  <YAxis
+                    dataKey="name"
+                    type="category"
+                    tick={{ fontSize: 10, fill: "#64748b" }}
+                    width={160}
+                    interval={0}
+                    tickFormatter={(v) => truncateYAxisLabel(v, 24)}
+                  />
                   <Tooltip formatter={(v: number) => [`$${v}`, "Revenue"]} />
                   <Bar dataKey="total_revenue" name="Revenue" fill="#4f6ef7" radius={[0, 4, 4, 0]} />
                 </BarChart>

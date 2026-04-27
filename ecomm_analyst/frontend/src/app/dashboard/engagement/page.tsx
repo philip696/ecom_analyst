@@ -2,7 +2,7 @@
 /**
  * Customer Engagement analytics page.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import {
   LineChart, Line, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
@@ -12,6 +12,7 @@ import PageHeader from "@/components/PageHeader";
 import KpiCard from "@/components/KpiCard";
 import { engagementApi } from "@/lib/api";
 import { resolveProductImageUrl } from "@/lib/product-image";
+import { truncateYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
 
 export default function EngagementPage() {
   const [trends, setTrends] = useState<{ day: string; visits: number; cart_adds: number; avg_ctr: number }[]>([]);
@@ -33,6 +34,18 @@ export default function EngagementPage() {
   const totalVisits = trends.reduce((s, d) => s + (d.visits || 0), 0);
   const totalCart = trends.reduce((s, d) => s + (d.cart_adds || 0), 0);
   const avgCtr = trends.length ? (trends.reduce((s, d) => s + (d.avg_ctr || 0), 0) / trends.length).toFixed(2) : "0";
+
+  const topViewedBarHeight = useMemo(
+    () =>
+      verticalCategoryBarChartHeight(topViewed.length, {
+        min: 220,
+        max: 480,
+        band: 40,
+        gutter: 56,
+        empty: 260,
+      }),
+    [topViewed.length]
+  );
 
   return (
     <div>
@@ -65,11 +78,18 @@ export default function EngagementPage() {
         {/* Top Viewed Products */}
         <div className="card">
           <h2 className="text-base font-semibold text-slate-700 mb-4">Top Products by Page Visits</h2>
-          <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={topViewed} layout="vertical">
+          <ResponsiveContainer width="100%" height={topViewedBarHeight}>
+            <BarChart data={topViewed} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
               <XAxis type="number" tick={{ fontSize: 11 }} />
-              <YAxis dataKey="name" type="category" tick={{ fontSize: 11 }} width={130} />
+              <YAxis
+                dataKey="name"
+                type="category"
+                tick={{ fontSize: 10, fill: "#64748b" }}
+                width={160}
+                interval={0}
+                tickFormatter={(v) => truncateYAxisLabel(v, 24)}
+              />
               <Tooltip />
               <Bar dataKey="visits" name="Page Visits" fill="#4f6ef7" radius={[0, 4, 4, 0]} />
               <Bar dataKey="cart_adds" name="Cart Adds" fill="#10b981" radius={[0, 4, 4, 0]} />

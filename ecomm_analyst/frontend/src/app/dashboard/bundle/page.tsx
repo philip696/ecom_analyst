@@ -10,6 +10,7 @@ import { Package, DollarSign, Layers, Network, TrendingUp } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import KpiCard from "@/components/KpiCard";
 import { salesApi } from "@/lib/api";
+import { truncateYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
 import { clsx } from "clsx";
 import type { DirectedBundleEdge } from "@/lib/bundle-analytics-types";
 
@@ -117,6 +118,18 @@ export default function BundlePage() {
     const key = chartMode;
     return [...chartData].sort((a, b) => b[key] - a[key]);
   }, [chartData, chartMode]);
+
+  const bundleBarChartHeight = useMemo(
+    () =>
+      verticalCategoryBarChartHeight(sortedChartData.length, {
+        min: 260,
+        max: 560,
+        band: 34,
+        gutter: 56,
+        empty: 280,
+      }),
+    [sortedChartData.length]
+  );
 
   useEffect(() => {
     setLoading(true);
@@ -250,8 +263,8 @@ export default function BundlePage() {
               {sortedChartData.length === 0 ? (
                 <div className="flex items-center justify-center h-56 text-slate-300 text-sm shrink-0">No bundle data</div>
               ) : (
-                <ResponsiveContainer width="100%" height={280} className="shrink-0">
-                  <BarChart data={sortedChartData} layout="vertical" margin={{ left: 8, right: 24, top: 0, bottom: 4 }}>
+                <ResponsiveContainer width="100%" height={bundleBarChartHeight} className="shrink-0">
+                  <BarChart data={sortedChartData} layout="vertical" margin={{ left: 4, right: 20, top: 4, bottom: 8 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                     <XAxis
                       type="number"
@@ -266,7 +279,9 @@ export default function BundlePage() {
                       tick={{ fontSize: 10, fill: "#94a3b8" }}
                       tickLine={false}
                       axisLine={false}
-                      width={160}
+                      width={172}
+                      interval={0}
+                      tickFormatter={(v) => truncateYAxisLabel(v, 30)}
                     />
                     <Tooltip content={<BundleTooltip />} />
                     <Bar dataKey={chartMode} name={chartMode === "count" ? "Times Bundled" : "Revenue"} radius={[0, 4, 4, 0]}>

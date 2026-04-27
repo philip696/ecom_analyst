@@ -15,6 +15,7 @@ import {
 import KpiCard from "@/components/KpiCard";
 import PageHeader from "@/components/PageHeader";
 import { dashboardApi, engagementApi, commentsApi } from "@/lib/api";
+import { truncateYAxisLabel, verticalCategoryBarChartHeight } from "@/lib/chart-axis";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { MapPin } from "lucide-react";
 
@@ -97,6 +98,30 @@ export default function DashboardPage() {
         .finally(() => setDrillLoading(false));
     },
     [activeKpi]
+  );
+
+  const revenueMktBarHeight = useMemo(
+    () =>
+      verticalCategoryBarChartHeight(charts?.revenue_by_marketplace?.length ?? 0, {
+        min: 200,
+        max: 480,
+        band: 38,
+        gutter: 56,
+        empty: 220,
+      }),
+    [charts?.revenue_by_marketplace?.length]
+  );
+
+  const topProductsBarHeight = useMemo(
+    () =>
+      verticalCategoryBarChartHeight(charts?.top_products?.length ?? 0, {
+        min: 200,
+        max: 520,
+        band: 42,
+        gutter: 60,
+        empty: 220,
+      }),
+    [charts?.top_products?.length]
   );
 
   if (loading) {
@@ -348,11 +373,18 @@ export default function DashboardPage() {
                   <Tooltip formatter={(v: number) => [`$${v.toLocaleString()}`, "Revenue"]} />
                 </PieChart>
               </ResponsiveContainer>
-              <ResponsiveContainer width="100%" height={220}>
-                <BarChart data={charts.revenue_by_marketplace} layout="vertical">
+              <ResponsiveContainer width="100%" height={revenueMktBarHeight}>
+                <BarChart data={charts.revenue_by_marketplace} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                   <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
-                  <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
+                  <YAxis
+                    type="category"
+                    dataKey="name"
+                    tick={{ fontSize: 10, fill: "#64748b" }}
+                    width={152}
+                    interval={0}
+                    tickFormatter={(v) => truncateYAxisLabel(v, 28)}
+                  />
                   <Tooltip formatter={(v: number) => [`$${v.toLocaleString()}`, "Revenue"]} />
                   {charts.revenue_by_marketplace.map((_, i) => null)}
                   <Bar dataKey="revenue" name="Revenue" radius={[0, 4, 4, 0]}>
@@ -369,11 +401,18 @@ export default function DashboardPage() {
           <div className="card mt-6 mb-6">
             <h2 className="text-base font-semibold text-slate-700 mb-1">Top Products by Revenue</h2>
             <p className="text-xs text-slate-400 mb-4">Horizontal Bar Chart</p>
-            <ResponsiveContainer width="100%" height={220}>
-              <BarChart data={charts.top_products} layout="vertical">
+            <ResponsiveContainer width="100%" height={topProductsBarHeight}>
+              <BarChart data={charts.top_products} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
-                <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={160} />
+                <YAxis
+                  type="category"
+                  dataKey="name"
+                  tick={{ fontSize: 10, fill: "#64748b" }}
+                  width={168}
+                  interval={0}
+                  tickFormatter={(v) => truncateYAxisLabel(v, 26)}
+                />
                 <Tooltip formatter={(v: number) => [`$${v.toLocaleString()}`, "Revenue"]} />
                 <Bar dataKey="revenue" fill="#4f6ef7" radius={[0, 4, 4, 0]} />
               </BarChart>
@@ -541,6 +580,18 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
     return [...rows].sort((a, b) => b.value - a.value);
   }, [kpi, byMarketplaceRaw]);
 
+  const drillBarChartHeight = useMemo(
+    () =>
+      verticalCategoryBarChartHeight(byMarketplace.length, {
+        min: 180,
+        max: 440,
+        band: 34,
+        gutter: 48,
+        empty: 200,
+      }),
+    [byMarketplace.length]
+  );
+
   const returnsBarShowsRevenuePerItem =
     kpi === "returns" &&
     byMarketplaceRaw.some((r) => (r.revenue ?? 0) > 0 && (r.returned_units ?? 0) > 0);
@@ -559,11 +610,18 @@ function DrillDownContent({ kpi, data, meta }: { kpi: KpiType; data: DrillData; 
       {/* By Marketplace Bar Chart */}
       <div>
         <h3 className="text-sm font-medium text-slate-500 mb-3">By Marketplace</h3>
-        <ResponsiveContainer width="100%" height={200}>
-          <BarChart data={byMarketplace} layout="vertical">
+        <ResponsiveContainer width="100%" height={drillBarChartHeight}>
+          <BarChart data={byMarketplace} layout="vertical" margin={{ left: 4, right: 8, top: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
             <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => formatVal(v)} />
-            <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={120} />
+            <YAxis
+              type="category"
+              dataKey="name"
+              tick={{ fontSize: 10, fill: "#64748b" }}
+              width={148}
+              interval={0}
+              tickFormatter={(v) => truncateYAxisLabel(v, 26)}
+            />
             <Tooltip formatter={(v: number) => [formatVal(v), meta.label]} />
             <Bar dataKey="value" fill={meta.color} radius={[0, 4, 4, 0]} />
           </BarChart>
