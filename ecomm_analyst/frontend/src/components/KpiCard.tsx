@@ -26,7 +26,7 @@ export default function KpiCard({
     <div
       onClick={onClick}
       className={clsx(
-        "card relative flex min-h-[168px] flex-col transition-all duration-200",
+        "card relative flex aspect-square w-full min-h-0 flex-col transition-all duration-200",
         onClick && "cursor-pointer hover:shadow-md hover:-translate-y-0.5",
         active && "ring-2 ring-brand-500 shadow-md -translate-y-0.5"
       )}
@@ -41,7 +41,7 @@ export default function KpiCard({
         <Icon className="size-5 shrink-0 text-white" strokeWidth={2} />
       </div>
 
-      <div className="flex flex-1 flex-col items-center justify-center gap-2 px-3 py-6 pr-14 text-center">
+      <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5 overflow-y-auto px-3 py-4 pr-14 text-center">
         <p className="text-xs font-medium uppercase tracking-wide text-slate-400">{title}</p>
         <p className="max-w-full break-words text-2xl font-bold leading-tight text-slate-800">{value}</p>
         {subtitle && <p className="text-xs text-slate-400">{subtitle}</p>}
