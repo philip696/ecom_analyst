@@ -117,7 +117,7 @@ export default function SalesPage() {
                 <Tooltip formatter={(v: number) => [`$${v}`, "Revenue"]} />
                 <Legend />
                 <Area type="monotone" dataKey="revenue" name="Revenue ($)" stroke="#4f6ef7" fill="url(#revGrad)" strokeWidth={2} />
-                <Area type="monotone" dataKey="orders" name="Orders" stroke="#10b981" fill="none" strokeWidth={2} />
+                <Area type="monotone" dataKey="orders" name="Orders: number" stroke="#10b981" fill="none" strokeWidth={2} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
